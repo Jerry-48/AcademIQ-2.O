@@ -192,11 +192,11 @@ let uploadedNotes = [];
 /* ══════════════════════════════════════════════════════
    AUTH
 ══════════════════════════════════════════════════════ */
-// Google Sheet login logger
-async function saveLoginToGoogleSheet(username) {
-  const scriptURL =
-    'https://script.google.com/macros/s/AKfycbxLgIsc48zPF0maXGaYC2jNxtkfTNCiCh8glK6qxFA4wYZhYzsBn1H61XSDcw9wrZpx/exec';
 
+const GOOGLE_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbxLgIsc48zPF0maXGaYC2jNxtkfTNCiCh8glK6qxFA4wYZhYzsBn1H61XSDcw9wrZpx/exec';
+
+async function saveLoginToGoogleSheet(username) {
   const loginData = {
     name: username,
     email: '',
@@ -206,20 +206,18 @@ async function saveLoginToGoogleSheet(username) {
   };
 
   try {
-    await fetch(scriptURL, {
+    await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8'
-      },
       body: JSON.stringify(loginData)
     });
 
-    console.log('Login record sent to Google Sheet');
+    console.log('Login data sent:', username);
   } catch (error) {
-    console.error('Could not save login record:', error);
+    console.error('Login save failed:', error);
   }
 }
+
 async function handleLogin() {
   const username =
     document.getElementById('loginUsername').value.trim();
@@ -227,7 +225,8 @@ async function handleLogin() {
   const password =
     document.getElementById('loginPassword').value.trim();
 
-  const errorEl = document.getElementById('loginError');
+  const errorEl =
+    document.getElementById('loginError');
 
   if (!username) {
     errorEl.textContent = 'Please enter a username.';
@@ -237,7 +236,7 @@ async function handleLogin() {
 
   if (password !== 'student123') {
     errorEl.textContent =
-      'Incorrect password.... Hint: student123';
+      'Incorrect password. Hint: student123';
     errorEl.classList.remove('hidden');
     return;
   }
@@ -247,7 +246,7 @@ async function handleLogin() {
   currentUser = username;
   localStorage.setItem('iq_user', username);
 
-  // Login સફળ થયા પછી Google Sheetમાં record મોકલશે
+  // Only successful login is saved
   await saveLoginToGoogleSheet(username);
 
   document
@@ -264,6 +263,43 @@ async function handleLogin() {
 
   initApp();
 }
+
+function handleLogout() {
+  localStorage.removeItem('iq_user');
+  currentUser = null;
+
+  document
+    .getElementById('app')
+    .classList.add('hidden');
+
+  document
+    .getElementById('loginOverlay')
+    .classList.remove('hidden');
+
+  document
+    .getElementById('loginUsername')
+    .value = '';
+
+  document
+    .getElementById('loginPassword')
+    .value = '';
+}
+
+document
+  .getElementById('loginPassword')
+  .addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  });
+
+document
+  .getElementById('loginUsername')
+  .addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  });
 
 function handleLogout() {
   localStorage.removeItem('iq_user');
