@@ -194,7 +194,7 @@ let uploadedNotes = [];
 ══════════════════════════════════════════════════════ */
 
 const GOOGLE_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbxLgIsc48zPF0maXGaYC2jNxtkfTNCiCh8glK6qxFA4wYZhYzsBn1H61XSDcw9wrZpx/exec';
+  'https://script.google.com/macros/s/AKfycbw8FpX9TwXmX3CbK2v__UQvc3PusurpsHq0alXCjZbvQMWTpQ0p8pdyi1qpmx7mtzsS/exec';
 
 async function saveLoginToGoogleSheet(username) {
   const loginData = {
