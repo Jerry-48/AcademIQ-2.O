@@ -339,7 +339,7 @@ function initApp() {
   renderQuizSubjects();
   renderLeaderboard('all');
   updateHomeScore();
-  setupDragDrop();
+  //setupDragDrop();
 }
 
 /* ══════════════════════════════════════════════════════
