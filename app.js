@@ -196,7 +196,7 @@ let uploadedNotes = [];
 const GOOGLE_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbw8FpX9TwXmX3CbK2v__UQvc3PusurpsHq0alXCjZbvQMWTpQ0p8pdyi1qpmx7mtzsS/exec';
 
-const SESSION_DURATION = 2 * 60 * 1000; // 20 minutes
+const SESSION_DURATION = 20 * 60 * 1000; // 20 minutes
 
 let sessionTimer = null;
 
