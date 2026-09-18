@@ -244,7 +244,12 @@ async function handleLogin() {
   errorEl.classList.add('hidden');
 
   currentUser = username;
+  const SESSION_DURATION = 20 * 60 * 1000; // 20 minutes
   localStorage.setItem('iq_user', username);
+  localStorage.setItem(
+    'iq_login_time',
+    Date.now().toString()
+  );
 
   // Only successful login is saved
   await saveLoginToGoogleSheet(username);
@@ -260,12 +265,61 @@ async function handleLogin() {
   document
     .getElementById('headerUsername')
     .textContent = '👤 ' + username;
-
+  checkSessionExpiry();
   initApp();
+  function checkSessionExpiry() {
+    const savedUser = localStorage.getItem('iq_user');
+    const loginTime = Number(
+      localStorage.getItem('iq_login_time')
+    );
+
+    if (!savedUser || !loginTime) {
+      return;
+    }
+
+    const elapsedTime = Date.now() - loginTime;
+
+    if (elapsedTime >= SESSION_DURATION) {
+      forceLogout('Your session has expired.');
+      return;
+    }
+
+    const remainingTime =
+      SESSION_DURATION - elapsedTime;
+
+    setTimeout(() => {
+      forceLogout('Your session has expired.');
+    }, remainingTime);
+  }
+
+  function forceLogout(message) {
+    localStorage.removeItem('iq_user');
+    localStorage.removeItem('iq_login_time');
+
+    currentUser = null;
+
+    document
+      .getElementById('app')
+      .classList.add('hidden');
+
+    document
+      .getElementById('loginOverlay')
+      .classList.remove('hidden');
+
+    const errorEl =
+      document.getElementById('loginError');
+
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+    }
+  }
 }
 
 function handleLogout() {
   localStorage.removeItem('iq_user');
+  localStorage.removeItem('iq_login_time');
+
   currentUser = null;
 
   document
@@ -284,22 +338,6 @@ function handleLogout() {
     .getElementById('loginPassword')
     .value = '';
 }
-
-document
-  .getElementById('loginPassword')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      handleLogin();
-    }
-  });
-
-document
-  .getElementById('loginUsername')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      handleLogin();
-    }
-  });
 
 function handleLogout() {
   localStorage.removeItem('iq_user');
