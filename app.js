@@ -196,10 +196,6 @@ let uploadedNotes = [];
 const GOOGLE_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbw8FpX9TwXmX3CbK2v__UQvc3PusurpsHq0alXCjZbvQMWTpQ0p8pdyi1qpmx7mtzsS/exec';
 
-const SESSION_DURATION = 20 * 60 * 1000; // 20 minutes
-
-let sessionTimer = null;
-
 async function saveLoginToGoogleSheet(username) {
   const loginData = {
     name: username,
@@ -222,98 +218,18 @@ async function saveLoginToGoogleSheet(username) {
   }
 }
 
-function forceLogout(message) {
-  localStorage.removeItem('iq_user');
-  localStorage.removeItem('iq_login_time');
-
-  currentUser = null;
-
-  if (sessionTimer) {
-    clearTimeout(sessionTimer);
-    sessionTimer = null;
-  }
-
-  document
-    .getElementById('app')
-    .classList.add('hidden');
-
-  document
-    .getElementById('loginOverlay')
-    .classList.remove('hidden');
-
-  document
-    .getElementById('loginUsername')
-    .value = '';
-
-  document
-    .getElementById('loginPassword')
-    .value = '';
-
-  const errorEl =
-    document.getElementById('loginError');
-
-  if (errorEl && message) {
-    errorEl.textContent = message;
-    errorEl.classList.remove('hidden');
-  }
-}
-
-function checkSessionExpiry() {
-  const savedUser =
-    localStorage.getItem('iq_user');
-
-  const loginTime = Number(
-    localStorage.getItem('iq_login_time')
-  );
-
-  if (!savedUser) {
-    return false;
-  }
-
-  // Old login without a timestamp
-  if (!loginTime) {
-    forceLogout(
-      'Please login again to start a timed session.'
-    );
-    return false;
-  }
-
-  const remainingTime =
-    SESSION_DURATION - (Date.now() - loginTime);
-
-  if (remainingTime <= 0) {
-    forceLogout('Your session has expired.');
-    return false;
-  }
-
-  if (sessionTimer) {
-    clearTimeout(sessionTimer);
-  }
-
-  sessionTimer = setTimeout(() => {
-    forceLogout('Your session has expired.');
-  }, remainingTime);
-
-  return true;
-}
-
 async function handleLogin() {
   const username =
-    document.getElementById('loginUsername')
-      .value
-      .trim();
+    document.getElementById('loginUsername').value.trim();
 
   const password =
-    document.getElementById('loginPassword')
-      .value
-      .trim();
+    document.getElementById('loginPassword').value.trim();
 
   const errorEl =
     document.getElementById('loginError');
 
   if (!username) {
-    errorEl.textContent =
-      'Please enter a username.';
+    errorEl.textContent = 'Please enter a username.';
     errorEl.classList.remove('hidden');
     return;
   }
@@ -328,12 +244,8 @@ async function handleLogin() {
   errorEl.classList.add('hidden');
 
   currentUser = username;
-
-  localStorage.setItem(
-    'iq_user',
-    username
-  );
-
+  const SESSION_DURATION = 20 * 60 * 1000; // 20 minutes
+  localStorage.setItem('iq_user', username);
   localStorage.setItem(
     'iq_login_time',
     Date.now().toString()
@@ -353,31 +265,96 @@ async function handleLogin() {
   document
     .getElementById('headerUsername')
     .textContent = '👤 ' + username;
-
   checkSessionExpiry();
   initApp();
+  function checkSessionExpiry() {
+    const savedUser = localStorage.getItem('iq_user');
+    const loginTime = Number(
+      localStorage.getItem('iq_login_time')
+    );
+
+    if (!savedUser || !loginTime) {
+      return;
+    }
+
+    const elapsedTime = Date.now() - loginTime;
+
+    if (elapsedTime >= SESSION_DURATION) {
+      forceLogout('Your session has expired.');
+      return;
+    }
+
+    const remainingTime =
+      SESSION_DURATION - elapsedTime;
+
+    setTimeout(() => {
+      forceLogout('Your session has expired.');
+    }, remainingTime);
+  }
+
+  function forceLogout(message) {
+    localStorage.removeItem('iq_user');
+    localStorage.removeItem('iq_login_time');
+
+    currentUser = null;
+
+    document
+      .getElementById('app')
+      .classList.add('hidden');
+
+    document
+      .getElementById('loginOverlay')
+      .classList.remove('hidden');
+
+    const errorEl =
+      document.getElementById('loginError');
+
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+    }
+  }
 }
 
 function handleLogout() {
-  forceLogout('');
+  localStorage.removeItem('iq_user');
+  localStorage.removeItem('iq_login_time');
+
+  currentUser = null;
+
+  document
+    .getElementById('app')
+    .classList.add('hidden');
+
+  document
+    .getElementById('loginOverlay')
+    .classList.remove('hidden');
+
+  document
+    .getElementById('loginUsername')
+    .value = '';
+
+  document
+    .getElementById('loginPassword')
+    .value = '';
+}
+
+function handleLogout() {
+  localStorage.removeItem('iq_user');
+  currentUser = null;
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  document.getElementById('loginUsername').value = '';
+  document.getElementById('loginPassword').value = '';
 }
 
 // Enter key on password field
-document
-  .getElementById('loginPassword')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      handleLogin();
-    }
-  });
-
-document
-  .getElementById('loginUsername')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      handleLogin();
-    }
-  });
+document.getElementById('loginPassword').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleLogin();
+});
+document.getElementById('loginUsername').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleLogin();
+});
 
 /* ══════════════════════════════════════════════════════
    INIT
@@ -386,29 +363,14 @@ document
    INIT
 ══════════════════════════════════════════════════════ */
 function initApp() {
-  const sessionIsValid =
-    checkSessionExpiry();
-
-  if (!sessionIsValid) {
-    return;
+  // Check saved session
+  const saved = localStorage.getItem('iq_user');
+  if (saved) {
+    currentUser = saved;
+    document.getElementById('loginOverlay').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    document.getElementById('headerUsername').textContent = '👤 ' + saved;
   }
-
-  const saved =
-    localStorage.getItem('iq_user');
-
-  currentUser = saved;
-
-  document
-    .getElementById('loginOverlay')
-    .classList.add('hidden');
-
-  document
-    .getElementById('app')
-    .classList.remove('hidden');
-
-  document
-    .getElementById('headerUsername')
-    .textContent = '👤 ' + saved;
 
   seedLeaderboard();
   renderNotes('all');
@@ -532,14 +494,41 @@ function viewPDF(file) {
   const body = document.getElementById('modalBody');
   const title = document.getElementById('modalTitle');
 
+  const pdfUrl =
+    new URL('pdfs/' + file, window.location.href).href;
+
+  const viewerUrl =
+    'https://docs.google.com/gview?embedded=1&url=' +
+    encodeURIComponent(pdfUrl);
+
   title.textContent = file;
 
   body.innerHTML = `
-    <iframe src="pdfs/${file}" 
-            width="100%" 
-            height="500px" 
-            style="border:none;">
-    </iframe>
+    <div class="pdf-viewer-wrap">
+      <iframe
+        src="${viewerUrl}"
+        width="100%"
+        height="600"
+        style="border:0;"
+        allow="fullscreen">
+      </iframe>
+
+      <div class="pdf-fallback">
+        <p>PDF viewer load ન થાય તો:</p>
+        <a
+          href="${pdfUrl}"
+          target="_blank"
+          rel="noopener">
+          Open PDF in new tab
+        </a>
+
+        <a
+          href="${pdfUrl}"
+          download>
+          Download PDF
+        </a>
+      </div>
+    </div>
   `;
 
   modal.classList.remove('hidden');
@@ -833,15 +822,15 @@ function renderLeaderboard(filter, btn) {
 /* ══════════════════════════════════════════════════════
    BOOT
 ══════════════════════════════════════════════════════ */
-
 window.addEventListener('DOMContentLoaded', () => {
-  const saved =
-    localStorage.getItem('iq_user');
-
+  const saved = localStorage.getItem('iq_user');
   if (saved) {
     currentUser = saved;
+    document.getElementById('loginOverlay').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    document.getElementById('headerUsername').textContent = '👤 ' + saved;
     initApp();
   } else {
-    seedLeaderboard();
+    seedLeaderboard(); // seed even before login
   }
 });
