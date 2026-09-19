@@ -534,8 +534,12 @@ function viewPDF(file) {
 
   title.textContent = file;
 
+  // Absolute PDF URL banao (PDF.js viewer isko fetch karega)
+  const pdfUrl = window.location.origin + '/AcademIQ-2.O/pdfs/' + encodeURIComponent(file);
+  const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
+
   body.innerHTML = `
-    <iframe src="pdfs/${file}" 
+    <iframe src="${viewerUrl}" 
             width="100%" 
             height="500px" 
             style="border:none;">
@@ -543,13 +547,6 @@ function viewPDF(file) {
   `;
 
   modal.classList.remove('hidden');
-}
-
-function downloadPDF(file) {
-  const a = document.createElement('a');
-  a.href = 'pdfs/' + file;
-  a.download = file;
-  a.click();
 }
 
 function closeNoteModal(e) {
