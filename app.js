@@ -490,48 +490,10 @@ function filterNotes(filter, btn) {
 }
 
 function viewPDF(file) {
-  const modal = document.getElementById('noteModal');
-  const body = document.getElementById('modalBody');
-  const title = document.getElementById('modalTitle');
-
   const pdfUrl =
     new URL('pdfs/' + file, window.location.href).href;
 
-  const viewerUrl =
-    'https://docs.google.com/gview?embedded=1&url=' +
-    encodeURIComponent(pdfUrl);
-
-  title.textContent = file;
-
-  body.innerHTML = `
-    <div class="pdf-viewer-wrap">
-      <iframe
-        src="${viewerUrl}"
-        width="100%"
-        height="600"
-        style="border:0;"
-        allow="fullscreen">
-      </iframe>
-
-      <div class="pdf-fallback">
-        <p>PDF viewer load ન થાય તો:</p>
-        <a
-          href="${pdfUrl}"
-          target="_blank"
-          rel="noopener">
-          Open PDF in new tab
-        </a>
-
-        <a
-          href="${pdfUrl}"
-          download>
-          Download PDF
-        </a>
-      </div>
-    </div>
-  `;
-
-  modal.classList.remove('hidden');
+  window.open(pdfUrl, '_blank');
 }
 
 function downloadPDF(file) {
