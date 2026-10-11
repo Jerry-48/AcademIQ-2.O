@@ -1,0 +1,6 @@
+web app;- https://script.google.com/macros/s/AKfycby7P8wJ45_1m9IpLPIp752e8shSoUcrymWP335_1SQFfD0Rva-p7l12waUHHsqYqPdO/exec
+
+lib..:- https://script.google.com/macros/library/d/1klVg0vOMDdaBTZciYCSRlrm2Rdp0McjqlFrfHBQ7C8zCmf6AWIqVHSRN/5
+
+
+deployment id:-AKfycby7P8wJ45_1m9IpLPIp752e8shSoUcrymWP335_1SQFfD0Rva-p7l12waUHHsqYqPdO

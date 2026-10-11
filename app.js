@@ -5,6 +5,33 @@
 
 'use strict';
 
+/* ── Helpers ─────────────────────────────────────────── */
+const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+let isAdmin = false, adminToken = localStorage.getItem('iq_admin') || '', quizzesFromSheet = false;
+async function api(body) { const r = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(body) }); return r.json(); }
+const pdfUrl = f => 'pdfs/' + encodeURIComponent(f); // relative path: works on any repo/site name
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+function toast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 3500);
+}
+const SUBJECTS = [
+  ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
+  ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i]
+];
+const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
+function typeOf(f) {
+  if (/_tu\./i.test(f)) return 'Tutorial';
+  if (/assign/i.test(f)) return 'Assignment';
+  if (/q.?bank|[-_]qb|question/i.test(f)) return 'Question Bank';
+  if (/book/i.test(f)) return 'Book';
+  if (/[-_][sw]-?\d{2,4}|summer|winter|old gtu|mid/i.test(f)) return 'Paper';
+  return 'Notes';
+}
+
+
 /* ══════════════════════════════════════════════════════
    DATA
 ══════════════════════════════════════════════════════ */
@@ -141,12 +168,12 @@ const QUIZ_DATA = [
       { q: 'List ma new item add karva mate kai method vapray?', opts: ['add()', 'append()', 'insert_last()', 'extend_one()'], ans: 1 },
       { q: 'Dictionary mate kaya bracket vapray chhe?', opts: ['[ ]', '{ }', '( )', '< >'], ans: 1 },
       { q: "len('Jerry') ni value ketli thashe?", opts: ['4', '5', '6', '0'], ans: 1 },
-      { q: 'Python ma comment karva mate kayo symbol vapray?', opts: ['//', '#', '/* */', ''], ans: 1 }
+      { q: 'Python ma comment karva mate kayo symbol vapray?', opts: ['//', '#', '/* */', '<!-- -->'], ans: 1 }
     ]
   },
   {
     id: 'q-env',
-    title: 'પયાવરણ અને ટકાઉપણું',
+    title: 'પર્યાવરણ અને ટકાઉપણું',
     icon: '🌍',
     color: '#10b981',
     desc: 'પરિસ્થિતિકી, પ્રદૂષણ અને પુનઃપ્રાપ્ય ઉર્જા વિશે ૧૦ પ્રશ્નો',
@@ -165,18 +192,6 @@ const QUIZ_DATA = [
   }
 ];
 
-// --- Seed Leaderboard ---
-const SEED_SCORES = [
-  { username: 'Sujal K.', subject: 'Applied Mathematics', score: 10, total: 10 },
-  { username: 'Bhavin J.', subject: 'Python programming', score: 10, total: 10 },
-  { username: 'Priya M.', subject: 'Environment and sustainability', score: 8, total: 10 },
-  { username: 'Daniel O.', subject: 'Applied Mathematics', score: 7, total: 10 },
-  { username: 'Ling C.', subject: 'Environment and sustainability', score: 9, total: 10 },
-  { username: 'Sofia R.', subject: 'Engineering Chemistry', score: 10, total: 10 },
-  { username: 'Ethan B.', subject: 'Applied Mathematics', score: 8, total: 10 },
-  { username: 'Amara N.', subject: 'Environment and sustainability', score: 7, total: 10 },
-  { username: 'Lucas P.', subject: 'Engineering Chemistry', score: 6, total: 10 },
-];
 
 /* ══════════════════════════════════════════════════════
    STATE
@@ -187,7 +202,6 @@ let currentQuiz = null;
 let currentQuestionI = 0;
 let userAnswers = [];
 let answeredCurrent = false;
-let uploadedNotes = [];
 
 /* ══════════════════════════════════════════════════════
    AUTH
@@ -225,6 +239,7 @@ async function saveLoginToGoogleSheet(username) {
 function forceLogout(message) {
   localStorage.removeItem('iq_user');
   localStorage.removeItem('iq_login_time');
+  localStorage.removeItem('iq_admin'); isAdmin = false; adminToken = '';
 
   currentUser = null;
 
@@ -293,6 +308,8 @@ function checkSessionExpiry() {
   sessionTimer = setTimeout(() => {
     forceLogout('Your session has expired.');
   }, remainingTime);
+  clearTimeout(window._warn);
+  if (remainingTime > 60000) window._warn = setTimeout(() => toast('⏳ Session 1 minute me expire hoga'), remainingTime - 60000);
 
   return true;
 }
@@ -318,12 +335,19 @@ async function handleLogin() {
     return;
   }
 
-  if (password !== 'student123') {
-    errorEl.textContent =
-      'Incorrect password. Hint: student123';
-    errorEl.classList.remove('hidden');
-    return;
-  }
+  const wantAdmin = document.getElementById('adminToggle').checked;
+  if (wantAdmin) {
+    let res = null;
+    try { res = await api({ action: 'adminLogin', password }); } catch (e) { }
+    if (!res || !res.ok) {
+      errorEl.textContent = res ? 'Wrong admin password.' : 'Server se connect nahi hua. Dobara try karo.';
+      errorEl.classList.remove('hidden'); return;
+    }
+    localStorage.setItem('iq_admin', res.token);
+  } else if (password !== 'student123') {
+    errorEl.textContent = 'Incorrect password. Hint: student123';
+    errorEl.classList.remove('hidden'); return;
+  } else { localStorage.removeItem('iq_admin'); }
 
   errorEl.classList.add('hidden');
 
@@ -340,7 +364,7 @@ async function handleLogin() {
   );
 
   // Only successful login is saved
-  await saveLoginToGoogleSheet(username);
+  saveLoginToGoogleSheet(username); // fire-and-forget: don't make the student wait
 
   document
     .getElementById('loginOverlay')
@@ -410,12 +434,17 @@ function initApp() {
     .getElementById('headerUsername')
     .textContent = '👤 ' + saved;
 
-  seedLeaderboard();
+  loadScores();
   renderNotes('all');
   renderQuizSubjects();
   renderLeaderboard('all');
   updateHomeScore();
-  //setupDragDrop();
+  renderLbFilters();
+  isAdmin = !!localStorage.getItem('iq_admin'); adminToken = localStorage.getItem('iq_admin') || '';
+  applyAdminUI(); loadNotes(); loadQuizzes();
+  document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
+  const hsh = location.hash.slice(1);
+  if (['notes', 'quiz', 'leaderboard'].includes(hsh)) navTo(hsh);
 }
 
 /* ══════════════════════════════════════════════════════
@@ -438,6 +467,8 @@ function navTo(sectionId) {
     l.classList.toggle('active', l.dataset.section === sectionId);
   });
   currentSection = sectionId;
+  history.replaceState(null, '', '#' + sectionId);
+  if (sectionId === 'admin') renderAdmin();
   // Close mobile menu
   document.getElementById('mobileMenu').classList.add('hidden');
   // Scroll top
@@ -459,114 +490,76 @@ function toggleMobileMenu() {
 /* ══════════════════════════════════════════════════════
    NOTES
 ══════════════════════════════════════════════════════ */
-function renderNotes(filter = 'all') {
-  const grid = document.getElementById('notesGrid');
-  grid.innerHTML = '';
+const driveView = id => `https://drive.google.com/file/d/${id}/preview`;
+const driveDl = id => `https://drive.google.com/uc?export=download&id=${id}`;
+const builtInNotes = () => PDF_FILES.map(f => ({ id: 'b:' + f, title: f.replace(/\.pdf$/i, ''), subject: subjectOf(f), type: typeOf(f), view: pdfUrl(f), dl: pdfUrl(f) }));
+let NOTES = builtInNotes();
+let notesFilter = 'all';
 
-  PDF_FILES.forEach(file => {
-    const name = file.replace('.pdf', '');
-    const lowercaseFile = file.toLowerCase();
+async function loadNotes() {
+  try {
+    const rows = await (await fetch(GOOGLE_SCRIPT_URL + '?action=notes')).json();
+    if (Array.isArray(rows) && rows.length) NOTES = rows.map(r => ({ id: r.id, title: r.title, subject: r.subject, type: r.type, fileId: r.fileId, view: r.fileId ? driveView(r.fileId) : r.url, dl: r.fileId ? driveDl(r.fileId) : r.url }));
+  } catch (e) { /* offline: built-in list stays */ }
+  renderNotes();
+}
+async function loadQuizzes() {
+  try {
+    const rows = await (await fetch(GOOGLE_SCRIPT_URL + '?action=quizzes')).json();
+    if (Array.isArray(rows) && rows.length) { QUIZ_DATA.splice(0, QUIZ_DATA.length, ...rows); quizzesFromSheet = true; }
+  } catch (e) { }
+  document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
+  renderQuizSubjects(); renderLbFilters();
+}
 
-    // Logic: check filtering tags based on keywords
-    let match = false;
-    if (filter === 'all') {
-      match = true;
-    } else if (filter === 'applied-maths' && (lowercaseFile.includes('maths') || lowercaseFile.includes('mathematics'))) {
-      match = true;
-    } else if (filter === 'chemistry' && lowercaseFile.includes('chem')) {
-      match = true;
-    } else if (filter === 'environment' && lowercaseFile.includes('es-')) {
-      match = true;
-    } else if (filter === 'python' && (lowercaseFile.includes('py-') || lowercaseFile.includes('python'))) {
-      match = true;
-    } else if (filter === 'cpd' && lowercaseFile.includes('cpd')) {
-      match = true;
-    } else if (filter === 'JAVA' && lowercaseFile.includes('java')) {
-      match = true;
-    } else if (filter === 'DSA' && lowercaseFile.includes('dsa')) {
-      match = true;
-    } else if (filter === 'DLD' && lowercaseFile.includes('dld')) {
-      match = true;
-    } else if (filter === 'PEC' && lowercaseFile.includes('pec')) {
-      match = true;
-    } else if (filter === 'CN' && lowercaseFile.includes('cn')) {
-      match = true;
-    } else if (filter === 'DSA' && lowercaseFile.includes('dsa')) {
-      match = true;
-    }
-
-    // Jo file filter criteria match na kare to skip karo
-    if (!match) return;
-
-    // Card Generation
-    const card = document.createElement('div');
-    card.className = 'note-card';
-
-    card.innerHTML = `
+function renderNotes(filter = notesFilter) {
+  notesFilter = filter;
+  const q = (document.getElementById('notesSearch')?.value || '').trim().toLowerCase();
+  const list = NOTES.filter(n => (filter === 'all' || n.subject === filter) && n.title.toLowerCase().includes(q));
+  document.getElementById('notesCount').textContent = list.length + ' files';
+  document.getElementById('statNotes').textContent = NOTES.length;
+  document.getElementById('notesGrid').innerHTML = list.length ? list.map(n => `
+    <div class="note-card">
       <div class="note-card-top">
         <div class="note-type-icon pdf">📄</div>
         <div>
-          <div class="note-title">${name}</div>
-          <div class="note-meta">PDF File</div>
+          <div class="note-title">${esc(n.title)}</div>
+          <div class="note-meta"><span class="note-chip">${esc(n.type)}</span>PDF</div>
         </div>
       </div>
-
       <div class="note-actions">
-        <button class="note-btn view" onclick="viewPDF('${file}')">👁 View</button>
-        <button class="note-btn download" onclick="downloadPDF('${file}')">⬇ Download</button>
+        <button class="note-btn view" data-act="view" data-id="${esc(n.id)}">👁 View</button>
+        <a class="note-btn download" href="${esc(n.dl)}" target="_blank" rel="noopener">⬇ Download</a>
       </div>
-    `;
-
-    grid.appendChild(card);
-  });
+    </div>`).join('') : '<p class="empty">Koi file nahi mili 🔍</p>';
 }
+document.getElementById('notesGrid').addEventListener('click', e => {
+  const b = e.target.closest('[data-act="view"]');
+  if (b) viewNote(b.dataset.id);
+});
 
 function filterNotes(filter, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#notes .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderNotes(filter);
 }
 
-function viewPDF(file) {
-  const modal = document.getElementById('noteModal');
-  const body = document.getElementById('modalBody');
-  const title = document.getElementById('modalTitle');
-
-  title.textContent = file;
-
-  // Absolute PDF URL banao (PDF.js viewer isko fetch karega)
-  const pdfUrl = window.location.origin + '/AcademIQ-2.O/pdfs/' + encodeURIComponent(file);
-  const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`;
-
-  body.innerHTML = `
-    <iframe src="${viewerUrl}" 
-            width="100%" 
-            height="500px" 
-            style="border:none;">
-    </iframe>
-  `;
-
-  modal.classList.remove('hidden');
-}
-
-function closeNoteModal(e) {
-  if (e.target === document.getElementById('noteModal')) {
-    document.getElementById('noteModal').classList.add('hidden');
-  }
+function viewNote(id) {
+  const n = NOTES.find(x => String(x.id) === String(id)); if (!n) return;
+  const isDrive = !!n.fileId;
+  if (!isDrive && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) { window.open(n.view, '_blank', 'noopener'); return; }
+  document.getElementById('modalTitle').textContent = n.title;
+  document.getElementById('modalBody').innerHTML =
+    `<iframe class="pdf-frame" src="${esc(n.view)}${isDrive ? '' : '#view=FitH'}" title="${esc(n.title)}" allow="autoplay"></iframe>
+     <p class="pdf-fallback">PDF nahi dikh rahi? <a href="${esc(n.view)}" target="_blank" rel="noopener">New tab me kholo ↗</a></p>`;
+  document.getElementById('noteModal').classList.remove('hidden');
 }
 function closeNoteModalBtn() {
   document.getElementById('noteModal').classList.add('hidden');
+  document.getElementById('modalBody').innerHTML = '';
 }
-
-/* ── File Upload ────────────────────────────────────── */
-
-function showUploadStatus(msg, type) {
-  const el = document.getElementById('uploadStatus');
-  el.textContent = msg;
-  el.className = `upload-status ${type}`;
-  el.classList.remove('hidden');
-  setTimeout(() => el.classList.add('hidden'), 4000);
-}
+function closeNoteModal(e) { if (e.target === document.getElementById('noteModal')) closeNoteModalBtn(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNoteModalBtn(); });
 
 /* ══════════════════════════════════════════════════════
    QUIZ
@@ -589,8 +582,17 @@ function renderQuizSubjects() {
   });
 }
 
+function prepareQuiz(quiz) { // random question + option order, so "always B" doesn't work
+  return { ...quiz, questions: shuffle(quiz.questions).map(q => { const right = q.opts[q.ans]; const opts = shuffle(q.opts); return { q: q.q, opts, ans: opts.indexOf(right) }; }) };
+}
+function renderLbFilters() {
+  const bar = document.getElementById('lbFilters');
+  bar.innerHTML = '<button class="filter-btn active" data-s="all">All Subjects</button>' + QUIZ_DATA.map(q => `<button class="filter-btn" data-s="${esc(q.title)}">${esc(q.title)}</button>`).join('');
+  bar.onclick = e => { const b = e.target.closest('button'); if (b) renderLeaderboard(b.dataset.s, b); };
+}
+
 function startQuiz(quizId) {
-  currentQuiz = QUIZ_DATA.find(q => q.id === quizId);
+  currentQuiz = prepareQuiz(QUIZ_DATA.find(q => q.id === quizId));
   currentQuestionI = 0;
   userAnswers = [];
   answeredCurrent = false;
@@ -610,7 +612,7 @@ function renderQuestion() {
   document.getElementById('questionNum').textContent = `Question ${currentQuestionI + 1} of ${tot}`;
   document.getElementById('questionText').textContent = q.q;
   document.getElementById('quizProgressLabel').textContent = `${currentQuestionI + 1} / ${tot}`;
-  document.getElementById('quizProgressFill').style.width = `${((currentQuestionI) / tot) * 100}%`;
+  document.getElementById('quizProgressFill').style.width = `${((currentQuestionI + 1) / tot) * 100}%`;
 
   const nextBtn = document.getElementById('nextBtn');
   nextBtn.textContent = currentQuestionI === tot - 1 ? 'Finish ✓' : 'Next →';
@@ -720,45 +722,35 @@ function exitQuiz() {
 /* ══════════════════════════════════════════════════════
    LEADERBOARD & SCORES
 ══════════════════════════════════════════════════════ */
-function seedLeaderboard() {
-  const existing = JSON.parse(localStorage.getItem('iq_scores') || '[]');
-  if (existing.length === 0) {
-    localStorage.setItem('iq_scores', JSON.stringify(SEED_SCORES));
-  }
+let scoresCache = [];
+async function loadScores() {
+  try { scoresCache = await (await fetch(GOOGLE_SCRIPT_URL + '?action=scores')).json(); }
+  catch (e) { scoresCache = JSON.parse(localStorage.getItem('iq_scores') || '[]'); }
+  updateHomeScore(); renderLeaderboard(currentLbFilter);
 }
-
 function saveScore(score, total) {
   if (!currentUser) return;
-  const scores = JSON.parse(localStorage.getItem('iq_scores') || '[]');
-  scores.push({
-    username: currentUser,
-    subject: currentQuiz.title,
-    score,
-    total,
-    date: new Date().toLocaleDateString()
-  });
-  localStorage.setItem('iq_scores', JSON.stringify(scores));
+  const row = { username: currentUser, subject: currentQuiz.title, score, total, date: new Date().toLocaleDateString() };
+  const local = JSON.parse(localStorage.getItem('iq_scores') || '[]'); local.push(row);
+  localStorage.setItem('iq_scores', JSON.stringify(local));
+  scoresCache.push(row);
+  api({ action: 'score', ...row }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
 }
-
 function updateHomeScore() {
   if (!currentUser) return;
-  const scores = JSON.parse(localStorage.getItem('iq_scores') || '[]');
-  const mine = scores.filter(s => s.username === currentUser);
-  if (mine.length === 0) {
-    document.getElementById('homeUserScore').textContent = '—';
-    return;
-  }
-  const best = Math.max(...mine.map(s => Math.round((s.score / s.total) * 100)));
-  document.getElementById('homeUserScore').textContent = best + '%';
+  const mine = scoresCache.filter(s => s.username === currentUser);
+  document.getElementById('homeUserScore').textContent = mine.length ? Math.max(...mine.map(s => Math.round((s.score / s.total) * 100))) + '%' : '—';
 }
 
+let currentLbFilter = 'all';
 function renderLeaderboard(filter, btn) {
+  currentLbFilter = filter;
   if (btn) {
-    document.querySelectorAll('.filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#lbFilters .filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
 
-  const scores = JSON.parse(localStorage.getItem('iq_scores') || '[]');
+  const scores = scoresCache;
   // Best score per username+subject
   const bestMap = {};
   scores.forEach(s => {
@@ -782,9 +774,9 @@ function renderLeaderboard(filter, btn) {
     card.className = `podium-card ${classes[i]}`;
     card.innerHTML = `
       <div class="podium-medal">${medals[i]}</div>
-      <div class="podium-name">${e.username}</div>
+      <div class="podium-name">${esc(e.username)}</div>
       <div class="podium-score">${e.score}/${e.total}</div>
-      <div class="podium-subject">${e.subject}</div>
+      <div class="podium-subject">${esc(e.subject)}</div>
     `;
     podiumRow.appendChild(card);
   });
@@ -809,10 +801,10 @@ function renderLeaderboard(filter, btn) {
     row.innerHTML = `
       <td><span class="rank-badge ${rClass}">${rank}</span></td>
       <td>
-        ${e.username}
+        ${esc(e.username)}
         ${currentUser && e.username === currentUser ? '<span style="font-size:.7rem;color:var(--amber);margin-left:.4rem">(you)</span>' : ''}
       </td>
-      <td>${e.subject}</td>
+      <td>${esc(e.subject)}</td>
       <td style="font-family:var(--font-mono)">${e.score} / ${e.total}</td>
       <td>
         <div class="score-bar-wrap">
@@ -839,6 +831,6 @@ window.addEventListener('DOMContentLoaded', () => {
     currentUser = saved;
     initApp();
   } else {
-    seedLeaderboard();
+    loadScores();
   }
 });
