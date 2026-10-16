@@ -115,86 +115,7 @@ const PDF_FILES = [
 ];
 
 
-// --- Quiz Data ---
-// --- Updated Quiz Data (4 Subjects, 10 Questions Each) ---
-const QUIZ_DATA = [
-  {
-    id: 'q-maths',
-    title: 'Applied Mathematics',
-    icon: '📐',
-    color: '#f59e0b',
-    desc: 'Matrices, Derivatives & Integration',
-    questions: [
-      { q: 'એકમ શ્રેણિક (Identity Matrix) I ના વિકર્ણ (Diagonal) ઘટકો કયા હોય છે?', opts: ['0', '1', 'ગમે તે સંખ્યા', '-1'], ans: 1 },
-      { q: 'શ્રેણિક A = [[2, 3], [1, 5]] નો નિશ્ચાયક (Determinant) શોધો.', opts: ['13', '7', '10', '11'], ans: 1 }, // (2*5 - 3*1 = 10-3 = 7)
-      { q: 'Jo y = x^n hoy to dy/dx shu thay?', opts: ['nx^(n-1)', 'x^(n+1)', 'nx^n', '0'], ans: 0 },
-      { q: 'જો A એ 2x3 શ્રેણિક હોય અને B એ 3x2 શ્રેણિક હોય, તો AB શ્રેણિકનો ક્રમ (Order) શું થાય?', opts: ['3x3', '2x2', '3x2', '2x3'], ans: 1 },
-      { q: 'Triangle ma trijo khuno ketlo thashe jo be khuna 60° ane 60° hoy?', opts: ['90°', '60°', '45°', '180°'], ans: 1 },
-      { q: 'sin²θ + cos²θ barabar ketla thay?', opts: ['0', '1', '2', 'tan²θ'], ans: 1 },
-      { q: '2x + 5 = 15 hoy to x ni value shu thashe?', opts: ['10', '5', '20', '2'], ans: 1 },
-      { q: 'Circle no area find karva nu sutra shu chhe?', opts: ['2πr', 'πr²', 'πd', '1/2 bh'], ans: 1 },
-      { q: 'Prime number (Avibhajya sankhya) niche na mathi kai chhe?', opts: ['4', '7', '9', '10'], ans: 1 },
-      { q: 'સિમેટ્રિક શ્રેણિક (Symmetric Matrix) માટે કઈ શરત સાચી છે?', opts: ['A = -A', 'A = Aᵀ', 'A = 0', 'A = I'], ans: 1 }
-    ]
-  },
-  {
-    id: 'q-chem',
-    title: 'Engineering Chemistry',
-    icon: '⚗️',
-    color: '#0ea5e9',
-    desc: 'Corrosion, Fuels, Lubricants & Polymers',
-    questions: [
-      { q: 'Corrosion (Kat) rokva mate kai padhdhati vapray chhe?', opts: ['Galvanizing', 'Oxidation', 'Heating', 'Cooling'], ans: 0 },
-      { q: 'Electrochemical cell ma Oxidation kaya pole par thay?', opts: ['Cathode', 'Anode', 'Electrolyte', 'Salt bridge'], ans: 1 },
-      { q: 'Lignite ane Anthracite niche na mathi kona prakar chhe?', opts: ['Petroleum', 'Coal', 'Natural Gas', 'Biogas'], ans: 1 },
-      { q: 'Niche na mathi kayo Good Conductor chhe?', opts: ['Glass', 'Copper', 'Rubber', 'Wood'], ans: 1 },
-      { q: 'LPG ma mukhya ghatak (main component) kayo hoy chhe?', opts: ['Methane', 'Butane', 'Hydrogen', 'Carbon'], ans: 1 },
-      { q: 'Lubricant no mukhya upyog shu chhe?', opts: ['To increase friction', 'To reduce friction', 'To increase weight', 'To stop machine'], ans: 1 },
-      { q: 'Cement ma Gypsum kem umerava ma ave chhe?', opts: ['Increase strength', 'Retard setting time', 'Give color', 'Reduce cost'], ans: 1 },
-      { q: 'Hard water ne soft banavva mate kai process vapray?', opts: ['Zeolite Process', 'Filtration', 'Chlorination', 'Heating'], ans: 0 },
-      { q: 'Niche na mathi kai Alloy (Mishra-dhatu) chhe?', opts: ['Iron', 'Brass', 'Gold', 'Oxygen'], ans: 1 },
-      { q: 'Polymerisation process mathi shu bane chhe?', opts: ['Glass', 'Plastic', 'Steel', 'Acid'], ans: 1 }
-    ]
-  },
-  {
-    id: 'q-py',
-    title: 'Python Programming',
-    icon: '🐍',
-    color: '#3776ab',
-    desc: 'Basics, Data Types, Loops & Strings',
-    questions: [
-      { q: 'Python ma data print karva mate kayo function vapray?', opts: ['echo()', 'print()', 'output()', 'printf()'], ans: 1 },
-      { q: 'Python ma immutable data type kayo chhe?', opts: ['List', 'Tuple', 'Dictionary', 'Set'], ans: 1 },
-      { q: 'Python files nu extension shu hoy chhe?', opts: ['.py', '.python', '.pt', '.exe'], ans: 0 },
-      { q: 'List mathi last element remove karva kai method vapray?', opts: ['remove()', 'pop()', 'delete()', 'clear()'], ans: 1 },
-      { q: "Output of '10' + '20' in Python?", opts: ['30', '1020', 'Error', 'NaN'], ans: 1 },
-      { q: 'Loop ne stop karva mate kayo keyword vapray?', opts: ['continue', 'break', 'stop', 'return'], ans: 1 },
-      { q: 'List ma new item add karva mate kai method vapray?', opts: ['add()', 'append()', 'insert_last()', 'extend_one()'], ans: 1 },
-      { q: 'Dictionary mate kaya bracket vapray chhe?', opts: ['[ ]', '{ }', '( )', '< >'], ans: 1 },
-      { q: "len('Jerry') ni value ketli thashe?", opts: ['4', '5', '6', '0'], ans: 1 },
-      { q: 'Python ma comment karva mate kayo symbol vapray?', opts: ['//', '#', '/* */', '<!-- -->'], ans: 1 }
-    ]
-  },
-  {
-    id: 'q-env',
-    title: 'પર્યાવરણ અને ટકાઉપણું',
-    icon: '🌍',
-    color: '#10b981',
-    desc: 'પરિસ્થિતિકી, પ્રદૂષણ અને પુનઃપ્રાપ્ય ઉર્જા વિશે ૧૦ પ્રશ્નો',
-    questions: [
-      { q: 'ઇકોલોજી (Ecology) નીચેનામાંથી કોનો અભ્યાસ છે?', opts: ['તારાઓનો', 'સજીવો અને પર્યાવરણ વચ્ચેના સંબંધોનો', 'રસાયણોનો', 'ઇતિહાસનો'], ans: 1 },
-      { q: 'નીચેનામાંથી કયો અજૈવિક (Abiotic) ઘટક છે?', opts: ['વનસ્પતિ', 'પ્રાણીઓ', 'સૂર્યપ્રકાશ', 'બેક્ટેરિયા'], ans: 2 },
-      { q: 'નિવસનતંત્રમાં ઉત્પાદકો (Producers) કોને કહેવાય?', opts: ['લીલી વનસ્પતિ', 'મનુષ્યો', 'સિંહ', 'મશરૂમ'], ans: 0 },
-      { q: 'ઓઝોન સ્તર વાતાવરણના કયા સ્તરમાં હોય છે?', opts: ['ટ્રોપોસ્ફિયર', 'સ્ટ્રેટોસ્ફિયર', 'મેસોસ્ફિયર', 'એક્ઝોસ્ફિયર'], ans: 1 },
-      { q: 'એસિડ વર્ષા માટે કયા વાયુઓ જવાબદાર છે?', opts: ['O2 અને N2', 'SO2 અને NOx', 'CO2 અને મિથેન', 'આર્ગોન અને નિયોન'], ans: 1 },
-      { q: 'નીચેનામાંથી કયો કચરો કુદરતી રીતે સડતો નથી (Non-Biodegradable)?', opts: ['કાગળ', 'ફળોની છાલ', 'પ્લાસ્ટિકની બોટલ', 'લાકડું'], ans: 2 },
-      { q: 'ટકાઉ વિકાસ (Sustainable Development) એટલે શું?', opts: ['માત્ર વર્તમાનનો વિકાસ', 'ભવિષ્યની જરૂરિયાતોને નુકસાન કર્યા વગરનો વિકાસ', 'ઝડપી ઔદ્યોગિક વિકાસ', 'બધી ફેક્ટરીઓ બંધ કરવી'], ans: 1 },
-      { q: 'વિશ્વ પર્યાવરણ દિવસ ક્યારે ઉજવવામાં આવે છે?', opts: ['૨૬ જાન્યુઆરી', '૫ જૂન', '૧૫ ઓગસ્ટ', '૨ ઓક્ટોબર'], ans: 1 },
-      { q: 'જંગલો કાપવા (Deforestation) ની મુખ્ય અસર કઈ છે?', opts: ['જમીનનું ધોવાણ', 'વધારે વરસાદ', 'ઓક્સિજનમાં વધારો', 'ઠંડુ વાતાવરણ'], ans: 0 },
-      { q: 'સૌર ઉર્જા અને પવન ઉર્જા કેવા પ્રકારના સ્ત્રોત છે?', opts: ['પરંપરાગત', 'બિન-નવીનીકરણીય', 'પુનઃપ્રાપ્ય (Renewable)', 'પ્રદૂષણકારી'], ans: 2 }
-    ]
-  }
-];
+let QUIZ_DATA = []; // quizzes/index.json se load hota hai
 
 
 /* ══════════════════════════════════════════════════════
@@ -227,7 +148,7 @@ function setAuthMode(m) {
 }
 
 function forceLogout(message) {
-  ['iq_user', 'iq_enroll', 'iq_token', 'iq_login_time', 'iq_last'].forEach(k => localStorage.removeItem(k));
+  ['iq_user', 'iq_enroll', 'iq_uid', 'iq_token', 'iq_login_time', 'iq_last'].forEach(k => localStorage.removeItem(k));
   currentUser = null;
   document.getElementById('app').classList.add('hidden');
   document.getElementById('loginOverlay').classList.remove('hidden');
@@ -283,7 +204,7 @@ async function handleLogin() {
   let res = null, ex = '';
   try { res = await api({ action: authMode, enrollment: enroll, name, password, browser: navigator.userAgent }); } catch (e) { ex = e.message; console.error(e); }
   btn.disabled = false; btn.textContent = label;
-  if (!res) return err(ex.startsWith('NOT_JSON') ? 'Server ne galat reply diya. config.js ka URL aur Apps Script deployment check karo.' : 'Server se connect nahi hua. Internet ya Apps Script deployment (access: Anyone) check karo.');
+  if (!res) return err(ex.startsWith('NOT_JSON') ? 'Server ne galat reply diya. config.js ka URL aur Apps Script deployment check karo. [Reply: ' + ex.slice(10).replace(/\s+/g, ' ').slice(0, 70) + ']' : 'Server se connect nahi hua. Internet ya Apps Script deployment (access: Anyone) check karo.');
   if (!res.ok) {
     return err({
       exists: '⚠️ Ye enrollment number already registered hai. Sign in karo. Agar tumne register nahi kiya, to admin ko batao.',
@@ -296,6 +217,7 @@ async function handleLogin() {
   }
   localStorage.setItem('iq_user', res.name);
   localStorage.setItem('iq_enroll', res.enrollment);
+  localStorage.setItem('iq_uid', res.uid || '');
   localStorage.setItem('iq_token', res.token);
   localStorage.setItem('iq_login_time', String(Date.now()));
   localStorage.setItem('iq_last', String(Date.now()));
@@ -343,11 +265,11 @@ function initApp() {
   loadScores();
   renderNotes('all');
   renderQuizSubjects();
-  renderLeaderboard('all');
+  renderLeaderboard();
   updateHomeScore();
   renderLbFilters();
   loadNotes(); loadQuizzes();
-  api({ action: 'me', token: localStorage.getItem('iq_token') }).then(r => { if (!r.ok && r.error === 'auth') forceLogout('Session khatam ho gaya. Dobara login karo.'); }).catch(() => { });
+  api({ action: 'me', token: localStorage.getItem('iq_token') }).then(r => { if (!r.ok && r.error === 'auth') forceLogout('Session khatam ho gaya. Dobara login karo.'); else if (r.ok && r.uid) { localStorage.setItem('iq_uid', r.uid); renderLeaderboard(); } }).catch(() => { });
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
   const hsh = location.hash.slice(1);
   if (['notes', 'quiz', 'leaderboard'].includes(hsh)) navTo(hsh);
@@ -409,12 +331,11 @@ async function loadNotes() {
   renderNotes();
 }
 async function loadQuizzes() {
-  try {
-    const rows = await (await fetch(GOOGLE_SCRIPT_URL + '?action=quizzes')).json();
-    if (Array.isArray(rows) && rows.length) { QUIZ_DATA.splice(0, QUIZ_DATA.length, ...rows); quizzesFromSheet = true; }
-  } catch (e) { }
+  try { QUIZ_DATA = await (await fetch('quizzes/index.json', { cache: 'no-cache' })).json(); }
+  catch (e) { QUIZ_DATA = []; toast('Quiz list load nahi hui'); }
+  await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(() => [])));
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
-  renderQuizSubjects(); renderLbFilters();
+  renderQuizSubjects(); renderLbFilters(); renderLeaderboard();
 }
 
 function renderNotes(filter = notesFilter) {
@@ -469,43 +390,63 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNoteMod
 /* ══════════════════════════════════════════════════════
    QUIZ
 ══════════════════════════════════════════════════════ */
+const bankCache = {};
+const validQ = q => q && q.q && Array.isArray(q.opts) && q.opts.length === 4 && Number.isInteger(q.ans) && q.ans >= 0 && q.ans < 4;
+async function loadBank(id) {
+  if (bankCache[id]) return bankCache[id];
+  const meta = QUIZ_DATA.find(q => q.id === id);
+  const arr = await (await fetch('quizzes/' + meta.file, { cache: 'no-cache' })).json();
+  return (bankCache[id] = arr.filter(validQ));
+}
 function renderQuizSubjects() {
   const grid = document.getElementById('quizSubjectGrid');
   grid.innerHTML = '';
   QUIZ_DATA.forEach(quiz => {
+    const n = (bankCache[quiz.id] || []).length;
     const card = document.createElement('div');
     card.className = 'subject-card';
     card.innerHTML = `
-      <div class="subject-card-icon">${quiz.icon}</div>
-      <h3>${quiz.title}</h3>
-      <p>${quiz.desc}</p>
-      <span class="subject-count">${quiz.questions.length} Questions</span>
-    `;
+      <div class="subject-card-icon">${esc(quiz.icon)}</div>
+      <h3>${esc(quiz.title)}</h3>
+      <p>${esc(quiz.desc)}</p>
+      <span class="subject-count">${n ? n + ' Questions' : 'Coming soon'}</span>`;
     card.style.setProperty('--accent', quiz.color);
+    if (!n) card.style.opacity = '.55';
     card.addEventListener('click', () => startQuiz(quiz.id));
     grid.appendChild(card);
   });
 }
 
-function prepareQuiz(quiz) { // random question + option order, so "always B" doesn't work
-  return { ...quiz, questions: shuffle(quiz.questions).map(q => { const right = q.opts[q.ans]; const opts = shuffle(q.opts); return { q: q.q, opts, ans: opts.indexOf(right) }; }) };
-}
-function renderLbFilters() {
-  const bar = document.getElementById('lbFilters');
-  bar.innerHTML = '<button class="filter-btn active" data-s="all">All Subjects</button>' + QUIZ_DATA.map(q => `<button class="filter-btn" data-s="${esc(q.title)}">${esc(q.title)}</button>`).join('');
-  bar.onclick = e => { const b = e.target.closest('button'); if (b) renderLeaderboard(b.dataset.s, b); };
+async function startQuiz(quizId) {
+  const meta = QUIZ_DATA.find(q => q.id === quizId);
+  let bank = [];
+  try { bank = await loadBank(quizId); } catch (e) { }
+  if (!bank.length) { toast('Is quiz me abhi questions nahi hain'); return; }
+  const opts = [];
+  for (let n = 10; n <= Math.min(100, bank.length); n += 10) opts.push(n);
+  if (bank.length < 100 && !opts.includes(bank.length)) opts.push(bank.length);
+  let m = document.getElementById('countModal'); if (m) m.remove();
+  m = document.createElement('div'); m.id = 'countModal'; m.className = 'modal-overlay';
+  m.onclick = e => { if (e.target === m) m.remove(); };
+  m.innerHTML = `<div class="modal-card" style="max-width:460px">
+    <div class="modal-header"><h3>${esc(meta.title)}</h3><button class="modal-close" id="cmClose">✕</button></div>
+    <div class="modal-body"><p style="margin-bottom:1rem">Kitne questions ka quiz dena hai? <span class="adm-msg">(Bank: ${bank.length})</span></p>
+    <div class="count-grid">${opts.map(n => `<button class="filter-btn" data-n="${n}">${n}</button>`).join('')}</div>
+    <p class="count-note">⚠️ Leaderboard me sirf ${MIN_LB}+ questions wale quiz count hote hain. Usse chhota practice hai.</p></div></div>`;
+  document.body.appendChild(m);
+  m.querySelector('#cmClose').onclick = () => m.remove();
+  m.querySelector('.count-grid').onclick = e => { const b = e.target.closest('button'); if (b) { m.remove(); beginQuiz(meta, bank, +b.dataset.n); } };
 }
 
-function startQuiz(quizId) {
-  currentQuiz = prepareQuiz(QUIZ_DATA.find(q => q.id === quizId));
-  currentQuestionI = 0;
-  userAnswers = [];
-  answeredCurrent = false;
-
+function beginQuiz(meta, bank, n) { // random questions + random option order
+  currentQuiz = {
+    id: meta.id, title: meta.title,
+    questions: shuffle(bank).slice(0, n).map(q => { const right = q.opts[q.ans]; const opts = shuffle(q.opts); return { q: q.q, opts, ans: opts.indexOf(right), exp: q.exp }; })
+  };
+  currentQuestionI = 0; userAnswers = []; answeredCurrent = false;
   document.getElementById('quizHome').classList.add('hidden');
   document.getElementById('quizResults').classList.add('hidden');
   document.getElementById('quizPlayer').classList.remove('hidden');
-
   document.getElementById('quizSubjectLabel').textContent = currentQuiz.title;
   renderQuestion();
 }
@@ -597,11 +538,11 @@ function showResults() {
     item.innerHTML = `
       <span class="breakdown-icon">${ok ? '✓' : '✗'}</span>
       <div>
-        <div class="breakdown-q">${q.q}</div>
+        <div class="breakdown-q">${esc(q.q)}</div>
         <div class="breakdown-a">
           ${ok
-        ? `Correct: ${q.opts[a.correct]}`
-        : `Your answer: ${q.opts[a.selected]} · Correct: ${q.opts[a.correct]}`}
+        ? `Correct: ${esc(q.opts[a.correct])}`
+        : `Your answer: ${esc(q.opts[a.selected])} · Correct: ${esc(q.opts[a.correct])}`}
         </div>
       </div>
     `;
@@ -611,7 +552,7 @@ function showResults() {
   // Save score
   saveScore(score, total);
   updateHomeScore();
-  renderLeaderboard('all');
+  renderLeaderboard();
 }
 
 function retryQuiz() {
@@ -631,11 +572,11 @@ let scoresCache = [];
 async function loadScores() {
   try { scoresCache = await (await fetch(GOOGLE_SCRIPT_URL + '?action=scores')).json(); }
   catch (e) { scoresCache = JSON.parse(localStorage.getItem('iq_scores') || '[]'); }
-  updateHomeScore(); renderLeaderboard(currentLbFilter);
+  updateHomeScore(); renderLeaderboard();
 }
 function saveScore(score, total) {
   if (!currentUser) return;
-  const row = { username: currentUser, subject: currentQuiz.title, score, total, date: new Date().toLocaleDateString() };
+  const row = { uid: localStorage.getItem('iq_uid') || '', tag: (localStorage.getItem('iq_enroll') || '').slice(-3), username: currentUser, subject: currentQuiz.title, score, total, date: new Date().toLocaleDateString() };
   const local = JSON.parse(localStorage.getItem('iq_scores') || '[]'); local.push(row);
   localStorage.setItem('iq_scores', JSON.stringify(local));
   scoresCache.push(row);
@@ -643,85 +584,90 @@ function saveScore(score, total) {
 }
 function updateHomeScore() {
   if (!currentUser) return;
-  const mine = scoresCache.filter(s => s.username === currentUser);
+  const mine = scoresCache.filter(s => (myKey() ? meKey(s) === myKey() : s.username === currentUser));
   document.getElementById('homeUserScore').textContent = mine.length ? Math.max(...mine.map(s => Math.round((s.score / s.total) * 100))) + '%' : '—';
 }
 
-let currentLbFilter = 'all';
-function renderLeaderboard(filter, btn) {
-  currentLbFilter = filter;
-  if (btn) {
-    document.querySelectorAll('#lbFilters .filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
+const MIN_LB = 20;
+let lbTab = 'overall', lbSubject = '';
+const meKey = s => s.uid || (s.username + '|' + (s.tag || ''));
+const myKey = () => localStorage.getItem('iq_uid') || '';
+const pctOf = s => s.score / s.total;
+const whoHtml = s => esc(s.username) + (s.tag ? `<span class="lb-tag"> ··${esc(s.tag)}</span>` : '');
 
-  const scores = scoresCache;
-  // Best score per username+subject
-  const bestMap = {};
+// pure function: (tab, subject, scores) -> Top 10 rows
+function lbRows(tab, subject, scores) {
+  const m = {};
   scores.forEach(s => {
-    const key = s.username + '|' + s.subject;
-    if (!bestMap[key] || s.score > bestMap[key].score) bestMap[key] = s;
+    if (!(s.total >= MIN_LB)) return; // 20 se kam = practice
+    const k = meKey(s) + '|' + s.subject, b = m[k];
+    if (!b || pctOf(s) > pctOf(b) || (pctOf(s) === pctOf(b) && s.total > b.total)) m[k] = s;
   });
-  let entries = Object.values(bestMap);
-  if (filter !== 'all') {
-    entries = entries.filter(e => e.subject === filter);
+  const best = Object.values(m);
+  if (tab === 'subject') {
+    return best.filter(s => s.subject === subject).sort((a, b) => pctOf(b) - pctOf(a) || b.total - a.total).slice(0, 10)
+      .map(s => ({ s, cells: [`${s.score} / ${s.total}`], pct: Math.round(pctOf(s) * 100), big: `${s.score}/${s.total}`, sub: s.subject }));
   }
-  // Sort by percentage desc
-  entries.sort((a, b) => (b.score / b.total) - (a.score / a.total));
+  const g = {};
+  best.forEach(s => { const k = meKey(s); (g[k] ||= { s, n: 0, sum: 0 }); g[k].n++; g[k].sum += pctOf(s) * 100; });
+  return Object.values(g).map(x => ({ s: x.s, n: x.n, points: Math.round(x.sum), avg: Math.round(x.sum / x.n) }))
+    .sort((a, b) => b.points - a.points || b.avg - a.avg).slice(0, 10)
+    .map(x => ({ s: x.s, cells: [x.n, x.points], pct: x.avg, big: x.points + ' pts', sub: x.n + ' subject' + (x.n > 1 ? 's' : '') }));
+}
 
-  // Podium (top 3)
-  const podiumRow = document.getElementById('podiumRow');
-  podiumRow.innerHTML = '';
+function renderLbTabs() {
+  const bar = document.getElementById('lbTabs');
+  bar.innerHTML = [['overall', '🌍 Overall Top 10'], ['subject', '📚 Subject Top 10'], ['people', '👥 Participants']]
+    .map(([k, l]) => `<button class="filter-btn ${k === lbTab ? 'active' : ''}" data-t="${k}">${l}</button>`).join('');
+  bar.onclick = e => { const b = e.target.closest('button'); if (b) { lbTab = b.dataset.t; renderLeaderboard(); } };
+}
+function renderLbFilters() {
+  const bar = document.getElementById('lbFilters');
+  if (!QUIZ_DATA.some(q => q.title === lbSubject)) lbSubject = QUIZ_DATA[0]?.title || '';
+  bar.innerHTML = QUIZ_DATA.map(q => `<button class="filter-btn ${q.title === lbSubject ? 'active' : ''}" data-s="${esc(q.title)}">${esc(q.title)}</button>`).join('');
+  bar.onclick = e => { const b = e.target.closest('button'); if (b) { lbSubject = b.dataset.s; renderLbFilters(); renderLeaderboard(); } };
+}
+
+function renderLeaderboard() {
+  renderLbTabs();
+  document.getElementById('lbFilters').classList.toggle('hidden', lbTab !== 'subject');
+  document.getElementById('lbPanelRank').classList.toggle('hidden', lbTab === 'people');
+  document.getElementById('lbPanelPeople').classList.toggle('hidden', lbTab !== 'people');
+  if (lbTab === 'people') return renderPeople();
+
+  const rows = lbRows(lbTab, lbSubject, scoresCache);
+  document.getElementById('lbHead').innerHTML = lbTab === 'subject'
+    ? '<tr><th>Rank</th><th>Student</th><th>Score</th><th>Percentage</th></tr>'
+    : '<tr><th>Rank</th><th>Student</th><th>Subjects</th><th>Points</th><th>Average</th></tr>';
+  const podium = document.getElementById('podiumRow'); podium.innerHTML = '';
   const medals = ['🥇', '🥈', '🥉'];
-  const classes = ['p1', 'p2', 'p3'];
-  entries.slice(0, 3).forEach((e, i) => {
+  rows.slice(0, 3).forEach((r, i) => {
     const card = document.createElement('div');
-    card.className = `podium-card ${classes[i]}`;
-    card.innerHTML = `
-      <div class="podium-medal">${medals[i]}</div>
-      <div class="podium-name">${esc(e.username)}</div>
-      <div class="podium-score">${e.score}/${e.total}</div>
-      <div class="podium-subject">${esc(e.subject)}</div>
-    `;
-    podiumRow.appendChild(card);
+    card.className = `podium-card p${i + 1}`;
+    card.innerHTML = `<div class="podium-medal">${medals[i]}</div><div class="podium-name">${esc(r.s.username)}</div><div class="podium-score">${r.big}</div><div class="podium-subject">${esc(r.sub)}</div>`;
+    podium.appendChild(card);
   });
-
-  // Table
   const tbody = document.getElementById('leaderboardBody');
-  tbody.innerHTML = '';
-  if (entries.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">No scores yet. Take a quiz!</td></tr>`;
-    return;
-  }
+  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">Abhi koi score nahi (${MIN_LB}+ questions ka quiz do) 🎯</td></tr>`; return; }
+  tbody.innerHTML = rows.map((r, i) => {
+    const me = myKey() && meKey(r.s) === myKey();
+    return `<tr ${me ? 'style="background:rgba(245,158,11,0.05)"' : ''}>
+      <td><span class="rank-badge ${i < 3 ? 'r' + (i + 1) : 'rn'}">${i + 1}</span></td>
+      <td>${whoHtml(r.s)}${me ? '<span style="font-size:.7rem;color:var(--amber);margin-left:.4rem">(you)</span>' : ''}</td>
+      ${r.cells.map(c => `<td style="font-family:var(--font-mono)">${c}</td>`).join('')}
+      <td><div class="score-bar-wrap"><div class="score-bar-bg"><div class="score-bar-fill" style="width:${r.pct}%"></div></div><span class="score-pct-text">${r.pct}%</span></div></td></tr>`;
+  }).join('');
+}
 
-  entries.forEach((e, i) => {
-    const pct = Math.round((e.score / e.total) * 100);
-    const rank = i + 1;
-    const rClass = rank <= 3 ? `r${rank}` : 'rn';
-    const row = document.createElement('tr');
-    // Highlight current user
-    if (currentUser && e.username === currentUser) {
-      row.style.background = 'rgba(245,158,11,0.05)';
-    }
-    row.innerHTML = `
-      <td><span class="rank-badge ${rClass}">${rank}</span></td>
-      <td>
-        ${esc(e.username)}
-        ${currentUser && e.username === currentUser ? '<span style="font-size:.7rem;color:var(--amber);margin-left:.4rem">(you)</span>' : ''}
-      </td>
-      <td>${esc(e.subject)}</td>
-      <td style="font-family:var(--font-mono)">${e.score} / ${e.total}</td>
-      <td>
-        <div class="score-bar-wrap">
-          <div class="score-bar-bg">
-            <div class="score-bar-fill" style="width:${pct}%"></div>
-          </div>
-          <span class="score-pct-text">${pct}%</span>
-        </div>
-      </td>
-    `;
-    tbody.appendChild(row);
-  });
+function renderPeople() {
+  const p = {};
+  scoresCache.forEach(s => { const k = meKey(s); (p[k] ||= { s, subs: new Set(), n: 0, best: 0 }); p[k].subs.add(s.subject); p[k].n++; p[k].best = Math.max(p[k].best, pctOf(s)); });
+  const list = Object.values(p).sort((a, b) => b.n - a.n || b.best - a.best);
+  document.getElementById('peopleStats').innerHTML = `<span>👥 <b>${list.length}</b> students ne quiz diya</span><span>📝 <b>${scoresCache.length}</b> total attempts</span><span>📚 <b>${QUIZ_DATA.length}</b> quizzes</span>`;
+  document.getElementById('peopleBody').innerHTML = list.length ? list.map((x, i) => `<tr>
+    <td>${i + 1}</td><td>${whoHtml(x.s)}${myKey() && meKey(x.s) === myKey() ? ' <span style="font-size:.7rem;color:var(--amber)">(you)</span>' : ''}</td>
+    <td>${[...x.subs].map(t => `<span class="subj-chip">${esc(t)}</span>`).join('')}</td><td>${x.n}</td><td>${Math.round(x.best * 100)}%</td></tr>`).join('')
+    : '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">Abhi kisi ne quiz nahi diya.</td></tr>';
 }
 
 /* ══════════════════════════════════════════════════════

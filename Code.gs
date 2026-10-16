@@ -1,6 +1,6 @@
 /* AcademIQ v3 backend — PHASE 1: enrollment register/login, sessions, scores
    Naye Google Sheet ka ID neeche daalo. Purana Sheet/Script untouched rahega. */
-const SHEET_ID = 'PASTE_NEW_SHEET_ID_HERE';
+const SHEET_ID = ''; // Script Sheet ke andar (Extensions → Apps Script) se khola hai to KHALI chhodo. Alag script ho to Sheet ki ID quotes ke andar daalo.
 const SESSION_SECS = 21600; // 6 ghante (CacheService ki max limit)
 const HEADERS = {
   Users: ['enrollment', 'name', 'salt', 'hash', 'created', 'lastLogin'],
@@ -13,7 +13,8 @@ const json_ = o => ContentService.createTextOutput(JSON.stringify(o)).setMimeTyp
 const cache_ = () => CacheService.getScriptCache();
 
 function tab_(n) {
-  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const ss = SHEET_ID ? SpreadsheetApp.openById(SHEET_ID) : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) throw new Error('Sheet nahi mili. SHEET_ID daalo.');
   let s = ss.getSheetByName(n);
   if (!s) { s = ss.insertSheet(n); s.getRange(TEXTCOL[n]).setNumberFormat('@'); s.appendRow(HEADERS[n]); }
   return s;
@@ -30,15 +31,16 @@ function userRow_(s, enr) {
 function session_(enr, name) {
   const token = (Utilities.getUuid() + Utilities.getUuid()).replace(/-/g, '');
   cache_().put('s_' + token, JSON.stringify({ e: enr, n: name }), SESSION_SECS);
-  return { ok: true, token, name, enrollment: enr };
+  return { ok: true, token, name, enrollment: enr, uid: uid_(enr) };
 }
+function uid_(enr) { return Utilities.base64EncodeWebSafe(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, 'aq|' + enr)).slice(0, 10); } // public id (enrollment chhupa rehta hai)
 function sess_(token) { const v = token && cache_().get('s_' + token); return v ? JSON.parse(v) : null; }
 
 function doGet(e) {
   const a = (e && e.parameter && e.parameter.action) || '';
   if (a === 'scores') {
     const v = tab_('Scores').getDataRange().getValues(); v.shift();
-    return json_(v.map(r => ({ username: r[1], tag: String(r[0]).slice(-3), subject: r[2], score: r[3], total: r[4], date: r[5] })));
+    return json_(v.map(r => ({ uid: uid_(String(r[0])), username: r[1], tag: String(r[0]).slice(-3), subject: r[2], score: r[3], total: r[4], date: r[5] })));
   }
   return ContentService.createTextOutput('AcademIQ v3 backend is working');
 }
@@ -76,7 +78,7 @@ function doPost(e) {
     }
     const ss = sess_(d.token);
     if (!ss) return json_({ ok: false, error: 'auth' });
-    if (a === 'me') return json_({ ok: true, name: ss.n, enrollment: ss.e });
+    if (a === 'me') return json_({ ok: true, name: ss.n, enrollment: ss.e, uid: uid_(ss.e) });
     if (a === 'score') {
       const sc = Number(d.score), tot = Number(d.total), sub = String(d.subject || '').slice(0, 100);
       if (!(tot > 0 && tot <= 100 && sc >= 0 && sc <= tot) || !sub) return json_({ ok: false, error: 'bad score' });
