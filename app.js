@@ -7,8 +7,12 @@
 
 /* ── Helpers ─────────────────────────────────────────── */
 const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-let isAdmin = false, adminToken = localStorage.getItem('iq_admin') || '', quizzesFromSheet = false;
-async function api(body) { const r = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(body) }); return r.json(); }
+let quizzesFromSheet = false;
+async function api(body) {
+  const r = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(body) });
+  const t = await r.text();
+  try { return JSON.parse(t); } catch (e) { throw new Error('NOT_JSON: ' + t.slice(0, 80)); }
+}
 const pdfUrl = f => 'pdfs/' + encodeURIComponent(f); // relative path: works on any repo/site name
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 function toast(msg) {
@@ -207,201 +211,103 @@ let answeredCurrent = false;
    AUTH
 ══════════════════════════════════════════════════════ */
 
-const GOOGLE_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbw8FpX9TwXmX3CbK2v__UQvc3PusurpsHq0alXCjZbvQMWTpQ0p8pdyi1qpmx7mtzsS/exec';
+const IDLE_LIMIT = 30 * 60 * 1000;      // 30 min idle (activity pe reset)
+const MAX_SESSION = 6 * 60 * 60 * 1000;  // 6 ghante (server token limit)
+let authMode = 'login', lastActive = Date.now();
 
-const SESSION_DURATION = 20 * 60 * 1000; // 20 minutes
-
-let sessionTimer = null;
-
-async function saveLoginToGoogleSheet(username) {
-  const loginData = {
-    name: username,
-    email: '',
-    uid: username,
-    action: 'login',
-    browser: navigator.userAgent
-  };
-
-  try {
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: JSON.stringify(loginData)
-    });
-
-    console.log('Login data sent:', username);
-  } catch (error) {
-    console.error('Login save failed:', error);
-  }
+function setAuthMode(m) {
+  authMode = m;
+  ['regOnly', 'regOnly2'].forEach(id => document.getElementById(id).classList.toggle('hidden', m !== 'register'));
+  document.getElementById('authTitle').textContent = m === 'login' ? 'Welcome Back' : 'Create Account';
+  document.getElementById('authBtn').textContent = m === 'login' ? 'Sign In →' : 'Register →';
+  document.getElementById('authSwitch').innerHTML = m === 'login'
+    ? 'Pehli baar? <a href="#" onclick="setAuthMode(\'register\');return false">Register karo</a>'
+    : 'Already registered? <a href="#" onclick="setAuthMode(\'login\');return false">Sign in</a>';
+  document.getElementById('loginError').classList.add('hidden');
 }
 
 function forceLogout(message) {
-  localStorage.removeItem('iq_user');
-  localStorage.removeItem('iq_login_time');
-  localStorage.removeItem('iq_admin'); isAdmin = false; adminToken = '';
-
+  ['iq_user', 'iq_enroll', 'iq_token', 'iq_login_time', 'iq_last'].forEach(k => localStorage.removeItem(k));
   currentUser = null;
-
-  if (sessionTimer) {
-    clearTimeout(sessionTimer);
-    sessionTimer = null;
-  }
-
-  document
-    .getElementById('app')
-    .classList.add('hidden');
-
-  document
-    .getElementById('loginOverlay')
-    .classList.remove('hidden');
-
-  document
-    .getElementById('loginUsername')
-    .value = '';
-
-  document
-    .getElementById('loginPassword')
-    .value = '';
-
-  const errorEl =
-    document.getElementById('loginError');
-
-  if (errorEl && message) {
-    errorEl.textContent = message;
-    errorEl.classList.remove('hidden');
-  }
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('loginOverlay').classList.remove('hidden');
+  ['loginPassword', 'loginPassword2'].forEach(id => document.getElementById(id).value = '');
+  const errorEl = document.getElementById('loginError');
+  if (errorEl && message) { errorEl.textContent = message; errorEl.classList.remove('hidden'); }
 }
 
+const quizInProgress = () => !document.getElementById('quizPlayer').classList.contains('hidden');
+function sessionState() {
+  const token = localStorage.getItem('iq_token'), start = Number(localStorage.getItem('iq_login_time'));
+  const last = Number(localStorage.getItem('iq_last')) || start;
+  if (!token || !start) return 'none';
+  if (Date.now() - start > MAX_SESSION) return 'max';
+  if (Date.now() - last > IDLE_LIMIT && !quizInProgress()) return 'idle';
+  return 'ok';
+}
 function checkSessionExpiry() {
-  const savedUser =
-    localStorage.getItem('iq_user');
-
-  const loginTime = Number(
-    localStorage.getItem('iq_login_time')
-  );
-
-  if (!savedUser) {
-    return false;
-  }
-
-  // Old login without a timestamp
-  if (!loginTime) {
-    forceLogout(
-      'Please login again to start a timed session.'
-    );
-    return false;
-  }
-
-  const remainingTime =
-    SESSION_DURATION - (Date.now() - loginTime);
-
-  if (remainingTime <= 0) {
-    forceLogout('Your session has expired.');
-    return false;
-  }
-
-  if (sessionTimer) {
-    clearTimeout(sessionTimer);
-  }
-
-  sessionTimer = setTimeout(() => {
-    forceLogout('Your session has expired.');
-  }, remainingTime);
-  clearTimeout(window._warn);
-  if (remainingTime > 60000) window._warn = setTimeout(() => toast('⏳ Session 1 minute me expire hoga'), remainingTime - 60000);
-
-  return true;
+  const st = sessionState();
+  if (st === 'ok') return true;
+  if (st === 'max') forceLogout('Session 6 ghante ka tha. Dobara login karo.');
+  else if (st === 'idle') forceLogout('30 minute idle rehne se logout ho gaya. Dobara login karo.');
+  else forceLogout(localStorage.getItem('iq_user') ? 'Please login again (new enrollment login).' : '');
+  return false;
 }
+['click', 'keydown', 'touchstart', 'scroll'].forEach(ev => window.addEventListener(ev, () => {
+  const n = Date.now();
+  if (n - lastActive > 15000) { lastActive = n; if (localStorage.getItem('iq_token')) localStorage.setItem('iq_last', String(n)); }
+}, { passive: true }));
+setInterval(() => {
+  if (!localStorage.getItem('iq_token')) return;
+  const st = sessionState();
+  if (st === 'max' || st === 'idle') { checkSessionExpiry(); return; }
+  const idle = Date.now() - (Number(localStorage.getItem('iq_last')) || 0);
+  if (idle > IDLE_LIMIT - 3 * 60000 && !quizInProgress() && !window._warned) { window._warned = true; toast('⏳ 3 minute me idle logout ho jayega'); }
+  if (idle < 60000) window._warned = false;
+}, 30000);
 
 async function handleLogin() {
-  const username =
-    document.getElementById('loginUsername')
-      .value
-      .trim();
-
-  const password =
-    document.getElementById('loginPassword')
-      .value
-      .trim();
-
-  const errorEl =
-    document.getElementById('loginError');
-
-  if (!username) {
-    errorEl.textContent =
-      'Please enter a username.';
-    errorEl.classList.remove('hidden');
-    return;
+  const enroll = document.getElementById('loginEnroll').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  const err = m => { const e = document.getElementById('loginError'); e.textContent = m; e.classList.remove('hidden'); };
+  if (!/^\d{12}$/.test(enroll)) return err('Enrollment number 12 digit ka hona chahiye.');
+  if (password.length < 6) return err('Password kam se kam 6 characters ka hona chahiye.');
+  let name = '';
+  if (authMode === 'register') {
+    name = document.getElementById('loginName').value.trim();
+    if (name.length < 2) return err('Apna naam likho.');
+    if (password !== document.getElementById('loginPassword2').value) return err('Dono password match nahi hue.');
   }
-
-  const wantAdmin = document.getElementById('adminToggle').checked;
-  if (wantAdmin) {
-    let res = null;
-    try { res = await api({ action: 'adminLogin', password }); } catch (e) { }
-    if (!res || !res.ok) {
-      errorEl.textContent = res ? 'Wrong admin password.' : 'Server se connect nahi hua. Dobara try karo.';
-      errorEl.classList.remove('hidden'); return;
-    }
-    localStorage.setItem('iq_admin', res.token);
-  } else if (password !== 'student123') {
-    errorEl.textContent = 'Incorrect password. Hint: student123';
-    errorEl.classList.remove('hidden'); return;
-  } else { localStorage.removeItem('iq_admin'); }
-
-  errorEl.classList.add('hidden');
-
-  currentUser = username;
-
-  localStorage.setItem(
-    'iq_user',
-    username
-  );
-
-  localStorage.setItem(
-    'iq_login_time',
-    Date.now().toString()
-  );
-
-  // Only successful login is saved
-  saveLoginToGoogleSheet(username); // fire-and-forget: don't make the student wait
-
-  document
-    .getElementById('loginOverlay')
-    .classList.add('hidden');
-
-  document
-    .getElementById('app')
-    .classList.remove('hidden');
-
-  document
-    .getElementById('headerUsername')
-    .textContent = '👤 ' + username;
-
-  checkSessionExpiry();
+  const btn = document.getElementById('authBtn'), label = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Please wait…';
+  let res = null, ex = '';
+  try { res = await api({ action: authMode, enrollment: enroll, name, password, browser: navigator.userAgent }); } catch (e) { ex = e.message; console.error(e); }
+  btn.disabled = false; btn.textContent = label;
+  if (!res) return err(ex.startsWith('NOT_JSON') ? 'Server ne galat reply diya. config.js ka URL aur Apps Script deployment check karo.' : 'Server se connect nahi hua. Internet ya Apps Script deployment (access: Anyone) check karo.');
+  if (!res.ok) {
+    return err({
+      exists: '⚠️ Ye enrollment number already registered hai. Sign in karo. Agar tumne register nahi kiya, to admin ko batao.',
+      notfound: 'Ye enrollment registered nahi hai. Pehle Register karo.',
+      bad: 'Password galat hai.',
+      locked: 'Bahut zyada galat try. 10 minute baad dobara try karo.',
+      format: 'Enrollment number 12 digit ka hona chahiye.',
+      invalid: 'Naam (min 2) aur password (min 6) check karo.'
+    }[res.error] || 'Error: ' + res.error);
+  }
+  localStorage.setItem('iq_user', res.name);
+  localStorage.setItem('iq_enroll', res.enrollment);
+  localStorage.setItem('iq_token', res.token);
+  localStorage.setItem('iq_login_time', String(Date.now()));
+  localStorage.setItem('iq_last', String(Date.now()));
+  document.getElementById('loginError').classList.add('hidden');
   initApp();
 }
 
-function handleLogout() {
-  forceLogout('');
-}
+function handleLogout() { forceLogout(''); }
 
-// Enter key on password field
-document
-  .getElementById('loginPassword')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      handleLogin();
-    }
-  });
-
-document
-  .getElementById('loginUsername')
-  .addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-      handleLogin();
-    }
-  });
+document.getElementById('loginEnroll').addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 12); });
+['loginEnroll', 'loginPassword', 'loginPassword2', 'loginName'].forEach(id =>
+  document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); }));
 
 /* ══════════════════════════════════════════════════════
    INIT
@@ -440,8 +346,8 @@ function initApp() {
   renderLeaderboard('all');
   updateHomeScore();
   renderLbFilters();
-  isAdmin = !!localStorage.getItem('iq_admin'); adminToken = localStorage.getItem('iq_admin') || '';
-  applyAdminUI(); loadNotes(); loadQuizzes();
+  loadNotes(); loadQuizzes();
+  api({ action: 'me', token: localStorage.getItem('iq_token') }).then(r => { if (!r.ok && r.error === 'auth') forceLogout('Session khatam ho gaya. Dobara login karo.'); }).catch(() => { });
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
   const hsh = location.hash.slice(1);
   if (['notes', 'quiz', 'leaderboard'].includes(hsh)) navTo(hsh);
@@ -468,7 +374,6 @@ function navTo(sectionId) {
   });
   currentSection = sectionId;
   history.replaceState(null, '', '#' + sectionId);
-  if (sectionId === 'admin') renderAdmin();
   // Close mobile menu
   document.getElementById('mobileMenu').classList.add('hidden');
   // Scroll top
@@ -734,7 +639,7 @@ function saveScore(score, total) {
   const local = JSON.parse(localStorage.getItem('iq_scores') || '[]'); local.push(row);
   localStorage.setItem('iq_scores', JSON.stringify(local));
   scoresCache.push(row);
-  api({ action: 'score', ...row }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
+  api({ action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
 }
 function updateHomeScore() {
   if (!currentUser) return;

@@ -1,113 +1,88 @@
-/* AcademIQ backend — Google Apps Script. Old login logger still works. */
-const SHEET_ID = '1B-dXjgAWb77Xg4FVGBA-Eeu-VCbgaiBQ0WFeh8xzgRU';
-const ADMIN_PASSWORD = 'CHANGE_ME_123';      // <-- badal do! Ye sirf script me rehta hai, site me nahi.
-const FOLDER_NAME = 'AcademIQ PDFs';
+/* AcademIQ v3 backend — PHASE 1: enrollment register/login, sessions, scores
+   Naye Google Sheet ka ID neeche daalo. Purana Sheet/Script untouched rahega. */
+const SHEET_ID = 'PASTE_NEW_SHEET_ID_HERE';
+const SESSION_SECS = 21600; // 6 ghante (CacheService ki max limit)
 const HEADERS = {
-  Notes: ['id', 'title', 'subject', 'type', 'url', 'fileId', 'added', 'addedBy'],
-  Scores: ['username', 'subject', 'score', 'total', 'date'],
-  Quizzes: ['id', 'title', 'icon', 'color', 'desc', 'questions']
+  Users: ['enrollment', 'name', 'salt', 'hash', 'created', 'lastLogin'],
+  Logins: ['time', 'enrollment', 'name', 'action', 'browser'],
+  Scores: ['enrollment', 'name', 'subject', 'score', 'total', 'date']
 };
+const TEXTCOL = { Users: 'A:A', Logins: 'B:B', Scores: 'A:A' }; // enrollment ko text rakhne ke liye
+
 const json_ = o => ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);
+const cache_ = () => CacheService.getScriptCache();
+
 function tab_(n) {
   const ss = SpreadsheetApp.openById(SHEET_ID);
   let s = ss.getSheetByName(n);
-  if (!s) { s = ss.insertSheet(n); if (HEADERS[n]) s.appendRow(HEADERS[n]); }
+  if (!s) { s = ss.insertSheet(n); s.getRange(TEXTCOL[n]).setNumberFormat('@'); s.appendRow(HEADERS[n]); }
   return s;
 }
-function rows_(n) {
-  const v = tab_(n).getDataRange().getValues(); const h = v.shift();
-  return v.map(r => Object.fromEntries(h.map((k, i) => [k, r[i]])));
-}
-function folder_() {
-  const it = DriveApp.getFoldersByName(FOLDER_NAME);
-  return it.hasNext() ? it.next() : DriveApp.createFolder(FOLDER_NAME);
-}
-function rowOf_(sheet, id) {
-  const v = sheet.getRange(1, 1, sheet.getLastRow(), 1).getValues();
-  for (let i = 1; i < v.length; i++) if (String(v[i][0]) === String(id)) return i + 1;
+function setup() { Object.keys(HEADERS).forEach(tab_); } // ek baar Run karo
+function hash_(salt, pw) { return Utilities.base64Encode(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, salt + pw)); }
+function log_(enr, name, action, browser) { tab_('Logins').appendRow([new Date(), enr, name, action, String(browser || '').slice(0, 200)]); }
+function userRow_(s, enr) {
+  const n = s.getLastRow(); if (n < 2) return 0;
+  const v = s.getRange(2, 1, n - 1, 1).getValues();
+  for (let i = 0; i < v.length; i++) if (String(v[i][0]) === enr) return i + 2;
   return 0;
 }
-function setup() { tab_('Notes'); tab_('Scores'); tab_('Quizzes'); folder_(); } // ek baar Run karo (permissions ke liye)
+function session_(enr, name) {
+  const token = (Utilities.getUuid() + Utilities.getUuid()).replace(/-/g, '');
+  cache_().put('s_' + token, JSON.stringify({ e: enr, n: name }), SESSION_SECS);
+  return { ok: true, token, name, enrollment: enr };
+}
+function sess_(token) { const v = token && cache_().get('s_' + token); return v ? JSON.parse(v) : null; }
 
 function doGet(e) {
   const a = (e && e.parameter && e.parameter.action) || '';
-  if (a === 'notes') return json_(rows_('Notes'));
-  if (a === 'scores') return json_(rows_('Scores'));
-  if (a === 'quizzes') return json_(rows_('Quizzes').map(r => ({ ...r, questions: JSON.parse(r.questions || '[]') })));
-  return ContentService.createTextOutput('AcademIQ logger is working');
+  if (a === 'scores') {
+    const v = tab_('Scores').getDataRange().getValues(); v.shift();
+    return json_(v.map(r => ({ username: r[1], tag: String(r[0]).slice(-3), subject: r[2], score: r[3], total: r[4], date: r[5] })));
+  }
+  return ContentService.createTextOutput('AcademIQ v3 backend is working');
 }
 
 function doPost(e) {
   try {
-    const d = JSON.parse(e.postData.contents); const a = d.action;
-    if (a === 'adminLogin') {
-      if (d.password !== ADMIN_PASSWORD) return json_({ ok: false, error: 'password' });
-      const t = Utilities.getUuid();
-      CacheService.getScriptCache().put('t_' + t, '1', 21600); // 6 ghante
-      return json_({ ok: true, token: t });
+    const d = JSON.parse(e.postData.contents), a = d.action, enr = String(d.enrollment || '').trim();
+    if (a === 'register') {
+      if (!/^\d{12}$/.test(enr)) return json_({ ok: false, error: 'format' });
+      const name = String(d.name || '').trim().slice(0, 40), pw = String(d.password || '');
+      if (name.length < 2 || pw.length < 6 || pw.length > 64) return json_({ ok: false, error: 'invalid' });
+      const lock = LockService.getScriptLock(); lock.waitLock(10000);
+      try {
+        const s = tab_('Users');
+        if (userRow_(s, enr)) { log_(enr, name, 'register-duplicate', d.browser); return json_({ ok: false, error: 'exists' }); }
+        const salt = Utilities.getUuid();
+        s.appendRow([enr, name, salt, hash_(salt, pw), new Date(), new Date()]);
+      } finally { lock.releaseLock(); }
+      log_(enr, name, 'register', d.browser);
+      return json_(session_(enr, name));
     }
+    if (a === 'login') {
+      if (!/^\d{12}$/.test(enr)) return json_({ ok: false, error: 'format' });
+      const fk = 'f_' + enr, fails = Number(cache_().get(fk) || 0);
+      if (fails >= 5) return json_({ ok: false, error: 'locked' });
+      const s = tab_('Users'), r = userRow_(s, enr);
+      if (!r) return json_({ ok: false, error: 'notfound' });
+      const row = s.getRange(r, 1, 1, 6).getValues()[0];
+      if (hash_(row[2], String(d.password || '')) !== row[3]) {
+        cache_().put(fk, String(fails + 1), 600); log_(enr, row[1], 'login-fail', d.browser);
+        return json_({ ok: false, error: 'bad' });
+      }
+      cache_().remove(fk); s.getRange(r, 6).setValue(new Date()); log_(enr, row[1], 'login', d.browser);
+      return json_(session_(enr, row[1]));
+    }
+    const ss = sess_(d.token);
+    if (!ss) return json_({ ok: false, error: 'auth' });
+    if (a === 'me') return json_({ ok: true, name: ss.n, enrollment: ss.e });
     if (a === 'score') {
-      const sc = Number(d.score), tot = Number(d.total);
-      if (!(tot > 0 && tot <= 50 && sc >= 0 && sc <= tot) || !d.username || !d.subject) return json_({ ok: false, error: 'bad score' });
-      tab_('Scores').appendRow([String(d.username).slice(0, 40), String(d.subject).slice(0, 100), sc, tot, new Date()]);
+      const sc = Number(d.score), tot = Number(d.total), sub = String(d.subject || '').slice(0, 100);
+      if (!(tot > 0 && tot <= 100 && sc >= 0 && sc <= tot) || !sub) return json_({ ok: false, error: 'bad score' });
+      tab_('Scores').appendRow([ss.e, ss.n, sub, sc, tot, new Date()]);
       return json_({ ok: true });
     }
-    if (['uploadPdf', 'addNote', 'deleteNote', 'importNotes', 'saveQuiz', 'deleteQuiz', 'logins'].includes(a)) {
-      if (!CacheService.getScriptCache().get('t_' + d.token)) return json_({ ok: false, error: 'auth' });
-      return json_(admin_(a, d));
-    }
-    // purana behaviour: login log
-    const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName('Logins');
-    if (!sheet) throw new Error('Sheet tab "Logins" not found.');
-    sheet.appendRow([new Date(), d.name || '', d.email || '', d.uid || '', d.action || 'login', d.browser || '']);
-    return ContentService.createTextOutput('Data saved successfully');
-  } catch (err) {
-    return json_({ ok: false, error: String(err.message || err) });
-  }
-}
-
-function noteRow_(title, subject, type, url, fileId, by) {
-  return [Utilities.getUuid().slice(0, 8), title, subject, type, url, fileId, new Date(), by];
-}
-function admin_(a, d) {
-  if (a === 'logins') {
-    const v = tab_('Logins').getDataRange().getValues().slice(-100).reverse();
-    return { ok: true, rows: v.map(r => [r[0], r[1], r[4], r[5]]) };
-  }
-  if (a === 'uploadPdf') {
-    const f = folder_().createFile(Utilities.newBlob(Utilities.base64Decode(d.data), 'application/pdf', d.name));
-    f.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-    tab_('Notes').appendRow(noteRow_(d.title || d.name.replace(/\.pdf$/i, ''), d.subject, d.type, '', f.getId(), 'admin-upload'));
-    return { ok: true };
-  }
-  if (a === 'addNote') {
-    try { DriveApp.getFileById(d.fileId).setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW); } catch (x) { }
-    tab_('Notes').appendRow(noteRow_(d.title, d.subject, d.type, '', d.fileId, 'admin-link'));
-    return { ok: true };
-  }
-  if (a === 'importNotes') {
-    const s = tab_('Notes');
-    const rows = d.notes.map(n => noteRow_(n.title, n.subject, n.type, n.url, '', 'import'));
-    if (rows.length) s.getRange(s.getLastRow() + 1, 1, rows.length, 8).setValues(rows);
-    return { ok: true };
-  }
-  if (a === 'deleteNote') {
-    const s = tab_('Notes'), r = rowOf_(s, d.id);
-    if (!r) return { ok: false, error: 'not found' };
-    const row = s.getRange(r, 1, 1, 8).getValues()[0];
-    if (row[7] === 'admin-upload' && row[5]) { try { DriveApp.getFileById(row[5]).setTrashed(true); } catch (x) { } }
-    s.deleteRow(r);
-    return { ok: true };
-  }
-  if (a === 'saveQuiz') {
-    const q = d.quiz, s = tab_('Quizzes'), r = rowOf_(s, q.id);
-    const row = [q.id, q.title, q.icon, q.color, q.desc, JSON.stringify(q.questions)];
-    if (r) s.getRange(r, 1, 1, 6).setValues([row]); else s.appendRow(row);
-    return { ok: true };
-  }
-  if (a === 'deleteQuiz') {
-    const s = tab_('Quizzes'), r = rowOf_(s, d.id);
-    if (r) s.deleteRow(r);
-    return { ok: true };
-  }
+    return json_({ ok: false, error: 'unknown action' });
+  } catch (err) { return json_({ ok: false, error: String(err.message || err) }); }
 }

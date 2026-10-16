@@ -26,21 +26,22 @@
                 <span class="logo-mark">A</span>
                 <span class="logo-text">AcademIQ</span>
             </div>
-            <h2 class="login-title">Welcome Back</h2>
-            <p class="login-sub">Sign in to your learning hub</p>
-
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" id="loginUsername" placeholder="Enter your name" autocomplete="off" />
+            <h2 class="login-title" id="authTitle">Welcome Back</h2>
+            <p class="login-sub">Enrollment number se sign in karo</p>
+            <div class="form-group"><label>Enrollment No. (12 digit)</label><input type="text" id="loginEnroll"
+                    inputmode="numeric" maxlength="12" placeholder="12 digit enrollment" autocomplete="username" />
             </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="loginPassword" placeholder="••••••••" />
-            </div>
-            <label class="admin-check"><input type="checkbox" id="adminToggle"> Admin login</label>
-            <div id="loginError" class="login-error hidden">Incorrect credentials. Try again.</div>
-            <button class="btn-primary full-width" onclick="handleLogin()">Sign In →</button>
-            <p class="login-hint">any username + password <code>student123</code></p>
+            <div class="form-group hidden" id="regOnly"><label>Full Name</label><input type="text" id="loginName"
+                    maxlength="40" placeholder="Tumhara naam" autocomplete="name" /></div>
+            <div class="form-group"><label>Password</label><input type="password" id="loginPassword"
+                    placeholder="min 6 characters" autocomplete="current-password" /></div>
+            <div class="form-group hidden" id="regOnly2"><label>Confirm Password</label><input type="password"
+                    id="loginPassword2" placeholder="Dobara likho" autocomplete="new-password" /></div>
+            <div id="loginError" class="login-error hidden"></div>
+            <button class="btn-primary full-width" id="authBtn" onclick="handleLogin()">Sign In →</button>
+            <p class="login-hint" id="authSwitch">Pehli baar? <a href="#"
+                    onclick="setAuthMode('register');return false">Register karo</a></p>
+            <p class="login-hint">Naam + enrollment sirf AcademIQ ke liye save hota hai.</p>
         </div>
     </div>
 
@@ -61,7 +62,6 @@
                     <a href="#notes" class="nav-link" data-section="notes">Notes</a>
                     <a href="#quiz" class="nav-link" data-section="quiz">Quiz</a>
                     <a href="#leaderboard" class="nav-link" data-section="leaderboard">Leaderboard</a>
-                    <a href="#admin" class="nav-link admin-only hidden" data-section="admin">Admin</a>
                 </nav>
                 <div class="header-user">
                     <span class="user-pill" id="headerUsername"></span>
@@ -76,7 +76,6 @@
                 <a href="#notes" class="mob-link" onclick="navTo('notes')">Notes</a>
                 <a href="#quiz" class="mob-link" onclick="navTo('quiz')">Quiz</a>
                 <a href="#leaderboard" class="mob-link" onclick="navTo('leaderboard')">Leaderboard</a>
-                <a href="#admin" class="mob-link admin-only hidden" onclick="navTo('admin')">Admin</a>
                 <button class="btn-outline-sm" onclick="handleLogout()">Logout</button>
             </div>
         </header>
@@ -290,17 +289,6 @@
         <!-- ══════════════════════════════════════
        FOOTER
   ══════════════════════════════════════ -->
-        <section id="admin" class="section hidden">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title">🛠 Admin Panel</h2>
-                    <p class="section-sub">Notes, quizzes aur login log manage karo</p>
-                </div>
-                <div class="filter-bar" id="adminTabs"></div>
-                <div id="adminBody"></div>
-            </div>
-        </section>
-
         <footer class="site-footer">
             <div class="footer-inner">
                 <div class="footer-logo">
@@ -348,8 +336,8 @@
         </div>
     </div>
 
+    <script src="config.js"></script>
     <script src="app.js"></script>
-    <script src="admin.js"></script>
 </body>
 
 </html>
