@@ -1,0 +1,102 @@
+[
+ {
+  "q": "Corrosion (Kat) rokva mate kai padhdhati vapray chhe?",
+  "opts": [
+   "Galvanizing",
+   "Oxidation",
+   "Heating",
+   "Cooling"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Electrochemical cell ma Oxidation kaya pole par thay?",
+  "opts": [
+   "Cathode",
+   "Anode",
+   "Electrolyte",
+   "Salt bridge"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Lignite ane Anthracite niche na mathi kona prakar chhe?",
+  "opts": [
+   "Petroleum",
+   "Coal",
+   "Natural Gas",
+   "Biogas"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Niche na mathi kayo Good Conductor chhe?",
+  "opts": [
+   "Glass",
+   "Copper",
+   "Rubber",
+   "Wood"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "LPG ma mukhya ghatak (main component) kayo hoy chhe?",
+  "opts": [
+   "Methane",
+   "Butane",
+   "Hydrogen",
+   "Carbon"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Lubricant no mukhya upyog shu chhe?",
+  "opts": [
+   "To increase friction",
+   "To reduce friction",
+   "To increase weight",
+   "To stop machine"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Cement ma Gypsum kem umerava ma ave chhe?",
+  "opts": [
+   "Increase strength",
+   "Retard setting time",
+   "Give color",
+   "Reduce cost"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Hard water ne soft banavva mate kai process vapray?",
+  "opts": [
+   "Zeolite Process",
+   "Filtration",
+   "Chlorination",
+   "Heating"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Niche na mathi kai Alloy (Mishra-dhatu) chhe?",
+  "opts": [
+   "Iron",
+   "Brass",
+   "Gold",
+   "Oxygen"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Polymerisation process mathi shu bane chhe?",
+  "opts": [
+   "Glass",
+   "Plastic",
+   "Steel",
+   "Acid"
+  ],
+  "ans": 1
+ }
+]
