@@ -331,8 +331,16 @@ async function loadNotes() {
   renderNotes();
 }
 async function loadQuizzes() {
-  try { QUIZ_DATA = await (await fetch('quizzes/index.json', { cache: 'no-cache' })).json(); }
-  catch (e) { QUIZ_DATA = []; toast('Quiz list load nahi hui'); }
+  try {
+    const r = await fetch('quizzes/index.json', { cache: 'no-cache' });
+    if (!r.ok) throw new Error('quizzes/index.json nahi mili (HTTP ' + r.status + ')');
+    QUIZ_DATA = await r.json();
+  } catch (e) {
+    QUIZ_DATA = [];
+    console.error('loadQuizzes failed:', e);
+    document.getElementById('quizSubjectGrid').innerHTML = `<p class="empty">⚠️ Quiz list load nahi hui.<br><small>${esc(e.message)}<br>Check karo: repo me <b>quizzes/</b> folder upload hua? (index.json + q-*.json + ddcet.json)</small></p>`;
+    return;
+  }
   await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(() => [])));
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
   renderQuizSubjects(); renderLbFilters(); renderLeaderboard();
