@@ -165,7 +165,7 @@
           <div id="uploadStatus" class="upload-status hidden"></div>
         </div>-->
 
-                <div class="notes-tools"><input id="notesSearch" type="search" placeholder="🔍 Search notes, papers, assignments…" oninput="renderNotes()" aria-label="Search notes"><span id="notesCount" class="notes-count"></span></div>
+                <div class="notes-tools"><input id="notesSearch" type="search" placeholder="🔍 Search notes, papers, assignments…" oninput="renderNotes()" aria-label="Search notes"><select id="notesSort" onchange="renderNotes()" aria-label="Sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="az">A → Z</option><option value="za">Z → A</option><option value="subject">Subject</option><option value="type">Type</option></select><button class="btn-primary" onclick="openAddNote()">➕ Add Note</button><span id="notesCount" class="notes-count"></span></div>
 <!-- Filter Bar -->
                 <div class="filter-bar">
                     <button class="filter-btn active" onclick="filterNotes('all', this)">All</button>

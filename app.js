@@ -326,9 +326,64 @@ let notesFilter = 'all';
 async function loadNotes() {
   try {
     const rows = await (await fetch(GOOGLE_SCRIPT_URL + '?action=notes')).json();
-    if (Array.isArray(rows) && rows.length) NOTES = rows.map(r => ({ id: r.id, title: r.title, subject: r.subject, type: r.type, fileId: r.fileId, view: r.fileId ? driveView(r.fileId) : r.url, dl: r.fileId ? driveDl(r.fileId) : r.url }));
+    if (Array.isArray(rows)) NOTES = [...builtInNotes(), ...rows.map(r => ({ id: r.id, title: r.title, subject: r.subject, type: r.type || 'Notes', fileId: r.fileId, by: r.by, added: Date.parse(r.added) || 0, view: driveView(r.fileId), dl: driveDl(r.fileId) }))];
   } catch (e) { /* offline: built-in list stays */ }
   renderNotes();
+}
+const toB64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.onerror = no; r.readAsDataURL(f); });
+const SUBJ_LABELS = { 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN' };
+const SORTS = {
+  new: (a, b) => (b.added || 0) - (a.added || 0), old: (a, b) => (a.added || 0) - (b.added || 0),
+  az: (a, b) => a.title.localeCompare(b.title), za: (a, b) => b.title.localeCompare(a.title),
+  subject: (a, b) => a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title), type: (a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title)
+};
+function renderFolderButtons() {
+  const bar = document.querySelector('#notes .filter-bar'); if (!bar) return;
+  bar.querySelectorAll('.dyn').forEach(b => b.remove());
+  [...new Set(NOTES.filter(n => String(n.subject).startsWith('f:')).map(n => n.subject))].forEach(k => {
+    const b = document.createElement('button'); b.className = 'filter-btn dyn' + (notesFilter === k ? ' active' : ''); b.textContent = '📁 ' + k.slice(2);
+    b.onclick = () => filterNotes(k, b); bar.appendChild(b);
+  });
+}
+function openAddNote() {
+  let m = document.getElementById('addNoteModal'); if (m) m.remove();
+  m = document.createElement('div'); m.id = 'addNoteModal'; m.className = 'modal-overlay';
+  m.onclick = e => { if (e.target === m) m.remove(); };
+  const folders = [...new Set(NOTES.filter(n => String(n.subject).startsWith('f:')).map(n => n.subject))];
+  m.innerHTML = `<div class="modal-card" style="max-width:520px"><div class="modal-header"><h3>➕ Note share karo</h3><button class="modal-close" id="snX">✕</button></div>
+    <div class="modal-body adm-card" style="border:0;margin:0"><p class="adm-msg" style="margin-bottom:.8rem">Admin approve karega, uske baad sabko dikhega. Tum delete nahi kar sakte.</p>
+    <div class="adm-row"><input id="snTitle" maxlength="80" placeholder="Title (khali = file name)"></div>
+    <div class="adm-row"><select id="snSubj">${Object.entries(SUBJ_LABELS).map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}${folders.map(f => `<option value="${esc(f)}">📁 ${esc(f.slice(2))}</option>`).join('')}<option value="__new">➕ Naya folder…</option></select>
+      <select id="snType">${['Notes', 'Paper', 'Assignment', 'Question Bank', 'Book', 'Tutorial'].map(t => `<option>${t}</option>`).join('')}</select></div>
+    <div class="adm-row hidden" id="snNewRow"><input id="snNew" maxlength="40" placeholder="Naye folder ka naam"></div>
+    <div class="adm-row"><input type="file" id="snFile" accept="application/pdf"></div>
+    <div class="adm-row"><span class="adm-msg">ya</span><input id="snLink" placeholder="Google Drive share link"></div>
+    <button class="btn-primary" id="snGo">Bhejo</button> <span class="adm-msg" id="snMsg"></span></div></div>`;
+  document.body.appendChild(m);
+  m.querySelector('#snX').onclick = () => m.remove();
+  m.querySelector('#snSubj').onchange = e => m.querySelector('#snNewRow').classList.toggle('hidden', e.target.value !== '__new');
+  m.querySelector('#snGo').onclick = submitNote;
+}
+async function submitNote() {
+  const $ = id => document.getElementById(id), msg = $('snMsg'), btn = $('snGo');
+  const f = $('snFile').files[0], link = $('snLink').value.trim();
+  let subject = $('snSubj').value;
+  if (subject === '__new') { const nm = $('snNew').value.replace(/[<>]/g, '').trim(); if (nm.length < 2) { msg.textContent = 'Folder ka naam likho'; return; } subject = 'f:' + nm.slice(0, 40); }
+  if (!f && !link) { msg.textContent = 'PDF choose karo ya Drive link do'; return; }
+  const body = { action: 'submitNote', token: localStorage.getItem('iq_token'), title: $('snTitle').value.trim(), subject, type: $('snType').value };
+  btn.disabled = true; msg.textContent = 'Bhej raha hu…';
+  try {
+    if (f) {
+      if (!/\.pdf$/i.test(f.name)) throw new Error('Sirf PDF allowed hai');
+      if (f.size > 10 * 1024 * 1024) throw new Error('File 10 MB se badi hai');
+      body.name = f.name; body.data = await toB64(f);
+    } else {
+      const id = (link.match(/[-\w]{25,}/) || [])[0]; if (!id) throw new Error('Drive link sahi nahi lag raha'); body.fileId = id;
+    }
+    const r = await api(body);
+    if (!r.ok) throw new Error({ limit: 'Aaj ke 5 submissions poore ho gaye', size: 'File 10 MB se badi hai', notpdf: 'Ye PDF file nahi hai', subject: 'Subject/folder galat', link: 'Drive link sahi nahi', auth: 'Session khatam, dobara login karo' }[r.error] || r.error);
+    document.getElementById('addNoteModal').remove(); toast('✅ Bhej diya! Approval ke baad sabko dikhega.');
+  } catch (e) { msg.textContent = '❌ ' + e.message; btn.disabled = false; }
 }
 async function loadQuizzes() {
   try {
@@ -349,16 +404,18 @@ async function loadQuizzes() {
 function renderNotes(filter = notesFilter) {
   notesFilter = filter;
   const q = (document.getElementById('notesSearch')?.value || '').trim().toLowerCase();
-  const list = NOTES.filter(n => (filter === 'all' || n.subject === filter) && n.title.toLowerCase().includes(q));
+  const sort = SORTS[document.getElementById('notesSort')?.value] || SORTS.new;
+  const list = NOTES.filter(n => (filter === 'all' || n.subject === filter) && n.title.toLowerCase().includes(q)).sort(sort);
   document.getElementById('notesCount').textContent = list.length + ' files';
   document.getElementById('statNotes').textContent = NOTES.length;
+  renderFolderButtons();
   document.getElementById('notesGrid').innerHTML = list.length ? list.map(n => `
     <div class="note-card">
       <div class="note-card-top">
         <div class="note-type-icon pdf">📄</div>
         <div>
           <div class="note-title">${esc(n.title)}</div>
-          <div class="note-meta"><span class="note-chip">${esc(n.type)}</span>PDF</div>
+          <div class="note-meta"><span class="note-chip">${esc(n.type)}</span>PDF${n.by ? ' · 👤 ' + esc(n.by) : ''}</div>
         </div>
       </div>
       <div class="note-actions">
