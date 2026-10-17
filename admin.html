@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>AcademIQ Admin</title>
+<style>
+:root{--bg:#0a0f1e;--card:#111a33;--bd:rgba(255,255,255,.1);--tx:#e8ecf8;--dim:#93a0c4;--am:#f59e0b}
+*{box-sizing:border-box}body{margin:0 auto;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,'Noto Sans Gujarati',sans-serif;padding:1.2rem;max-width:1000px}
+h1{font-size:1.4rem}input{padding:.65rem .8rem;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit}
+button,.b{padding:.45rem .9rem;border:0;border-radius:8px;background:var(--am);color:#1a1200;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;font-size:.85rem}
+.g{background:var(--card);color:var(--tx);border:1px solid var(--bd)}.r{background:#ef444422;color:#fca5a5}.ok{background:#10b98122;color:#6ee7b7}
+.tabs button{margin:0 .4rem .6rem 0}.tabs .on{background:var(--am);color:#1a1200}.tabs button:not(.on){background:var(--card);color:var(--tx);border:1px solid var(--bd)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:1rem;margin:.8rem 0;overflow-x:auto}.dim{color:var(--dim);font-size:.85rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem}td,th{padding:.5rem .6rem;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+</style></head><body>
+<h1>🛠 AcademIQ Admin</h1>
+<div id="login" class="card"><p class="dim">Enter admin password</p><input type="password" id="pw" placeholder="Password"> <button onclick="doLogin()">Login</button> <span id="lerr" class="dim"></span></div>
+<div id="panel" style="display:none"><div class="tabs" id="tabs"></div><div id="body"></div> <button class="g" onclick="logout()">Logout</button></div>
+<script src="config.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fmt = d => { const x = new Date(d); return isNaN(x) ? '' : x.toLocaleString(); };
+let T = sessionStorage.getItem('aq_admin') || '', tab = 'pending';
+async function api(b) { const t = await (await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(b) })).text(); try { return JSON.parse(t); } catch (e) { throw new Error('Unexpected server response. Check the URL in config.js.'); } }
+async function adm(a, d = {}) { const r = await api({ action: a, token: T, ...d }); if (!r.ok) { if (r.error === 'auth') logout(); throw new Error(r.error); } return r; }
+function show() { $('login').style.display = T ? 'none' : ''; $('panel').style.display = T ? '' : 'none'; if (T) render(); }
+function logout() { T = ''; sessionStorage.removeItem('aq_admin'); show(); }
+async function doLogin() {
+  $('lerr').textContent = '…';
+  try { const r = await api({ action: 'adminLogin', password: $('pw').value }); if (!r.ok) { $('lerr').textContent = r.error === 'locked' ? 'Too many attempts. Try again in 10 minutes.' : 'Incorrect password.'; return; } T = r.token; sessionStorage.setItem('aq_admin', T); $('pw').value = ''; show(); }
+  catch (e) { $('lerr').textContent = e.message; }
+}
+$('pw').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+const view = n => n.fileId ? `https://drive.google.com/file/d/${encodeURIComponent(n.fileId)}/view` : '#';
+async function render() {
+  $('tabs').innerHTML = [['pending', '⏳ Pending'], ['approved', '📄 Approved notes'], ['users', '👥 Students'], ['logins', '🕑 Logins']].map(([k, l]) => `<button class="${k === tab ? 'on' : ''}" onclick="tab='${k}';render()">${l}</button>`).join('');
+  $('body').innerHTML = '<p class="dim">Loading…</p>';
+  try {
+    if (tab === 'pending' || tab === 'approved') {
+      const r = await adm(tab), pend = tab === 'pending';
+      $('body').innerHTML = `<div class="card"><b>${r.rows.length}</b> ${pend ? 'pending requests' : 'approved notes'}<table><tbody>${r.rows.map(n => `<tr><td><b>${esc(n.title)}</b><br><span class="dim">${esc(n.subject)} · ${esc(n.type)} · ${esc(n.by)} (${esc(n.enrollment)}) · ${esc(fmt(n.added))}</span></td><td style="white-space:nowrap"><a class="b g" target="_blank" rel="noopener" href="${view(n)}">👁 Preview</a> ${pend ? `<button class="ok" onclick="act('approve','${esc(n.id)}')">✅ Approve</button> <button class="r" onclick="act('reject','${esc(n.id)}')">❌ Reject</button>` : `<button class="r" onclick="act('deleteNote','${esc(n.id)}')">🗑 Delete</button>`}</td></tr>`).join('') || '<tr><td class="dim">Nothing here</td></tr>'}</tbody></table></div>`;
+    } else if (tab === 'users') {
+      const r = await adm('users');
+      $('body').innerHTML = `<div class="card"><b>${r.rows.length}</b> registered students<table><thead><tr><th>Enrollment</th><th>Name</th><th>Registered</th><th>Last login</th><th></th></tr></thead><tbody>${r.rows.map(u => `<tr><td>${esc(u.enrollment)}</td><td>${esc(u.name)}</td><td>${esc(fmt(u.created))}</td><td>${esc(fmt(u.lastLogin))}</td><td><button class="r" onclick="reset('${esc(u.enrollment)}')">Reset</button></td></tr>`).join('')}</tbody></table><p class="dim">Reset deletes the enrollment registration. The student can register again with a new password.</p></div>`;
+    } else {
+      const r = await adm('logins');
+      $('body').innerHTML = `<div class="card"><b>Last ${r.rows.length}</b><table><thead><tr><th>Time</th><th>Enrollment</th><th>Name</th><th>Action</th><th>Browser</th></tr></thead><tbody>${r.rows.map(x => `<tr><td>${esc(fmt(x[0]))}</td><td>${esc(x[1])}</td><td>${esc(x[2])}</td><td>${esc(x[3])}</td><td class="dim">${esc(String(x[4]).slice(0, 50))}</td></tr>`).join('')}</tbody></table></div>`;
+    }
+  } catch (e) { $('body').innerHTML = `<div class="card">❌ ${esc(e.message)}</div>`; }
+}
+async function act(a, id) { if (a !== 'approve' && !confirm(a === 'reject' ? 'Reject this submission and remove the file from Drive?' : 'Delete this note?')) return; try { await adm(a, { id }); } catch (e) { alert(e.message); } render(); }
+async function reset(enrollment) { if (!confirm('Reset registration for ' + enrollment + '?')) return; try { await adm('resetUser', { enrollment }); } catch (e) { alert(e.message); } render(); }
+show();
+</script></body></html>
