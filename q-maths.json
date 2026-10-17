@@ -1,0 +1,102 @@
+[
+ {
+  "q": "એકમ શ્રેણિક (Identity Matrix) I ના વિકર્ણ (Diagonal) ઘટકો કયા હોય છે?",
+  "opts": [
+   "0",
+   "1",
+   "ગમે તે સંખ્યા",
+   "-1"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "શ્રેણિક A = [[2, 3], [1, 5]] નો નિશ્ચાયક (Determinant) શોધો.",
+  "opts": [
+   "13",
+   "7",
+   "10",
+   "11"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Jo y = x^n hoy to dy/dx shu thay?",
+  "opts": [
+   "nx^(n-1)",
+   "x^(n+1)",
+   "nx^n",
+   "0"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "જો A એ 2x3 શ્રેણિક હોય અને B એ 3x2 શ્રેણિક હોય, તો AB શ્રેણિકનો ક્રમ (Order) શું થાય?",
+  "opts": [
+   "3x3",
+   "2x2",
+   "3x2",
+   "2x3"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Triangle ma trijo khuno ketlo thashe jo be khuna 60° ane 60° hoy?",
+  "opts": [
+   "90°",
+   "60°",
+   "45°",
+   "180°"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "sin²θ + cos²θ barabar ketla thay?",
+  "opts": [
+   "0",
+   "1",
+   "2",
+   "tan²θ"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "2x + 5 = 15 hoy to x ni value shu thashe?",
+  "opts": [
+   "10",
+   "5",
+   "20",
+   "2"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Circle no area find karva nu sutra shu chhe?",
+  "opts": [
+   "2πr",
+   "πr²",
+   "πd",
+   "1/2 bh"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Prime number (Avibhajya sankhya) niche na mathi kai chhe?",
+  "opts": [
+   "4",
+   "7",
+   "9",
+   "10"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "સિમેટ્રિક શ્રેણિક (Symmetric Matrix) માટે કઈ શરત સાચી છે?",
+  "opts": [
+   "A = -A",
+   "A = Aᵀ",
+   "A = 0",
+   "A = I"
+  ],
+  "ans": 1
+ }
+]

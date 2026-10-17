@@ -1,0 +1,42 @@
+[
+ {
+  "id": "q-maths",
+  "title": "Applied Mathematics",
+  "icon": "📐",
+  "color": "#f59e0b",
+  "desc": "Matrices, Derivatives & Integration",
+  "file": "q-maths.json"
+ },
+ {
+  "id": "q-chem",
+  "title": "Engineering Chemistry",
+  "icon": "⚗️",
+  "color": "#0ea5e9",
+  "desc": "Corrosion, Fuels, Lubricants & Polymers",
+  "file": "q-chem.json"
+ },
+ {
+  "id": "q-py",
+  "title": "Python Programming",
+  "icon": "🐍",
+  "color": "#3776ab",
+  "desc": "Basics, Data Types, Loops & Strings",
+  "file": "q-py.json"
+ },
+ {
+  "id": "q-env",
+  "title": "પર્યાવરણ અને ટકાઉપણું",
+  "icon": "🌍",
+  "color": "#10b981",
+  "desc": "પરિસ્થિતિકી, પ્રદૂષણ અને પુનઃપ્રાપ્ય ઉર્જા વિશે ૧૦ પ્રશ્નો",
+  "file": "q-env.json"
+ },
+ {
+  "id": "ddcet",
+  "title": "DDCET",
+  "icon": "🎯",
+  "color": "#8b5cf6",
+  "desc": "DDCET preparation — questions quiz-builder se add karo",
+  "file": "ddcet.json"
+ }
+]
