@@ -1,1002 +1,822 @@
 [
-    {
-        "q": "According to Coulomb's law the force acting between two charges is ......... between them",
-        "opts": [
-            "Inversely proportional to distance",
-            "Directly proportional to distance",
-            "Directly proportional to square of distance",
-            "Inversly proportional to square of distance Ly$g„b“p r“ed dyS>b b¡ rhÛys cpfp¡ hÃQ¡ gpNsy„ bm A¡ s¡d“u hÃQ¡“p ......... lp¡e R>¡."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "In which heat transfer method atoms will move from one place to the other in order to transfer the heat?",
-        "opts": [
-            "Conduction",
-            "Convection",
-            "Radiation",
-            "All the above Dódp âkfZ“u L$C ‘Ý^rsdp„ AÏ„Ap¡“y„ A¡L$ S>ÁepA¡’u buÆ S>ÁepA¡ õ’p“p„sfus ’hp’u Dódp“y„ âkfZ ’i¡?"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Newton's first law of motion gives definition of which physical quantity?",
-        "opts": [
-            "Work",
-            "Velocity",
-            "Force",
-            "Acceleration ÞeyV$““p¡ Nrs“p¡ â’d r“ed L$C cp¥rsL$ fpri“u ìep¿ep Ap‘¡ R>¡?"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "When we connect both the jaws of Micrometer Screw Gauge and '0' on circular scale coincides with reference line then this Micrometer Screw Gauge has which type of error?",
-        "opts": [
-            "Error less",
-            "Positive Error",
-            "Negative Error",
-            "Random Error Äepf¡ dpC¾$p¡duV$f õ¾y$ N¡S>“p b„“¡ S>X$bp"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Linear momentum of an object represented by which of the following equation?",
-        "opts": [
-            "p = mv",
-            "p = mv2",
-            "p = m/v",
-            "p = ma ‘v$p’®“p f¡Mue h¡Ndp““¡ “uQ¡ S>Zph¡gdp„’u L$ep kyÓ hX¡$ v$ip®hhpdp„ Aph¡ R>¡?"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "In a parallel plate capacitor if we double the distance between two plates and make their area four times then what will happen to capacitance of this capacitors?",
-        "opts": [
-            "Becomes half",
-            "Becomes double",
-            "Becomes four times",
-            "Becomes Zero kdp„sf àg¡V$ L¡$‘¡rkV$fdp„"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "212 Fahrenheit = _________ Kelvin.",
-        "opts": [
-            "373.15",
-            "273.15",
-            "212",
-            "32 212 a¡f“luV$ = ........... L¡$ëhu“."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which of the following is NOT a Green House gas?",
-        "opts": [
-            "CO2",
-            "O2",
-            "NO2",
-            "CFC “uQ¡“p ‘¥L$u L$ey„ N°u“ lpDk N¡k “’u?"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Which main product is obtained by reaction of sodium hydroxide with Zn metal?",
-        "opts": [
-            "NaZnO2",
-            "NaZn2O",
-            "Na2ZnO2",
-            "Zn(OH)2 kp¡qX$ed lpCX²$p¡L$kpCX$“u tTL$ ^psy„ kp’¡“u âq¾$ep Üpfp LC dy¿e “u‘S> dmi¡?"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "By which reaction insoluble salts are produced?",
-        "opts": [
-            "Precipitation",
-            "Combination",
-            "Corrosion",
-            "Redox LC âq¾$ep Üpfp AÖpìe npfp¡ Dv¹$ch¡ R>¡?"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Four capacitors having same value of 4 µF are connected in series then what will be their equivalent capacitance?",
-        "opts": [
-            "1 µF",
-            "16 µF",
-            "4 µF",
-            "44 µF 4 µF S>¡V$gy„ kdp“ dyëe ^fphsp Qpf L¡$‘¡kuV$f“¡ î¡Zudp„"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which fuel is used in automobile produces least pollution?",
-        "opts": [
-            "Petrol",
-            "Diesel",
-            "LPG",
-            "CNG L$ep I^Z“p¡ D‘ep¡N hpl“dp„ ’pe R>¡, S>¡ Ap¡Ry>„ âvy$jZ DÐ‘Þ“ L$f¡ R>¡?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "An object tied with a string is rotating on a circular path of radius 1 m. It completes 50 rotations in 5 seconds then what will be its angular velocity?",
-        "opts": [
-            "10 rad/sec",
-            "31.41 rad/sec",
-            "62.83 rad/sec",
-            "25 rad/sec v$p¡fu kp’¡ bp„^¡gp A¡L$ ‘v$p’®“¡ 1 duV$f rÓÄep ^fphsp hsy®mdp„ Np¡m a¡fhhpdp„ Aph¡ R>¡."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "For Reaction CuO+H2 → Cu+H2O. Which statement is correct?",
-        "opts": [
-            "Cu is an oxidizing agent",
-            "H2 is oxidizing",
-            "This reaction is a displacement reaction",
-            "All of the given âq¾$ep CuO+H2 → Cu+H2O dpV¡$ kpQy„ rh^p“ L$ey„ R>¡?"
-        ],
-        "ans": null
-    },
-    {
-        "q": "When an object is projected upwards, at highest point which of the following statement is correct?",
-        "opts": [
-            "Potential energy is zero & Kinetic energy is maximum",
-            "Kinetic energy is zero & Potential energy is maximum",
-            "Potential energy and Kinetic energy both are equal",
-            "Potential energy and Kinetic energy both are zero Äepf¡ L$p¡C ‘v$p’®“¡ D‘f“u qv$ipdp„ DR>pmhpdp„ Aph¡ Ðepf¡ s¡“p dlÑd KQpC“p tbvy$A¡ “uQ¡ S>Zph¡gdp„’u L$ey„ rh^p“ kpQy„ ’pe?"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Which of the following tag is used for inserting the largest heading in HTML?",
-        "opts": [
-            "head",
-            "< h2 >",
-            "< h1 >",
-            "< h6 > HTML dp„ kp¥’u dp¡Vy„$ l¡qX„$N v$pMg L$fhp dpV¡$ “uQ¡“pdp„’u L$ep V¡$N“p¡ D‘ep¡N ’pe R>¡?"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "is the largest ecosystem on the Earth.",
-        "opts": [
-            "Desert",
-            "Forest",
-            "Sea",
-            "Grassland .......... ‘©Õhu ‘f“p¡ kp¥’u dp¡V$p¡ ‘ep®hfZ s„Ó R>¡."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which type of wave propagates in medium by forming crest and trough?",
-        "opts": [
-            "Longitudinal wave",
-            "Mechanical wave",
-            "Transverse wave",
-            "All the above L$ep âL$pf“y„ sf„N dpÝeddp„ i©„N A“¡ Ns® Üpfp Nrs L$f¡ R>¡?"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "In Biogas plant, digestion takes place in the absence of _________ .",
-        "opts": [
-            "Hydrogen",
-            "Carbon dioxide",
-            "Methane",
-            "Oxygen bpep¡N¡k àgpÞV$dp„, ‘Q“ ........... “p lp¡e Ðepf¡ ’pe R>¡."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "If time taken for work increases then what happen to the value of power?",
-        "opts": [
-            "Increases",
-            "Decreases",
-            "Remains same",
-            "Becomes zero"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Which of the following statements are correct for an optical fiber? i. Optical fiber works on total internal reflection (TIR). ii. Core has higher refractive index than cladding. iii. Cladding is central region through which light propagates. iv. Core diameter is larger than cladding",
-        "opts": [
-            "(i) & (ii)",
-            "(iii) & (iv)",
-            "(i) & (iii)",
-            "(i), (ii), (iii) & (iv) Ap¡àV$uL$g apCbf dpV¡$ “uQ¡dp„’u L$ep rh^p“p¡ kpQp R>¡? i. Ap¡àV$uL$g apCbf âL$pi“p„ ‘|Z® Ap„sfuL$ ‘fphs®“ ‘f L$pe® L$f¡ R>¡ ii. L$p¡f“p¡ h¾$uch“p„L$ ¼g¡X$]N L$fsp„ h^pf¡ lp¡e R>¡. iii. ¼g¡X$]N A¡ kp¥’u hÃQ¡“p¡ cpN R>¡ S>¡dp’u âL$pi ‘kpf ’pe R>¡ iv. L$p¡f“p¡ ìepk ¼g¡X$]N L$fsp„ h^pf¡ lp¡e R>¡."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which of the following temperature is known as ''Absolute zero temperature''?",
-        "opts": [
-            "–",
-            "0° C",
-            "–",
-            "273.15 K “uQ¡ S>Zph¡gdp„’u L$ey sp‘dp“ \"\"r“f‘¡n iyÞe sp‘dp“'' sfuL¡$ Ap¡mMpe R>¡?"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Generally metal oxides are ________",
-        "opts": [
-            "Acidic",
-            "Basic",
-            "Amphoteric",
-            "Not possible kpdpÞe fus¡ ^psyAp¡“p Ap¡¼kpCX$ ........."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Which of the following equation gives relationship between wave velocity, wave length and frequency?",
-        "opts": [
-            "v = f / λ",
-            "v = λ /f",
-            "v = f . λ",
-            "v = f + λ “uQ¡ S>Zph¡gdp„’u L$ey kyÓ sf„N h¡N, sf„N g„bpC A“¡ Aph©rÑ hÃQ¡“p¡ k„b„^ v$ip®h¡ R>¡?"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which of the following statements are correct for a unit? i. Unit has to be easily transportable ii. Unit has to be precisely defined iii. Unit can't be converted in to smaller and bigger unit iv. Unit has to be easily replicable",
-        "opts": [
-            "(i) & (iii)",
-            "(i), (iii) & (iv)",
-            "(i), (ii) & (iv)",
-            "(i), (ii), (iii) & (iv) “uQ¡ S>Zph¡gdp„’u L$ep rh^p“p¡ A¡L$d dpV¡$ kpQp R>¡ i. A¡L$d kfmsp’u hl“ L$fu iL$pe s¡hp¡ lp¡hp¡"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "An object moves on a circular path with constant angular velocity. If radius of the circle is doubled then what happens to its centripetal force?",
-        "opts": [
-            "Becomes double",
-            "Becomes half",
-            "Becomes zero",
-            "Remains same A¡L$ ‘v$p’® hsy®mpL$pf dpN® D‘f AQm L$p¡Zue h¡N’u Nrs L$f¡ R>¡,"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "How do you start a formula in Excel?",
-        "opts": [
-            "By typing @",
-            "By typing #",
-            "By typing +",
-            "By typing = A¡¼k¡gdp„ ap¡çey®gp L¡$hu fus¡ iê$ L$fip¡?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which tab contains the options to change the font and paragraph formatting in MS word?",
-        "opts": [
-            "Home",
-            "Insert",
-            "View",
-            "Review MS word dp„ ap¡ÞV$ A“¡ aL$fp ap¡d£qV„$N bv$ghp“p rhL$ë‘p¡ L$ep V¡$bdp„ R>¡?"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Refractive index of glass is 1.5 and speed of light in vacuum is 3×108 m/s then the speed of light in glass is _________",
-        "opts": [
-            "2 ×108 m/s",
-            "4.5×108 m/s",
-            "3×108 m/s",
-            "1.5×108 m/s L$pQ“p h¾$uch“p„L$“y„ dyëe 1.5 R>¡ A“¡ âL$pi“p¡ iyÞephL$pi h¡N 3×108 m/s lp¡e sp¡ âL$pi“p¡ L$pQdp„ h¡N ........ ’pe."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "In a measurement experiment the measured observations are 22.40, 22.42, 22.44, 22.46 and 22.48 then what will be average absolute error?",
-        "opts": [
-            "0.44",
-            "0.044",
-            "0.24",
-            "0.024 dp‘““p A¡L$ âep¡Ndp„ dp‘hpdp„ Aph¡g Ahgp¡L$““p dyëe 22.40, 22.42. 22.44, 22.46 A“¡ 22.48 lp¡e sp¡ Ap dp‘“ dpV¡$ kf¡fpi r“f‘¡n ÓyV$u“y„ dyëe L¡$V$gy„ ’i¡?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which of following is not form of calcium carbonate?",
-        "opts": [
-            "Lime stone",
-            "Chalk",
-            "Marble",
-            "Slaked lime “uQ¡“pdp„’u L$ey L¡$[ëied L$pbp£“¡V$“y„ õhê$‘ “’u."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which of the following is the lustrous non-metal?",
-        "opts": [
-            "Iodine",
-            "Carbon",
-            "Nitrogen",
-            "Bromin QdL$v$pf A^psy “uQ¡“pdp„’u L$C R>¡?"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "If temperature of a conductor increases then its resistance will _______",
-        "opts": [
-            "Decrease",
-            "Increase",
-            "Remains same",
-            "Becomes zero"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "If total number of divisions on vernier scale is doubled then what will happen to its value of least count?",
-        "opts": [
-            "Becomes double",
-            "Becomes half",
-            "Remains same",
-            "Becomes one fourth"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Which of the following pairs is incorrect?",
-        "opts": [
-            "Tomato-Tartaric acid",
-            "Sour fruit-Citric acid",
-            "Sting of bite of ant-Methanoic acid",
-            "Curd-Lactic acid “uQ¡“pdp„’u L$C"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "103 meter = ________ centimeter.",
-        "opts": [
-            "105",
-            "10",
-            "106",
-            "102 103 duV$f = .......... k¡ÞV$uduV$f"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "For a conductor the ratio of voltage and current will give value of which physical quantity?",
-        "opts": [
-            "Charge",
-            "Electric flux",
-            "Capacitance",
-            "Resistance hplL$ ‘v$p’® dpV¡$ huS>v$bpZ A“¡ rhÛysâhpl“p¡ NyZp¡Ñf L$C cp¥rsL$fpri“y„ dyëe Ap‘¡ R>¡?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which metal does not react with oxygen at higher temperature?",
-        "opts": [
-            "Gold",
-            "Copper",
-            "Zinc",
-            "Aluminium L$C ^psy KQp sp‘dp“¡ ‘Z Ap¡[¼kS>“ kp’¡ âq¾$ep L$fsu “’u."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "What is the shortcut key to start slide show in power point?",
-        "opts": [
-            "Shift + F5",
-            "F5",
-            "Ctrl + S",
-            "Alt + S ‘phf ‘p¡CÞV$dp„ õgpCX$ ip¡ iê$ L$fhp dpV¡$ ip¡V®$L$V$ L$u iy„ R>¡?"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Which of the following is an example of system software.",
-        "opts": [
-            "Google Chrome",
-            "Microsoft Excel",
-            "Adobe Reader",
-            "Unix “uQ¡“pdp„’u L$ey„ rkõV$d kp¡ãV$h¡f“y„ Dv$plfZ R>¡?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "By which heat transfer method heat will transfer in mercury?",
-        "opts": [
-            "Conduction",
-            "Convection",
-            "Radiation",
-            "All the above Dódp âkfZ“u L$C ‘Ý^rs Üpfp ‘pfpdp„ Dódp“y„ hl“ ’i¡?"
-        ],
-        "ans": null
-    },
-    {
-        "q": "A metallic rod of length 2 m expands by 2 mm when its temperature increases from 100°C to 200°C then what will be the value of coefficient of linear expansion for this rod?",
-        "opts": [
-            "4×10–5 °C–1",
-            "1×10–5 °C–1",
-            "2×10–5 °C–1",
-            "5×10–5 °C–1 2 duV$f g„bpC ^fphsp A¡L$ ^psy“p krmep“y„ sp‘dp“ 100° k¡[ëkek’u h^pfu“¡ 200° k¡[ëkek L$fsp s¡“u g„bpCdp„ 2 dudu S>¡V$gp¡ h^pfp¡ ’pe R>¡ sp¡ Ap ^psy“p krmep“p f¡Mue rhõsfZ AQmp„L$“y„ dyëe L¡$V$gy„ ’i¡?"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Specific heat of an object will depend on which of the following?",
-        "opts": [
-            "Heat given",
-            "Mass of the object",
-            "Temperature of the object",
-            "All the above L$p¡C ‘v$p’®“u rhrióV$ Dódp “uQ¡ S>Zph¡gdp„’u L$C bpbsp¡ D‘f Ap^pf fpM¡ R>¡?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Noise pollution is measured in ________",
-        "opts": [
-            "Decibel",
-            "Newton",
-            "Dyne",
-            "Echo Ýhr“ âv|$jZ .......... dp„ dp‘hpdp„ Aph¡ R>¡."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which of the following is not a unit of temperature?",
-        "opts": [
-            "Celsius",
-            "Fahrenheit",
-            "Kelvin",
-            "Candella “uQ¡ S>Zph¡gdp„’u L$ep¡ sp‘dp“ dp‘hp dpV¡$“p¡ A¡L$d “’u?"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Electric flux is maximum when the angle between electric field and surface area is ________",
-        "opts": [
-            "90°",
-            "60°",
-            "45°",
-            "0° rhÛys ãg¼k“p dlÑd dyëe dpV¡$ rhÛysn¡Ó A“¡ k‘pV$u“p n¡Óam hÃQ¡“p¡ L$p¡Z .......... lp¡hp¡"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Reverberations time of a hall is 5 second. If volume of the hall and total absorption of sound both are doubled then what will be new reverberation time?",
-        "opts": [
-            "2 Second",
-            "4 Second",
-            "9 Second",
-            "5 Second A¡L$ kcpN©l dpV¡$ ârsOp¡j kde“y„ dyëe 5 k¡L$ÞX$ R>¡."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Element X gets converted into red and brown colour affected with moistured air and new compound Y is formed what will be compound X and Y?",
-        "opts": [
-            "X = Fe Y= Fe2O3",
-            "X = Ag Y= Ag2S",
-            "X = Cu Y= CuO",
-            "X = Al Y= Al2O3 sÐh X A¡ c¡S>hpmu lhp’u Akf ‘pdu“¡ gpg, L$Õ’pC f„Ndp„ a¡fhpe R>¡ A“¡ “hy„ k„ep¡S>“ Y Dv¹$ch¡ R >¡ sp¡ k„ep¡S>“ X A“¡ Y ¼ep li¡?"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which of the following statements are correct for LASER light? i. It is monochromatic ii It is polychromatic iii. It has low divergence iv. It has very high divergence",
-        "opts": [
-            "(i) & (iv)",
-            "(ii) & (iv)",
-            "(i), (ii), (iii) & (iv)",
-            "(i) & (iii) g¡kf âL$pi dpV¡$ “uQ¡ S>Zph¡gdp„’u L$ep rh^p“p¡ kpQp„ R>¡? i. s¡ A¡L$f„Nu R>¡ ii s¡ blºf„Nu R>¡ iii. s¡dp„ Myb Ap¡Ry>„ rhQg“"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "What is PH value of human blood?",
-        "opts": [
-            "8.5",
-            "7.4",
-            "2.4",
-            "4.7 dp“h fyr^f“y„ PH dyëe L¡$V$gy„ lp¡e R>¡?"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Evaluate the definite integral: ∫₀¹ dx/(1 + x²).",
-        "opts": [
-            "0",
-            "π",
-            "2π",
-            "π/2"
-        ],
-        "ans": null
-    },
-    {
-        "q": "Evaluate the limit: limₓ→₀ (eˣ + sin 2x − 1)/x.",
-        "opts": [
-            "0",
-            "2",
-            "3",
-            "−1"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Evaluate the integral: ∫ 2x sin(x² + 1) dx.",
-        "opts": [
-            "cos (x2+1) + C",
-            "cos (2x) + C",
-            "– cos (x2+1) + C",
-            "x cos (x2+1) + C"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Identify the correct sentence.",
-        "opts": [
-            "Gauri asked where I was going",
-            "Gauri asked that where I was going",
-            "Gauri asked where was I going",
-            "Gauri asked me where was I going"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "If [x 7] = [9 y-1] then x = ________, y = ________ .",
-        "opts": [
-            "9, 8",
-            "9, 6",
-            "9, 7",
-            "9, 9"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "If 3 5 1 1 2 2 0 3 x - - - = 0 then x = ________ .",
-        "opts": [
-            "0",
-            "–1",
-            "1",
-            "2"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Select the correct spelling.",
-        "opts": [
-            "Enviroment",
-            "Environment",
-            "Envoirment",
-            "Enviranment"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "If A = 4 1 2 3 = G & B = 1 1 3 6 - = Gthen AB = ________ .",
-        "opts": [
-            "16 20 8 16 = G",
-            "4 1 6 18 - = G",
-            "7 10 11 20 = G",
-            "7 2 11 16 = G"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which of the following is not a type of communication?",
-        "opts": [
-            "Verbal",
-            "Non Verbal",
-            "Written",
-            "Mechanical"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "If f (x) = 3x+x2 then f (0) + f (1) = ________.",
-        "opts": [
-            "5",
-            "7",
-            "8",
-            "1"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Select the correct spelling.",
-        "opts": [
-            "Definately",
-            "Definetely",
-            "Definitely",
-            "Defenetly"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Identify the correct sentence.",
-        "opts": [
-            "By the time we will reach, the show will start",
-            "By the time we reached, the show will start",
-            "By the time we reach, the show will be started",
-            "By the time we reach, the show will have started"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "log3 14 + log3 2 + log5 5 = _________.",
-        "opts": [
-            "1+log3 28",
-            "log3 29",
-            "log15 140",
-            "log3 140 log3 14 + log3 2 + log5 5 = _________."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "log x dx = ________.",
-        "opts": [
-            "1/x + C",
-            "x log x – x + C",
-            "log x – x + C",
-            "x log x + C # log x dx = ________."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "The team as well as the coaches _________ excited about the tournament (Select the correct option)",
-        "opts": [
-            "are",
-            "were",
-            "have been",
-            "is"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Equation of circle whose center is (4, –1) and radius 5 is _________ .",
-        "opts": [
-            "x2 + y2 + 8x – 2y – 8 = 0",
-            "x2 + y2 – 8x + 2y – 8 = 0",
-            "x2 – y2 + 8x – 2y – 8 = 0",
-            "x2 + y2 – 8x + 2y + 8 = 0 hsy®m“y„ L¡$ÞÖ (4, –1) A“¡ rÓÄep 5 lp¡e sp¡ s¡“y„ krdL$fZ ......... ’pe."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Choose whichever option suits your project. (Identify the underlined part of speech)",
-        "opts": [
-            "Interrogative Pronoun",
-            "Relative Pronoun",
-            "Conjunction",
-            "Adjective"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Hardik __________ to Delhi twice this month.",
-        "opts": [
-            "has gone",
-            "went",
-            "goes",
-            "had gone"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "d d x (x2ex) = ––––––––– .",
-        "opts": [
-            "xex (x+1)",
-            "xex (x+3)",
-            "xex (x+2)",
-            "xex (x2+2) d d x (x2ex) = ––––––––– ."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "The most effective type of communication is _________ .",
-        "opts": [
-            "One-way",
-            "Two-way",
-            "Written only",
-            "Non-verbal only"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "3 (2, 1, –3) + (1, –1, 4) | = ________ .",
-        "opts": [
-            "28",
-            "78",
-            "76",
-            "14 | 3 (2, 1, –3) + (1, –1, 4) | = ________ ."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "When a business apologizes for poor service, they send a _______ .",
-        "opts": [
-            "Order letter",
-            "Complaint letter",
-            "Adjustment letter",
-            "Inquiry letter"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "3ex – 4x) dx = ________ .",
-        "opts": [
-            "3ex – 4 + C",
-            "3ex – 4x2 + C",
-            "3ex – 2x2 + C",
-            "3ex – x2 + C # (3ex – 4x) dx = ________ ."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "In Communication 'Noise' refers to ________ .",
-        "opts": [
-            "Loud sound only",
-            "Any interference in the message",
-            "Feedback distortion",
-            "Misinterpreting symbols"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "For vectors u = (1, –1, 4) and v = (a, 2, 6) if u . v = 25 then a = ______ .",
-        "opts": [
-            "–3",
-            "0",
-            "3",
-            "–1 kqv$ip¡ u = (1, –1, 4) A“¡ v = (a, 2, 6) dpV¡$"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which inference can be drawn about Sreedharan's management style?",
-        "opts": [
-            "It depended heavily on external funding",
-            "It avoided challenging projects",
-            "It combined technical expertise with ethical governance",
-            "It prioritized speed over quality"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which leadership quality of Sreedharan is most directly responsible for timely project completion?",
-        "opts": [
-            "Flexibility in deadlines",
-            "Political networking",
-            "Delegation without supervision",
-            "Strict discipline and punctuality"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which organization did he lead successfully?",
-        "opts": [
-            "DMRC",
-            "DRDO",
-            "ISRO",
-            "ONGC"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which railway project faced major challenges but was completed successfully?",
-        "opts": [
-            "Golden Quadrilateral",
-            "Konkan Railway",
-            "Kolkata Metro",
-            "Delhi Metro"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Why is E.Sreedharan called the Metro Man of India?",
-        "opts": [
-            "He designed metro trains",
-            "He improved airport systems",
-            "He transformed metro rail systems",
-            "He worked on road transport systems"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "In an email the 'BCC' field is used when you want to ________ .",
-        "opts": [
-            "Send a copy to every openly",
-            "Hide a recipient's address from other recipients",
-            "Send a high-priority message",
-            "Attach confidential files"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "A well-written enquiry letter must include ________ .",
-        "opts": [
-            "Specific questions to gather information",
-            "Details of past complaints",
-            "Irrelevant background details",
-            "Personal experiences"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "If x y + = a then d d x y = ________ .",
-        "opts": [
-            "x y",
-            "xy",
-            "y x",
-            "x y - x y + = a dpV¡ d d x y = ________ ."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Identify the correct sentence",
-        "opts": [
-            "Each student, teacher and staff were informed",
-            "Each student, teacher and staff has informed",
-            "Each student, teacher and staff was informed",
-            "Every student, teacher and staff were informing"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "d d x ( cos2 x + sin2 x + 1) = ________ .",
-        "opts": [
-            "2",
-            "1",
-            "3",
-            "0 d d x ( cos2 x + sin2 x + 1) = ________ ."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "For A = 1 4 3 2 = G, B = 5 1 0 2 - - = G value of 2A – B = _________ .",
-        "opts": [
-            "3 9 6 4 = G",
-            "3 9 6 6 - = G",
-            "3 7 6 0 - = G",
-            "3 6 4 9 - = G A = 1 4 3 2 = G, B = 5 1 0 2 - - = G dpV¡$ 2A – B = ________ ."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Proxemics' deals with ________ .",
-        "opts": [
-            "Smell",
-            "Touch",
-            "Use of space",
-            "Sound symbols"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Mean of observations 7, 6, 8, 4, 3, 2, 1, 11 is _________ .",
-        "opts": [
-            "5",
-            "6.25",
-            "5.25",
-            "6 Ahgp¡L$“p¡ 7, 6, 8, 4, 3, 2, 1, 11, “p¡ dÝeL$ ......... ’pe."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "In a formal business letter the 'enclosure notation' is placed immediately after ________ .",
-        "opts": [
-            "Complimentary close",
-            "Signature block",
-            "Subject line",
-            "Salutation"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "The full form of 'SMCR' in Berlo's model is ________ .",
-        "opts": [
-            "Sender Message Channel Receiver",
-            "Signal Message Code Response",
-            "System Model Communication Result",
-            "Sender Mode Communication Receiver"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "cos 2 sin 2 i i r - + r _ ^ i h + cot tan 2 - + i i r r _ ^ h i = ________ .",
-        "opts": [
-            "0",
-            "–1",
-            "2",
-            "1 cos 2 sin 2 i i r - + r _ ^ i h + cot tan 2 - + i i r r _ ^ h i = ________ ."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "The approval of the bridge design was assigned to two engineers. Both approved the design, (Identify the underlined parts of speech)",
-        "opts": [
-            "Adverb",
-            "Conjunction",
-            "Determiner",
-            "Pronoun"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "y = sin3 2x then d d x = ________ .",
-        "opts": [
-            "6 cos 2x.sin2 2x",
-            "3 cos 2x.sin2 x",
-            "6 cos 2x.sin 2x",
-            "6 cos2 2x y = sin3 2x dpV¡$ d d x = ________ ."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Equation of line passing through point (1, –3) and having slope 2 is ______.",
-        "opts": [
-            "2x + y + 5 = 0",
-            "2x – y + 5 = 0",
-            "2x – y – 5 = 0",
-            "x + y + 5 = 0 tbvy$ (1, –3) dp„’u ‘kpf ’su A“¡ Y$pm 2 lp¡e s¡hu f¡Mp“y„ krdL$fZ ......... ’pe."
-        ],
-        "ans": 2
-    },
-    {
-        "q": "cos 4 cos 2 sin 4 sin 2 i i i + i - = _________ .",
-        "opts": [
-            "2 tanθ",
-            "tan 3θ",
-            "cotθ",
-            "tanθ cos 4 cos 2 sin 4 sin 2 i i i + i - = _________ ."
-        ],
-        "ans": 3
-    },
-    {
-        "q": "While the engineers ________ the machine, the power went off. (Select the correct option)",
-        "opts": [
-            "repair",
-            "are repairing",
-            "were repairing",
-            "have repaired"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "2 ( 4) ( 3) lim x x x 2 \" - + 2 x - = _______ .",
-        "opts": [
-            "5",
-            "20",
-            "0",
-            "9 2 ( 4) ( 3) lim x x x 2 \" - + 2 x - = _______ ."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Principal period of sin 7 3 2x - a k is ________ .",
-        "opts": [
-            "3π",
-            "3π/2",
-            "–3π",
-            "–3π/2 sin 7 3 2x - a k “p¡ dy¿e Aphs®dp“ ........ R>¡."
-        ],
-        "ans": 0
-    },
-    {
-        "q": "logb3a2 × loga2b9 = _________ .",
-        "opts": [
-            "6",
-            "3",
-            "18",
-            "27 logb3a2 × loga2b9 = _________ ."
-        ],
-        "ans": 1
-    },
-    {
-        "q": "In a business letter, the 'Inside Address' refers to ________.",
-        "opts": [
-            "Email Address",
-            "External Address",
-            "Sender's Address",
-            "Recipient's Address __________ SPACE FOR ROUGH WORK / fa L$pd dpV¡$“u S>Áep$ ‘funp ‘|fu ’ep bpv$ DÑf‘Ó (OMR SHEET) hN® r“funL$“¡ ‘fs ¼ep® bpv$ S> hN®M„X$ R>p¡X$hp“p¡ fl¡i¡. s¡d L$fhpdp„ L$k|f ’e¡’u s¡“¡ riõsc„N“p„ ‘Ngp„ NZu ‘funp dpV¡$ Dd¡v$hpf“¡ N¡fgpeL$ W¡$fhhpdp„ Aphi¡."
-        ],
-        "ans": 3
-    }
+ {
+  "q": "According to Coulomb's law the force acting between two charges is ......... between them",
+  "opts": [
+   "Inversely proportional to distance",
+   "Directly proportional to distance",
+   "Directly proportional to square of distance",
+   "Inversely proportional to square of distance"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "In which heat transfer method atoms will move from one place to the other in order to transfer the heat?",
+  "opts": [
+   "Conduction",
+   "Convection",
+   "Radiation",
+   "All the above"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Newton's first law of motion gives definition of which physical quantity?",
+  "opts": [
+   "Work",
+   "Velocity",
+   "Force",
+   "Acceleration"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "When we connect both the jaws of Micrometer Screw Gauge and '0' on circular scale coincides with reference line then this Micrometer Screw Gauge has which type of error?",
+  "opts": [
+   "Error less",
+   "Positive Error",
+   "Negative Error",
+   "Random Error"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Linear momentum of an object represented by which of the following equation?",
+  "opts": [
+   "p = mv",
+   "p = mv2",
+   "p = m/v",
+   "p = ma"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "In a parallel plate capacitor if we double the distance between two plates and make their area four times then what will happen to capacitance of this capacitors?",
+  "opts": [
+   "Becomes half",
+   "Becomes double",
+   "Becomes four times",
+   "Becomes Zero"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "212 Fahrenheit = _________ Kelvin.",
+  "opts": [
+   "373.15",
+   "273.15",
+   "212",
+   "32"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is NOT a Green House gas?",
+  "opts": [
+   "CO2",
+   "O2",
+   "NO2",
+   "CFC"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which main product is obtained by reaction of sodium hydroxide with Zn metal?",
+  "opts": [
+   "NaZnO2",
+   "NaZn2O",
+   "Na2ZnO2",
+   "Zn(OH)2"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "By which reaction insoluble salts are produced?",
+  "opts": [
+   "Precipitation",
+   "Combination",
+   "Corrosion",
+   "Redox"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which fuel is used in automobile produces least pollution?",
+  "opts": [
+   "Petrol",
+   "Diesel",
+   "LPG",
+   "CNG"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "An object tied with a string is rotating on a circular path of radius 1 m. It completes 50 rotations in 5 seconds then what will be its angular velocity?",
+  "opts": [
+   "10 rad/sec",
+   "31.41 rad/sec",
+   "62.83 rad/sec",
+   "25 rad/sec"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "For Reaction CuO+H2 → Cu+H2O. Which statement is correct?",
+  "opts": [
+   "Cu is an oxidizing agent",
+   "H2 is oxidizing",
+   "This reaction is a displacement reaction",
+   "All of the given"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "When an object is projected upwards, at highest point which of the following statement is correct?",
+  "opts": [
+   "Potential energy is zero & Kinetic energy is maximum",
+   "Kinetic energy is zero & Potential energy is maximum",
+   "Potential energy and Kinetic energy both are equal",
+   "Potential energy and Kinetic energy both are zero"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following tag is used for inserting the largest heading in HTML?",
+  "opts": [
+   "head",
+   "< h2 >",
+   "< h1 >",
+   "< h6 > HTML"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "is the largest ecosystem on the Earth.",
+  "opts": [
+   "Desert",
+   "Forest",
+   "Sea",
+   "Grassland .........."
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which type of wave propagates in medium by forming crest and trough?",
+  "opts": [
+   "Longitudinal wave",
+   "Mechanical wave",
+   "Transverse wave",
+   "All the above"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In Biogas plant, digestion takes place in the absence of _________ .",
+  "opts": [
+   "Hydrogen",
+   "Carbon dioxide",
+   "Methane",
+   "Oxygen"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "If time taken for work increases then what happen to the value of power?",
+  "opts": [
+   "Increases",
+   "Decreases",
+   "Remains same",
+   "Becomes zero"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following statements are correct for an optical fiber? i. Optical fiber works on total internal reflection (TIR). ii. Core has higher refractive index than cladding. iii. Cladding is central region through which light propagates. iv. Core diameter is larger than cladding",
+  "opts": [
+   "(i) & (ii)",
+   "(iii) & (iv)",
+   "(i) & (iii)",
+   "(i), (ii), (iii) & (iv)"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following temperature is known as ''Absolute zero temperature''?",
+  "opts": [
+   "–",
+   "0° C",
+   "–",
+   "273.15 K"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Generally metal oxides are ________",
+  "opts": [
+   "Acidic",
+   "Basic",
+   "Amphoteric",
+   "Not possible"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following statements are correct for a unit? i. Unit has to be easily transportable ii. Unit has to be precisely defined iii. Unit can't be converted in to smaller and bigger unit iv. Unit has to be easily replicable",
+  "opts": [
+   "(i) & (iii)",
+   "(i), (iii) & (iv)",
+   "(i), (ii) & (iv)",
+   "(i), (ii), (iii) & (iv)"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "An object moves on a circular path with constant angular velocity. If radius of the circle is doubled then what happens to its centripetal force?",
+  "opts": [
+   "Becomes double",
+   "Becomes half",
+   "Becomes zero",
+   "Remains same"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "How do you start a formula in Excel?",
+  "opts": [
+   "By typing @",
+   "By typing #",
+   "By typing +",
+   "By typing ="
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which tab contains the options to change the font and paragraph formatting in MS word?",
+  "opts": [
+   "Home",
+   "Insert",
+   "View",
+   "Review MS word"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Refractive index of glass is 1.5 and speed of light in vacuum is 3×108 m/s then the speed of light in glass is _________",
+  "opts": [
+   "2 ×108 m/s",
+   "4.5×108 m/s",
+   "3×108 m/s",
+   "1.5×108 m/s"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "In a measurement experiment the measured observations are 22.40, 22.42, 22.44, 22.46 and 22.48 then what will be average absolute error?",
+  "opts": [
+   "0.44",
+   "0.044",
+   "0.24",
+   "0.024"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which of following is not form of calcium carbonate?",
+  "opts": [
+   "Lime stone",
+   "Chalk",
+   "Marble",
+   "Slaked lime"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which of the following is the lustrous non-metal?",
+  "opts": [
+   "Iodine",
+   "Carbon",
+   "Nitrogen",
+   "Bromine"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "If temperature of a conductor increases then its resistance will _______",
+  "opts": [
+   "Decrease",
+   "Increase",
+   "Remains same",
+   "Becomes zero"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "If total number of divisions on vernier scale is doubled then what will happen to its value of least count?",
+  "opts": [
+   "Becomes double",
+   "Becomes half",
+   "Remains same",
+   "Becomes one fourth"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following pairs is incorrect?",
+  "opts": [
+   "Tomato-Tartaric acid",
+   "Sour fruit-Citric acid",
+   "Sting of bite of ant-Methanoic acid",
+   "Curd-Lactic acid"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "For a conductor the ratio of voltage and current will give value of which physical quantity?",
+  "opts": [
+   "Charge",
+   "Electric flux",
+   "Capacitance",
+   "Resistance"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which metal does not react with oxygen at higher temperature?",
+  "opts": [
+   "Gold",
+   "Copper",
+   "Zinc",
+   "Aluminium"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "What is the shortcut key to start slide show in power point?",
+  "opts": [
+   "Shift + F5",
+   "F5",
+   "Ctrl + S",
+   "Alt + S"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following is an example of system software.",
+  "opts": [
+   "Google Chrome",
+   "Microsoft Excel",
+   "Adobe Reader",
+   "Unix"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "A metallic rod of length 2 m expands by 2 mm when its temperature increases from 100°C to 200°C then what will be the value of coefficient of linear expansion for this rod?",
+  "opts": [
+   "4×10–5 °C–1",
+   "1×10–5 °C–1",
+   "2×10–5 °C–1",
+   "5×10–5 °C–1"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Specific heat of an object will depend on which of the following?",
+  "opts": [
+   "Heat given",
+   "Mass of the object",
+   "Temperature of the object",
+   "All the above"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Noise pollution is measured in ________",
+  "opts": [
+   "Decibel",
+   "Newton",
+   "Dyne",
+   "Echo"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is not a unit of temperature?",
+  "opts": [
+   "Celsius",
+   "Fahrenheit",
+   "Kelvin",
+   "Candela"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Electric flux is maximum when the angle between electric field and surface area is ________",
+  "opts": [
+   "90°",
+   "60°",
+   "45°",
+   "0°"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Reverberations time of a hall is 5 second. If volume of the hall and total absorption of sound both are doubled then what will be new reverberation time?",
+  "opts": [
+   "2 Second",
+   "4 Second",
+   "9 Second",
+   "5 Second"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Element X gets converted into red and brown colour affected with moistured air and new compound Y is formed what will be compound X and Y?",
+  "opts": [
+   "X = Fe Y= Fe2O3",
+   "X = Ag Y= Ag2S",
+   "X = Cu Y= CuO",
+   "X = Al Y= Al2O3"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following statements are correct for LASER light? i. It is monochromatic ii It is polychromatic iii. It has low divergence iv. It has very high divergence",
+  "opts": [
+   "(i) & (iv)",
+   "(ii) & (iv)",
+   "(i), (ii), (iii) & (iv)",
+   "(i) & (iii)"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "What is PH value of human blood?",
+  "opts": [
+   "8.5",
+   "7.4",
+   "2.4",
+   "4.7"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Evaluate the limit: limₓ→₀ (eˣ + sin 2x − 1)/x.",
+  "opts": [
+   "0",
+   "2",
+   "3",
+   "−1"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Evaluate the integral: ∫ 2x sin(x² + 1) dx.",
+  "opts": [
+   "cos (x2+1) + C",
+   "cos (2x) + C",
+   "– cos (x2+1) + C",
+   "x cos (x2+1) + C"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Identify the correct sentence.",
+  "opts": [
+   "Gauri asked where I was going",
+   "Gauri asked that where I was going",
+   "Gauri asked where was I going",
+   "Gauri asked me where was I going"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "If [x 7] = [9 y-1] then x = ________, y = ________ .",
+  "opts": [
+   "9, 8",
+   "9, 6",
+   "9, 7",
+   "9, 9"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Select the correct spelling.",
+  "opts": [
+   "Enviroment",
+   "Environment",
+   "Envoirment",
+   "Enviranment"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following is not a type of communication?",
+  "opts": [
+   "Verbal",
+   "Non Verbal",
+   "Written",
+   "Mechanical"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "If f (x) = 3x+x2 then f (0) + f (1) = ________.",
+  "opts": [
+   "5",
+   "7",
+   "8",
+   "1"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Select the correct spelling.",
+  "opts": [
+   "Definately",
+   "Definetely",
+   "Definitely",
+   "Defenetly"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Identify the correct sentence.",
+  "opts": [
+   "By the time we will reach, the show will start",
+   "By the time we reached, the show will start",
+   "By the time we reach, the show will be started",
+   "By the time we reach, the show will have started"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "log3 14 + log3 2 + log5 5 = _________.",
+  "opts": [
+   "1+log3 28",
+   "log3 29",
+   "log15 140",
+   "log3 140 log3 14 + log3 2 + log5 5 = _________."
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The team as well as the coaches _________ excited about the tournament (Select the correct option)",
+  "opts": [
+   "are",
+   "were",
+   "have been",
+   "is"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Equation of circle whose center is (4, –1) and radius 5 is _________ .",
+  "opts": [
+   "x2 + y2 + 8x – 2y – 8 = 0",
+   "x2 + y2 – 8x + 2y – 8 = 0",
+   "x2 – y2 + 8x – 2y – 8 = 0",
+   "x2 + y2 – 8x + 2y + 8 = 0"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Choose whichever option suits your project. (Identify the underlined part of speech)",
+  "opts": [
+   "Interrogative Pronoun",
+   "Relative Pronoun",
+   "Conjunction",
+   "Adjective"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Hardik __________ to Delhi twice this month.",
+  "opts": [
+   "has gone",
+   "went",
+   "goes",
+   "had gone"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "d d x (x2ex) = ––––––––– .",
+  "opts": [
+   "xex (x+1)",
+   "xex (x+3)",
+   "xex (x+2)",
+   "xex (x2+2) d d x (x2ex) = ––––––––– ."
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The most effective type of communication is _________ .",
+  "opts": [
+   "One-way",
+   "Two-way",
+   "Written only",
+   "Non-verbal only"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "3 (2, 1, –3) + (1, –1, 4) | = ________ .",
+  "opts": [
+   "28",
+   "78",
+   "76",
+   "14 | 3 (2, 1, –3) + (1, –1, 4) | = ________ ."
+  ],
+  "ans": 1
+ },
+ {
+  "q": "When a business apologizes for poor service, they send a _______ .",
+  "opts": [
+   "Order letter",
+   "Complaint letter",
+   "Adjustment letter",
+   "Inquiry letter"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "3ex – 4x) dx = ________ .",
+  "opts": [
+   "3ex – 4 + C",
+   "3ex – 4x2 + C",
+   "3ex – 2x2 + C",
+   "3ex – x2 + C # (3ex – 4x) dx = ________ ."
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In Communication 'Noise' refers to ________ .",
+  "opts": [
+   "Loud sound only",
+   "Any interference in the message",
+   "Feedback distortion",
+   "Misinterpreting symbols"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which inference can be drawn about Sreedharan's management style?",
+  "opts": [
+   "It depended heavily on external funding",
+   "It avoided challenging projects",
+   "It combined technical expertise with ethical governance",
+   "It prioritized speed over quality"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which leadership quality of Sreedharan is most directly responsible for timely project completion?",
+  "opts": [
+   "Flexibility in deadlines",
+   "Political networking",
+   "Delegation without supervision",
+   "Strict discipline and punctuality"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which organization did he lead successfully?",
+  "opts": [
+   "DMRC",
+   "DRDO",
+   "ISRO",
+   "ONGC"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which railway project faced major challenges but was completed successfully?",
+  "opts": [
+   "Golden Quadrilateral",
+   "Konkan Railway",
+   "Kolkata Metro",
+   "Delhi Metro"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Why is E.Sreedharan called the Metro Man of India?",
+  "opts": [
+   "He designed metro trains",
+   "He improved airport systems",
+   "He transformed metro rail systems",
+   "He worked on road transport systems"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In an email the 'BCC' field is used when you want to ________ .",
+  "opts": [
+   "Send a copy to every openly",
+   "Hide a recipient's address from other recipients",
+   "Send a high-priority message",
+   "Attach confidential files"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "A well-written enquiry letter must include ________ .",
+  "opts": [
+   "Specific questions to gather information",
+   "Details of past complaints",
+   "Irrelevant background details",
+   "Personal experiences"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Identify the correct sentence",
+  "opts": [
+   "Each student, teacher and staff were informed",
+   "Each student, teacher and staff has informed",
+   "Each student, teacher and staff was informed",
+   "Every student, teacher and staff were informing"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Proxemics' deals with ________ .",
+  "opts": [
+   "Smell",
+   "Touch",
+   "Use of space",
+   "Sound symbols"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Mean of observations 7, 6, 8, 4, 3, 2, 1, 11 is _________ .",
+  "opts": [
+   "5",
+   "6.25",
+   "5.25",
+   "6"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In a formal business letter the 'enclosure notation' is placed immediately after ________ .",
+  "opts": [
+   "Complimentary close",
+   "Signature block",
+   "Subject line",
+   "Salutation"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The full form of 'SMCR' in Berlo's model is ________ .",
+  "opts": [
+   "Sender Message Channel Receiver",
+   "Signal Message Code Response",
+   "System Model Communication Result",
+   "Sender Mode Communication Receiver"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The approval of the bridge design was assigned to two engineers. Both approved the design, (Identify the underlined parts of speech)",
+  "opts": [
+   "Adverb",
+   "Conjunction",
+   "Determiner",
+   "Pronoun"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "While the engineers ________ the machine, the power went off. (Select the correct option)",
+  "opts": [
+   "repair",
+   "are repairing",
+   "were repairing",
+   "have repaired"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Principal period of sin 7 3 2x - a k is ________ .",
+  "opts": [
+   "3π",
+   "3π/2",
+   "–3π",
+   "–3π/2 sin 7 3 2x - a k"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "logb3a2 × loga2b9 = _________ .",
+  "opts": [
+   "6",
+   "3",
+   "18",
+   "27 logb3a2 × loga2b9 = _________ ."
+  ],
+  "ans": 1
+ }
 ]
