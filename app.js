@@ -403,7 +403,7 @@ async function loadQuizzes() {
     document.getElementById('quizSubjectGrid').innerHTML = `<p class="empty">⚠️ Could not load the quizzes.<br><small>Please check your internet connection and refresh the page.</small></p>`;
     return;
   }
-  await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(() => [])));
+  await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(e => { bankErr[q.id] = true; console.error('Quiz file problem:', e.message); return []; })));
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
   renderQuizSubjects(); renderLbFilters(); renderLeaderboard();
 }
@@ -462,12 +462,18 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNoteMod
    QUIZ
 ══════════════════════════════════════════════════════ */
 const bankCache = {};
+const bankErr = {};
 const validQ = q => q && q.q && Array.isArray(q.opts) && q.opts.length === 4 && Number.isInteger(q.ans) && q.ans >= 0 && q.ans < 4;
 async function loadBank(id) {
   if (bankCache[id]) return bankCache[id];
   const meta = QUIZ_DATA.find(q => q.id === id);
-  const arr = await (await fetch('quizzes/' + meta.file, { cache: 'no-cache' })).json();
-  return (bankCache[id] = arr.filter(validQ));
+  const r = await fetch('quizzes/' + meta.file, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(meta.file + ': file not found (HTTP ' + r.status + ')');
+  let arr; try { arr = await r.json(); } catch (e) { throw new Error(meta.file + ': invalid JSON (' + e.message + ')'); }
+  if (!Array.isArray(arr)) throw new Error(meta.file + ': must be a list [ ... ] of questions');
+  const ok = arr.filter(validQ);
+  if (ok.length !== arr.length) console.warn(meta.file + ': ' + (arr.length - ok.length) + ' of ' + arr.length + ' questions skipped. Each needs "q", exactly 4 "opts", and "ans" as a number 0-3.');
+  return (bankCache[id] = ok);
 }
 function renderQuizSubjects() {
   const grid = document.getElementById('quizSubjectGrid');
@@ -480,7 +486,7 @@ function renderQuizSubjects() {
       <div class="subject-card-icon">${esc(quiz.icon)}</div>
       <h3>${esc(quiz.title)}</h3>
       <p>${esc(quiz.desc)}</p>
-      <span class="subject-count">${n ? n + ' Questions' : 'Coming soon'}</span>`;
+      <span class="subject-count">${n ? n + ' Questions' : (bankErr[quiz.id] ? 'Unavailable' : 'Coming soon')}</span>`;
     card.style.setProperty('--accent', quiz.color);
     if (!n) card.style.opacity = '.55';
     card.addEventListener('click', () => startQuiz(quiz.id));
