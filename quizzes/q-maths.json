@@ -1,102 +1,1102 @@
 [
- {
-  "q": "એકમ શ્રેણિક (Identity Matrix) I ના વિકર્ણ (Diagonal) ઘટકો કયા હોય છે?",
-  "opts": [
-   "0",
-   "1",
-   "ગમે તે સંખ્યા",
-   "-1"
-  ],
-  "ans": 1
- },
- {
-  "q": "શ્રેણિક A = [[2, 3], [1, 5]] નો નિશ્ચાયક (Determinant) શોધો.",
-  "opts": [
-   "13",
-   "7",
-   "10",
-   "11"
-  ],
-  "ans": 1
- },
- {
-  "q": "Jo y = x^n hoy to dy/dx shu thay?",
-  "opts": [
-   "nx^(n-1)",
-   "x^(n+1)",
-   "nx^n",
-   "0"
-  ],
-  "ans": 0
- },
- {
-  "q": "જો A એ 2x3 શ્રેણિક હોય અને B એ 3x2 શ્રેણિક હોય, તો AB શ્રેણિકનો ક્રમ (Order) શું થાય?",
-  "opts": [
-   "3x3",
-   "2x2",
-   "3x2",
-   "2x3"
-  ],
-  "ans": 1
- },
- {
-  "q": "Triangle ma trijo khuno ketlo thashe jo be khuna 60° ane 60° hoy?",
-  "opts": [
-   "90°",
-   "60°",
-   "45°",
-   "180°"
-  ],
-  "ans": 1
- },
- {
-  "q": "sin²θ + cos²θ barabar ketla thay?",
-  "opts": [
-   "0",
-   "1",
-   "2",
-   "tan²θ"
-  ],
-  "ans": 1
- },
- {
-  "q": "2x + 5 = 15 hoy to x ni value shu thashe?",
-  "opts": [
-   "10",
-   "5",
-   "20",
-   "2"
-  ],
-  "ans": 1
- },
- {
-  "q": "Circle no area find karva nu sutra shu chhe?",
-  "opts": [
-   "2πr",
-   "πr²",
-   "πd",
-   "1/2 bh"
-  ],
-  "ans": 1
- },
- {
-  "q": "Prime number (Avibhajya sankhya) niche na mathi kai chhe?",
-  "opts": [
-   "4",
-   "7",
-   "9",
-   "10"
-  ],
-  "ans": 1
- },
- {
-  "q": "સિમેટ્રિક શ્રેણિક (Symmetric Matrix) માટે કઈ શરત સાચી છે?",
-  "opts": [
-   "A = -A",
-   "A = Aᵀ",
-   "A = 0",
-   "A = I"
-  ],
-  "ans": 1
- }
+    {
+        "q": "એકમ શ્રેણિક (Identity Matrix) I ના વિકર્ણ (Diagonal) ઘટકો કયા હોય છે?",
+        "opts": [
+            "0",
+            "1",
+            "ગમે તે સંખ્યા",
+            "-1"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "શ્રેણિક A = [[2, 3], [1, 5]] નો નિશ્ચાયક (Determinant) શોધો.",
+        "opts": [
+            "13",
+            "7",
+            "10",
+            "11"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Jo y = x^n hoy to dy/dx shu thay?",
+        "opts": [
+            "nx^(n-1)",
+            "x^(n+1)",
+            "nx^n",
+            "0"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "જો A એ 2x3 શ્રેણિક હોય અને B એ 3x2 શ્રેણિક હોય, તો AB શ્રેણિકનો ક્રમ (Order) શું થાય?",
+        "opts": [
+            "3x3",
+            "2x2",
+            "3x2",
+            "2x3"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Triangle ma trijo khuno ketlo thashe jo be khuna 60° ane 60° hoy?",
+        "opts": [
+            "90°",
+            "60°",
+            "45°",
+            "180°"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "sin²θ + cos²θ barabar ketla thay?",
+        "opts": [
+            "0",
+            "1",
+            "2",
+            "tan²θ"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "2x + 5 = 15 hoy to x ni value shu thashe?",
+        "opts": [
+            "10",
+            "5",
+            "20",
+            "2"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Circle no area find karva nu sutra shu chhe?",
+        "opts": [
+            "2πr",
+            "πr²",
+            "πd",
+            "1/2 bh"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Prime number (Avibhajya sankhya) niche na mathi kai chhe?",
+        "opts": [
+            "4",
+            "7",
+            "9",
+            "10"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "સિમેટ્રિક શ્રેણિક (Symmetric Matrix) માટે કઈ શરત સાચી છે?",
+        "opts": [
+            "A = -A",
+            "A = Aᵀ",
+            "A = 0",
+            "A = I"
+        ],
+        "ans": 1
+    }
+{
+        "q": "Jo z = 3 + 4i hoy, to |z| (modulus) shu thashe?",
+        "opts": [
+            "3",
+            "4",
+            "5",
+            "7"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of x^2 dx shu thay?",
+        "opts": [
+            "x^3/3 + c",
+            "2x + c",
+            "x^2/2 + c",
+            "3x^3 + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (sin x) ni value shu thashe?",
+        "opts": [
+            "cos x",
+            "-cos x",
+            "sin x",
+            "-sin x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration of 1/x dx = ?",
+        "opts": [
+            "-1/x^2 + c",
+            "log x + c",
+            "e^x + c",
+            "x + c"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Complex number ma i^2 ni value shu thay?",
+        "opts": [
+            "1",
+            "-1",
+            "0",
+            "i"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Binduo (0,0) ane (3,4) vacche nu antar (distance) ketlu thashe?",
+        "opts": [
+            "5",
+            "7",
+            "25",
+            "1"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Rekha (Line) 2x + 3y = 6 no dhal (slope) ketlo thay?",
+        "opts": [
+            "2/3",
+            "-2/3",
+            "3/2",
+            "-3/2"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Vikalan (Differentiation) of e^x shu thashe?",
+        "opts": [
+            "e^x",
+            "e^x + c",
+            "log x",
+            "1/x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Sankalan (Integration) of e^x dx shu thashe?",
+        "opts": [
+            "e^x + c",
+            "x e^x + c",
+            "log x + c",
+            "e^x/x + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Circle nu samikaran x^2 + y^2 = 25 hoy to teni trijya (radius) ketli thashe?",
+        "opts": [
+            "25",
+            "10",
+            "5",
+            "100"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of a^x dx = ?",
+        "opts": [
+            "a^x / log a + c",
+            "a^x * log a + c",
+            "x a^(x-1)",
+            "a^x + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (tan x) shu thay?",
+        "opts": [
+            "sec^2 x",
+            "cot x",
+            "-sec^2 x",
+            "sec x tan x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Jo z = a + ib hoy to teno conjugate (anubadh) z-bar shu thay?",
+        "opts": [
+            "a - ib",
+            "-a + ib",
+            "-a - ib",
+            "a + ib"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (log x) = ?",
+        "opts": [
+            "1/x",
+            "-1/x^2",
+            "x",
+            "e^x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "X-axis no dhal (slope) ketlo hoy chhe?",
+        "opts": [
+            "1",
+            "0",
+            "Anant (Infinite)",
+            "-1"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Y-axis no dhal (slope) ketlo hoy chhe?",
+        "opts": [
+            "0",
+            "1",
+            "Anant (Undefined)",
+            "-1"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of cos(x) dx = ?",
+        "opts": [
+            "sin(x) + c",
+            "-sin(x) + c",
+            "tan(x) + c",
+            "-cos(x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (cos x) = ?",
+        "opts": [
+            "sin x",
+            "-sin x",
+            "-cos x",
+            "tan x"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Jo m1 ane m2 be lamb (perpendicular) rekhao na dhal hoy, to m1m2 = ?",
+        "opts": [
+            "1",
+            "-1",
+            "0",
+            "anant"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Jo be rekhao samantar (parallel) hoy to temna dhal m1 ane m2 mate shu sachu chhe?",
+        "opts": [
+            "m1 = m2",
+            "m1 * m2 = -1",
+            "m1 + m2 = 0",
+            "m1 - m2 = 1"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration of sec^2(x) dx = ?",
+        "opts": [
+            "tan(x) + c",
+            "-tan(x) + c",
+            "sec(x) + c",
+            "cot(x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (uv) no gunakar no niyam shu chhe?",
+        "opts": [
+            "u(dv/dx) + v(du/dx)",
+            "u(dv/dx) - v(du/dx)",
+            "(uv)'",
+            "u'v'"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Niyat sankalan (Definite integration) limit 0 thi 1 mate (x) dx = ?",
+        "opts": [
+            "1/2",
+            "1",
+            "0",
+            "2"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Complex number z = 1 + i no argument (amplitude) ketlo thay?",
+        "opts": [
+            "pi/2",
+            "pi/4",
+            "pi/3",
+            "pi"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "d/dx (x^n) = ?",
+        "opts": [
+            "n x^(n-1)",
+            "x^(n+1)/(n+1)",
+            "n^x",
+            "x^n / n"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Ugam bindu (Origin) na yam (coordinates) shu hoy chhe?",
+        "opts": [
+            "(1,1)",
+            "(0,1)",
+            "(1,0)",
+            "(0,0)"
+        ],
+        "ans": 3
+    },
+    {
+        "q": "Integration of dx / (1+x^2) = ?",
+        "opts": [
+            "tan^-1(x) + c",
+            "cot^-1(x) + c",
+            "sin^-1(x) + c",
+            "log(1+x^2) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (sin^-1 x) = ?",
+        "opts": [
+            "1 / sqrt(1-x^2)",
+            "1 / (1+x^2)",
+            "-1 / sqrt(1-x^2)",
+            "cos^-1 x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (c), jya c achal (constant) chhe, teni value shu thashe?",
+        "opts": [
+            "c",
+            "1",
+            "0",
+            "c^2"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Definite integration (Niyat sankalan) ma achal 'c' aave ke nahi?",
+        "opts": [
+            "Aave",
+            "Nahi Aave",
+            "Kahi na shakay",
+            "0 thay"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Integration of e^(2x) dx = ?",
+        "opts": [
+            "e^(2x) / 2 + c",
+            "2 e^(2x) + c",
+            "e^(2x) + c",
+            "e^x / 2 + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Complex number i no Modulus shu thay?",
+        "opts": [
+            "0",
+            "1",
+            "-1",
+            "i"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Point (x,y) nu Ugam bindu (0,0) thi antar (distance) shu thay?",
+        "opts": [
+            "sqrt(x^2 + y^2)",
+            "x^2 + y^2",
+            "x + y",
+            "sqrt(x+y)"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx [f(x) + g(x)] no sarvala niyam shu thay?",
+        "opts": [
+            "f'(x) * g'(x)",
+            "f'(x) + g'(x)",
+            "f(x) - g(x)",
+            "0"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Rekha na samikaran y = mx + c ma 'm' shu darshave chhe?",
+        "opts": [
+            "y-intercept",
+            "x-intercept",
+            "Slope (Dhal)",
+            "Origin"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Rekha na samikaran y = mx + c ma 'c' shu darshave chhe?",
+        "opts": [
+            "Slope",
+            "x-intercept",
+            "y-intercept",
+            "Angle"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of 0 dx shu thay?",
+        "opts": [
+            "0",
+            "1",
+            "c (constant)",
+            "x"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "d/dx (1/x) shu thay?",
+        "opts": [
+            "-1/x^2",
+            "log x",
+            "1/x^2",
+            "x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Jo y = u/v hoy to dy/dx no bhagakar (division) no niyam shu chhe?",
+        "opts": [
+            "[v(du/dx) - u(dv/dx)]/v^2",
+            "[u(dv/dx) - v(du/dx)]/v^2",
+            "u'/v'",
+            "uv' - vu'"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (sec x) = ?",
+        "opts": [
+            "sec x tan x",
+            "sec^2 x",
+            "tan x",
+            "-sec x tan x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "i^3 ni value shu thashe?",
+        "opts": [
+            "i",
+            "-i",
+            "1",
+            "-1"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "i^4 ni value shu thashe?",
+        "opts": [
+            "1",
+            "-1",
+            "i",
+            "-i"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration of sin(2x) dx = ?",
+        "opts": [
+            "-cos(2x)/2 + c",
+            "cos(2x)/2 + c",
+            "-sin(2x)/2 + c",
+            "2cos(2x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (sqrt(x)) = ?",
+        "opts": [
+            "1/(2sqrt(x))",
+            "1/sqrt(x)",
+            "2sqrt(x)",
+            "sqrt(x)/2"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Bindu (2, 3) no x-yam (abscissa) shu chhe?",
+        "opts": [
+            "2",
+            "3",
+            "5",
+            "1"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Bindu (2, 3) no y-yam (ordinate) shu chhe?",
+        "opts": [
+            "2",
+            "3",
+            "5",
+            "-3"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Circle na samikaran (x-h)^2 + (y-k)^2 = r^2 ma kendra (center) shu chhe?",
+        "opts": [
+            "(0,0)",
+            "(h,k)",
+            "(-h,-k)",
+            "(r,r)"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Integration of sec(x)tan(x) dx = ?",
+        "opts": [
+            "sec(x) + c",
+            "tan(x) + c",
+            "-sec(x) + c",
+            "sec^2(x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (cot x) = ?",
+        "opts": [
+            "-csc^2 x",
+            "csc^2 x",
+            "-cot x csc x",
+            "sec^2 x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration of 1/(sqrt(1-x^2)) dx = ?",
+        "opts": [
+            "sin^-1(x) + c",
+            "cos^-1(x) + c",
+            "tan^-1(x) + c",
+            "log(x) + c"
+        ],
+        "ans": 0
+    }
+    {
+        "q": "Vikalan samikaran (Differential Equation) dy/dx + y = 0 ni kaksha (Order) shu chhe?",
+        "opts": [
+            "0",
+            "1",
+            "2",
+            "Anant"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Vikalan samikaran (d^2y/dx^2) + (dy/dx)^3 = 0 nu pariman (Degree) ketlu chhe?",
+        "opts": [
+            "1",
+            "2",
+            "3",
+            "0"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration of csc^2(x) dx = ?",
+        "opts": [
+            "-cot(x) + c",
+            "cot(x) + c",
+            "tan(x) + c",
+            "-tan(x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (csc x) = ?",
+        "opts": [
+            "-csc x cot x",
+            "csc x cot x",
+            "csc^2 x",
+            "-cot^2 x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Jo z = x + iy hoy to z no mapank (modulus) r = ?",
+        "opts": [
+            "x^2 + y^2",
+            "sqrt(x^2 + y^2)",
+            "x + y",
+            "x - y"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "i^5 ni value shu thashe?",
+        "opts": [
+            "1",
+            "-1",
+            "i",
+            "-i"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of dx / (x^2 + a^2) = ?",
+        "opts": [
+            "1/a tan^-1(x/a) + c",
+            "tan^-1(x/a) + c",
+            "1/a sin^-1(x/a) + c",
+            "log(x^2 + a^2) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (cos^-1 x) = ?",
+        "opts": [
+            "1 / sqrt(1-x^2)",
+            "-1 / sqrt(1-x^2)",
+            "1 / (1+x^2)",
+            "-1 / (1+x^2)"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Rekha x/a + y/b = 1 ma 'a' shu chhe?",
+        "opts": [
+            "x-intercept",
+            "y-intercept",
+            "Slope",
+            "Radius"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration limit 0 thi pi/2 mate sin(x) dx = ?",
+        "opts": [
+            "0",
+            "1",
+            "-1",
+            "pi/2"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "d/dx (e^3x) = ?",
+        "opts": [
+            "e^3x",
+            "3e^3x",
+            "e^3x / 3",
+            "3e^x"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Complex number (-3 - 4i) no modulus shu thashe?",
+        "opts": [
+            "-5",
+            "5",
+            "7",
+            "25"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Circle x^2 + y^2 = r^2 nu field (area) ketlu thay?",
+        "opts": [
+            "2pir",
+            "pir^2",
+            "pid",
+            "4/3pir^3"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Integration of dx / sqrt(a^2 - x^2) = ?",
+        "opts": [
+            "sin^-1(x/a) + c",
+            "1/a sin^-1(x/a) + c",
+            "cos^-1(x/a) + c",
+            "1/a tan^-1(x/a) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (tan^-1 x) = ?",
+        "opts": [
+            "1 / sqrt(1-x^2)",
+            "1 / (1+x^2)",
+            "-1 / (1+x^2)",
+            "sec^2 x"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Differential equation d^2y/dx^2 = 0 ni kaksha (Order) ketli chhe?",
+        "opts": [
+            "1",
+            "2",
+            "0",
+            "Anant"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "i^6 ni value shu thashe?",
+        "opts": [
+            "1",
+            "-1",
+            "i",
+            "-i"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Bindu (4, -3) kyu charan (quadrant) ma aave?",
+        "opts": [
+            "Pratham (1st)",
+            "Dritiya (2nd)",
+            "Trutiya (3rd)",
+            "Chaturth (4th)"
+        ],
+        "ans": 3
+    },
+    {
+        "q": "Integration of x^n dx = ? (jyare n != -1)",
+        "opts": [
+            "x^(n+1)/(n+1) + c",
+            "n x^(n-1) + c",
+            "log(x^n) + c",
+            "x^n + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (a^x) = ?",
+        "opts": [
+            "a^x",
+            "a^x log(a)",
+            "a^x / log(a)",
+            "x a^(x-1)"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Rekha y - y1 = m(x - x1) ne kyau swarup (form) kahevay chhe?",
+        "opts": [
+            "Dhal-Bindu (Point-Slope)",
+            "Be-Bindu (Two-Point)",
+            "Antahkhand (Intercept)",
+            "Pramanit (Standard)"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration limit a thi a f(x) dx = ?",
+        "opts": [
+            "2 * f(a)",
+            "0",
+            "f(a) - f(-a)",
+            "1"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Complex number z = x + iy mate arg(z) = ?",
+        "opts": [
+            "tan^-1(y/x)",
+            "tan^-1(x/y)",
+            "sin^-1(y/x)",
+            "cos^-1(x/y)"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (log(ax)) = ?",
+        "opts": [
+            "1/x",
+            "a/x",
+            "1/(ax)",
+            "log(a)"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Differential equation dy/dx = x/y nu ukel (solution) kaya prakar nu aavshe?",
+        "opts": [
+            "Circle",
+            "Straight Line",
+            "Parabola",
+            "Hyperbola"
+        ],
+        "ans": 3
+    },
+    {
+        "q": "Integration of 1 dx = ?",
+        "opts": [
+            "0",
+            "x + c",
+            "1 + c",
+            "x^2/2 + c"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Be binduo (x1, y1) ane (x2, y2) vacche nu madhyabindu (midpoint) = ?",
+        "opts": [
+            "((x1+x2)/2, (y1+y2)/2)",
+            "((x1-x2)/2, (y1-y2)/2)",
+            "(x1+x2, y1+y2)",
+            "sqrt(x1x2 + y1y2)"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (x) = ?",
+        "opts": [
+            "0",
+            "1",
+            "x^2",
+            "c"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Complex number i^100 = ?",
+        "opts": [
+            "1",
+            "-1",
+            "i",
+            "-i"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Vikalan samikaran dy/dx = cos(x) nu ukel (solution) shu thashe?",
+        "opts": [
+            "y = sin(x) + c",
+            "y = -sin(x) + c",
+            "y = cos(x) + c",
+            "y = -cos(x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration by parts (Khandash: sankalan) no niyam: Int(uv dx) = ?",
+        "opts": [
+            "uInt(v dx) - Int(du/dx * Int(v dx))",
+            "uv - Int(dudv)",
+            "Int(u)Int(v)",
+            "u'v - uv'"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (sec^-1 x) = ?",
+        "opts": [
+            "1 / (xsqrt(x^2-1))",
+            "1 / sqrt(x^2-1)",
+            "1 / (1+x^2)",
+            "sec x tan x"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Circle x^2 + y^2 = 9 ni trijya (radius) ketli thashe?",
+        "opts": [
+            "9",
+            "3",
+            "81",
+            "18"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Integration of dx / (x^2 - a^2) = ?",
+        "opts": [
+            "1/2a log|(x-a)/(x+a)| + c",
+            "1/a tan^-1(x/a) + c",
+            "1/2a log|(a-x)/(a+x)| + c",
+            "log|x + sqrt(x^2-a^2)| + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Polar swarup (Polar form) of complex number z = r(cos t + i sin t) ma 'r' shu chhe?",
+        "opts": [
+            "Argument",
+            "Modulus",
+            "Real part",
+            "Imaginary part"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Jo dhal m1 = 2 ane m2 = -1/2 hoy, to banne rekhao ekbija sathe kevi hase?",
+        "opts": [
+            "Samantar (Parallel)",
+            "Lamb (Perpendicular)",
+            "Sampaati (Coincident)",
+            "Ek pan nahi"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "d/dx (x^3 - 2x + 5) = ?",
+        "opts": [
+            "3x^2 - 2",
+            "3x^2 + 5",
+            "x^2 - 2",
+            "3x - 2"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Integration of -sin(x) dx = ?",
+        "opts": [
+            "-cos(x) + c",
+            "cos(x) + c",
+            "sin(x) + c",
+            "-sin(x) + c"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Bindu (-2, 5) kyu charan (quadrant) ma aave?",
+        "opts": [
+            "1st",
+            "2nd",
+            "3rd",
+            "4th"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Vikalan samikaran ma degree (pariman) kyare avyakhyaait (undefined) hoy?",
+        "opts": [
+            "Jyare order 1 hoy",
+            "Jyare derivative fractional power ma hoy",
+            "Jyare derivative sin, cos ke log ni andar aave",
+            "Kyarey nahi"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of 1 / (ax+b) dx = ?",
+        "opts": [
+            "log|ax+b| + c",
+            "1/a log|ax+b| + c",
+            "a log|ax+b| + c",
+            "-1/(ax+b)^2 + c"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "d/dx (1/x^2) = ?",
+        "opts": [
+            "-2/x^3",
+            "2/x^3",
+            "-1/x^3",
+            "log(x^2)"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Complex number z = 0 + 2i no real part shu chhe?",
+        "opts": [
+            "0",
+            "2",
+            "2i",
+            "i"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Rekha 3x - 4y + 10 = 0 no y-intercept ketlo thashe?",
+        "opts": [
+            "10",
+            "-10",
+            "10/4 (2.5)",
+            "-10/3"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of e^x (f(x) + f'(x)) dx = ?",
+        "opts": [
+            "e^x f(x) + c",
+            "e^x f'(x) + c",
+            "f(x) + c",
+            "e^x + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "d/dx (sqrt(x^2 + 1)) = ?",
+        "opts": [
+            "1 / (2sqrt(x^2+1))",
+            "x / sqrt(x^2+1)",
+            "2x / sqrt(x^2+1)",
+            "x^2 / sqrt(x^2+1)"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Differential Equation (dy/dx)^2 + y = x ma Order ane Degree shu chhe?",
+        "opts": [
+            "Order=1, Degree=1",
+            "Order=1, Degree=2",
+            "Order=2, Degree=1",
+            "Order=2, Degree=2"
+        ],
+        "ans": 1
+    },
+    {
+        "q": "Be rekhao x = 0 ane y = 0 vacche no khuno (angle) ketlo hoy?",
+        "opts": [
+            "0°",
+            "45°",
+            "90°",
+            "180°"
+        ],
+        "ans": 2
+    },
+    {
+        "q": "Integration of tan^2(x) dx = ?",
+        "opts": [
+            "tan(x) - x + c",
+            "sec^2(x) + c",
+            "tan(x) + c",
+            "sec(x)tan(x) + c"
+        ],
+        "ans": 0
+    },
+    {
+        "q": "Jo z = a + ib hoy, to z + z-bar (conjugate) = ?",
+        "opts": [
+            "2a",
+            "2ib",
+            "0",
+            "a^2 + b^2"
+        ],
+        "ans": 0
+    }
 ]
