@@ -1,5 +1,4 @@
 [
-<<<<<<< HEAD
  {
   "q": "In an identity matrix, what are the diagonal elements?",
   "opts": [
@@ -499,9 +498,8 @@
    "tan x − x + c"
   ],
   "ans": 3
- }
-=======
-    {
+ },
+ {
         "q": "એકમ શ્રેણિક (Identity Matrix) I ના વિકર્ણ (Diagonal) ઘટકો કયા હોય છે?",
         "opts": [
             "0",
@@ -600,7 +598,7 @@
             "A = I"
         ],
         "ans": 1
-    }
+    },
 {
         "q": "Jo z = 3 + 4i hoy, to |z| (modulus) shu thashe?",
         "opts": [
@@ -1100,7 +1098,7 @@
             "log(x) + c"
         ],
         "ans": 0
-    }
+    },
     {
         "q": "Vikalan samikaran (Differential Equation) dy/dx + y = 0 ni kaksha (Order) shu chhe?",
         "opts": [
@@ -1601,5 +1599,5 @@
         ],
         "ans": 0
     }
->>>>>>> 3a2ee1f802ae8a4b8571966974d3265f5e0d685b
+
 ]
