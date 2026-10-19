@@ -200,6 +200,7 @@
   "ans": 0
  },
  {
+<<<<<<< HEAD
   "q": "Which of the following temperatures is known as absolute zero?",
   "opts": [
    "0 °C",
@@ -208,6 +209,16 @@
    "100 °C"
   ],
   "ans": 1
+=======
+  "q": "Which of the following temperature is known as ''Absolute zero temperature''?",
+  "opts": [
+   "–",
+   "0° C",
+   "–",
+   "273.15 K"
+  ],
+  "ans": 2
+>>>>>>> 3a2ee1f802ae8a4b8571966974d3265f5e0d685b
  },
  {
   "q": "Generally metal oxides are ________",
@@ -818,6 +829,7 @@
    "27 logb3a2 × loga2b9 = _________ ."
   ],
   "ans": 1
+<<<<<<< HEAD
  },
  {
   "q": "Four capacitors having same value of 4 µF are connected in series then what will be their equivalent capacitance?",
@@ -848,5 +860,7 @@
    "Recipient's Address"
   ],
   "ans": 3
+=======
+>>>>>>> 3a2ee1f802ae8a4b8571966974d3265f5e0d685b
  }
 ]

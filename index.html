@@ -27,15 +27,15 @@
                 <span class="logo-text">AcademIQ</span>
             </div>
             <h2 class="login-title" id="authTitle">Welcome Back</h2>
-            <p class="login-sub">Enrollment number se sign in karo</p>
+            <p class="login-sub">Sign in with your enrollment number</p>
             <div class="form-group"><label>Enrollment No. (12 digit)</label><input type="text" id="loginEnroll" inputmode="numeric" maxlength="12" placeholder="12 digit enrollment" autocomplete="username" /></div>
             <div class="form-group hidden" id="regOnly"><label>Full Name</label><input type="text" id="loginName" maxlength="40" placeholder="Tumhara naam" autocomplete="name" /></div>
             <div class="form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="min 6 characters" autocomplete="current-password" /></div>
-            <div class="form-group hidden" id="regOnly2"><label>Confirm Password</label><input type="password" id="loginPassword2" placeholder="Dobara likho" autocomplete="new-password" /></div>
+            <div class="form-group hidden" id="regOnly2"><label>Confirm Password</label><input type="password" id="loginPassword2" placeholder="Re-enter password" autocomplete="new-password" /></div>
             <div id="loginError" class="login-error hidden"></div>
             <button class="btn-primary full-width" id="authBtn" onclick="handleLogin()">Sign In →</button>
-            <p class="login-hint" id="authSwitch">Pehli baar? <a href="#" onclick="setAuthMode('register');return false">Register karo</a></p>
-            <p class="login-hint">Naam + enrollment sirf AcademIQ ke liye save hota hai.</p>
+            <p class="login-hint" id="authSwitch">New here? <a href="#" onclick="setAuthMode('register');return false">Create an account</a></p>
+            <p class="login-hint">Your name and enrollment number are stored only for AcademIQ.</p>
         </div>
     </div>
 
@@ -265,13 +265,13 @@
                     <div class="leaderboard-table-wrap">
                         <table class="leaderboard-table"><thead id="lbHead"></thead><tbody id="leaderboardBody"></tbody></table>
                     </div>
-                    <p class="lb-note">Rank = best % (sirf 20+ questions wale quiz). Barabari par zyada questions wala upar. Overall points = har subject ke best % ka jod.</p>
+                    <p class="lb-note">Ranking is by best percentage (quizzes with 20+ questions only). Ties are broken by the number of questions. Overall points = the sum of your best % in each subject.</p>
                 </div>
                 <div id="lbPanelPeople" class="hidden">
                     <div class="lb-stats" id="peopleStats"></div>
                     <div class="leaderboard-table-wrap">
                         <table class="leaderboard-table">
-                            <thead><tr><th>#</th><th>Student</th><th>Kaun se quiz diye</th><th>Attempts</th><th>Best %</th></tr></thead>
+                            <thead><tr><th>#</th><th>Student</th><th>Quizzes taken</th><th>Attempts</th><th>Best %</th></tr></thead>
                             <tbody id="peopleBody"></tbody>
                         </table>
                     </div>

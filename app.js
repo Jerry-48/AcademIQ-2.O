@@ -11,7 +11,10 @@ let quizzesFromSheet = false;
 async function api(body) {
   const r = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(body) });
   const t = await r.text();
-  try { return JSON.parse(t); } catch (e) { throw new Error('NOT_JSON: ' + t.slice(0, 80)); }
+  let j; try { j = JSON.parse(t); } catch (e) { throw new Error('NOT_JSON: ' + t.slice(0, 80)); }
+  if (j && j.error === 'replaced' && localStorage.getItem('iq_token')) forceLogout('You were signed out because this account was signed in on another device.');
+  else if (j && j.error === 'auth' && body.token && localStorage.getItem('iq_token')) forceLogout('Your session has expired. Please sign in again.');
+  return j;
 }
 const pdfUrl = f => 'pdfs/' + encodeURIComponent(f); // relative path: works on any repo/site name
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -142,7 +145,7 @@ function setAuthMode(m) {
   document.getElementById('authTitle').textContent = m === 'login' ? 'Welcome Back' : 'Create Account';
   document.getElementById('authBtn').textContent = m === 'login' ? 'Sign In →' : 'Register →';
   document.getElementById('authSwitch').innerHTML = m === 'login'
-    ? 'Pehli baar? <a href="#" onclick="setAuthMode(\'register\');return false">Register karo</a>'
+    ? 'New here? <a href="#" onclick="setAuthMode(\'register\');return false">Create an account</a>'
     : 'Already registered? <a href="#" onclick="setAuthMode(\'login\');return false">Sign in</a>';
   document.getElementById('loginError').classList.add('hidden');
 }
@@ -169,9 +172,9 @@ function sessionState() {
 function checkSessionExpiry() {
   const st = sessionState();
   if (st === 'ok') return true;
-  if (st === 'max') forceLogout('Session 6 ghante ka tha. Dobara login karo.');
-  else if (st === 'idle') forceLogout('30 minute idle rehne se logout ho gaya. Dobara login karo.');
-  else forceLogout(localStorage.getItem('iq_user') ? 'Please login again (new enrollment login).' : '');
+  if (st === 'max') forceLogout('Your session has ended (6-hour limit). Please sign in again.');
+  else if (st === 'idle') forceLogout('You were signed out after 30 minutes of inactivity. Please sign in again.');
+  else forceLogout(localStorage.getItem('iq_user') ? 'Please sign in again.' : '');
   return false;
 }
 ['click', 'keydown', 'touchstart', 'scroll'].forEach(ev => window.addEventListener(ev, () => {
@@ -183,36 +186,40 @@ setInterval(() => {
   const st = sessionState();
   if (st === 'max' || st === 'idle') { checkSessionExpiry(); return; }
   const idle = Date.now() - (Number(localStorage.getItem('iq_last')) || 0);
-  if (idle > IDLE_LIMIT - 3 * 60000 && !quizInProgress() && !window._warned) { window._warned = true; toast('⏳ 3 minute me idle logout ho jayega'); }
+  if (idle > IDLE_LIMIT - 3 * 60000 && !quizInProgress() && !window._warned) { window._warned = true; toast('⏳ You will be signed out in 3 minutes due to inactivity'); }
   if (idle < 60000) window._warned = false;
 }, 30000);
+
+const heartbeat = () => { if (localStorage.getItem('iq_token')) api({ action: 'me', token: localStorage.getItem('iq_token') }).catch(() => { }); };
+setInterval(heartbeat, 5 * 60 * 1000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) heartbeat(); });
 
 async function handleLogin() {
   const enroll = document.getElementById('loginEnroll').value.trim();
   const password = document.getElementById('loginPassword').value;
   const err = m => { const e = document.getElementById('loginError'); e.textContent = m; e.classList.remove('hidden'); };
-  if (!/^\d{12}$/.test(enroll)) return err('Enrollment number 12 digit ka hona chahiye.');
-  if (password.length < 6) return err('Password kam se kam 6 characters ka hona chahiye.');
+  if (!/^\d{12}$/.test(enroll)) return err('Enrollment number must be exactly 12 digits.');
+  if (password.length < 6) return err('Password must be at least 6 characters.');
   let name = '';
   if (authMode === 'register') {
     name = document.getElementById('loginName').value.trim();
-    if (name.length < 2) return err('Apna naam likho.');
-    if (password !== document.getElementById('loginPassword2').value) return err('Dono password match nahi hue.');
+    if (name.length < 2) return err('Please enter your full name.');
+    if (password !== document.getElementById('loginPassword2').value) return err('Passwords do not match.');
   }
   const btn = document.getElementById('authBtn'), label = btn.textContent;
   btn.disabled = true; btn.textContent = 'Please wait…';
   let res = null, ex = '';
   try { res = await api({ action: authMode, enrollment: enroll, name, password, browser: navigator.userAgent }); } catch (e) { ex = e.message; console.error(e); }
   btn.disabled = false; btn.textContent = label;
-  if (!res) return err(ex.startsWith('NOT_JSON') ? 'Server ne galat reply diya. config.js ka URL aur Apps Script deployment check karo. [Reply: ' + ex.slice(10).replace(/\s+/g, ' ').slice(0, 70) + ']' : 'Server se connect nahi hua. Internet ya Apps Script deployment (access: Anyone) check karo.');
+  if (!res) { console.error('Login request failed:', ex); return err(navigator.onLine === false ? 'No internet connection. Please connect and try again.' : 'Unable to reach the server right now. Please try again in a moment.'); }
   if (!res.ok) {
     return err({
-      exists: '⚠️ Ye enrollment number already registered hai. Sign in karo. Agar tumne register nahi kiya, to admin ko batao.',
-      notfound: 'Ye enrollment registered nahi hai. Pehle Register karo.',
-      bad: 'Password galat hai.',
-      locked: 'Bahut zyada galat try. 10 minute baad dobara try karo.',
-      format: 'Enrollment number 12 digit ka hona chahiye.',
-      invalid: 'Naam (min 2) aur password (min 6) check karo.'
+      exists: '⚠️ This enrollment number is already registered. Please sign in. If you did not register it, contact the admin.',
+      notfound: 'This enrollment number is not registered. Please create an account first.',
+      bad: 'Incorrect password.',
+      locked: 'Too many failed attempts. Please try again in 10 minutes.',
+      format: 'Enrollment number must be exactly 12 digits.',
+      invalid: 'Please check your name (min 2 characters) and password (min 6).'
     }[res.error] || 'Error: ' + res.error);
   }
   localStorage.setItem('iq_user', res.name);
@@ -269,7 +276,7 @@ function initApp() {
   updateHomeScore();
   renderLbFilters();
   loadNotes(); loadQuizzes();
-  api({ action: 'me', token: localStorage.getItem('iq_token') }).then(r => { if (!r.ok && r.error === 'auth') forceLogout('Session khatam ho gaya. Dobara login karo.'); else if (r.ok && r.uid) { localStorage.setItem('iq_uid', r.uid); renderLeaderboard(); } }).catch(() => { });
+  api({ action: 'me', token: localStorage.getItem('iq_token') }).then(r => { if (!r.ok && r.error === 'auth') forceLogout('Your session has expired. Please sign in again.'); else if (r.ok && r.uid) { localStorage.setItem('iq_uid', r.uid); renderLeaderboard(); } }).catch(() => { });
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
   const hsh = location.hash.slice(1);
   if (['notes', 'quiz', 'leaderboard'].includes(hsh)) navTo(hsh);
@@ -350,15 +357,15 @@ function openAddNote() {
   m = document.createElement('div'); m.id = 'addNoteModal'; m.className = 'modal-overlay';
   m.onclick = e => { if (e.target === m) m.remove(); };
   const folders = [...new Set(NOTES.filter(n => String(n.subject).startsWith('f:')).map(n => n.subject))];
-  m.innerHTML = `<div class="modal-card" style="max-width:520px"><div class="modal-header"><h3>➕ Note share karo</h3><button class="modal-close" id="snX">✕</button></div>
-    <div class="modal-body adm-card" style="border:0;margin:0"><p class="adm-msg" style="margin-bottom:.8rem">Admin approve karega, uske baad sabko dikhega. Tum delete nahi kar sakte.</p>
-    <div class="adm-row"><input id="snTitle" maxlength="80" placeholder="Title (khali = file name)"></div>
-    <div class="adm-row"><select id="snSubj">${Object.entries(SUBJ_LABELS).map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}${folders.map(f => `<option value="${esc(f)}">📁 ${esc(f.slice(2))}</option>`).join('')}<option value="__new">➕ Naya folder…</option></select>
+  m.innerHTML = `<div class="modal-card" style="max-width:520px"><div class="modal-header"><h3>➕ Share a note</h3><button class="modal-close" id="snX">✕</button></div>
+    <div class="modal-body adm-card" style="border:0;margin:0"><p class="adm-msg" style="margin-bottom:.8rem">An admin reviews every submission before it appears for everyone. You cannot delete it afterwards.</p>
+    <div class="adm-row"><input id="snTitle" maxlength="80" placeholder="Title (leave blank to use the file name)"></div>
+    <div class="adm-row"><select id="snSubj">${Object.entries(SUBJ_LABELS).map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}${folders.map(f => `<option value="${esc(f)}">📁 ${esc(f.slice(2))}</option>`).join('')}<option value="__new">➕ New folder…</option></select>
       <select id="snType">${['Notes', 'Paper', 'Assignment', 'Question Bank', 'Book', 'Tutorial'].map(t => `<option>${t}</option>`).join('')}</select></div>
-    <div class="adm-row hidden" id="snNewRow"><input id="snNew" maxlength="40" placeholder="Naye folder ka naam"></div>
+    <div class="adm-row hidden" id="snNewRow"><input id="snNew" maxlength="40" placeholder="New folder name"></div>
     <div class="adm-row"><input type="file" id="snFile" accept="application/pdf"></div>
-    <div class="adm-row"><span class="adm-msg">ya</span><input id="snLink" placeholder="Google Drive share link"></div>
-    <button class="btn-primary" id="snGo">Bhejo</button> <span class="adm-msg" id="snMsg"></span></div></div>`;
+    <div class="adm-row"><span class="adm-msg">or</span><input id="snLink" placeholder="Google Drive share link"></div>
+    <button class="btn-primary" id="snGo">Submit</button> <span class="adm-msg" id="snMsg"></span></div></div>`;
   document.body.appendChild(m);
   m.querySelector('#snX').onclick = () => m.remove();
   m.querySelector('#snSubj').onchange = e => m.querySelector('#snNewRow').classList.toggle('hidden', e.target.value !== '__new');
@@ -368,35 +375,35 @@ async function submitNote() {
   const $ = id => document.getElementById(id), msg = $('snMsg'), btn = $('snGo');
   const f = $('snFile').files[0], link = $('snLink').value.trim();
   let subject = $('snSubj').value;
-  if (subject === '__new') { const nm = $('snNew').value.replace(/[<>]/g, '').trim(); if (nm.length < 2) { msg.textContent = 'Folder ka naam likho'; return; } subject = 'f:' + nm.slice(0, 40); }
-  if (!f && !link) { msg.textContent = 'PDF choose karo ya Drive link do'; return; }
+  if (subject === '__new') { const nm = $('snNew').value.replace(/[<>]/g, '').trim(); if (nm.length < 2) { msg.textContent = 'Enter a folder name'; return; } subject = 'f:' + nm.slice(0, 40); }
+  if (!f && !link) { msg.textContent = 'Choose a PDF or paste a Drive link'; return; }
   const body = { action: 'submitNote', token: localStorage.getItem('iq_token'), title: $('snTitle').value.trim(), subject, type: $('snType').value };
-  btn.disabled = true; msg.textContent = 'Bhej raha hu…';
+  btn.disabled = true; msg.textContent = 'Submitting…';
   try {
     if (f) {
-      if (!/\.pdf$/i.test(f.name)) throw new Error('Sirf PDF allowed hai');
-      if (f.size > 10 * 1024 * 1024) throw new Error('File 10 MB se badi hai');
+      if (!/\.pdf$/i.test(f.name)) throw new Error('Only PDF files are allowed');
+      if (f.size > 10 * 1024 * 1024) throw new Error('File is larger than 10 MB');
       body.name = f.name; body.data = await toB64(f);
     } else {
-      const id = (link.match(/[-\w]{25,}/) || [])[0]; if (!id) throw new Error('Drive link sahi nahi lag raha'); body.fileId = id;
+      const id = (link.match(/[-\w]{25,}/) || [])[0]; if (!id) throw new Error('That does not look like a valid Drive link'); body.fileId = id;
     }
     const r = await api(body);
-    if (!r.ok) throw new Error({ limit: 'Aaj ke 5 submissions poore ho gaye', size: 'File 10 MB se badi hai', notpdf: 'Ye PDF file nahi hai', subject: 'Subject/folder galat', link: 'Drive link sahi nahi', auth: 'Session khatam, dobara login karo' }[r.error] || r.error);
-    document.getElementById('addNoteModal').remove(); toast('✅ Bhej diya! Approval ke baad sabko dikhega.');
+    if (!r.ok) throw new Error({ limit: "You have reached today's limit of 5 submissions", size: 'File is larger than 10 MB', notpdf: 'This is not a valid PDF file', subject: 'Invalid subject or folder', link: 'Invalid Drive link', auth: 'Your session has expired. Please sign in again.' }[r.error] || 'Something went wrong. Please try again.');
+    document.getElementById('addNoteModal').remove(); toast('✅ Submitted! It will appear after admin approval.');
   } catch (e) { msg.textContent = '❌ ' + e.message; btn.disabled = false; }
 }
 async function loadQuizzes() {
   try {
     const r = await fetch('quizzes/index.json', { cache: 'no-cache' });
-    if (!r.ok) throw new Error('quizzes/index.json nahi mili (HTTP ' + r.status + ')');
+    if (!r.ok) throw new Error('quizzes/index.json not found (HTTP ' + r.status + ')');
     QUIZ_DATA = await r.json();
   } catch (e) {
     QUIZ_DATA = [];
     console.error('loadQuizzes failed:', e);
-    document.getElementById('quizSubjectGrid').innerHTML = `<p class="empty">⚠️ Quiz list load nahi hui.<br><small>${esc(e.message)}<br>Check karo: repo me <b>quizzes/</b> folder upload hua? (index.json + q-*.json + ddcet.json)</small></p>`;
+    document.getElementById('quizSubjectGrid').innerHTML = `<p class="empty">⚠️ Could not load the quizzes.<br><small>Please check your internet connection and refresh the page.</small></p>`;
     return;
   }
-  await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(() => [])));
+  await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(e => { bankErr[q.id] = true; console.error('Quiz file problem:', e.message); return []; })));
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
   renderQuizSubjects(); renderLbFilters(); renderLeaderboard();
 }
@@ -420,9 +427,9 @@ function renderNotes(filter = notesFilter) {
       </div>
       <div class="note-actions">
         <button class="note-btn view" data-act="view" data-id="${esc(n.id)}">👁 View</button>
-        <a class="note-btn download" href="${esc(n.dl)}" target="_blank" rel="noopener">⬇ Download</a>
+        <a class="note-btn download" href="${esc(n.dl)}" ${n.fileId ? 'target="_blank" rel="noopener"' : 'download'}>⬇ Download</a>
       </div>
-    </div>`).join('') : '<p class="empty">Koi file nahi mili 🔍</p>';
+    </div>`).join('') : '<p class="empty">No files found 🔍</p>';
 }
 document.getElementById('notesGrid').addEventListener('click', e => {
   const b = e.target.closest('[data-act="view"]');
@@ -437,12 +444,11 @@ function filterNotes(filter, btn) {
 
 function viewNote(id) {
   const n = NOTES.find(x => String(x.id) === String(id)); if (!n) return;
-  const isDrive = !!n.fileId;
-  if (!isDrive && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) { window.open(n.view, '_blank', 'noopener'); return; }
+  const src = n.fileId ? n.view : 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(new URL(n.view, location.href).href);
   document.getElementById('modalTitle').textContent = n.title;
   document.getElementById('modalBody').innerHTML =
-    `<iframe class="pdf-frame" src="${esc(n.view)}${isDrive ? '' : '#view=FitH'}" title="${esc(n.title)}" allow="autoplay"></iframe>
-     <p class="pdf-fallback">PDF nahi dikh rahi? <a href="${esc(n.view)}" target="_blank" rel="noopener">New tab me kholo ↗</a></p>`;
+    `<iframe class="pdf-frame" src="${esc(src)}" title="${esc(n.title)}" allow="autoplay"></iframe>
+     <p class="pdf-fallback">Can't see the PDF? <a href="${esc(n.dl)}" target="_blank" rel="noopener">Open in a new tab ↗</a></p>`;
   document.getElementById('noteModal').classList.remove('hidden');
 }
 function closeNoteModalBtn() {
@@ -456,12 +462,18 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNoteMod
    QUIZ
 ══════════════════════════════════════════════════════ */
 const bankCache = {};
+const bankErr = {};
 const validQ = q => q && q.q && Array.isArray(q.opts) && q.opts.length === 4 && Number.isInteger(q.ans) && q.ans >= 0 && q.ans < 4;
 async function loadBank(id) {
   if (bankCache[id]) return bankCache[id];
   const meta = QUIZ_DATA.find(q => q.id === id);
-  const arr = await (await fetch('quizzes/' + meta.file, { cache: 'no-cache' })).json();
-  return (bankCache[id] = arr.filter(validQ));
+  const r = await fetch('quizzes/' + meta.file, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(meta.file + ': file not found (HTTP ' + r.status + ')');
+  let arr; try { arr = await r.json(); } catch (e) { throw new Error(meta.file + ': invalid JSON (' + e.message + ')'); }
+  if (!Array.isArray(arr)) throw new Error(meta.file + ': must be a list [ ... ] of questions');
+  const ok = arr.filter(validQ);
+  if (ok.length !== arr.length) console.warn(meta.file + ': ' + (arr.length - ok.length) + ' of ' + arr.length + ' questions skipped. Each needs "q", exactly 4 "opts", and "ans" as a number 0-3.');
+  return (bankCache[id] = ok);
 }
 function renderQuizSubjects() {
   const grid = document.getElementById('quizSubjectGrid');
@@ -474,7 +486,7 @@ function renderQuizSubjects() {
       <div class="subject-card-icon">${esc(quiz.icon)}</div>
       <h3>${esc(quiz.title)}</h3>
       <p>${esc(quiz.desc)}</p>
-      <span class="subject-count">${n ? n + ' Questions' : 'Coming soon'}</span>`;
+      <span class="subject-count">${n ? n + ' Questions' : (bankErr[quiz.id] ? 'Unavailable' : 'Coming soon')}</span>`;
     card.style.setProperty('--accent', quiz.color);
     if (!n) card.style.opacity = '.55';
     card.addEventListener('click', () => startQuiz(quiz.id));
@@ -486,7 +498,7 @@ async function startQuiz(quizId) {
   const meta = QUIZ_DATA.find(q => q.id === quizId);
   let bank = [];
   try { bank = await loadBank(quizId); } catch (e) { }
-  if (!bank.length) { toast('Is quiz me abhi questions nahi hain'); return; }
+  if (!bank.length) { toast('This quiz has no questions yet'); return; }
   const opts = [];
   for (let n = 10; n <= Math.min(100, bank.length); n += 10) opts.push(n);
   if (bank.length < 100 && !opts.includes(bank.length)) opts.push(bank.length);
@@ -495,9 +507,9 @@ async function startQuiz(quizId) {
   m.onclick = e => { if (e.target === m) m.remove(); };
   m.innerHTML = `<div class="modal-card" style="max-width:460px">
     <div class="modal-header"><h3>${esc(meta.title)}</h3><button class="modal-close" id="cmClose">✕</button></div>
-    <div class="modal-body"><p style="margin-bottom:1rem">Kitne questions ka quiz dena hai? <span class="adm-msg">(Bank: ${bank.length})</span></p>
+    <div class="modal-body"><p style="margin-bottom:1rem">How many questions would you like? <span class="adm-msg">(Bank: ${bank.length})</span></p>
     <div class="count-grid">${opts.map(n => `<button class="filter-btn" data-n="${n}">${n}</button>`).join('')}</div>
-    <p class="count-note">⚠️ Leaderboard me sirf ${MIN_LB}+ questions wale quiz count hote hain. Usse chhota practice hai.</p></div></div>`;
+    <p class="count-note">⚠️ Only quizzes with ${MIN_LB}+ questions count towards the leaderboard. Shorter quizzes are practice only.</p></div></div>`;
   document.body.appendChild(m);
   m.querySelector('#cmClose').onclick = () => m.remove();
   m.querySelector('.count-grid').onclick = e => { const b = e.target.closest('button'); if (b) { m.remove(); beginQuiz(meta, bank, +b.dataset.n); } };
@@ -713,7 +725,7 @@ function renderLeaderboard() {
     podium.appendChild(card);
   });
   const tbody = document.getElementById('leaderboardBody');
-  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">Abhi koi score nahi (${MIN_LB}+ questions ka quiz do) 🎯</td></tr>`; return; }
+  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">No scores yet (take a quiz with ${MIN_LB}+ questions) 🎯</td></tr>`; return; }
   tbody.innerHTML = rows.map((r, i) => {
     const me = myKey() && meKey(r.s) === myKey();
     return `<tr ${me ? 'style="background:rgba(245,158,11,0.05)"' : ''}>
@@ -732,7 +744,7 @@ function renderPeople() {
   document.getElementById('peopleBody').innerHTML = list.length ? list.map((x, i) => `<tr>
     <td>${i + 1}</td><td>${whoHtml(x.s)}${myKey() && meKey(x.s) === myKey() ? ' <span style="font-size:.7rem;color:var(--amber)">(you)</span>' : ''}</td>
     <td>${[...x.subs].map(t => `<span class="subj-chip">${esc(t)}</span>`).join('')}</td><td>${x.n}</td><td>${Math.round(x.best * 100)}%</td></tr>`).join('')
-    : '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">Abhi kisi ne quiz nahi diya.</td></tr>';
+    : '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:2rem">Nobody has taken a quiz yet.</td></tr>';
 }
 
 /* ══════════════════════════════════════════════════════

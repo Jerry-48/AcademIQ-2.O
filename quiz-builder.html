@@ -11,18 +11,18 @@ button{padding:.65rem 1.1rem;border:0;border-radius:8px;background:var(--am);col
 .q{border-bottom:1px solid var(--bd);padding:.6rem 0}.ok{color:#34d399;font-weight:700}.bad{color:#f87171}pre{white-space:pre-wrap;background:#0006;padding:.7rem;border-radius:8px}
 </style></head><body>
 <h1>🛠 AcademIQ Quiz Builder</h1>
-<p class="dim">Questions is format me paste karo (har question ke beech ek khaali line). Optional: <b>Exp:</b> line me explanation.</p>
+<p class="dim">Paste questions in this format (one blank line between questions). Optional: add an <b>Exp:</b> line for an explanation.</p>
 <pre>Question text?
 A) option 1
 B) option 2
 C) option 3
 D) option 4
 Answer: B
-Exp: (optional) kyun sahi hai</pre>
+Exp: (optional) why this is correct</pre>
 <div class="card">
-  <textarea id="txt" placeholder="Yahan questions paste karo…"></textarea>
-  <button onclick="parse()">1. Preview banao</button>
-  <label class="g"><span class="dim">Purani quiz file me add karna ho to wo file choose karo:</span> <input type="file" id="old" accept=".json"></label>
+  <textarea id="txt" placeholder="Paste questions here…"></textarea>
+  <button onclick="parse()">1. Generate preview</button>
+  <label class="g"><span class="dim">To add to an existing quiz, choose its JSON file:</span> <input type="file" id="old" accept=".json"></label>
 </div>
 <div id="out"></div>
 <script>
@@ -37,7 +37,7 @@ function parseText(t) {
     const optL = L.filter(l => /^[A-D][).:]\s*\S/i.test(l));
     const qText = L.filter(l => l !== ansL && l !== expL && !optL.includes(l)).join(' ');
     const ans = ansL ? 'ABCD'.indexOf((ansL.split(/[:=]/)[1] || '').trim()[0]?.toUpperCase()) : -1;
-    if (!qText || optL.length !== 4 || ans < 0) { errs.push(`Block ${i + 1}: format galat (4 options A–D + Answer chahiye) → "${L[0].slice(0, 50)}"`); return; }
+    if (!qText || optL.length !== 4 || ans < 0) { errs.push(`Block ${i + 1}: invalid format (needs 4 options A–D and an Answer line) → "${L[0].slice(0, 50)}"`); return; }
     const q = { q: qText, opts: optL.map(l => l.replace(/^[A-D][).:]\s*/i, '')), ans };
     if (expL) q.exp = expL.replace(/^exp\s*[:=]\s*/i, ''); out.push(q);
   });
@@ -47,14 +47,14 @@ async function parse() {
   const { out, errs } = parseText($('txt').value);
   let base = [];
   const f = $('old').files[0];
-  if (f) { try { base = JSON.parse(await f.text()); if (!Array.isArray(base)) throw 0; } catch (e) { alert('Purani file sahi JSON array nahi hai'); return; } }
+  if (f) { try { base = JSON.parse(await f.text()); if (!Array.isArray(base)) throw 0; } catch (e) { alert('The selected file is not a valid quiz JSON array'); return; } }
   bank = [...base, ...out];
   const seen = {}, dups = [];
   bank.forEach((q, i) => { const k = q.q.toLowerCase().replace(/\s+/g, ' '); if (seen[k] !== undefined) dups.push(i + 1); else seen[k] = i; });
-  $('out').innerHTML = `<div class="card"><b>${bank.length}</b> questions (${base.length} purane + ${out.length} naye)
+  $('out').innerHTML = `<div class="card"><b>${bank.length}</b> questions (${base.length} existing + ${out.length} new)
     ${errs.length ? `<p class="bad">${errs.map(esc).join('<br>')}</p>` : ''}
-    ${dups.length ? `<p class="bad">⚠️ Duplicate questions: #${dups.join(', #')} (hata ke dobara try karo)</p>` : ''}
-    <p class="dim">Har question me <span class="ok">hara</span> option = sahi answer. Ek baar dhyan se dekh lo.</p>
+    ${dups.length ? `<p class="bad">⚠️ Duplicate questions: #${dups.join(', #')} (remove them and try again)</p>` : ''}
+    <p class="dim">In each question, the <span class="ok">green</span> option is the correct answer. Please review carefully.</p>
     ${bank.map((q, i) => `<div class="q"><b>${i + 1}. ${esc(q.q)}</b><br>${q.opts.map((o, j) => `<span class="${j === q.ans ? 'ok' : ''}">${'ABCD'[j]}) ${esc(o)}</span>`).join(' &nbsp; ')}${q.exp ? `<br><span class="dim">💡 ${esc(q.exp)}</span>` : ''}</div>`).join('')}
     <p>Filename: <input id="fn" value="ddcet.json" style="max-width:260px"></p>
     <button onclick="dl()">⬇ Download JSON</button></div>`;
