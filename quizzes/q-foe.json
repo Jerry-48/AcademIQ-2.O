@@ -1,262 +1,402 @@
 [
  {
-  "q": "What is the full form of CPU?",
+  "q": "What is the unit of a resistor?",
   "opts": [
-   "Central Process Utility",
-   "Central Program Unit",
-   "Central Processing Unit",
-   "Computer Personal Unit"
+   "Farad",
+   "Ohm",
+   "Henry",
+   "Watt"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following is an example of an active component?",
+  "opts": [
+   "Resistor",
+   "Capacitor",
+   "Transistor",
+   "Inductor"
   ],
   "ans": 2
  },
  {
-  "q": "1 byte is equal to:",
+  "q": "Which of the following is a passive component?",
   "opts": [
-   "4 bits",
-   "16 bits",
-   "10 bits",
-   "8 bits"
+   "Diode",
+   "Transistor",
+   "Integrated Circuit",
+   "Resistor"
   ],
   "ans": 3
  },
  {
-  "q": "Which of the following is an input device?",
+  "q": "A pure semiconductor without any added impurities is known as:",
   "opts": [
-   "Monitor",
-   "Keyboard",
-   "Speaker",
-   "Printer"
+   "Extrinsic semiconductor",
+   "Intrinsic semiconductor",
+   "P-type semiconductor",
+   "N-type semiconductor"
   ],
   "ans": 1
  },
  {
-  "q": "Which of the following is an output device?",
+  "q": "What is the full form of LED?",
   "opts": [
-   "Keyboard",
-   "Scanner",
-   "Monitor",
-   "Mouse"
+   "Light Emitting Diode",
+   "Low Energy Device",
+   "Light Electrical Diode",
+   "Linear Energy Diode"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which diode is primarily used as a light detector?",
+  "opts": [
+   "Zener Diode",
+   "Tunnel Diode",
+   "Photodiode",
+   "Varactor Diode"
   ],
   "ans": 2
  },
  {
-  "q": "RAM is a ______ memory.",
+  "q": "What is the typical forward voltage drop of a Germanium diode?",
   "opts": [
-   "Permanent",
-   "Volatile",
-   "Non-volatile",
-   "Optical"
+   "0.7 V",
+   "0.3 V",
+   "1.2 V",
+   "5.0 V"
   ],
   "ans": 1
  },
  {
-  "q": "ROM stands for:",
+  "q": "What is the typical forward voltage drop of a Silicon diode?",
   "opts": [
-   "Read Original Memory",
-   "Run On Memory",
-   "Read Only Memory",
-   "Random Only Memory"
-  ],
-  "ans": 2
- },
- {
-  "q": "Which part is called the brain of the computer?",
-  "opts": [
-   "Monitor",
-   "Hard disk",
-   "RAM",
-   "CPU"
-  ],
-  "ans": 3
- },
- {
-  "q": "The binary equivalent of decimal 5 is:",
-  "opts": [
-   "111",
-   "101",
-   "011",
-   "110"
+   "0.3 V",
+   "0.7 V",
+   "1.5 V",
+   "0.1 V"
   ],
   "ans": 1
  },
  {
-  "q": "Which number system has base 2?",
+  "q": "What is the formula for the Q-factor of a coil?",
   "opts": [
-   "Octal",
-   "Decimal",
-   "Binary",
-   "Hexadecimal"
+   "R / XL",
+   "XL / R",
+   "XC / R",
+   "R / XC"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "In a Light Dependent Resistor (LDR), what happens when the light intensity increases?",
+  "opts": [
+   "Resistance increases",
+   "Resistance decreases",
+   "Resistance remains constant",
+   "Voltage drops to zero"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Electrolytic capacitors are mainly known for:",
+  "opts": [
+   "Being non-polarized",
+   "Having very low capacitance",
+   "Being polarized (must be connected correctly)",
+   "Used only in AC circuits"
   ],
   "ans": 2
  },
  {
-  "q": "The base of the hexadecimal number system is:",
+  "q": "Capacitors are generally classified based on their:",
   "opts": [
-   "8",
+   "Core material",
+   "Dielectric material",
+   "Wire thickness",
+   "Color"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Inductors are generally classified based on their:",
+  "opts": [
+   "Dielectric material",
+   "Core material",
+   "Plate area",
+   "Insulation"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "According to Faraday's First Law, changing the magnetic field linked with a conductor induces:",
+  "opts": [
+   "Resistance",
+   "Capacitance",
+   "EMF (Voltage)",
+   "Power"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "What is the exact color code for a 47Ω ±5% resistor?",
+  "opts": [
+   "Yellow, Violet, Black, Gold",
+   "Yellow, Violet, Brown, Gold",
+   "Red, Violet, Black, Silver",
+   "Yellow, Blue, Black, Gold"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which type of impurity is added to pure silicon to make a P-type semiconductor?",
+  "opts": [
+   "Pentavalent",
+   "Trivalent",
+   "Tetravalent",
+   "Hexavalent"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which type of impurity is added to pure silicon to make an N-type semiconductor?",
+  "opts": [
+   "Trivalent",
+   "Pentavalent",
+   "Bivalent",
+   "Monovalent"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "In a P-type semiconductor, the majority charge carriers are:",
+  "opts": [
+   "Electrons",
+   "Protons",
+   "Holes",
+   "Neutrons"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In an N-type semiconductor, the majority charge carriers are:",
+  "opts": [
+   "Holes",
+   "Electrons",
+   "Ions",
+   "Positrons"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "What is the formula for Ripple Factor (r)?",
+  "opts": [
+   "Vdc / Vrms(AC)",
+   "Vrms(AC) / Vdc",
+   "Idc / Irms",
+   "Pac / Pdc"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "What does PIV stand for in rectifier circuits?",
+  "opts": [
+   "Peak Input Voltage",
+   "Peak Inverse Voltage",
+   "Positive Input Voltage",
+   "Phase Inverse Voltage"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "A Bridge Rectifier uses how many diodes in its circuit?",
+  "opts": [
+   "1",
    "2",
-   "10",
-   "16"
+   "3",
+   "4"
   ],
   "ans": 3
  },
  {
-  "q": "Which of the following is system software?",
+  "q": "Which component is most widely used for voltage regulation?",
   "opts": [
-   "Tally",
-   "Operating system",
-   "MS Word",
-   "Photoshop"
+   "Photodiode",
+   "Zener Diode",
+   "Crystal Diode",
+   "LED"
   ],
   "ans": 1
  },
  {
-  "q": "Which of the following is NOT an operating system?",
+  "q": "An LED emits light due to which phenomenon?",
   "opts": [
-   "Android",
-   "Linux",
-   "Windows",
-   "Oracle Database"
-  ],
-  "ans": 3
- },
- {
-  "q": "HTML stands for:",
-  "opts": [
-   "Home Tool Markup Language",
-   "HyperTool Multi Language",
-   "HyperText Markup Language",
-   "HighText Machine Language"
+   "Photoelectric effect",
+   "Electromagnetic induction",
+   "Electron-hole recombination",
+   "Thermal emission"
   ],
   "ans": 2
  },
  {
-  "q": "URL stands for:",
+  "q": "What is the main function of a filter circuit in a power supply?",
   "opts": [
-   "Universal Resource Link",
-   "Unified Resource Location",
-   "Uniform Resource Locator",
-   "Uniform Reference Locator"
+   "Step up the voltage",
+   "Convert pulsating DC to smooth DC",
+   "Convert DC to AC",
+   "Regulate the voltage"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "A bipolar junction transistor (BJT) has three terminals named:",
+  "opts": [
+   "Anode, Cathode, Gate",
+   "Source, Drain, Gate",
+   "Emitter, Base, Collector",
+   "Input, Output, Ground"
   ],
   "ans": 2
  },
  {
-  "q": "Which of the following is a programming language?",
+  "q": "Which region of a transistor is the most heavily doped?",
   "opts": [
-   "HTTP",
-   "Wi-Fi",
-   "URL",
-   "Python"
+   "Base",
+   "Collector",
+   "Emitter",
+   "All are equally doped"
   ],
-  "ans": 3
+  "ans": 2
  },
  {
-  "q": "The shortcut key for copy is:",
+  "q": "Which region of a transistor is very thin and lightly doped?",
   "opts": [
-   "Ctrl + C",
-   "Ctrl + V",
-   "Ctrl + X",
-   "Ctrl + Z"
+   "Emitter",
+   "Base",
+   "Collector",
+   "Substrate"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The Alpha (α) of a transistor is the ratio of:",
+  "opts": [
+   "IC / IB",
+   "IB / IE",
+   "IC / IE",
+   "IE / IC"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The Beta (β) of a transistor is the ratio of:",
+  "opts": [
+   "IC / IB",
+   "IC / IE",
+   "IB / IE",
+   "IE / IB"
   ],
   "ans": 0
  },
  {
-  "q": "The shortcut key for paste is:",
+  "q": "Which equation correctly represents the relation between Alpha (α) and Beta (β)?",
   "opts": [
-   "Ctrl + V",
-   "Ctrl + P",
-   "Ctrl + C",
-   "Ctrl + X"
+   "β = α / (1 + α)",
+   "β = α / (1 - α)",
+   "α = β / (1 - β)",
+   "α = 1 / β"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "When a transistor operates in the Cutoff region, it acts as an:",
+  "opts": [
+   "ON switch",
+   "Amplifier",
+   "OFF switch",
+   "Oscillator"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "When a transistor operates in the Saturation region, it acts as an:",
+  "opts": [
+   "OFF switch",
+   "ON switch",
+   "Voltage regulator",
+   "Current source"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "In a Common Emitter (CE) configuration, what is the phase shift between the input and output signals?",
+  "opts": [
+   "0°",
+   "90°",
+   "180°",
+   "270°"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "What is the multiplier value for the 'Red' color band in a resistor?",
+  "opts": [
+   "10^1",
+   "10^2",
+   "10^3",
+   "10^4"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "E-waste stands for:",
+  "opts": [
+   "Electrical waste",
+   "Electronic waste",
+   "Environmental waste",
+   "Energy waste"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "What is the tolerance value for a 'Gold' color band on a resistor?",
+  "opts": [
+   "±1%",
+   "±5%",
+   "±10%",
+   "±20%"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "A choke input filter primarily consists of:",
+  "opts": [
+   "A capacitor in series with the load",
+   "An inductor in series with the load",
+   "A resistor in parallel",
+   "Only a transformer"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Crystal diodes are primarily used for:",
+  "opts": [
+   "Voltage regulation",
+   "Radio signal detection",
+   "Emitting light",
+   "Power amplification"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "If the value of Alpha (α) is 0.98, what is the value of Beta (β)?",
+  "opts": [
+   "49",
+   "50",
+   "98",
+   "99"
   ],
   "ans": 0
- },
- {
-  "q": "A computer virus is a:",
-  "opts": [
-   "Search engine",
-   "Malicious program",
-   "Hardware device",
-   "Input device"
-  ],
-  "ans": 1
- },
- {
-  "q": "Which device is commonly used to connect computers in a LAN?",
-  "opts": [
-   "Plotter",
-   "Switch",
-   "Scanner",
-   "Printer"
-  ],
-  "ans": 1
- },
- {
-  "q": "LAN stands for:",
-  "opts": [
-   "Local Access Node",
-   "Large Area Network",
-   "Linked Area Network",
-   "Local Area Network"
-  ],
-  "ans": 3
- },
- {
-  "q": "WWW stands for:",
-  "opts": [
-   "World Wide Web",
-   "Wide World Web",
-   "World Web Wide",
-   "Web World Wide"
-  ],
-  "ans": 0
- },
- {
-  "q": "Which of the following is a search engine?",
-  "opts": [
-   "Windows",
-   "Google",
-   "Intel",
-   "Linux"
-  ],
-  "ans": 1
- },
- {
-  "q": "Which of the following is the fastest memory?",
-  "opts": [
-   "DVD",
-   "RAM",
-   "Hard disk",
-   "Cache memory"
-  ],
-  "ans": 3
- },
- {
-  "q": "CPU speed is measured in:",
-  "opts": [
-   "Pixel",
-   "GHz",
-   "dpi",
-   "GB"
-  ],
-  "ans": 1
- },
- {
-  "q": "1 KB is equal to:",
-  "opts": [
-   "100 bytes",
-   "1024 bytes",
-   "1000 bits",
-   "1024 bits"
-  ],
-  "ans": 1
- },
- {
-  "q": "Which of the following is a web browser?",
-  "opts": [
-   "Paint",
-   "Excel",
-   "Notepad",
-   "Chrome"
-  ],
-  "ans": 3
  }
 ]
