@@ -1,102 +1,502 @@
 [
  {
-  "q": "એકમ શ્રેણિક (Identity Matrix) I ના વિકર્ણ (Diagonal) ઘટકો કયા હોય છે?",
+  "q": "In an identity matrix, what are the diagonal elements?",
   "opts": [
-   "0",
+   "−1",
    "1",
-   "ગમે તે સંખ્યા",
-   "-1"
+   "Any number",
+   "0"
   ],
   "ans": 1
  },
  {
-  "q": "શ્રેણિક A = [[2, 3], [1, 5]] નો નિશ્ચાયક (Determinant) શોધો.",
+  "q": "Find the determinant of A = [[2, 3], [1, 5]].",
   "opts": [
+   "11",
    "13",
    "7",
-   "10",
-   "11"
+   "10"
   ],
-  "ans": 1
+  "ans": 2
  },
  {
-  "q": "Jo y = x^n hoy to dy/dx shu thay?",
+  "q": "If y = xⁿ, then dy/dx = ?",
   "opts": [
-   "nx^(n-1)",
-   "x^(n+1)",
-   "nx^n",
+   "nxⁿ⁻¹",
+   "nxⁿ",
+   "xⁿ⁺¹",
    "0"
   ],
   "ans": 0
  },
  {
-  "q": "જો A એ 2x3 શ્રેણિક હોય અને B એ 3x2 શ્રેણિક હોય, તો AB શ્રેણિકનો ક્રમ (Order) શું થાય?",
+  "q": "If A is a 2×3 matrix and B is a 3×2 matrix, the order of AB is:",
   "opts": [
-   "3x3",
-   "2x2",
-   "3x2",
-   "2x3"
+   "3×2",
+   "2×3",
+   "2×2",
+   "3×3"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "A matrix A is symmetric if:",
+  "opts": [
+   "A = I",
+   "A = 0",
+   "A = −A",
+   "A = Aᵀ"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "sin²θ + cos²θ = ?",
+  "opts": [
+   "tan²θ",
+   "0",
+   "2",
+   "1"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "If z = 3 + 4i, the modulus of z is:",
+  "opts": [
+   "3",
+   "5",
+   "7",
+   "4"
   ],
   "ans": 1
  },
  {
-  "q": "Triangle ma trijo khuno ketlo thashe jo be khuna 60° ane 60° hoy?",
+  "q": "∫x² dx = ?",
   "opts": [
-   "90°",
-   "60°",
-   "45°",
-   "180°"
+   "x²/2 + c",
+   "3x³ + c",
+   "2x + c",
+   "x³/3 + c"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "d/dx (sin x) = ?",
+  "opts": [
+   "−cos x",
+   "sin x",
+   "−sin x",
+   "cos x"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "∫(1/x) dx = ?",
+  "opts": [
+   "−1/x² + c",
+   "log x + c",
+   "eˣ + c",
+   "x + c"
   ],
   "ans": 1
  },
  {
-  "q": "sin²θ + cos²θ barabar ketla thay?",
+  "q": "The value of i² is:",
+  "opts": [
+   "1",
+   "−1",
+   "0",
+   "i"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The distance between (0, 0) and (3, 4) is:",
+  "opts": [
+   "5",
+   "25",
+   "1",
+   "7"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The slope of the line 2x + 3y = 6 is:",
+  "opts": [
+   "3/2",
+   "−2/3",
+   "−3/2",
+   "2/3"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "d/dx (eˣ) = ?",
+  "opts": [
+   "eˣ",
+   "log x",
+   "1/x",
+   "eˣ + c"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "∫eˣ dx = ?",
+  "opts": [
+   "log x + c",
+   "eˣ/x + c",
+   "xeˣ + c",
+   "eˣ + c"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The radius of the circle x² + y² = 25 is:",
+  "opts": [
+   "5",
+   "100",
+   "10",
+   "25"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "d/dx (tan x) = ?",
+  "opts": [
+   "sec x tan x",
+   "cot x",
+   "−sec²x",
+   "sec²x"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The conjugate of z = a + ib is:",
+  "opts": [
+   "−a + ib",
+   "a − ib",
+   "−a − ib",
+   "a + ib"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "d/dx (log x) = ?",
+  "opts": [
+   "1/x",
+   "eˣ",
+   "−1/x²",
+   "x"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The slope of the x-axis is:",
+  "opts": [
+   "1",
+   "0",
+   "Infinite",
+   "−1"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The slope of the y-axis is:",
+  "opts": [
+   "1",
+   "0",
+   "Undefined",
+   "−1"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "∫cos x dx = ?",
+  "opts": [
+   "−sin x + c",
+   "sin x + c",
+   "tan x + c",
+   "−cos x + c"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "d/dx (cos x) = ?",
+  "opts": [
+   "−sin x",
+   "sin x",
+   "tan x",
+   "−cos x"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "If two lines are perpendicular with slopes m₁ and m₂, then m₁m₂ = ?",
   "opts": [
    "0",
+   "∞",
    "1",
-   "2",
-   "tan²θ"
+   "−1"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "If two lines are parallel, then their slopes satisfy:",
+  "opts": [
+   "m₁ = m₂",
+   "m₁ − m₂ = 1",
+   "m₁ + m₂ = 0",
+   "m₁m₂ = −1"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "∫sec²x dx = ?",
+  "opts": [
+   "cot x + c",
+   "tan x + c",
+   "−tan x + c",
+   "sec x + c"
   ],
   "ans": 1
  },
  {
-  "q": "2x + 5 = 15 hoy to x ni value shu thashe?",
+  "q": "The product rule for d/dx (uv) is:",
   "opts": [
-   "10",
-   "5",
-   "20",
+   "u′v′",
+   "u(dv/dx) − v(du/dx)",
+   "u(dv/dx) + v(du/dx)",
+   "(u + v)′"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "∫₀¹ x dx = ?",
+  "opts": [
+   "1",
+   "1/2",
+   "0",
    "2"
   ],
   "ans": 1
  },
  {
-  "q": "Circle no area find karva nu sutra shu chhe?",
+  "q": "The argument of z = 1 + i is:",
   "opts": [
-   "2πr",
-   "πr²",
-   "πd",
-   "1/2 bh"
+   "π",
+   "π/4",
+   "π/3",
+   "π/2"
   ],
   "ans": 1
  },
  {
-  "q": "Prime number (Avibhajya sankhya) niche na mathi kai chhe?",
+  "q": "The coordinates of the origin are:",
   "opts": [
-   "4",
-   "7",
-   "9",
-   "10"
+   "(1, 1)",
+   "(0, 1)",
+   "(1, 0)",
+   "(0, 0)"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "∫dx/(1 + x²) = ?",
+  "opts": [
+   "tan⁻¹x + c",
+   "cot⁻¹x + c",
+   "sin⁻¹x + c",
+   "log(1 + x²) + c"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "d/dx (sin⁻¹x) = ?",
+  "opts": [
+   "1/√(1 − x²)",
+   "cos⁻¹x",
+   "1/(1 + x²)",
+   "−1/√(1 − x²)"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "d/dx (c), where c is a constant, is:",
+  "opts": [
+   "1",
+   "c²",
+   "c",
+   "0"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Does a definite integral contain the constant of integration c?",
+  "opts": [
+   "Cannot be said",
+   "No",
+   "Only for trigonometric functions",
+   "Yes"
   ],
   "ans": 1
  },
  {
-  "q": "સિમેટ્રિક શ્રેણિક (Symmetric Matrix) માટે કઈ શરત સાચી છે?",
+  "q": "∫e²ˣ dx = ?",
   "opts": [
-   "A = -A",
-   "A = Aᵀ",
-   "A = 0",
-   "A = I"
+   "e²ˣ + c",
+   "e²ˣ/2 + c",
+   "2e²ˣ + c",
+   "eˣ/2 + c"
   ],
   "ans": 1
+ },
+ {
+  "q": "The quotient rule for d/dx (u/v) is:",
+  "opts": [
+   "(v·du/dx − u·dv/dx)/v²",
+   "u′/v′",
+   "(u·dv/dx − v·du/dx)/v²",
+   "uv′ − vu′"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "d/dx (sec x) = ?",
+  "opts": [
+   "tan x",
+   "sec x tan x",
+   "sec²x",
+   "−sec x tan x"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "i³ = ?",
+  "opts": [
+   "−1",
+   "−i",
+   "i",
+   "1"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "i⁴ = ?",
+  "opts": [
+   "−i",
+   "1",
+   "i",
+   "−1"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "∫₀^(π/2) sin x dx = ?",
+  "opts": [
+   "−1",
+   "π/2",
+   "1",
+   "0"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The order of the differential equation dy/dx + y = 0 is:",
+  "opts": [
+   "0",
+   "3",
+   "2",
+   "1"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The degree of d²y/dx² + (dy/dx)³ = 0 is:",
+  "opts": [
+   "3",
+   "2",
+   "0",
+   "1"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "i¹⁰⁰ = ?",
+  "opts": [
+   "i",
+   "−i",
+   "−1",
+   "1"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "∫dx/√(1 − x²) = ?",
+  "opts": [
+   "cos⁻¹x + c",
+   "log x + c",
+   "sin⁻¹x + c",
+   "tan⁻¹x + c"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The equation y − y₁ = m(x − x₁) is called the:",
+  "opts": [
+   "general form",
+   "point-slope form",
+   "two-point form",
+   "intercept form"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The point (4, −3) lies in the:",
+  "opts": [
+   "second quadrant",
+   "third quadrant",
+   "fourth quadrant",
+   "first quadrant"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The midpoint of (x₁, y₁) and (x₂, y₂) is:",
+  "opts": [
+   "((x₁ + x₂)/2, (y₁ + y₂)/2)",
+   "√(x₁x₂ + y₁y₂)",
+   "(x₁ + x₂, y₁ + y₂)",
+   "((x₁ − x₂)/2, (y₁ − y₂)/2)"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "d/dx (x³ − 2x + 5) = ?",
+  "opts": [
+   "3x² − 2",
+   "3x − 2",
+   "3x² + 5",
+   "x² − 2"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The order and degree of (dy/dx)² + y = x are:",
+  "opts": [
+   "Order 2, Degree 1",
+   "Order 1, Degree 2",
+   "Order 1, Degree 1",
+   "Order 2, Degree 2"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "∫tan²x dx = ?",
+  "opts": [
+   "sec x tan x + c",
+   "tan x + c",
+   "sec²x + c",
+   "tan x − x + c"
+  ],
+  "ans": 3
  }
 ]

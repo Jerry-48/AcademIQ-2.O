@@ -1,10 +1,42 @@
 [
  {
+  "id": "q-comm",
+  "title": "Communication Skills in English",
+  "icon": "🗣️",
+  "color": "#ec4899",
+  "desc": "Grammar, vocabulary and communication basics",
+  "file": "q-comm.json"
+ },
+ {
+  "id": "q-math1",
+  "title": "Mathematics-I",
+  "icon": "➗",
+  "color": "#f97316",
+  "desc": "Algebra, trigonometry, matrices and coordinate geometry",
+  "file": "q-math1.json"
+ },
+ {
+  "id": "q-phy",
+  "title": "Modern Physics",
+  "icon": "⚛️",
+  "color": "#6366f1",
+  "desc": "Quantum basics, LASER, fibre optics and superconductivity",
+  "file": "q-phy.json"
+ },
+ {
+  "id": "q-ict",
+  "title": "Computer Fundamentals",
+  "icon": "💻",
+  "color": "#14b8a6",
+  "desc": "Hardware, software, number systems and the internet",
+  "file": "q-ict.json"
+ },
+ {
   "id": "q-maths",
   "title": "Applied Mathematics",
   "icon": "📐",
   "color": "#f59e0b",
-  "desc": "Matrices, Derivatives & Integration",
+  "desc": "Matrices, derivatives and integration",
   "file": "q-maths.json"
  },
  {
@@ -12,7 +44,7 @@
   "title": "Engineering Chemistry",
   "icon": "⚗️",
   "color": "#0ea5e9",
-  "desc": "Corrosion, Fuels, Lubricants & Polymers",
+  "desc": "Corrosion, fuels, lubricants and polymers",
   "file": "q-chem.json"
  },
  {
@@ -20,15 +52,15 @@
   "title": "Python Programming",
   "icon": "🐍",
   "color": "#3776ab",
-  "desc": "Basics, Data Types, Loops & Strings",
+  "desc": "Basics, data types, loops and strings",
   "file": "q-py.json"
  },
  {
   "id": "q-env",
-  "title": "પર્યાવરણ અને ટકાઉપણું",
+  "title": "Environment & Sustainability",
   "icon": "🌍",
   "color": "#10b981",
-  "desc": "પરિસ્થિતિકી, પ્રદૂષણ અને પુનઃપ્રાપ્ય ઉર્જા વિશે ૧૦ પ્રશ્નો",
+  "desc": "Ecology, pollution and renewable energy",
   "file": "q-env.json"
  },
  {
@@ -36,7 +68,7 @@
   "title": "DDCET",
   "icon": "🎯",
   "color": "#8b5cf6",
-  "desc": "DDCET preparation — questions quiz-builder se add karo",
+  "desc": "Practice questions for DDCET preparation",
   "file": "ddcet.json"
  }
 ]

@@ -1,102 +1,252 @@
 [
  {
-  "q": "ઇકોલોજી (Ecology) નીચેનામાંથી કોનો અભ્યાસ છે?",
+  "q": "Ecology is the study of:",
   "opts": [
-   "તારાઓનો",
-   "સજીવો અને પર્યાવરણ વચ્ચેના સંબંધોનો",
-   "રસાયણોનો",
-   "ઇતિહાસનો"
+   "Stars",
+   "Chemicals",
+   "History",
+   "Relationships between organisms and their environment"
   ],
-  "ans": 1
+  "ans": 3
  },
  {
-  "q": "નીચેનામાંથી કયો અજૈવિક (Abiotic) ઘટક છે?",
+  "q": "Which of the following is an abiotic component?",
   "opts": [
-   "વનસ્પતિ",
-   "પ્રાણીઓ",
-   "સૂર્યપ્રકાશ",
-   "બેક્ટેરિયા"
+   "Bacteria",
+   "Plants",
+   "Sunlight",
+   "Animals"
   ],
   "ans": 2
  },
  {
-  "q": "નિવસનતંત્રમાં ઉત્પાદકો (Producers) કોને કહેવાય?",
+  "q": "Producers in an ecosystem are:",
   "opts": [
-   "લીલી વનસ્પતિ",
-   "મનુષ્યો",
-   "સિંહ",
-   "મશરૂમ"
+   "Humans",
+   "Green plants",
+   "Mushrooms",
+   "Lions"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The ozone layer is present in the:",
+  "opts": [
+   "Troposphere",
+   "Exosphere",
+   "Mesosphere",
+   "Stratosphere"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which gases are responsible for acid rain?",
+  "opts": [
+   "SO₂ and NOₓ",
+   "O₂ and N₂",
+   "CO₂ and methane",
+   "Argon and neon"
   ],
   "ans": 0
  },
  {
-  "q": "ઓઝોન સ્તર વાતાવરણના કયા સ્તરમાં હોય છે?",
+  "q": "Which of the following waste is non-biodegradable?",
   "opts": [
-   "ટ્રોપોસ્ફિયર",
-   "સ્ટ્રેટોસ્ફિયર",
-   "મેસોસ્ફિયર",
-   "એક્ઝોસ્ફિયર"
-  ],
-  "ans": 1
- },
- {
-  "q": "એસિડ વર્ષા માટે કયા વાયુઓ જવાબદાર છે?",
-  "opts": [
-   "O2 અને N2",
-   "SO2 અને NOx",
-   "CO2 અને મિથેન",
-   "આર્ગોન અને નિયોન"
-  ],
-  "ans": 1
- },
- {
-  "q": "નીચેનામાંથી કયો કચરો કુદરતી રીતે સડતો નથી (Non-Biodegradable)?",
-  "opts": [
-   "કાગળ",
-   "ફળોની છાલ",
-   "પ્લાસ્ટિકની બોટલ",
-   "લાકડું"
-  ],
-  "ans": 2
- },
- {
-  "q": "ટકાઉ વિકાસ (Sustainable Development) એટલે શું?",
-  "opts": [
-   "માત્ર વર્તમાનનો વિકાસ",
-   "ભવિષ્યની જરૂરિયાતોને નુકસાન કર્યા વગરનો વિકાસ",
-   "ઝડપી ઔદ્યોગિક વિકાસ",
-   "બધી ફેક્ટરીઓ બંધ કરવી"
-  ],
-  "ans": 1
- },
- {
-  "q": "વિશ્વ પર્યાવરણ દિવસ ક્યારે ઉજવવામાં આવે છે?",
-  "opts": [
-   "૨૬ જાન્યુઆરી",
-   "૫ જૂન",
-   "૧૫ ઓગસ્ટ",
-   "૨ ઓક્ટોબર"
-  ],
-  "ans": 1
- },
- {
-  "q": "જંગલો કાપવા (Deforestation) ની મુખ્ય અસર કઈ છે?",
-  "opts": [
-   "જમીનનું ધોવાણ",
-   "વધારે વરસાદ",
-   "ઓક્સિજનમાં વધારો",
-   "ઠંડુ વાતાવરણ"
+   "Plastic bottle",
+   "Paper",
+   "Wood",
+   "Fruit peels"
   ],
   "ans": 0
  },
  {
-  "q": "સૌર ઉર્જા અને પવન ઉર્જા કેવા પ્રકારના સ્ત્રોત છે?",
+  "q": "Sustainable development means:",
   "opts": [
-   "પરંપરાગત",
-   "બિન-નવીનીકરણીય",
-   "પુનઃપ્રાપ્ય (Renewable)",
-   "પ્રદૂષણકારી"
+   "Development only for the present",
+   "Closing all factories",
+   "Development without compromising the needs of future generations",
+   "Rapid industrial growth"
   ],
   "ans": 2
+ },
+ {
+  "q": "World Environment Day is celebrated on:",
+  "opts": [
+   "5 June",
+   "2 October",
+   "26 January",
+   "15 August"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "What is the main effect of deforestation?",
+  "opts": [
+   "More oxygen",
+   "Soil erosion",
+   "More rainfall",
+   "Cooler climate"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Solar and wind energy are:",
+  "opts": [
+   "Polluting sources",
+   "Non-renewable sources",
+   "Renewable sources",
+   "Conventional sources"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which of the following is a greenhouse gas?",
+  "opts": [
+   "Nitrogen",
+   "Oxygen",
+   "Argon",
+   "Carbon dioxide"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The Montreal Protocol deals with:",
+  "opts": [
+   "Trade in wildlife",
+   "Ocean dumping",
+   "Ozone-depleting substances",
+   "Nuclear tests"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The Kyoto Protocol is related to:",
+  "opts": [
+   "Reduction of greenhouse gas emissions",
+   "Wetlands",
+   "Ozone layer only",
+   "Wildlife trade"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "BOD stands for:",
+  "opts": [
+   "Biochemical Oxygen Demand",
+   "Biological Oxygen Dose",
+   "Bio-organic Oxygen Data",
+   "Basic Oxygen Demand"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The 3Rs of waste management are:",
+  "opts": [
+   "Recover, Reduce, Restore",
+   "Reduce, Reuse, Recycle",
+   "Reduce, Repair, Remove",
+   "Reuse, Replace, Recycle"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following is a non-renewable resource?",
+  "opts": [
+   "Coal",
+   "Solar energy",
+   "Wind energy",
+   "Tidal energy"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is a biodiversity hotspot in India?",
+  "opts": [
+   "Western Ghats",
+   "Deccan Plateau",
+   "Gangetic Plain",
+   "Thar Desert"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is a primary air pollutant?",
+  "opts": [
+   "Carbon monoxide",
+   "Ozone in smog",
+   "PAN",
+   "Sulphuric acid mist"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Noise pollution is measured in:",
+  "opts": [
+   "Decibel",
+   "Watt",
+   "Hertz",
+   "Lux"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Eutrophication is caused by an excess of:",
+  "opts": [
+   "Sunlight",
+   "Nutrients such as nitrates and phosphates",
+   "Oxygen",
+   "Salt"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The Environment (Protection) Act in India was enacted in:",
+  "opts": [
+   "1972",
+   "1986",
+   "1981",
+   "1974"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The main component of biogas is:",
+  "opts": [
+   "Methane",
+   "Propane",
+   "Ethane",
+   "Hydrogen"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "A food chain always starts with:",
+  "opts": [
+   "Producers",
+   "Consumers",
+   "Carnivores",
+   "Decomposers"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following are decomposers?",
+  "opts": [
+   "Grass",
+   "Bacteria and fungi",
+   "Tiger",
+   "Deer"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which layer of the atmosphere is closest to the Earth?",
+  "opts": [
+   "Troposphere",
+   "Stratosphere",
+   "Mesosphere",
+   "Thermosphere"
+  ],
+  "ans": 0
  }
 ]
