@@ -24,12 +24,12 @@
   "file": "q-phy.json"
  },
  {
-  "id": "q-ict",
-  "title": "Computer Fundamentals",
+  "id": "q-foe",
+  "title": "Fundamentals of Electronics",
   "icon": "💻",
   "color": "#14b8a6",
   "desc": "Hardware, software, number systems and the internet",
-  "file": "q-ict.json"
+  "file": "q-foe.json"
  },
  {
   "id": "q-maths",

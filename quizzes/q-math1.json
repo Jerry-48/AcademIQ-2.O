@@ -1,4 +1,54 @@
 [
+    {
+  "q": "If f(x) = x³ - 1 then the value of f(-1) is ________.",
+  "opts": [
+   "0",
+   "-1",
+   "-2",
+   "1"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Evaluate: lim (x→0) (sin 6x) / 3x",
+  "opts": [
+   "0",
+   "1",
+   "2",
+   "6"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "What is the radius of the circle x² + y² = 25?",
+  "opts": [
+   "5",
+   "10",
+   "25",
+   "0"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "135° = _____ Radian",
+  "opts": [
+   "π/2",
+   "3π/4",
+   "π",
+   "2π/3"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "If log_a(a) is given, what is its value?",
+  "opts": [
+   "0",
+   "1",
+   "a",
+   "Infinity"
+  ],
+  "ans": 1
+ },
  {
   "q": "log₁₀ 100 = ?",
   "opts": [

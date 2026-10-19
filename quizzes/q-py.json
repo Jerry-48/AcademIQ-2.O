@@ -1,4 +1,54 @@
 [
+    {
+  "q": "What is the SI unit of heat?",
+  "opts": [
+   "Watt",
+   "Newton",
+   "Joule",
+   "Kelvin"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In which mode of heat transfer is a physical medium NOT required?",
+  "opts": [
+   "Conduction",
+   "Convection",
+   "Radiation",
+   "All of the above"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which property of light is responsible for the transmission of light through an optical fibre?",
+  "opts": [
+   "Diffraction",
+   "Total Internal Reflection",
+   "Dispersion",
+   "Polarization"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The core of an optical fiber has a ________ refractive index compared to the cladding.",
+  "opts": [
+   "Larger",
+   "Smaller",
+   "Equal",
+   "Zero"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "If the pitch of a micrometer screw gauge is 0.5 mm and there are 50 divisions on its circular scale, what is its least count?",
+  "opts": [
+   "0.05 mm",
+   "0.01 mm",
+   "0.02 mm",
+   "0.1 mm"
+  ],
+  "ans": 1
+ },
  {
   "q": "Which function is used to display output in Python?",
   "opts": [
