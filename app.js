@@ -17,7 +17,7 @@ async function api(body) {
   return j;
 }
 const pdfUrl = f => 'pdfs/' + encodeURIComponent(f); // relative path: works on any repo/site name
-const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; } return a; };
 function toast(msg) {
   let t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
@@ -26,7 +26,9 @@ function toast(msg) {
 }
 const SUBJECTS = [
   ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
-  ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i]
+  ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i], ['FOE', /^foe(?:[-_. ]|$)/i],
+  ['PHY', /^(?:phy|physics)(?:[-_. ]|$)/i],
+  ['CSE', /^cse(?:[-_. ]|$)/i]
 ];
 const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
 function typeOf(f) {
@@ -47,12 +49,12 @@ function typeOf(f) {
 const PDF_FILES = [
   "chemistry-ch-1-notes.pdf",
   "chemistry-ch-2-notes.pdf",
-  "chemistry-ch-3-notes.pdf",
-  "chemistry-ch-4-notes.pdf",
-  "chemistry-ch-5-notes.pdf",
+  // "chemistry-ch-3-notes.pdf",
+  //"chemistry-ch-4-notes.pdf",
+  //"chemistry-ch-5-notes.pdf",
   "chemistry-ch-6-notes.pdf",
   "chemistry-ch-7-notes.pdf",
-  "chem_summer-2024.pdf",
+  //"chem_summer-2024.pdf",
   "chem_summer-2025.pdf",
   "chem_winter-2024.pdf",
   "chem_winter-2025.pdf",
@@ -133,8 +135,8 @@ const PDF_FILES = [
   "Mathematics-I_OLD_W2024.pdf",
   "Mathematics-I_W2024.pdf",
   "PHY_W2024.pdf",
-"FOE_UNIT-4&5.pdf",
-"",
+  "FOE_UNIT-4&5.pdf",
+  "",
 ];
 
 
@@ -259,10 +261,7 @@ document.getElementById('loginEnroll').addEventListener('input', e => { e.target
   document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); }));
 
 /* ══════════════════════════════════════════════════════
-   INIT
-══════════════════════════════════════════════════════ */
-/* ══════════════════════════════════════════════════════
-   INIT
+INIT
 ══════════════════════════════════════════════════════ */
 function initApp() {
   const sessionIsValid =
@@ -358,7 +357,9 @@ async function loadNotes() {
   renderNotes();
 }
 const toB64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.onerror = no; r.readAsDataURL(f); });
-const SUBJ_LABELS = { 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN' };
+const SUBJ_LABELS = {
+  'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN', FOE: 'FOE', PHY: 'Physics', CSE: 'CSE'
+};
 const SORTS = {
   new: (a, b) => (b.added || 0) - (a.added || 0), old: (a, b) => (a.added || 0) - (b.added || 0),
   az: (a, b) => a.title.localeCompare(b.title), za: (a, b) => b.title.localeCompare(a.title),
