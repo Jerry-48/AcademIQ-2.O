@@ -1,0 +1,302 @@
+[
+    {
+  "q": "If f(x) = x³ - 1 then the value of f(-1) is ________.",
+  "opts": [
+   "0",
+   "-1",
+   "-2",
+   "1"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Evaluate: lim (x→0) (sin 6x) / 3x",
+  "opts": [
+   "0",
+   "1",
+   "2",
+   "6"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "What is the radius of the circle x² + y² = 25?",
+  "opts": [
+   "5",
+   "10",
+   "25",
+   "0"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "135° = _____ Radian",
+  "opts": [
+   "π/2",
+   "3π/4",
+   "π",
+   "2π/3"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "If log_a(a) is given, what is its value?",
+  "opts": [
+   "0",
+   "1",
+   "a",
+   "Infinity"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "log₁₀ 100 = ?",
+  "opts": [
+   "2",
+   "1",
+   "100",
+   "10"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "log(ab) = ?",
+  "opts": [
+   "log a · log b",
+   "log a / log b",
+   "log a − log b",
+   "log a + log b"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "log 1 = ?",
+  "opts": [
+   "1",
+   "10",
+   "Undefined",
+   "0"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The determinant of [[1, 2], [3, 4]] is:",
+  "opts": [
+   "−10",
+   "−2",
+   "2",
+   "10"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The determinant of [[a, b], [c, d]] is:",
+  "opts": [
+   "ad + bc",
+   "ad − bc",
+   "ac − bd",
+   "ab − cd"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The transpose of a 2×3 matrix has order:",
+  "opts": [
+   "2×2",
+   "3×3",
+   "3×2",
+   "2×3"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "If two rows of a determinant are identical, its value is:",
+  "opts": [
+   "−1",
+   "0",
+   "1",
+   "2"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "sin 30° = ?",
+  "opts": [
+   "√3/2",
+   "1",
+   "1/2",
+   "1/√2"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "cos 60° = ?",
+  "opts": [
+   "1/2",
+   "1",
+   "0",
+   "√3/2"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "tan 45° = ?",
+  "opts": [
+   "1/√3",
+   "√3",
+   "1",
+   "0"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "sin(A + B) = ?",
+  "opts": [
+   "sinA cosB − cosA sinB",
+   "cosA cosB − sinA sinB",
+   "sinA sinB + cosA cosB",
+   "sinA cosB + cosA sinB"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "cos 2A = ?",
+  "opts": [
+   "cos²A + sin²A",
+   "1 + sin²A",
+   "cos²A − sin²A",
+   "2 sinA cosA"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "sin 2A = ?",
+  "opts": [
+   "2 sinA",
+   "2 cosA",
+   "2 sinA cosA",
+   "sin²A"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "1 + tan²θ = ?",
+  "opts": [
+   "sin²θ",
+   "sec²θ",
+   "cot²θ",
+   "cosec²θ"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "1 + cot²θ = ?",
+  "opts": [
+   "tan²θ",
+   "cosec²θ",
+   "sec²θ",
+   "cos²θ"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The slope of the line through (1, 2) and (3, 6) is:",
+  "opts": [
+   "4",
+   "2",
+   "1",
+   "3"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The equation of the line with slope 2 and y-intercept 3 is:",
+  "opts": [
+   "y = 2x − 3",
+   "y = 2x + 3",
+   "x = 2y + 3",
+   "y = 3x + 2"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The equation of a circle with centre (0, 0) and radius r is:",
+  "opts": [
+   "x² + y² = r",
+   "x² + y² = r²",
+   "x² − y² = r²",
+   "x + y = r"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The centre of the circle (x − 2)² + (y + 3)² = 16 is:",
+  "opts": [
+   "(−2, −3)",
+   "(−2, 3)",
+   "(2, −3)",
+   "(2, 3)"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The roots of x² − 5x + 6 = 0 are:",
+  "opts": [
+   "2 and 3",
+   "2 and −3",
+   "1 and 6",
+   "−2 and −3"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The sum of the roots of ax² + bx + c = 0 is:",
+  "opts": [
+   "−c/a",
+   "b/a",
+   "−b/a",
+   "c/a"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The number of terms in the expansion of (a + b)ⁿ is:",
+  "opts": [
+   "n",
+   "n + 1",
+   "n − 1",
+   "2n"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "5! = ?",
+  "opts": [
+   "60",
+   "100",
+   "25",
+   "120"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The nth term of an AP is:",
+  "opts": [
+   "a − nd",
+   "a + (n − 1)d",
+   "a + nd",
+   "a·rⁿ⁻¹"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The sum of the first n natural numbers is:",
+  "opts": [
+   "n(n + 1)/2",
+   "n²",
+   "n(n − 1)/2",
+   "n(n + 2)/2"
+  ],
+  "ans": 0
+ }
+]

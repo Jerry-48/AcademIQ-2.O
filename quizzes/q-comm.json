@@ -1,0 +1,302 @@
+[
+    {
+  "q": "The sign of successful communication is when ________.",
+  "opts": [
+   "The message is very long",
+   "The Sender gets the desired response from the receiver",
+   "The receiver ignores the message",
+   "Complex vocabulary is used"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The process of converting a signal (coded message) into understanding is called ________.",
+  "opts": [
+   "Encoding",
+   "Decoding",
+   "Feedback",
+   "Channeling"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "SMCR Model of Communication was created by ________.",
+  "opts": [
+   "Shannon",
+   "Weaver",
+   "David Berlo",
+   "Robert Frost"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Where did Bob and Jimmy have their last dinner together in 'After Twenty Years'?",
+  "opts": [
+   "A local cafe",
+   "Big Joe Brady's restaurant",
+   "A hotel in Chicago",
+   "At Jimmy's house"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "'Stopping by Woods on a Snowy Evening' is written by ________.",
+  "opts": [
+   "Rabindranath Tagore",
+   "O. Henry",
+   "Ruskin Bond",
+   "Robert Frost"
+  ],
+  "ans": 3
+},
+ {
+  "q": "The sender of a message is also called the:",
+  "opts": [
+   "Receiver",
+   "Encoder",
+   "Channel",
+   "Decoder"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Background noise during a conversation is a ______ barrier.",
+  "opts": [
+   "Semantic",
+   "Physical",
+   "Psychological",
+   "Cultural"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The response of the receiver to the sender's message is called:",
+  "opts": [
+   "Noise",
+   "Encoding",
+   "Channel",
+   "Feedback"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Body language is a form of:",
+  "opts": [
+   "Non-verbal communication",
+   "Verbal communication",
+   "Written communication",
+   "Oral communication only"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is one of the 7 Cs of effective communication?",
+  "opts": [
+   "Complexity",
+   "Confusion",
+   "Conflict",
+   "Clarity"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "A formal letter beginning with \"Dear Sir\" ends with:",
+  "opts": [
+   "Yours sincerely",
+   "Best wishes",
+   "Yours faithfully",
+   "Love"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "A leave application is an example of a:",
+  "opts": [
+   "Informal letter",
+   "Invitation",
+   "Formal letter",
+   "Personal letter"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Choose the synonym of \"rapid\".",
+  "opts": [
+   "Tiny",
+   "Quick",
+   "Slow",
+   "Weak"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Choose the antonym of \"ancient\".",
+  "opts": [
+   "Modern",
+   "Historic",
+   "Antique",
+   "Old"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "One word for \"a person who writes poems\":",
+  "opts": [
+   "Dramatist",
+   "Author",
+   "Poet",
+   "Novelist"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Choose the correct sentence.",
+  "opts": [
+   "She don't like tea.",
+   "She doesn't like tea.",
+   "She doesn't likes tea.",
+   "She not like tea."
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Fill in the blank: He waited for ___ hour.",
+  "opts": [
+   "the",
+   "no article",
+   "an",
+   "a"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Fill in the blank: The book is ___ the table.",
+  "opts": [
+   "to",
+   "in",
+   "on",
+   "at"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "What is the past tense of \"go\"?",
+  "opts": [
+   "Going",
+   "Goes",
+   "Gone",
+   "Went"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Passive voice of \"She writes a letter.\"",
+  "opts": [
+   "A letter is written by her.",
+   "A letter has written by her.",
+   "A letter is being written by her.",
+   "A letter was written by her."
+  ],
+  "ans": 0
+ },
+ {
+  "q": "What is the plural of \"child\"?",
+  "opts": [
+   "Children",
+   "Childrens",
+   "Childs",
+   "Childes"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Fill in the blank: He is taller ___ me.",
+  "opts": [
+   "from",
+   "to",
+   "than",
+   "then"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The idiom \"a piece of cake\" means:",
+  "opts": [
+   "Very sweet",
+   "A tasty dish",
+   "Very easy",
+   "A small gift"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which of the following is a non-verbal cue?",
+  "opts": [
+   "Memo",
+   "Email",
+   "Telephone call",
+   "Eye contact"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The process of converting thoughts into a message is called:",
+  "opts": [
+   "Encoding",
+   "Decoding",
+   "Feedback",
+   "Noise"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Reading quickly to get the main idea is called:",
+  "opts": [
+   "Proofreading",
+   "Skimming",
+   "Intensive reading",
+   "Scanning"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Searching a text for specific information is called:",
+  "opts": [
+   "Summarising",
+   "Paraphrasing",
+   "Skimming",
+   "Scanning"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "A memo is mainly used for:",
+  "opts": [
+   "Advertising",
+   "Internal communication within an organisation",
+   "Communication with customers",
+   "Personal letters"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which of the following is NOT part of a formal business letter?",
+  "opts": [
+   "Emoticons",
+   "Salutation",
+   "Date",
+   "Subject line"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Indirect speech of: He said, \"I am happy.\"",
+  "opts": [
+   "He said he is happy.",
+   "He said that he was happy.",
+   "He says that he was happy.",
+   "He said that I am happy."
+  ],
+  "ans": 1
+ }
+]

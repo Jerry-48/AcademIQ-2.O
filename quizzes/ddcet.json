@@ -200,14 +200,14 @@
   "ans": 0
  },
  {
-  "q": "Which of the following temperature is known as ''Absolute zero temperature''?",
+  "q": "Which of the following temperatures is known as absolute zero?",
   "opts": [
-   "–",
-   "0° C",
-   "–",
-   "273.15 K"
+   "0 °C",
+   "−273.15 °C",
+   "273.15 K",
+   "100 °C"
   ],
-  "ans": 2
+  "ans": 1
  },
  {
   "q": "Generally metal oxides are ________",
@@ -818,5 +818,35 @@
    "27 logb3a2 × loga2b9 = _________ ."
   ],
   "ans": 1
+ },
+ {
+  "q": "Four capacitors having same value of 4 µF are connected in series then what will be their equivalent capacitance?",
+  "opts": [
+   "1 µF",
+   "16 µF",
+   "4 µF",
+   "44 µF"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "10³ meter = ________ centimeter.",
+  "opts": [
+   "10⁵",
+   "10",
+   "10⁶",
+   "10²"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "In a business letter, the 'Inside Address' refers to ________.",
+  "opts": [
+   "Email Address",
+   "External Address",
+   "Sender's Address",
+   "Recipient's Address"
+  ],
+  "ans": 3
  }
 ]

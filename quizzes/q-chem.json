@@ -1,352 +1,452 @@
 [
-    {
-        "q": "Corrosion (Kat) rokva mate kai padhdhati vapray chhe?",
-        "opts": [
-            "Galvanizing",
-            "Oxidation",
-            "Heating",
-            "Cooling"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Electrochemical cell ma Oxidation kaya pole par thay?",
-        "opts": [
-            "Cathode",
-            "Anode",
-            "Electrolyte",
-            "Salt bridge"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Lignite ane Anthracite niche na mathi kona prakar chhe?",
-        "opts": [
-            "Petroleum",
-            "Coal",
-            "Natural Gas",
-            "Biogas"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Niche na mathi kayo Good Conductor chhe?",
-        "opts": [
-            "Glass",
-            "Copper",
-            "Rubber",
-            "Wood"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "LPG ma mukhya ghatak (main component) kayo hoy chhe?",
-        "opts": [
-            "Methane",
-            "Butane",
-            "Hydrogen",
-            "Carbon"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Lubricant no mukhya upyog shu chhe?",
-        "opts": [
-            "To increase friction",
-            "To reduce friction",
-            "To increase weight",
-            "To stop machine"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Cement ma Gypsum kem umerava ma ave chhe?",
-        "opts": [
-            "Increase strength",
-            "Retard setting time",
-            "Give color",
-            "Reduce cost"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Hard water ne soft banavva mate kai process vapray?",
-        "opts": [
-            "Zeolite Process",
-            "Filtration",
-            "Chlorination",
-            "Heating"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Niche na mathi kai Alloy (Mishra-dhatu) chhe?",
-        "opts": [
-            "Iron",
-            "Brass",
-            "Gold",
-            "Oxygen"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Polymerisation process mathi shu bane chhe?",
-        "opts": [
-            "Glass",
-            "Plastic",
-            "Steel",
-            "Acid"
-        ],
-        "ans": 1
-    }
-  {
-        "q": "Sub atomic particle present in orbit is?",
-        "opts": [
-            "proton",
-            "neutron",
-            "electron",
-            "meson"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "BCC type of arrangement is shown in which crystal?",
-        "opts": [
-            "Fe",
-            "Zn",
-            "Cd",
-            "Al"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "What does ppm stand for?",
-        "opts": [
-            "parts per million",
-            "percentage per million",
-            "parts per metric",
-            "parts percentage of metric"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "pH of an Acid is always:",
-        "opts": [
-            "Greater than 7",
-            "7",
-            "Greater than 14",
-            "Less than 7"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "The process of loosing of electron is known as?",
-        "opts": [
-            "reduction",
-            "oxidation",
-            "redox",
-            "none of these"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "1 kilocalorie is equal to how many calories?",
-        "opts": [
-            "1",
-            "10",
-            "100",
-            "1000"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Which coal has the highest calorific value?",
-        "opts": [
-            "Peat",
-            "Lignite",
-            "Anthracite",
-            "Bituminous"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which of the following is an example of primary fuel?",
-        "opts": [
-            "Crude oil",
-            "Petrol",
-            "Diesel",
-            "Kerosene"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Grease is a _____ type of lubricant.",
-        "opts": [
-            "solid",
-            "liquid",
-            "semi solid",
-            "synthetic"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which instrument is used to measure viscosity of lubricating oil?",
-        "opts": [
-            "Bomb Calorimeter",
-            "pH meter",
-            "Thermometer",
-            "Viscometer"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Monomer of PVC is:",
-        "opts": [
-            "vinyl chloride",
-            "styrene",
-            "phenol",
-            "acrylonitrile"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "Which of the following is an example of condensation polymer?",
-        "opts": [
-            "Teflon",
-            "Natural Rubber",
-            "Bakelite",
-            "Polyethene"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Insulating material should have the property of:",
-        "opts": [
-            "low conductivity",
-            "high resistivity",
-            "non flammable",
-            "all of these"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Potential of a dry cell is _____ V.",
-        "opts": [
-            "1.0",
-            "1.5",
-            "2.0",
-            "2.5"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "The electronic configuration of 29Cu is:",
-        "opts": [
-            "[Ar] 4s2 3d9",
-            "[Ar] 4s1 3d10",
-            "[Ar] 4s2 3d8",
-            "None of these"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "pH + pOH = ?",
-        "opts": [
-            "7",
-            "10",
-            "12",
-            "14"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "Pure copper is deposited on _____ by electro-refining of impure copper.",
-        "opts": [
-            "anode",
-            "cathode",
-            "vessel",
-            "electrolyte"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Peat is a _____ fuel.",
-        "opts": [
-            "solid",
-            "liquid",
-            "semi-solid",
-            "gas"
-        ],
-        "ans": 0
-    },
-    {
-        "q": "The unit of viscosity is:",
-        "opts": [
-            "Siemens",
-            "B.Th.U.",
-            "Poise",
-            "Volt"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Mixture of oil and water is called:",
-        "opts": [
-            "Base",
-            "Emulsion",
-            "Lubricant",
-            "Solvent"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Phenol formaldehyde polymer is also known as:",
-        "opts": [
-            "Orlon",
-            "Nylon",
-            "Bakelite",
-            "Teflon"
-        ],
-        "ans": 2
-    },
-    {
-        "q": "Which bond is formed due to equal sharing of electrons?",
-        "opts": [
-            "Ionic bond",
-            "Co-valent bond",
-            "Hydrogen bond",
-            "Metallic bond"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "In the galvanizing process, iron is coated with a layer of which metal?",
-        "opts": [
-            "Mg",
-            "Cu",
-            "Fe",
-            "Zn"
-        ],
-        "ans": 3
-    },
-    {
-        "q": "The process of depositing a layer of tin metal on the iron surface is called:",
-        "opts": [
-            "Galvanizing",
-            "Tinning",
-            "Corrosion",
-            "None of this"
-        ],
-        "ans": 1
-    },
-    {
-        "q": "Monomer of polystyrene is:",
-        "opts": [
-            "Vinyl cyanide",
-            "Propylene",
-            "Ethylene",
-            "Styrene"
-        ],
-        "ans": 3
-    }
+ {
+  "q": "Which of the following is a method used to prevent corrosion?",
+  "opts": [
+   "Galvanizing",
+   "Oxidation",
+   "Heating",
+   "Cooling"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "In an electrochemical cell, oxidation takes place at the:",
+  "opts": [
+   "Cathode",
+   "Anode",
+   "Electrolyte",
+   "Salt bridge"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Lignite and anthracite are types of:",
+  "opts": [
+   "Coal",
+   "Biogas",
+   "Natural gas",
+   "Petroleum"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is a good conductor of electricity?",
+  "opts": [
+   "Rubber",
+   "Wood",
+   "Copper",
+   "Glass"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "LPG mainly consists of:",
+  "opts": [
+   "Methane and ethane",
+   "Carbon dioxide",
+   "Propane and butane",
+   "Hydrogen"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "What is the main purpose of a lubricant?",
+  "opts": [
+   "To stop the machine",
+   "To increase friction",
+   "To increase weight",
+   "To reduce friction"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Why is gypsum added to cement?",
+  "opts": [
+   "To increase strength",
+   "To retard the setting time",
+   "To give colour",
+   "To reduce cost"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Which process is used to soften hard water?",
+  "opts": [
+   "Filtration",
+   "Boiling in open air only",
+   "Chlorination",
+   "Zeolite process"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which of the following is an alloy?",
+  "opts": [
+   "Iron",
+   "Gold",
+   "Oxygen",
+   "Brass"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Polymerisation produces:",
+  "opts": [
+   "Acid",
+   "Plastic",
+   "Steel",
+   "Glass"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Sub atomic particle present in orbit is?",
+  "opts": [
+   "proton",
+   "neutron",
+   "electron",
+   "meson"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "BCC type of arrangement is shown in which crystal?",
+  "opts": [
+   "Fe",
+   "Zn",
+   "Cd",
+   "Al"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "What does ppm stand for?",
+  "opts": [
+   "parts per million",
+   "percentage per million",
+   "parts per metric",
+   "parts percentage of metric"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "pH of an Acid is always:",
+  "opts": [
+   "Greater than 7",
+   "7",
+   "Greater than 14",
+   "Less than 7"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The process of loosing of electron is known as?",
+  "opts": [
+   "reduction",
+   "oxidation",
+   "redox",
+   "none of these"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "1 kilocalorie is equal to how many calories?",
+  "opts": [
+   "1",
+   "10",
+   "100",
+   "1000"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which coal has the highest calorific value?",
+  "opts": [
+   "Peat",
+   "Lignite",
+   "Anthracite",
+   "Bituminous"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which of the following is an example of primary fuel?",
+  "opts": [
+   "Crude oil",
+   "Petrol",
+   "Diesel",
+   "Kerosene"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Grease is a _____ type of lubricant.",
+  "opts": [
+   "solid",
+   "liquid",
+   "semi solid",
+   "synthetic"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which instrument is used to measure viscosity of lubricating oil?",
+  "opts": [
+   "Bomb Calorimeter",
+   "pH meter",
+   "Thermometer",
+   "Viscometer"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Monomer of PVC is:",
+  "opts": [
+   "vinyl chloride",
+   "styrene",
+   "phenol",
+   "acrylonitrile"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which of the following is an example of condensation polymer?",
+  "opts": [
+   "Teflon",
+   "Natural Rubber",
+   "Bakelite",
+   "Polyethene"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Insulating material should have the property of:",
+  "opts": [
+   "low conductivity",
+   "high resistivity",
+   "non flammable",
+   "all of these"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Potential of a dry cell is _____ V.",
+  "opts": [
+   "1.0",
+   "1.5",
+   "2.0",
+   "2.5"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The electronic configuration of 29Cu is:",
+  "opts": [
+   "[Ar] 4s2 3d9",
+   "[Ar] 4s1 3d10",
+   "[Ar] 4s2 3d8",
+   "None of these"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "pH + pOH = ?",
+  "opts": [
+   "7",
+   "10",
+   "12",
+   "14"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Pure copper is deposited on _____ by electro-refining of impure copper.",
+  "opts": [
+   "anode",
+   "cathode",
+   "vessel",
+   "electrolyte"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Peat is a _____ fuel.",
+  "opts": [
+   "solid",
+   "liquid",
+   "semi-solid",
+   "gas"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "The unit of viscosity is:",
+  "opts": [
+   "Siemens",
+   "B.Th.U.",
+   "Poise",
+   "Volt"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Mixture of oil and water is called:",
+  "opts": [
+   "Base",
+   "Emulsion",
+   "Lubricant",
+   "Solvent"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Phenol formaldehyde polymer is also known as:",
+  "opts": [
+   "Orlon",
+   "Nylon",
+   "Bakelite",
+   "Teflon"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which bond is formed due to equal sharing of electrons?",
+  "opts": [
+   "Ionic bond",
+   "Co-valent bond",
+   "Hydrogen bond",
+   "Metallic bond"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "In the galvanizing process, iron is coated with a layer of which metal?",
+  "opts": [
+   "Mg",
+   "Cu",
+   "Fe",
+   "Zn"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The process of depositing a layer of tin metal on the iron surface is called:",
+  "opts": [
+   "Galvanizing",
+   "Tinning",
+   "Corrosion",
+   "None of this"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Monomer of polystyrene is:",
+  "opts": [
+   "Vinyl cyanide",
+   "Propylene",
+   "Ethylene",
+   "Styrene"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Hardness of water is mainly caused by the salts of:",
+  "opts": [
+   "Calcium and magnesium",
+   "Iron and aluminium",
+   "Sodium and potassium",
+   "Copper and zinc"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Temporary hardness of water is due to:",
+  "opts": [
+   "Sulphates of magnesium",
+   "Bicarbonates of calcium and magnesium",
+   "Nitrates of sodium",
+   "Chlorides of calcium"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Rusting of iron requires:",
+  "opts": [
+   "Oxygen and moisture",
+   "Only nitrogen",
+   "Only oxygen",
+   "Only water"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Octane number is a measure of the anti-knocking property of:",
+  "opts": [
+   "Diesel",
+   "Petrol",
+   "Kerosene",
+   "LPG"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Cetane number is used to rate the quality of:",
+  "opts": [
+   "Petrol",
+   "Coal",
+   "LPG",
+   "Diesel"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which polymer is used for non-stick coating on cookware?",
+  "opts": [
+   "Nylon",
+   "Teflon (PTFE)",
+   "PVC",
+   "Bakelite"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Vulcanisation of rubber is done using:",
+  "opts": [
+   "Carbon",
+   "Chlorine",
+   "Sulphur",
+   "Nitrogen"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "Which of the following is a thermosetting plastic?",
+  "opts": [
+   "Polythene",
+   "Polystyrene",
+   "Bakelite",
+   "PVC"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "A solution with pH 9 is:",
+  "opts": [
+   "Acidic",
+   "Neutral",
+   "Basic",
+   "Strongly acidic"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "In a dry (Leclanché) cell, the anode is made of:",
+  "opts": [
+   "Carbon",
+   "Lead",
+   "Copper",
+   "Zinc"
+  ],
+  "ans": 3
+ }
 ]

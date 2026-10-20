@@ -1,0 +1,252 @@
+[
+ {
+  "q": "The energy of a photon is given by:",
+  "opts": [
+   "E = hν²",
+   "E = ν/h",
+   "E = h/ν",
+   "E = hν"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The value of Planck's constant is approximately:",
+  "opts": [
+   "6.626 × 10⁻³¹ J·s",
+   "9.1 × 10⁻³¹ kg",
+   "3 × 10⁸ m/s",
+   "6.626 × 10⁻³⁴ J·s"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The photoelectric effect was explained by:",
+  "opts": [
+   "Einstein",
+   "Newton",
+   "Maxwell",
+   "Faraday"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Photoelectric emission occurs only if the frequency of light is greater than the:",
+  "opts": [
+   "Stopping potential",
+   "Zero frequency",
+   "Threshold frequency",
+   "Infinite frequency"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The de Broglie wavelength of a particle is:",
+  "opts": [
+   "λ = hmv",
+   "λ = mv/h",
+   "λ = h/mv",
+   "λ = h/m"
+  ],
+  "ans": 2
+ },
+ {
+  "q": "The uncertainty principle was given by:",
+  "opts": [
+   "Planck",
+   "Schrödinger",
+   "Rutherford",
+   "Heisenberg"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The dual nature of matter was suggested by:",
+  "opts": [
+   "Millikan",
+   "Thomson",
+   "Rutherford",
+   "de Broglie"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "The speed of light in vacuum is:",
+  "opts": [
+   "3 × 10¹⁰ m/s",
+   "3 × 10⁵ m/s",
+   "3 × 10⁶ m/s",
+   "3 × 10⁸ m/s"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "LASER stands for:",
+  "opts": [
+   "Linear Amplification by Stimulated Emission of Radiation",
+   "Light Amplification by Stimulated Emission of Radiation",
+   "Light Absorption by Stimulated Emission of Radiation",
+   "Light Amplification by Spontaneous Emission of Radiation"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Laser light is:",
+  "opts": [
+   "Coherent and monochromatic",
+   "Randomly polarised",
+   "Polychromatic",
+   "Incoherent"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which condition is necessary for laser action?",
+  "opts": [
+   "Photoelectric effect",
+   "Total reflection",
+   "Refraction",
+   "Population inversion"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Which of the following is a gas laser?",
+  "opts": [
+   "Nd:YAG laser",
+   "He–Ne laser",
+   "Ruby laser",
+   "Semiconductor laser"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The ruby laser is a:",
+  "opts": [
+   "Free-electron laser",
+   "Gas laser",
+   "Liquid laser",
+   "Solid-state laser"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "An optical fibre works on the principle of:",
+  "opts": [
+   "Total internal reflection",
+   "Interference",
+   "Diffraction",
+   "Refraction"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "In an optical fibre, the core has ______ refractive index than the cladding.",
+  "opts": [
+   "Zero",
+   "Higher",
+   "Lower",
+   "Equal"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "X-rays were discovered by:",
+  "opts": [
+   "Newton",
+   "Faraday",
+   "Bohr",
+   "Roentgen"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "X-rays are:",
+  "opts": [
+   "Neutrons",
+   "Charged particles",
+   "Sound waves",
+   "Electromagnetic waves"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Below its critical temperature, a superconductor has electrical resistance equal to:",
+  "opts": [
+   "Infinity",
+   "Zero",
+   "That of copper",
+   "A very high value"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "The Meissner effect is:",
+  "opts": [
+   "Heating of a conductor",
+   "Expulsion of a magnetic field from a superconductor",
+   "Attraction of a magnet by iron",
+   "Emission of electrons by light"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Nanomaterials have a size in the range of:",
+  "opts": [
+   "1–100 cm",
+   "1–100 nm",
+   "1–100 mm",
+   "1–100 µm"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "1 nanometre equals:",
+  "opts": [
+   "10⁻⁶ m",
+   "10⁻³ m",
+   "10⁻¹² m",
+   "10⁻⁹ m"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "Rutherford's gold-foil experiment led to the discovery of:",
+  "opts": [
+   "The photon",
+   "The electron",
+   "The neutron",
+   "The atomic nucleus"
+  ],
+  "ans": 3
+ },
+ {
+  "q": "In Bohr's model of the atom:",
+  "opts": [
+   "Electrons revolve in fixed stationary orbits",
+   "No orbits exist",
+   "Electrons are at rest",
+   "The nucleus orbits the electron"
+  ],
+  "ans": 0
+ },
+ {
+  "q": "Which radiation has the highest penetrating power?",
+  "opts": [
+   "Beta particles",
+   "Gamma rays",
+   "Alpha particles",
+   "All are equal"
+  ],
+  "ans": 1
+ },
+ {
+  "q": "Half-life is the time in which a radioactive sample decays to:",
+  "opts": [
+   "One-fourth",
+   "Zero",
+   "Half of its original amount",
+   "Double"
+  ],
+  "ans": 2
+ }
+]
