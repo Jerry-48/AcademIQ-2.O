@@ -136,6 +136,9 @@ const PDF_FILES = [
   "Mathematics-I_W2024.pdf",
   "PHY_W2024.pdf",
   "FOE_UNIT-4&5.pdf",
+  "phy.pdf",
+  "cse.pdf",
+  "foe.pdf",
 ];
 
 
