@@ -17,7 +17,7 @@ async function api(body) {
   return j;
 }
 const pdfUrl = f => 'pdfs/' + encodeURIComponent(f); // relative path: works on any repo/site name
-const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; } return a; };
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 function toast(msg) {
   let t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
@@ -26,9 +26,8 @@ function toast(msg) {
 }
 const SUBJECTS = [
   ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
-  ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i], ['cse', /^(?:cse(?:[-_. ]|$)|communication skills in english)/i],
-  ['phy', /^(?:phy(?:[-_. ]|$)|modern physics)/i],
-  ['foe', /^(?:foe(?:[-_. ]|$)|fundamentals of electronics)/i]
+  ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i],
+  ['communication', /commun/i], ['physics', /physic/i], ['electronics', /electronic/i]
 ];
 const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
 function typeOf(f) {
@@ -49,12 +48,12 @@ function typeOf(f) {
 const PDF_FILES = [
   "chemistry-ch-1-notes.pdf",
   "chemistry-ch-2-notes.pdf",
-  // "chemistry-ch-3-notes.pdf",
-  //"chemistry-ch-4-notes.pdf",
-  //"chemistry-ch-5-notes.pdf",
+  "chemistry-ch-3-notes.pdf",
+  "chemistry-ch-4-notes.pdf",
+  "chemistry-ch-5-notes.pdf",
   "chemistry-ch-6-notes.pdf",
   "chemistry-ch-7-notes.pdf",
-  //"chem_summer-2024.pdf",
+  "chem_summer-2024.pdf",
   "chem_summer-2025.pdf",
   "chem_winter-2024.pdf",
   "chem_winter-2025.pdf",
@@ -109,7 +108,7 @@ const PDF_FILES = [
   "PEC_CH.2(ASSIGNMENT).pdf",
   "PEC_CH.1(ASSIGNMENT).pdf",
   "DSA-CODES.pdf",
-  "DSA-MID-ANSWERS-W2025.pdf",
+  "DSA-MID-ANS-W2025.pdf",
   "DSA-QB.pdf",
   "DSA-REMID-ANS-W2025.pdf",
   "DSA-W25.pdf",
@@ -117,28 +116,6 @@ const PDF_FILES = [
   "CN-DI03000131-Computer-Networking-AI-Content-H-D-Panchal.pdf",
   "CN-W25.pdf",
   "CN-S26.pdf",
-  "FOE-ASSIGNMENT-1.pdf",
-  "FOE-ASSIGNMENT-2.pdf",
-  "FOE_BOOK_CH.3.pdf",
-  "FOE_CH.1.pdf",
-  "FOE_CH.2.pdf",
-  "FOE_CH.3.pdf",
-  "FOE_W2023_PAPER.pdf",
-  "FOE_BOOK_CH.1.pdf",
-  "FOE_BOOK_CH.2.pdf",
-  "CSE-MIDPAPER-2024.pdf",
-  "CSE-IMP-Q-GTU.pdf",
-  "Modern Physics.pdf",
-  "Fundamentals of Electronics.pdf",
-  "CSE_W2024.pdf",
-  "FOE_W2024.pdf",
-  "Mathematics-I_OLD_W2024.pdf",
-  "Mathematics-I_W2024.pdf",
-  "PHY_W2024.pdf",
-  "FOE_UNIT-4&5.pdf",
-  "phy.pdf",
-  "cse.pdf",
-  "foe.pdf",
 ];
 
 
@@ -263,7 +240,10 @@ document.getElementById('loginEnroll').addEventListener('input', e => { e.target
   document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); }));
 
 /* ══════════════════════════════════════════════════════
-INIT
+   INIT
+══════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   INIT
 ══════════════════════════════════════════════════════ */
 function initApp() {
   const sessionIsValid =
@@ -359,11 +339,7 @@ async function loadNotes() {
   renderNotes();
 }
 const toB64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.onerror = no; r.readAsDataURL(f); });
-const SUBJ_LABELS = {
-  'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN', cse: 'COMMUNICATION SKILLS IN ENGLISH',
-  phy: 'MODERN PHYSICS',
-  foe: 'FUNDAMENTALS OF ELECTRONICS'
-};
+const SUBJ_LABELS = { 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN' };
 const SORTS = {
   new: (a, b) => (b.added || 0) - (a.added || 0), old: (a, b) => (a.added || 0) - (b.added || 0),
   az: (a, b) => a.title.localeCompare(b.title), za: (a, b) => b.title.localeCompare(a.title),
@@ -430,6 +406,7 @@ async function loadQuizzes() {
   }
   await Promise.all(QUIZ_DATA.map(q => loadBank(q.id).catch(e => { bankErr[q.id] = true; console.error('Quiz file problem:', e.message); return []; })));
   document.getElementById('statQuiz').textContent = QUIZ_DATA.length;
+  loadTopics();
   renderQuizSubjects(); renderLbFilters(); renderLeaderboard();
 }
 
@@ -543,7 +520,7 @@ async function startQuiz(quizId) {
 function beginQuiz(meta, bank, n) { // random questions + random option order
   currentQuiz = {
     id: meta.id, title: meta.title,
-    questions: shuffle(bank).slice(0, n).map(q => { const right = q.opts[q.ans]; const opts = shuffle(q.opts); return { q: q.q, opts, ans: opts.indexOf(right), exp: q.exp }; })
+    questions: shuffle(bank).slice(0, n).map(q => { const right = q.opts[q.ans]; const opts = shuffle(q.opts); return { q: q.q, opts, ans: opts.indexOf(right), exp: q.exp, topic: q.topic || 'general' }; })
   };
   currentQuestionI = 0; userAnswers = []; answeredCurrent = false;
   document.getElementById('quizHome').classList.add('hidden');
@@ -651,11 +628,77 @@ function showResults() {
     breakdown.appendChild(item);
   });
 
-  // Save score
-  saveScore(score, total);
+  // Learning-gap analysis (topic-wise)
+  const ana = analyzeTopics();
+  renderSmartFeedback(ana);
+  // Save score + teacher tracking
+  saveScore(score, total, ana);
   updateHomeScore();
   renderLeaderboard();
 }
+
+/* ══════════════════════════════════════════════════════
+   LEARNING GAPS: topic-wise analysis + smart recommendations
+══════════════════════════════════════════════════════ */
+const GAP_THRESHOLD = 50;   // below this % in a topic = learning gap
+const MIN_TOPIC_Q = 2;      // need at least this many questions in a topic to judge it
+let TOPICS = {};
+async function loadTopics() {
+  try { const r = await fetch('quizzes/topics.json', { cache: 'no-cache' }); if (r.ok) TOPICS = await r.json(); } catch (e) { console.warn('topics.json not loaded', e); }
+}
+const topicLabel = (quizId, topic) => (TOPICS[quizId] && TOPICS[quizId][topic] && TOPICS[quizId][topic].label) || String(topic).replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+function analyzeTopics() {
+  const map = {};
+  currentQuiz.questions.forEach((q, i) => {
+    const a = userAnswers[i]; if (!a) return;
+    const t = q.topic || 'general';
+    if (!map[t]) map[t] = { topic: t, correct: 0, total: 0 };
+    map[t].total++; if (a.selected === a.correct) map[t].correct++;
+  });
+  return Object.values(map).map(x => {
+    const pct = Math.round((x.correct / x.total) * 100);
+    const status = x.total < MIN_TOPIC_Q ? 'low-data' : pct < GAP_THRESHOLD ? 'gap' : pct < 75 ? 'ok' : 'strong';
+    return { ...x, pct, status };
+  }).sort((a, b) => a.pct - b.pct);
+}
+
+function notesForTopic(quizId, topic) {
+  const meta = TOPICS[quizId] || {}, kws = ((meta[topic] && meta[topic].notes) || []).map(k => k.toLowerCase());
+  if (!kws.length) return [];
+  return NOTES.filter(n => (!meta._subject || n.subject === meta._subject) && kws.some(k => String(n.title).toLowerCase().includes(k))).slice(0, 3);
+}
+function openNotesFor(subject) {
+  navTo('notes');
+  const b = subject && document.querySelector(`#notes .filter-btn[onclick*="'${subject}'"]`);
+  if (b) b.click(); else renderNotes('all');
+}
+
+function renderSmartFeedback(ana) {
+  const box = document.getElementById('smartFeedback'); if (!box) return;
+  const quizId = currentQuiz.id, meta = TOPICS[quizId] || {};
+  const gaps = ana.filter(x => x.status === 'gap');
+  const bar = x => `<div class="sf-row"><div class="sf-head"><span>${esc(topicLabel(quizId, x.topic))}</span><span class="sf-pct">${x.correct}/${x.total} · ${x.pct}%</span></div>
+    <div class="sf-track"><div class="sf-fill sf-${x.status}" style="width:${x.pct}%"></div></div>
+    ${x.status === 'low-data' ? '<div class="sf-note">Only 1 question on this topic, so there is not enough data to judge it.</div>' : ''}</div>`;
+  const recs = gaps.map(g => {
+    const notes = notesForTopic(quizId, g.topic);
+    return `<div class="sf-gap"><div class="sf-gap-title">⚠️ ${esc(topicLabel(quizId, g.topic))} <span>${g.pct}%</span></div>
+      <div class="sf-links">${notes.map(n => `<button class="sf-link" data-view="${esc(n.id)}">📄 ${esc(n.title)}</button>`).join('')}
+      <button class="sf-link ghost" data-browse="${esc(meta._subject || '')}">Browse ${meta._subject ? 'all notes for this subject' : 'all notes'} →</button></div></div>`;
+  }).join('');
+  box.innerHTML = `<div class="sf-card"><h3>🎯 Your Learning Report</h3>
+    ${gaps.length
+      ? `<p class="sf-msg bad">You have ${gaps.length} learning gap${gaps.length > 1 ? 's' : ''}: <b>${gaps.map(g => esc(topicLabel(quizId, g.topic))).join(', ')}</b>. Revise these topics first.</p>`
+      : '<p class="sf-msg good">🌟 No learning gaps detected in this attempt. Keep it up!</p>'}
+    ${ana.map(bar).join('')}
+    ${recs ? `<h4 class="sf-sub">📚 Recommended notes</h4>${recs}` : ''}
+    <p class="sf-foot">A topic is a learning gap when you score below ${GAP_THRESHOLD}% on at least ${MIN_TOPIC_Q} questions of that topic. Questions are shuffled every attempt, so retake the quiz after revising.</p></div>`;
+}
+document.getElementById('smartFeedback').addEventListener('click', e => {
+  const v = e.target.closest('[data-view]'), b = e.target.closest('[data-browse]');
+  if (v) viewNote(v.dataset.view); else if (b) openNotesFor(b.dataset.browse);
+});
 
 function retryQuiz() {
   startQuiz(currentQuiz.id);
@@ -672,17 +715,19 @@ function exitQuiz() {
 ══════════════════════════════════════════════════════ */
 let scoresCache = [];
 async function loadScores() {
-  try { scoresCache = await (await fetch(GOOGLE_SCRIPT_URL + '?action=scores')).json(); }
+  try { const rows = await (await fetch(GOOGLE_SCRIPT_URL + '?action=scores')).json(); scoresCache = Array.isArray(rows) ? rows : JSON.parse(localStorage.getItem('iq_scores') || '[]'); }
   catch (e) { scoresCache = JSON.parse(localStorage.getItem('iq_scores') || '[]'); }
   updateHomeScore(); renderLeaderboard();
 }
-function saveScore(score, total) {
+function saveScore(score, total, ana = []) {
   if (!currentUser) return;
   const row = { uid: localStorage.getItem('iq_uid') || '', tag: (localStorage.getItem('iq_enroll') || '').slice(-3), username: currentUser, subject: currentQuiz.title, score, total, date: new Date().toLocaleDateString() };
   const local = JSON.parse(localStorage.getItem('iq_scores') || '[]'); local.push(row);
   localStorage.setItem('iq_scores', JSON.stringify(local));
   scoresCache.push(row);
-  api({ action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
+  api({ action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total,
+    weak: ana.filter(x => x.status === 'gap').map(x => topicLabel(currentQuiz.id, x.topic)),
+    topics: ana.map(x => ({ t: topicLabel(currentQuiz.id, x.topic), c: x.correct, n: x.total })) }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
 }
 function updateHomeScore() {
   if (!currentUser) return;

@@ -7,7 +7,8 @@
    "Directly proportional to square of distance",
    "Inversely proportional to square of distance"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "In which heat transfer method atoms will move from one place to the other in order to transfer the heat?",
@@ -17,7 +18,8 @@
    "Radiation",
    "All the above"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "chemistry"
  },
  {
   "q": "Newton's first law of motion gives definition of which physical quantity?",
@@ -27,7 +29,8 @@
    "Force",
    "Acceleration"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "physics"
  },
  {
   "q": "When we connect both the jaws of Micrometer Screw Gauge and '0' on circular scale coincides with reference line then this Micrometer Screw Gauge has which type of error?",
@@ -37,7 +40,8 @@
    "Negative Error",
    "Random Error"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "Linear momentum of an object represented by which of the following equation?",
@@ -47,7 +51,8 @@
    "p = m/v",
    "p = ma"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "In a parallel plate capacitor if we double the distance between two plates and make their area four times then what will happen to capacitance of this capacitors?",
@@ -57,7 +62,8 @@
    "Becomes four times",
    "Becomes Zero"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "physics"
  },
  {
   "q": "212 Fahrenheit = _________ Kelvin.",
@@ -67,7 +73,8 @@
    "212",
    "32"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "Which of the following is NOT a Green House gas?",
@@ -77,7 +84,8 @@
    "NO2",
    "CFC"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "general"
  },
  {
   "q": "Which main product is obtained by reaction of sodium hydroxide with Zn metal?",
@@ -87,7 +95,8 @@
    "Na2ZnO2",
    "Zn(OH)2"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "chemistry"
  },
  {
   "q": "By which reaction insoluble salts are produced?",
@@ -97,7 +106,8 @@
    "Corrosion",
    "Redox"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "chemistry"
  },
  {
   "q": "Which fuel is used in automobile produces least pollution?",
@@ -107,7 +117,8 @@
    "LPG",
    "CNG"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "general"
  },
  {
   "q": "An object tied with a string is rotating on a circular path of radius 1 m. It completes 50 rotations in 5 seconds then what will be its angular velocity?",
@@ -117,7 +128,8 @@
    "62.83 rad/sec",
    "25 rad/sec"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "physics"
  },
  {
   "q": "For Reaction CuO+H2 → Cu+H2O. Which statement is correct?",
@@ -127,7 +139,8 @@
    "This reaction is a displacement reaction",
    "All of the given"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "chemistry"
  },
  {
   "q": "When an object is projected upwards, at highest point which of the following statement is correct?",
@@ -137,7 +150,8 @@
    "Potential energy and Kinetic energy both are equal",
    "Potential energy and Kinetic energy both are zero"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "physics"
  },
  {
   "q": "Which of the following tag is used for inserting the largest heading in HTML?",
@@ -147,7 +161,8 @@
    "< h1 >",
    "< h6 > HTML"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "is the largest ecosystem on the Earth.",
@@ -157,7 +172,8 @@
    "Sea",
    "Grassland .........."
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "Which type of wave propagates in medium by forming crest and trough?",
@@ -167,7 +183,8 @@
    "Transverse wave",
    "All the above"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "physics"
  },
  {
   "q": "In Biogas plant, digestion takes place in the absence of _________ .",
@@ -177,7 +194,8 @@
    "Methane",
    "Oxygen"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "chemistry"
  },
  {
   "q": "If time taken for work increases then what happen to the value of power?",
@@ -187,7 +205,8 @@
    "Remains same",
    "Becomes zero"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "physics"
  },
  {
   "q": "Which of the following statements are correct for an optical fiber? i. Optical fiber works on total internal reflection (TIR). ii. Core has higher refractive index than cladding. iii. Cladding is central region through which light propagates. iv. Core diameter is larger than cladding",
@@ -197,7 +216,8 @@
    "(i) & (iii)",
    "(i), (ii), (iii) & (iv)"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "physics"
  },
  {
   "q": "Which of the following temperatures is known as absolute zero?",
@@ -207,7 +227,8 @@
    "273.15 K",
    "100 °C"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "physics"
  },
  {
   "q": "Generally metal oxides are ________",
@@ -217,7 +238,8 @@
    "Amphoteric",
    "Not possible"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "chemistry"
  },
  {
   "q": "Which of the following statements are correct for a unit? i. Unit has to be easily transportable ii. Unit has to be precisely defined iii. Unit can't be converted in to smaller and bigger unit iv. Unit has to be easily replicable",
@@ -227,7 +249,8 @@
    "(i), (ii) & (iv)",
    "(i), (ii), (iii) & (iv)"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "An object moves on a circular path with constant angular velocity. If radius of the circle is doubled then what happens to its centripetal force?",
@@ -237,7 +260,8 @@
    "Becomes zero",
    "Remains same"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "mathematics"
  },
  {
   "q": "How do you start a formula in Excel?",
@@ -247,7 +271,8 @@
    "By typing +",
    "By typing ="
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "general"
  },
  {
   "q": "Which tab contains the options to change the font and paragraph formatting in MS word?",
@@ -257,7 +282,8 @@
    "View",
    "Review MS word"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "Refractive index of glass is 1.5 and speed of light in vacuum is 3×108 m/s then the speed of light in glass is _________",
@@ -267,7 +293,8 @@
    "3×108 m/s",
    "1.5×108 m/s"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "physics"
  },
  {
   "q": "In a measurement experiment the measured observations are 22.40, 22.42, 22.44, 22.46 and 22.48 then what will be average absolute error?",
@@ -277,7 +304,8 @@
    "0.24",
    "0.024"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "general"
  },
  {
   "q": "Which of following is not form of calcium carbonate?",
@@ -287,7 +315,8 @@
    "Marble",
    "Slaked lime"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "chemistry"
  },
  {
   "q": "Which of the following is the lustrous non-metal?",
@@ -297,7 +326,8 @@
    "Nitrogen",
    "Bromine"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "chemistry"
  },
  {
   "q": "If temperature of a conductor increases then its resistance will _______",
@@ -307,7 +337,8 @@
    "Remains same",
    "Becomes zero"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "physics"
  },
  {
   "q": "If total number of divisions on vernier scale is doubled then what will happen to its value of least count?",
@@ -317,7 +348,8 @@
    "Remains same",
    "Becomes one fourth"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "general"
  },
  {
   "q": "Which of the following pairs is incorrect?",
@@ -327,7 +359,8 @@
    "Sting of bite of ant-Methanoic acid",
    "Curd-Lactic acid"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "chemistry"
  },
  {
   "q": "For a conductor the ratio of voltage and current will give value of which physical quantity?",
@@ -337,7 +370,8 @@
    "Capacitance",
    "Resistance"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "Which metal does not react with oxygen at higher temperature?",
@@ -347,7 +381,8 @@
    "Zinc",
    "Aluminium"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "chemistry"
  },
  {
   "q": "What is the shortcut key to start slide show in power point?",
@@ -357,7 +392,8 @@
    "Ctrl + S",
    "Alt + S"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "physics"
  },
  {
   "q": "Which of the following is an example of system software.",
@@ -367,7 +403,8 @@
    "Adobe Reader",
    "Unix"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "general"
  },
  {
   "q": "A metallic rod of length 2 m expands by 2 mm when its temperature increases from 100°C to 200°C then what will be the value of coefficient of linear expansion for this rod?",
@@ -377,7 +414,8 @@
    "2×10–5 °C–1",
    "5×10–5 °C–1"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "chemistry"
  },
  {
   "q": "Specific heat of an object will depend on which of the following?",
@@ -387,7 +425,8 @@
    "Temperature of the object",
    "All the above"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "Noise pollution is measured in ________",
@@ -397,7 +436,8 @@
    "Dyne",
    "Echo"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "physics"
  },
  {
   "q": "Which of the following is not a unit of temperature?",
@@ -407,7 +447,8 @@
    "Kelvin",
    "Candela"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "Electric flux is maximum when the angle between electric field and surface area is ________",
@@ -417,7 +458,8 @@
    "45°",
    "0°"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "Reverberations time of a hall is 5 second. If volume of the hall and total absorption of sound both are doubled then what will be new reverberation time?",
@@ -427,7 +469,8 @@
    "9 Second",
    "5 Second"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "english"
  },
  {
   "q": "Element X gets converted into red and brown colour affected with moistured air and new compound Y is formed what will be compound X and Y?",
@@ -437,7 +480,8 @@
    "X = Cu Y= CuO",
    "X = Al Y= Al2O3"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "chemistry"
  },
  {
   "q": "Which of the following statements are correct for LASER light? i. It is monochromatic ii It is polychromatic iii. It has low divergence iv. It has very high divergence",
@@ -447,7 +491,8 @@
    "(i), (ii), (iii) & (iv)",
    "(i) & (iii)"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "What is PH value of human blood?",
@@ -457,7 +502,8 @@
    "2.4",
    "4.7"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "chemistry"
  },
  {
   "q": "Evaluate the limit: limₓ→₀ (eˣ + sin 2x − 1)/x.",
@@ -467,7 +513,8 @@
    "3",
    "−1"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "mathematics"
  },
  {
   "q": "Evaluate the integral: ∫ 2x sin(x² + 1) dx.",
@@ -477,7 +524,8 @@
    "– cos (x2+1) + C",
    "x cos (x2+1) + C"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "mathematics"
  },
  {
   "q": "Identify the correct sentence.",
@@ -487,7 +535,8 @@
    "Gauri asked where was I going",
    "Gauri asked me where was I going"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "english"
  },
  {
   "q": "If [x 7] = [9 y-1] then x = ________, y = ________ .",
@@ -497,7 +546,8 @@
    "9, 7",
    "9, 9"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "Select the correct spelling.",
@@ -507,7 +557,8 @@
    "Envoirment",
    "Enviranment"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "english"
  },
  {
   "q": "Which of the following is not a type of communication?",
@@ -517,7 +568,8 @@
    "Written",
    "Mechanical"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "english"
  },
  {
   "q": "If f (x) = 3x+x2 then f (0) + f (1) = ________.",
@@ -527,7 +579,8 @@
    "8",
    "1"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "Select the correct spelling.",
@@ -537,7 +590,8 @@
    "Definitely",
    "Defenetly"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "english"
  },
  {
   "q": "Identify the correct sentence.",
@@ -547,7 +601,8 @@
    "By the time we reach, the show will be started",
    "By the time we reach, the show will have started"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "english"
  },
  {
   "q": "log3 14 + log3 2 + log5 5 = _________.",
@@ -557,7 +612,8 @@
    "log15 140",
    "log3 140 log3 14 + log3 2 + log5 5 = _________."
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "mathematics"
  },
  {
   "q": "The team as well as the coaches _________ excited about the tournament (Select the correct option)",
@@ -567,7 +623,8 @@
    "have been",
    "is"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "general"
  },
  {
   "q": "Equation of circle whose center is (4, –1) and radius 5 is _________ .",
@@ -577,7 +634,8 @@
    "x2 – y2 + 8x – 2y – 8 = 0",
    "x2 + y2 – 8x + 2y + 8 = 0"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "mathematics"
  },
  {
   "q": "Choose whichever option suits your project. (Identify the underlined part of speech)",
@@ -587,7 +645,8 @@
    "Conjunction",
    "Adjective"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "english"
  },
  {
   "q": "Hardik __________ to Delhi twice this month.",
@@ -597,7 +656,8 @@
    "goes",
    "had gone"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "d d x (x2ex) = ––––––––– .",
@@ -607,7 +667,8 @@
    "xex (x+2)",
    "xex (x2+2) d d x (x2ex) = ––––––––– ."
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "The most effective type of communication is _________ .",
@@ -617,7 +678,8 @@
    "Written only",
    "Non-verbal only"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "english"
  },
  {
   "q": "3 (2, 1, –3) + (1, –1, 4) | = ________ .",
@@ -627,7 +689,8 @@
    "76",
    "14 | 3 (2, 1, –3) + (1, –1, 4) | = ________ ."
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "general"
  },
  {
   "q": "When a business apologizes for poor service, they send a _______ .",
@@ -637,7 +700,8 @@
    "Adjustment letter",
    "Inquiry letter"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "english"
  },
  {
   "q": "3ex – 4x) dx = ________ .",
@@ -647,7 +711,8 @@
    "3ex – 2x2 + C",
    "3ex – x2 + C # (3ex – 4x) dx = ________ ."
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "In Communication 'Noise' refers to ________ .",
@@ -657,7 +722,8 @@
    "Feedback distortion",
    "Misinterpreting symbols"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "general"
  },
  {
   "q": "Which inference can be drawn about Sreedharan's management style?",
@@ -667,7 +733,8 @@
    "It combined technical expertise with ethical governance",
    "It prioritized speed over quality"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "physics"
  },
  {
   "q": "Which leadership quality of Sreedharan is most directly responsible for timely project completion?",
@@ -677,7 +744,8 @@
    "Delegation without supervision",
    "Strict discipline and punctuality"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "physics"
  },
  {
   "q": "Which organization did he lead successfully?",
@@ -687,7 +755,8 @@
    "ISRO",
    "ONGC"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "Which railway project faced major challenges but was completed successfully?",
@@ -697,7 +766,8 @@
    "Kolkata Metro",
    "Delhi Metro"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "general"
  },
  {
   "q": "Why is E.Sreedharan called the Metro Man of India?",
@@ -707,7 +777,8 @@
    "He transformed metro rail systems",
    "He worked on road transport systems"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "physics"
  },
  {
   "q": "In an email the 'BCC' field is used when you want to ________ .",
@@ -717,7 +788,8 @@
    "Send a high-priority message",
    "Attach confidential files"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "english"
  },
  {
   "q": "A well-written enquiry letter must include ________ .",
@@ -727,7 +799,8 @@
    "Irrelevant background details",
    "Personal experiences"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "english"
  },
  {
   "q": "Identify the correct sentence",
@@ -737,7 +810,8 @@
    "Each student, teacher and staff was informed",
    "Every student, teacher and staff were informing"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "english"
  },
  {
   "q": "Proxemics' deals with ________ .",
@@ -747,7 +821,8 @@
    "Use of space",
    "Sound symbols"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "Mean of observations 7, 6, 8, 4, 3, 2, 1, 11 is _________ .",
@@ -757,7 +832,8 @@
    "5.25",
    "6"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "general"
  },
  {
   "q": "In a formal business letter the 'enclosure notation' is placed immediately after ________ .",
@@ -767,7 +843,8 @@
    "Subject line",
    "Salutation"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "english"
  },
  {
   "q": "The full form of 'SMCR' in Berlo's model is ________ .",
@@ -777,7 +854,8 @@
    "System Model Communication Result",
    "Sender Mode Communication Receiver"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "The approval of the bridge design was assigned to two engineers. Both approved the design, (Identify the underlined parts of speech)",
@@ -787,7 +865,8 @@
    "Determiner",
    "Pronoun"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "english"
  },
  {
   "q": "While the engineers ________ the machine, the power went off. (Select the correct option)",
@@ -797,7 +876,8 @@
    "were repairing",
    "have repaired"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "physics"
  },
  {
   "q": "Principal period of sin 7 3 2x - a k is ________ .",
@@ -807,7 +887,8 @@
    "–3π",
    "–3π/2 sin 7 3 2x - a k"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "mathematics"
  },
  {
   "q": "logb3a2 × loga2b9 = _________ .",
@@ -817,7 +898,8 @@
    "18",
    "27 logb3a2 × loga2b9 = _________ ."
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "mathematics"
  },
  {
   "q": "Four capacitors having same value of 4 µF are connected in series then what will be their equivalent capacitance?",
@@ -827,7 +909,8 @@
    "4 µF",
    "44 µF"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "physics"
  },
  {
   "q": "10³ meter = ________ centimeter.",
@@ -837,7 +920,8 @@
    "10⁶",
    "10²"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "general"
  },
  {
   "q": "In a business letter, the 'Inside Address' refers to ________.",
@@ -847,6 +931,7 @@
    "Sender's Address",
    "Recipient's Address"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "english"
  }
 ]

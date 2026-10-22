@@ -1,0 +1,288 @@
+[
+ {
+  "q": "What is the full form of CPU?",
+  "opts": [
+   "Central Process Utility",
+   "Central Program Unit",
+   "Central Processing Unit",
+   "Computer Personal Unit"
+  ],
+  "ans": 2,
+  "topic": "hardware"
+ },
+ {
+  "q": "1 byte is equal to:",
+  "opts": [
+   "4 bits",
+   "16 bits",
+   "10 bits",
+   "8 bits"
+  ],
+  "ans": 3,
+  "topic": "number-systems"
+ },
+ {
+  "q": "Which of the following is an input device?",
+  "opts": [
+   "Monitor",
+   "Keyboard",
+   "Speaker",
+   "Printer"
+  ],
+  "ans": 1,
+  "topic": "hardware"
+ },
+ {
+  "q": "Which of the following is an output device?",
+  "opts": [
+   "Keyboard",
+   "Scanner",
+   "Monitor",
+   "Mouse"
+  ],
+  "ans": 2,
+  "topic": "hardware"
+ },
+ {
+  "q": "RAM is a ______ memory.",
+  "opts": [
+   "Permanent",
+   "Volatile",
+   "Non-volatile",
+   "Optical"
+  ],
+  "ans": 1,
+  "topic": "hardware"
+ },
+ {
+  "q": "ROM stands for:",
+  "opts": [
+   "Read Original Memory",
+   "Run On Memory",
+   "Read Only Memory",
+   "Random Only Memory"
+  ],
+  "ans": 2,
+  "topic": "hardware"
+ },
+ {
+  "q": "Which part is called the brain of the computer?",
+  "opts": [
+   "Monitor",
+   "Hard disk",
+   "RAM",
+   "CPU"
+  ],
+  "ans": 3,
+  "topic": "hardware"
+ },
+ {
+  "q": "The binary equivalent of decimal 5 is:",
+  "opts": [
+   "111",
+   "101",
+   "011",
+   "110"
+  ],
+  "ans": 1,
+  "topic": "number-systems"
+ },
+ {
+  "q": "Which number system has base 2?",
+  "opts": [
+   "Octal",
+   "Decimal",
+   "Binary",
+   "Hexadecimal"
+  ],
+  "ans": 2,
+  "topic": "number-systems"
+ },
+ {
+  "q": "The base of the hexadecimal number system is:",
+  "opts": [
+   "8",
+   "2",
+   "10",
+   "16"
+  ],
+  "ans": 3,
+  "topic": "number-systems"
+ },
+ {
+  "q": "Which of the following is system software?",
+  "opts": [
+   "Tally",
+   "Operating system",
+   "MS Word",
+   "Photoshop"
+  ],
+  "ans": 1,
+  "topic": "software"
+ },
+ {
+  "q": "Which of the following is NOT an operating system?",
+  "opts": [
+   "Android",
+   "Linux",
+   "Windows",
+   "Oracle Database"
+  ],
+  "ans": 3,
+  "topic": "software"
+ },
+ {
+  "q": "HTML stands for:",
+  "opts": [
+   "Home Tool Markup Language",
+   "HyperTool Multi Language",
+   "HyperText Markup Language",
+   "HighText Machine Language"
+  ],
+  "ans": 2,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "URL stands for:",
+  "opts": [
+   "Universal Resource Link",
+   "Unified Resource Location",
+   "Uniform Resource Locator",
+   "Uniform Reference Locator"
+  ],
+  "ans": 2,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "Which of the following is a programming language?",
+  "opts": [
+   "HTTP",
+   "Wi-Fi",
+   "URL",
+   "Python"
+  ],
+  "ans": 3,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "The shortcut key for copy is:",
+  "opts": [
+   "Ctrl + C",
+   "Ctrl + V",
+   "Ctrl + X",
+   "Ctrl + Z"
+  ],
+  "ans": 0,
+  "topic": "software"
+ },
+ {
+  "q": "The shortcut key for paste is:",
+  "opts": [
+   "Ctrl + V",
+   "Ctrl + P",
+   "Ctrl + C",
+   "Ctrl + X"
+  ],
+  "ans": 0,
+  "topic": "software"
+ },
+ {
+  "q": "A computer virus is a:",
+  "opts": [
+   "Search engine",
+   "Malicious program",
+   "Hardware device",
+   "Input device"
+  ],
+  "ans": 1,
+  "topic": "software"
+ },
+ {
+  "q": "Which device is commonly used to connect computers in a LAN?",
+  "opts": [
+   "Plotter",
+   "Switch",
+   "Scanner",
+   "Printer"
+  ],
+  "ans": 1,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "LAN stands for:",
+  "opts": [
+   "Local Access Node",
+   "Large Area Network",
+   "Linked Area Network",
+   "Local Area Network"
+  ],
+  "ans": 3,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "WWW stands for:",
+  "opts": [
+   "World Wide Web",
+   "Wide World Web",
+   "World Web Wide",
+   "Web World Wide"
+  ],
+  "ans": 0,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "Which of the following is a search engine?",
+  "opts": [
+   "Windows",
+   "Google",
+   "Intel",
+   "Linux"
+  ],
+  "ans": 1,
+  "topic": "networking-internet"
+ },
+ {
+  "q": "Which of the following is the fastest memory?",
+  "opts": [
+   "DVD",
+   "RAM",
+   "Hard disk",
+   "Cache memory"
+  ],
+  "ans": 3,
+  "topic": "hardware"
+ },
+ {
+  "q": "CPU speed is measured in:",
+  "opts": [
+   "Pixel",
+   "GHz",
+   "dpi",
+   "GB"
+  ],
+  "ans": 1,
+  "topic": "hardware"
+ },
+ {
+  "q": "1 KB is equal to:",
+  "opts": [
+   "100 bytes",
+   "1024 bytes",
+   "1000 bits",
+   "1024 bits"
+  ],
+  "ans": 1,
+  "topic": "hardware"
+ },
+ {
+  "q": "Which of the following is a web browser?",
+  "opts": [
+   "Paint",
+   "Excel",
+   "Notepad",
+   "Chrome"
+  ],
+  "ans": 3,
+  "topic": "networking-internet"
+ }
+]

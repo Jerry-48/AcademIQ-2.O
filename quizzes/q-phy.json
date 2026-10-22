@@ -7,7 +7,8 @@
    "E = h/ν",
    "E = hν"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "quantum-physics"
  },
  {
   "q": "The value of Planck's constant is approximately:",
@@ -17,7 +18,8 @@
    "3 × 10⁸ m/s",
    "6.626 × 10⁻³⁴ J·s"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "quantum-physics"
  },
  {
   "q": "The photoelectric effect was explained by:",
@@ -27,7 +29,8 @@
    "Maxwell",
    "Faraday"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "quantum-physics"
  },
  {
   "q": "Photoelectric emission occurs only if the frequency of light is greater than the:",
@@ -37,7 +40,8 @@
    "Threshold frequency",
    "Infinite frequency"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "quantum-physics"
  },
  {
   "q": "The de Broglie wavelength of a particle is:",
@@ -47,7 +51,8 @@
    "λ = h/mv",
    "λ = h/m"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "quantum-physics"
  },
  {
   "q": "The uncertainty principle was given by:",
@@ -57,7 +62,8 @@
    "Rutherford",
    "Heisenberg"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "atomic-nuclear"
  },
  {
   "q": "The dual nature of matter was suggested by:",
@@ -67,7 +73,8 @@
    "Rutherford",
    "de Broglie"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "atomic-nuclear"
  },
  {
   "q": "The speed of light in vacuum is:",
@@ -77,7 +84,8 @@
    "3 × 10⁶ m/s",
    "3 × 10⁸ m/s"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "quantum-physics"
  },
  {
   "q": "LASER stands for:",
@@ -87,7 +95,8 @@
    "Light Absorption by Stimulated Emission of Radiation",
    "Light Amplification by Spontaneous Emission of Radiation"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "laser"
  },
  {
   "q": "Laser light is:",
@@ -97,7 +106,8 @@
    "Polychromatic",
    "Incoherent"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "laser"
  },
  {
   "q": "Which condition is necessary for laser action?",
@@ -107,7 +117,8 @@
    "Refraction",
    "Population inversion"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "laser"
  },
  {
   "q": "Which of the following is a gas laser?",
@@ -117,7 +128,8 @@
    "Ruby laser",
    "Semiconductor laser"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "laser"
  },
  {
   "q": "The ruby laser is a:",
@@ -127,7 +139,8 @@
    "Liquid laser",
    "Solid-state laser"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "laser"
  },
  {
   "q": "An optical fibre works on the principle of:",
@@ -137,7 +150,8 @@
    "Diffraction",
    "Refraction"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "fibre-optics"
  },
  {
   "q": "In an optical fibre, the core has ______ refractive index than the cladding.",
@@ -147,7 +161,8 @@
    "Lower",
    "Equal"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "fibre-optics"
  },
  {
   "q": "X-rays were discovered by:",
@@ -157,7 +172,8 @@
    "Bohr",
    "Roentgen"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "x-rays"
  },
  {
   "q": "X-rays are:",
@@ -167,7 +183,8 @@
    "Sound waves",
    "Electromagnetic waves"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "x-rays"
  },
  {
   "q": "Below its critical temperature, a superconductor has electrical resistance equal to:",
@@ -177,7 +194,8 @@
    "That of copper",
    "A very high value"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "superconductivity-nano"
  },
  {
   "q": "The Meissner effect is:",
@@ -187,7 +205,8 @@
    "Attraction of a magnet by iron",
    "Emission of electrons by light"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "superconductivity-nano"
  },
  {
   "q": "Nanomaterials have a size in the range of:",
@@ -197,7 +216,8 @@
    "1–100 mm",
    "1–100 µm"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "superconductivity-nano"
  },
  {
   "q": "1 nanometre equals:",
@@ -207,7 +227,8 @@
    "10⁻¹² m",
    "10⁻⁹ m"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "superconductivity-nano"
  },
  {
   "q": "Rutherford's gold-foil experiment led to the discovery of:",
@@ -217,7 +238,8 @@
    "The neutron",
    "The atomic nucleus"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "atomic-nuclear"
  },
  {
   "q": "In Bohr's model of the atom:",
@@ -227,7 +249,8 @@
    "Electrons are at rest",
    "The nucleus orbits the electron"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "atomic-nuclear"
  },
  {
   "q": "Which radiation has the highest penetrating power?",
@@ -237,7 +260,8 @@
    "Alpha particles",
    "All are equal"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "atomic-nuclear"
  },
  {
   "q": "Half-life is the time in which a radioactive sample decays to:",
@@ -247,6 +271,7 @@
    "Half of its original amount",
    "Double"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "atomic-nuclear"
  }
 ]

@@ -7,7 +7,8 @@
    "History",
    "Relationships between organisms and their environment"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "ecosystem-ecology"
  },
  {
   "q": "Which of the following is an abiotic component?",
@@ -17,7 +18,8 @@
    "Sunlight",
    "Animals"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "ecosystem-ecology"
  },
  {
   "q": "Producers in an ecosystem are:",
@@ -27,7 +29,8 @@
    "Mushrooms",
    "Lions"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "ecosystem-ecology"
  },
  {
   "q": "The ozone layer is present in the:",
@@ -37,7 +40,8 @@
    "Mesosphere",
    "Stratosphere"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "climate-ozone"
  },
  {
   "q": "Which gases are responsible for acid rain?",
@@ -47,7 +51,8 @@
    "CO₂ and methane",
    "Argon and neon"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "pollution"
  },
  {
   "q": "Which of the following waste is non-biodegradable?",
@@ -57,7 +62,8 @@
    "Wood",
    "Fruit peels"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "waste-management"
  },
  {
   "q": "Sustainable development means:",
@@ -67,7 +73,8 @@
    "Development without compromising the needs of future generations",
    "Rapid industrial growth"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "sustainability-laws"
  },
  {
   "q": "World Environment Day is celebrated on:",
@@ -77,7 +84,8 @@
    "26 January",
    "15 August"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "sustainability-laws"
  },
  {
   "q": "What is the main effect of deforestation?",
@@ -87,7 +95,8 @@
    "More rainfall",
    "Cooler climate"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "natural-resources"
  },
  {
   "q": "Solar and wind energy are:",
@@ -97,7 +106,8 @@
    "Renewable sources",
    "Conventional sources"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "natural-resources"
  },
  {
   "q": "Which of the following is a greenhouse gas?",
@@ -107,7 +117,8 @@
    "Argon",
    "Carbon dioxide"
   ],
-  "ans": 3
+  "ans": 3,
+  "topic": "climate-ozone"
  },
  {
   "q": "The Montreal Protocol deals with:",
@@ -117,7 +128,8 @@
    "Ozone-depleting substances",
    "Nuclear tests"
   ],
-  "ans": 2
+  "ans": 2,
+  "topic": "climate-ozone"
  },
  {
   "q": "The Kyoto Protocol is related to:",
@@ -127,7 +139,8 @@
    "Ozone layer only",
    "Wildlife trade"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "climate-ozone"
  },
  {
   "q": "BOD stands for:",
@@ -137,7 +150,8 @@
    "Bio-organic Oxygen Data",
    "Basic Oxygen Demand"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "pollution"
  },
  {
   "q": "The 3Rs of waste management are:",
@@ -147,7 +161,8 @@
    "Reduce, Repair, Remove",
    "Reuse, Replace, Recycle"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "waste-management"
  },
  {
   "q": "Which of the following is a non-renewable resource?",
@@ -157,7 +172,8 @@
    "Wind energy",
    "Tidal energy"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "natural-resources"
  },
  {
   "q": "Which of the following is a biodiversity hotspot in India?",
@@ -167,7 +183,8 @@
    "Gangetic Plain",
    "Thar Desert"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "ecosystem-ecology"
  },
  {
   "q": "Which of the following is a primary air pollutant?",
@@ -177,7 +194,8 @@
    "PAN",
    "Sulphuric acid mist"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "pollution"
  },
  {
   "q": "Noise pollution is measured in:",
@@ -187,7 +205,8 @@
    "Hertz",
    "Lux"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "pollution"
  },
  {
   "q": "Eutrophication is caused by an excess of:",
@@ -197,7 +216,8 @@
    "Oxygen",
    "Salt"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "pollution"
  },
  {
   "q": "The Environment (Protection) Act in India was enacted in:",
@@ -207,7 +227,8 @@
    "1981",
    "1974"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "sustainability-laws"
  },
  {
   "q": "The main component of biogas is:",
@@ -217,7 +238,8 @@
    "Ethane",
    "Hydrogen"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "natural-resources"
  },
  {
   "q": "A food chain always starts with:",
@@ -227,7 +249,8 @@
    "Carnivores",
    "Decomposers"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "ecosystem-ecology"
  },
  {
   "q": "Which of the following are decomposers?",
@@ -237,7 +260,8 @@
    "Tiger",
    "Deer"
   ],
-  "ans": 1
+  "ans": 1,
+  "topic": "ecosystem-ecology"
  },
  {
   "q": "Which layer of the atmosphere is closest to the Earth?",
@@ -247,6 +271,7 @@
    "Mesosphere",
    "Thermosphere"
   ],
-  "ans": 0
+  "ans": 0,
+  "topic": "climate-ozone"
  }
 ]

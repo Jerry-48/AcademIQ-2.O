@@ -1,0 +1,321 @@
+{
+ "q-maths": {
+  "_subject": "applied-maths",
+  "matrices": {
+   "label": "Matrices & Determinants",
+   "notes": [
+    "unit-1",
+    "matrices"
+   ]
+  },
+  "differentiation": {
+   "label": "Differentiation",
+   "notes": [
+    "differentiation",
+    "derivative"
+   ]
+  },
+  "integration": {
+   "label": "Integration",
+   "notes": [
+    "integration"
+   ]
+  },
+  "complex-numbers": {
+   "label": "Complex Numbers",
+   "notes": [
+    "complex"
+   ]
+  },
+  "coordinate-geometry": {
+   "label": "Coordinate Geometry",
+   "notes": [
+    "geometry",
+    "straight line"
+   ]
+  },
+  "differential-equations": {
+   "label": "Differential Equations",
+   "notes": [
+    "differential"
+   ]
+  },
+  "trigonometry": {
+   "label": "Trigonometry",
+   "notes": [
+    "trigonometry"
+   ]
+  },
+  "general": {
+   "label": "General",
+   "notes": []
+  }
+ },
+ "q-math1": {
+  "_subject": "applied-maths",
+  "logarithms": {
+   "label": "Logarithms",
+   "notes": [
+    "logarithm"
+   ]
+  },
+  "matrices-determinants": {
+   "label": "Matrices & Determinants",
+   "notes": [
+    "matrices",
+    "determinant"
+   ]
+  },
+  "trigonometry": {
+   "label": "Trigonometry",
+   "notes": [
+    "trigonometry"
+   ]
+  },
+  "coordinate-geometry": {
+   "label": "Coordinate Geometry",
+   "notes": [
+    "geometry"
+   ]
+  },
+  "algebra": {
+   "label": "Algebra",
+   "notes": [
+    "algebra"
+   ]
+  }
+ },
+ "q-chem": {
+  "_subject": "chemistry",
+  "corrosion": {
+   "label": "Corrosion",
+   "notes": [
+    "corrosion"
+   ]
+  },
+  "fuels": {
+   "label": "Fuels",
+   "notes": [
+    "fuel"
+   ]
+  },
+  "lubricants": {
+   "label": "Lubricants",
+   "notes": [
+    "lubricant"
+   ]
+  },
+  "polymers": {
+   "label": "Polymers & Plastics",
+   "notes": [
+    "polymer"
+   ]
+  },
+  "water-treatment": {
+   "label": "Water Treatment",
+   "notes": [
+    "water"
+   ]
+  },
+  "electrochemistry": {
+   "label": "Electrochemistry",
+   "notes": [
+    "electro"
+   ]
+  },
+  "acids-bases": {
+   "label": "Acids, Bases & pH",
+   "notes": [
+    "acid"
+   ]
+  },
+  "atomic-structure": {
+   "label": "Atomic Structure & Bonding",
+   "notes": [
+    "atomic"
+   ]
+  },
+  "engineering-materials": {
+   "label": "Engineering Materials",
+   "notes": [
+    "cement",
+    "alloy"
+   ]
+  },
+  "general-chemistry": {
+   "label": "General Chemistry",
+   "notes": []
+  }
+ },
+ "q-env": {
+  "_subject": "environment",
+  "ecosystem-ecology": {
+   "label": "Ecology & Ecosystems",
+   "notes": [
+    "ecosystem",
+    "ecology"
+   ]
+  },
+  "pollution": {
+   "label": "Pollution",
+   "notes": [
+    "pollution"
+   ]
+  },
+  "climate-ozone": {
+   "label": "Climate Change & Ozone",
+   "notes": [
+    "climate",
+    "ozone"
+   ]
+  },
+  "waste-management": {
+   "label": "Waste Management",
+   "notes": [
+    "waste"
+   ]
+  },
+  "sustainability-laws": {
+   "label": "Sustainability & Laws",
+   "notes": [
+    "sustainab"
+   ]
+  },
+  "natural-resources": {
+   "label": "Natural Resources & Energy",
+   "notes": [
+    "resource",
+    "energy"
+   ]
+  }
+ },
+ "q-py": {
+  "_subject": "python",
+  "python-basics": {
+   "label": "Python Basics",
+   "notes": [
+    "basic"
+   ]
+  },
+  "data-structures": {
+   "label": "Lists, Tuples, Sets & Dictionaries",
+   "notes": [
+    "list",
+    "tuple",
+    "dictionar"
+   ]
+  },
+  "control-flow": {
+   "label": "Loops & Conditions",
+   "notes": [
+    "loop",
+    "condition"
+   ]
+  },
+  "operators": {
+   "label": "Operators",
+   "notes": [
+    "operator"
+   ]
+  },
+  "strings-functions": {
+   "label": "Strings & Functions",
+   "notes": [
+    "string",
+    "function"
+   ]
+  }
+ },
+ "q-comm": {
+  "_subject": "communication",
+  "communication-process": {
+   "label": "Communication Process & Barriers",
+   "notes": [
+    "communication"
+   ]
+  },
+  "grammar": {
+   "label": "Grammar",
+   "notes": [
+    "grammar"
+   ]
+  },
+  "vocabulary": {
+   "label": "Vocabulary",
+   "notes": [
+    "vocabulary"
+   ]
+  },
+  "writing-reading": {
+   "label": "Writing & Reading Skills",
+   "notes": [
+    "letter",
+    "writing"
+   ]
+  }
+ },
+ "q-phy": {
+  "_subject": "physics",
+  "quantum-physics": {
+   "label": "Quantum Physics",
+   "notes": [
+    "quantum"
+   ]
+  },
+  "laser": {
+   "label": "LASER",
+   "notes": [
+    "laser"
+   ]
+  },
+  "fibre-optics": {
+   "label": "Fibre Optics",
+   "notes": [
+    "fibre",
+    "fiber"
+   ]
+  },
+  "x-rays": {
+   "label": "X-rays",
+   "notes": [
+    "x-ray"
+   ]
+  },
+  "superconductivity-nano": {
+   "label": "Superconductivity & Nanotechnology",
+   "notes": [
+    "superconduct",
+    "nano"
+   ]
+  },
+  "atomic-nuclear": {
+   "label": "Atomic & Nuclear Physics",
+   "notes": [
+    "atomic",
+    "nuclear"
+   ]
+  }
+ },
+ "ddcet": {
+  "english": {
+   "label": "English",
+   "notes": []
+  },
+  "mathematics": {
+   "label": "Mathematics",
+   "notes": []
+  },
+  "chemistry": {
+   "label": "Chemistry",
+   "notes": []
+  },
+  "physics": {
+   "label": "Physics",
+   "notes": []
+  },
+  "general": {
+   "label": "General",
+   "notes": []
+  }
+ }
+}

@@ -1,252 +1,277 @@
 [
-  {
-    "q": "Which function is used to display output in Python?",
-    "opts": [
-      "printf()",
-      "print()",
-      "output()",
-      "echo()"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "Which of the following data types is immutable?",
-    "opts": [
-      "Tuple",
-      "List",
-      "Set",
-      "Dictionary"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "What is the file extension of a Python program?",
-    "opts": [
-      ".python",
-      ".exe",
-      ".pt",
-      ".py"
-    ],
-    "ans": 3
-  },
-  {
-    "q": "Which list method removes the last element?",
-    "opts": [
-      "delete()",
-      "pop()",
-      "remove()",
-      "clear()"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "What is the output of '10' + '20' in Python?",
-    "opts": [
-      "1020",
-      "NaN",
-      "Error",
-      "30"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "Which keyword is used to terminate a loop?",
-    "opts": [
-      "stop",
-      "break",
-      "continue",
-      "return"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "Which list method adds an item at the end?",
-    "opts": [
-      "extend_one()",
-      "append()",
-      "insert_last()",
-      "add()"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "Which brackets are used to define a dictionary?",
-    "opts": [
-      "[ ]",
-      "{ }",
-      "( )",
-      "< >"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "What is the value of len('Python')?",
-    "opts": [
-      "5",
-      "7",
-      "0",
-      "6"
-    ],
-    "ans": 3
-  },
-  {
-    "q": "Which symbol is used for a single-line comment in Python?",
-    "opts": [
-      "<!-- -->",
-      "//",
-      "#",
-      "/* */"
-    ],
-    "ans": 2
-  },
-  {
-    "q": "What is the type of 5 / 2 in Python?",
-    "opts": [
-      "float",
-      "int",
-      "str",
-      "double"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "What is the value of 7 // 2?",
-    "opts": [
-      "3",
-      "4",
-      "3.5",
-      "2"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "What is the value of 2 ** 3?",
-    "opts": [
-      "9",
-      "8",
-      "5",
-      "6"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "Which keyword is used to define a function?",
-    "opts": [
-      "fun",
-      "function",
-      "define",
-      "def"
-    ],
-    "ans": 3
-  },
-  {
-    "q": "range(3) generates:",
-    "opts": [
-      "0, 1, 2",
-      "0, 1, 2, 3",
-      "1, 2",
-      "1, 2, 3"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "Which of the following is NOT a valid variable name?",
-    "opts": [
-      "2name",
-      "Name",
-      "name2",
-      "_name"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "What is the output of print(\"Hi\" * 2)?",
-    "opts": [
-      "HiHi",
-      "Hi 2",
-      "Hi*2",
-      "Error"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "Which method converts a string to uppercase?",
-    "opts": [
-      "uppercase()",
-      "upper()",
-      "capitalize()",
-      "toUpper()"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "Which collection stores only unique items?",
-    "opts": [
-      "List",
-      "Set",
-      "String",
-      "Tuple"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "The input() function returns data of type:",
-    "opts": [
-      "int",
-      "str",
-      "bool",
-      "float"
-    ],
-    "ans": 1
-  },
-  {
-    "q": "Which operator is used for logical AND?",
-    "opts": [
-      "and",
-      "AND",
-      "&",
-      "&&"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "What is the value of bool(0)?",
-    "opts": [
-      "True",
-      "None",
-      "False",
-      "0"
-    ],
-    "ans": 2
-  },
-  {
-    "q": "What is the index of the first element of a list?",
-    "opts": [
-      "0",
-      "1",
-      "−1",
-      "It depends"
-    ],
-    "ans": 0
-  },
-  {
-    "q": "Python is mainly a(n) ______ language.",
-    "opts": [
-      "Assembly",
-      "Machine-level",
-      "Compiled-only",
-      "Interpreted"
-    ],
-    "ans": 3
-  },
-  {
-    "q": "Which keyword is used for an additional condition in an if statement?",
-    "opts": [
-      "elseif",
-      "else if",
-      "elif",
-      "switch"
-    ],
-    "ans": 2
-  }
+ {
+  "q": "Which function is used to display output in Python?",
+  "opts": [
+   "printf()",
+   "print()",
+   "output()",
+   "echo()"
+  ],
+  "ans": 1,
+  "topic": "strings-functions"
+ },
+ {
+  "q": "Which of the following data types is immutable?",
+  "opts": [
+   "Tuple",
+   "List",
+   "Set",
+   "Dictionary"
+  ],
+  "ans": 0,
+  "topic": "data-structures"
+ },
+ {
+  "q": "What is the file extension of a Python program?",
+  "opts": [
+   ".python",
+   ".exe",
+   ".pt",
+   ".py"
+  ],
+  "ans": 3,
+  "topic": "python-basics"
+ },
+ {
+  "q": "Which list method removes the last element?",
+  "opts": [
+   "delete()",
+   "pop()",
+   "remove()",
+   "clear()"
+  ],
+  "ans": 1,
+  "topic": "data-structures"
+ },
+ {
+  "q": "What is the output of '10' + '20' in Python?",
+  "opts": [
+   "1020",
+   "NaN",
+   "Error",
+   "30"
+  ],
+  "ans": 0,
+  "topic": "python-basics"
+ },
+ {
+  "q": "Which keyword is used to terminate a loop?",
+  "opts": [
+   "stop",
+   "break",
+   "continue",
+   "return"
+  ],
+  "ans": 1,
+  "topic": "control-flow"
+ },
+ {
+  "q": "Which list method adds an item at the end?",
+  "opts": [
+   "extend_one()",
+   "append()",
+   "insert_last()",
+   "add()"
+  ],
+  "ans": 1,
+  "topic": "data-structures"
+ },
+ {
+  "q": "Which brackets are used to define a dictionary?",
+  "opts": [
+   "[ ]",
+   "{ }",
+   "( )",
+   "< >"
+  ],
+  "ans": 1,
+  "topic": "data-structures"
+ },
+ {
+  "q": "What is the value of len('Python')?",
+  "opts": [
+   "5",
+   "7",
+   "0",
+   "6"
+  ],
+  "ans": 3,
+  "topic": "strings-functions"
+ },
+ {
+  "q": "Which symbol is used for a single-line comment in Python?",
+  "opts": [
+   "<!-- -->",
+   "//",
+   "#",
+   "/* */"
+  ],
+  "ans": 2,
+  "topic": "operators"
+ },
+ {
+  "q": "What is the type of 5 / 2 in Python?",
+  "opts": [
+   "float",
+   "int",
+   "str",
+   "double"
+  ],
+  "ans": 0,
+  "topic": "python-basics"
+ },
+ {
+  "q": "What is the value of 7 // 2?",
+  "opts": [
+   "3",
+   "4",
+   "3.5",
+   "2"
+  ],
+  "ans": 0,
+  "topic": "operators"
+ },
+ {
+  "q": "What is the value of 2 ** 3?",
+  "opts": [
+   "9",
+   "8",
+   "5",
+   "6"
+  ],
+  "ans": 1,
+  "topic": "operators"
+ },
+ {
+  "q": "Which keyword is used to define a function?",
+  "opts": [
+   "fun",
+   "function",
+   "define",
+   "def"
+  ],
+  "ans": 3,
+  "topic": "strings-functions"
+ },
+ {
+  "q": "range(3) generates:",
+  "opts": [
+   "0, 1, 2",
+   "0, 1, 2, 3",
+   "1, 2",
+   "1, 2, 3"
+  ],
+  "ans": 0,
+  "topic": "control-flow"
+ },
+ {
+  "q": "Which of the following is NOT a valid variable name?",
+  "opts": [
+   "2name",
+   "Name",
+   "name2",
+   "_name"
+  ],
+  "ans": 0,
+  "topic": "python-basics"
+ },
+ {
+  "q": "What is the output of print(\"Hi\" * 2)?",
+  "opts": [
+   "HiHi",
+   "Hi 2",
+   "Hi*2",
+   "Error"
+  ],
+  "ans": 0,
+  "topic": "strings-functions"
+ },
+ {
+  "q": "Which method converts a string to uppercase?",
+  "opts": [
+   "uppercase()",
+   "upper()",
+   "capitalize()",
+   "toUpper()"
+  ],
+  "ans": 1,
+  "topic": "strings-functions"
+ },
+ {
+  "q": "Which collection stores only unique items?",
+  "opts": [
+   "List",
+   "Set",
+   "String",
+   "Tuple"
+  ],
+  "ans": 1,
+  "topic": "data-structures"
+ },
+ {
+  "q": "The input() function returns data of type:",
+  "opts": [
+   "int",
+   "str",
+   "bool",
+   "float"
+  ],
+  "ans": 1,
+  "topic": "strings-functions"
+ },
+ {
+  "q": "Which operator is used for logical AND?",
+  "opts": [
+   "and",
+   "AND",
+   "&",
+   "&&"
+  ],
+  "ans": 0,
+  "topic": "operators"
+ },
+ {
+  "q": "What is the value of bool(0)?",
+  "opts": [
+   "True",
+   "None",
+   "False",
+   "0"
+  ],
+  "ans": 2,
+  "topic": "python-basics"
+ },
+ {
+  "q": "What is the index of the first element of a list?",
+  "opts": [
+   "0",
+   "1",
+   "−1",
+   "It depends"
+  ],
+  "ans": 0,
+  "topic": "data-structures"
+ },
+ {
+  "q": "Python is mainly a(n) ______ language.",
+  "opts": [
+   "Assembly",
+   "Machine-level",
+   "Compiled-only",
+   "Interpreted"
+  ],
+  "ans": 3,
+  "topic": "python-basics"
+ },
+ {
+  "q": "Which keyword is used for an additional condition in an if statement?",
+  "opts": [
+   "elseif",
+   "else if",
+   "elif",
+   "switch"
+  ],
+  "ans": 2,
+  "topic": "control-flow"
+ }
 ]

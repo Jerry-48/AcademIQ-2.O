@@ -1700,3 +1700,22 @@ input,select,textarea{font-size:16px} /* stops iOS zoom-on-focus */
   #noteModal .pdf-frame{height:calc(100dvh - 120px)}
 }
 @media (max-width:380px){.hero-stats{grid-template-columns:1fr 1fr}.notes-tools{grid-template-columns:1fr}.count-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ═══ Smart feedback (learning gaps) ═══ */
+.sf-card{text-align:left;background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin:1.2rem 0}
+.sf-card h3{margin:0 0 .6rem}.sf-sub{margin:1.2rem 0 .6rem}
+.sf-msg{padding:.7rem .9rem;border-radius:var(--radius-sm);margin:0 0 1rem;font-size:.95rem}
+.sf-msg.bad{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);color:#fecaca}
+.sf-msg.good{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);color:#a7f3d0}
+.sf-row{margin-bottom:.8rem}.sf-head{display:flex;justify-content:space-between;gap:.6rem;font-size:.9rem;margin-bottom:.3rem}
+.sf-pct{color:var(--text-muted);white-space:nowrap}
+.sf-track{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
+.sf-fill{height:100%;border-radius:999px;transition:width .6s}
+.sf-fill.sf-gap{background:#ef4444}.sf-fill.sf-ok{background:#f59e0b}.sf-fill.sf-strong{background:#10b981}.sf-fill.sf-low-data{background:#64748b}
+.sf-note{font-size:.75rem;color:var(--text-dim);margin-top:.2rem}
+.sf-card .sf-gap{background:#ef444414;border:1px solid rgba(239,68,68,.3);border-radius:var(--radius-sm);padding:.8rem;margin-bottom:.7rem}
+.sf-gap-title{display:flex;justify-content:space-between;font-weight:600;margin-bottom:.5rem}
+.sf-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.sf-link{padding:.5rem .9rem;border-radius:999px;border:1px solid rgba(245,158,11,.4);background:rgba(245,158,11,.12);color:var(--amber-glow);cursor:pointer;font:inherit;font-size:.85rem;min-height:40px;text-align:left}
+.sf-link.ghost{background:transparent;border-color:var(--border);color:var(--text-muted)}
+.sf-foot{font-size:.75rem;color:var(--text-dim);margin:1rem 0 0}
