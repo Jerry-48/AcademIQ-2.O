@@ -109,7 +109,7 @@ const PDF_FILES = [
   "PEC_CH.2(ASSIGNMENT).pdf",
   "PEC_CH.1(ASSIGNMENT).pdf",
   "DSA-CODES.pdf",
-  "DSA-MID-ANS-W2025.pdf",
+  "DSA-MID-ANSWERS-W2025.pdf",
   "DSA-QB.pdf",
   "DSA-REMID-ANS-W2025.pdf",
   "DSA-W25.pdf",
