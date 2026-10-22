@@ -17,7 +17,7 @@ async function api(body) {
   return j;
 }
 const pdfUrl = f => 'pdfs/' + encodeURIComponent(f); // relative path: works on any repo/site name
-const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; } return a; };
 function toast(msg) {
   let t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t); }
@@ -116,6 +116,28 @@ const PDF_FILES = [
   "CN-DI03000131-Computer-Networking-AI-Content-H-D-Panchal.pdf",
   "CN-W25.pdf",
   "CN-S26.pdf",
+  "FOE-ASSIGNMENT-1.pdf",
+  "FOE-ASSIGNMENT-2.pdf",
+  "FOE_BOOK_CH.3.pdf",
+  "FOE_CH.1.pdf",
+  "FOE_CH.2.pdf",
+  "FOE_CH.3.pdf",
+  "FOE_W2023_PAPER.pdf",
+  "FOE_BOOK_CH.1.pdf",
+  "FOE_BOOK_CH.2.pdf",
+  "CSE-MIDPAPER-2024.pdf",
+  "CSE-IMP-Q-GTU.pdf",
+  "Modern Physics.pdf",
+  "Fundamentals of Electronics.pdf",
+  "CSE_W2024.pdf",
+  "FOE_W2024.pdf",
+  "Mathematics-I_OLD_W2024.pdf",
+  "Mathematics-I_W2024.pdf",
+  "PHY_W2024.pdf",
+  "FOE_UNIT-4&5.pdf",
+  "phy.pdf",
+  "cse.pdf",
+  "foe.pdf",
 ];
 
 
@@ -725,9 +747,11 @@ function saveScore(score, total, ana = []) {
   const local = JSON.parse(localStorage.getItem('iq_scores') || '[]'); local.push(row);
   localStorage.setItem('iq_scores', JSON.stringify(local));
   scoresCache.push(row);
-  api({ action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total,
+  api({
+    action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total,
     weak: ana.filter(x => x.status === 'gap').map(x => topicLabel(currentQuiz.id, x.topic)),
-    topics: ana.map(x => ({ t: topicLabel(currentQuiz.id, x.topic), c: x.correct, n: x.total })) }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
+    topics: ana.map(x => ({ t: topicLabel(currentQuiz.id, x.topic), c: x.correct, n: x.total }))
+  }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
 }
 function updateHomeScore() {
   if (!currentUser) return;
