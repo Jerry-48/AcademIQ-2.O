@@ -27,7 +27,7 @@ function toast(msg) {
 const SUBJECTS = [
   ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
   ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i],
-  ['communication', /commun/i], ['physics', /physic/i], ['electronics', /electronic/i]
+  ['cse', /commun/i], ['phy', /physic/i], ['foe', /electronic/i]
 ];
 const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
 function typeOf(f) {
@@ -357,7 +357,7 @@ async function loadNotes() {
   renderNotes();
 }
 const toB64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.onerror = no; r.readAsDataURL(f); });
-const SUBJ_LABELS = { 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN' };
+const SUBJ_LABELS = { 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN', cse: 'CSE', phy: 'Physics', foe: 'FOE', other: 'Other' };
 const SORTS = {
   new: (a, b) => (b.added || 0) - (a.added || 0), old: (a, b) => (a.added || 0) - (b.added || 0),
   az: (a, b) => a.title.localeCompare(b.title), za: (a, b) => b.title.localeCompare(a.title),
