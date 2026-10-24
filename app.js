@@ -27,7 +27,7 @@ function toast(msg) {
 const SUBJECTS = [
   ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
   ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i],
-  ['cse', /commun/i], ['phy', /physic/i], ['foe', /electronic/i]
+  ['cse', /^cse[-_ ]/i], ['phy', /^phy[-_ ]/i], ['foe', /^foe[-_ ]/i]
 ];
 const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
 function typeOf(f) {
@@ -127,7 +127,7 @@ const PDF_FILES = [
   "FOE-BOOK-CH.3.pdf",
   "CSE-MIDPAPER-2024.pdf",
   "CSE-IMP-Q-GTU.pdf",
-  "Modern Physics.pdf",
+  //"Modern Physics.pdf",
   "CSE_W2024.pdf",
   "FOE_W2024.pdf",
   "Mathematics-I_OLD_W2024.pdf",
