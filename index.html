@@ -13,6 +13,11 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Noto+Sans+Gujarati:wght@400;500;600&display=swap"
         rel="stylesheet" />
     <link rel="icon" type="image/png" href="image.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#0a0f1e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="AcademIQ">
 </head>
 
 <body>
@@ -365,6 +370,9 @@
 
     <script src="config.js"></script>
     <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+    </script>
 </body>
 
 </html>
