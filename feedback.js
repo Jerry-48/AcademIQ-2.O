@@ -21,9 +21,9 @@
     let rating = 0;
     m = document.createElement('div'); m.id = 'feedbackModal'; m.className = 'modal-overlay';
     m.onclick = e => { if (e.target === m) m.remove(); };
-    m.innerHTML = `<div class="modal-card" style="max-width:480px"><div class="modal-header"><h3>💬 Send feedback</h3><button class="modal-close" id="fbX">✕</button></div>
+    m.innerHTML = `<div class="modal-card" style="max-width:480px" role="dialog" aria-modal="true" aria-labelledby="fbTitle"><div class="modal-header"><h3 id="fbTitle">💬 Send feedback</h3><button class="modal-close" id="fbX" aria-label="Close feedback form">✕</button></div>
       <div class="modal-body adm-card" style="border:0;margin:0"><p class="adm-msg" style="margin-bottom:.8rem">Tell us what works and what does not. The admin reads every message.</p>
-      <div class="fb-stars" id="fbStars">${[1, 2, 3, 4, 5].map(n => `<button type="button" data-n="${n}" aria-label="${n} star">⭐</button>`).join('')}</div>
+      <div class="fb-stars" id="fbStars">${[1, 2, 3, 4, 5].map(n => `<button type="button" data-n="${n}" aria-label="${n} star" aria-pressed="false">⭐</button>`).join('')}</div>
       <div class="adm-row"><select id="fbCat">${CATS.map(c => `<option>${c}</option>`).join('')}</select></div>
       <div class="adm-row"><textarea id="fbMsg" rows="4" maxlength="500" placeholder="Write your feedback (max 500 characters)"></textarea></div>
       <button class="btn-primary" id="fbGo">Send</button> <span class="adm-msg" id="fbOut"></span></div></div>`;
@@ -31,7 +31,7 @@
     m.querySelector('#fbX').onclick = () => m.remove();
     m.querySelector('#fbStars').onclick = e => {
       const b = e.target.closest('button'); if (!b) return; rating = +b.dataset.n;
-      m.querySelectorAll('#fbStars button').forEach(x => x.classList.toggle('on', +x.dataset.n <= rating));
+      m.querySelectorAll('#fbStars button').forEach(x => { const on = +x.dataset.n <= rating; x.classList.toggle('on', on); x.setAttribute('aria-pressed', String(on)); });
     };
     m.querySelector('#fbGo').onclick = async () => {
       const out = m.querySelector('#fbOut'), go = m.querySelector('#fbGo'), message = m.querySelector('#fbMsg').value.trim();
@@ -42,8 +42,9 @@
         const r = await api({ action: 'feedback', token: localStorage.getItem('iq_token'), rating, category: m.querySelector('#fbCat').value, message, context: context() });
         if (!r.ok) throw new Error({ invalid: 'Please choose a rating and write at least 3 characters.', limit: "You have reached today's limit of 5 feedback messages.", auth: 'Your session has expired. Please sign in again.' }[r.error] || 'Something went wrong. Please try again.');
         m.remove(); toast('✅ Thank you for your feedback!');
-      } catch (e) { out.textContent = '❌ ' + e.message; go.disabled = false; }
+      } catch (e) { out.textContent = '❌ ' + (e.name === 'AbortError' || /fetch|network|abort/i.test(e.message) ? 'Could not reach the server. Check your internet and try again.' : e.message); go.disabled = false; }
     };
   }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { const x = document.getElementById('feedbackModal'); if (x) x.remove(); } });
   window.openFeedback = openFeedback;
 })();
