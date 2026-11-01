@@ -568,7 +568,10 @@ function renderQuestion() {
   q.opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
-    btn.innerHTML = `<span class="option-letter">${letters[i]}</span> ${opt}`;
+    const letter = document.createElement('span');
+    letter.className = 'option-letter';
+    letter.textContent = letters[i];
+    btn.append(letter, document.createTextNode(' ' + String(opt)));
     btn.addEventListener('click', () => selectAnswer(i));
     optsGrid.appendChild(btn);
   });
@@ -658,8 +661,8 @@ function showResults() {
 /* ══════════════════════════════════════════════════════
    LEARNING GAPS: topic-wise analysis + smart recommendations
 ══════════════════════════════════════════════════════ */
-const GAP_THRESHOLD = 50;   // below this % in a topic = learning gap
-const MIN_TOPIC_Q = 2;      // need at least this many questions in a topic to judge it
+const GAP_THRESHOLD = 40;   // provisional gap threshold; avoid overreacting to small samples
+const MIN_TOPIC_Q = 4;      // fewer than 4 questions is insufficient evidence for a topic-level gap
 let TOPICS = {};
 async function loadTopics() {
   try { const r = await fetch('quizzes/topics.json', { cache: 'no-cache' }); if (r.ok) TOPICS = await r.json(); } catch (e) { console.warn('topics.json not loaded', e); }
