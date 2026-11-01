@@ -8,9 +8,14 @@
 /* ── Helpers ─────────────────────────────────────────── */
 const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 let quizzesFromSheet = false;
-async function api(body) {
-  const r = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(body) });
-  const t = await r.text();
+async function api(body, timeoutMs = 25000) {
+  // abort hung requests so buttons never stay stuck on "Please wait…"
+  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), timeoutMs);
+  let t;
+  try {
+    const r = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(body), signal: ctl.signal });
+    t = await r.text();
+  } finally { clearTimeout(timer); }
   let j; try { j = JSON.parse(t); } catch (e) { throw new Error('NOT_JSON: ' + t.slice(0, 80)); }
   if (j && j.error === 'replaced' && localStorage.getItem('iq_token')) forceLogout('You were signed out because this account was signed in on another device.');
   else if (j && j.error === 'auth' && body.token && localStorage.getItem('iq_token')) forceLogout('Your session has expired. Please sign in again.');
@@ -227,10 +232,10 @@ async function handleLogin() {
   }
   const btn = document.getElementById('authBtn'), label = btn.textContent;
   btn.disabled = true; btn.textContent = 'Please wait…';
-  let res = null, ex = '';
-  try { res = await api({ action: authMode, enrollment: enroll, name, password, browser: navigator.userAgent }); } catch (e) { ex = e.message; console.error(e); }
+  let res = null;
+  try { res = await api({ action: authMode, enrollment: enroll, name, password, browser: navigator.userAgent }); } catch (e) { /* network error or timeout: handled below */ }
   btn.disabled = false; btn.textContent = label;
-  if (!res) { console.error('Login request failed:', ex); return err(navigator.onLine === false ? 'No internet connection. Please connect and try again.' : 'Unable to reach the server right now. Please try again in a moment.'); }
+  if (!res) { return err(navigator.onLine === false ? 'No internet connection. Please connect and try again.' : 'Unable to reach the server right now. Please try again in a moment.'); }
   if (!res.ok) {
     return err({
       exists: '⚠️ This enrollment number is already registered. Please sign in. If you did not register it, contact the admin.',
@@ -258,8 +263,36 @@ document.getElementById('loginEnroll').addEventListener('input', e => { e.target
   document.getElementById(id).addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); }));
 
 /* ══════════════════════════════════════════════════════
-   INIT
+   USER MANUAL (modal with focus handling)
 ══════════════════════════════════════════════════════ */
+let manualOpener = null;
+function openManual(opener) {
+  const m = document.getElementById('manualModal'); if (!m) return;
+  manualOpener = opener || document.activeElement;
+  m.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  m.querySelector('.manual-card').focus();
+}
+function closeManual(e) {
+  if (e && e.target !== e.currentTarget) return; // backdrop click only
+  const m = document.getElementById('manualModal'); if (!m || m.classList.contains('hidden')) return;
+  m.classList.add('hidden');
+  document.body.style.overflow = '';
+  if (manualOpener && manualOpener.focus) manualOpener.focus();
+}
+document.addEventListener('keydown', e => {
+  const m = document.getElementById('manualModal');
+  if (!m || m.classList.contains('hidden')) return;
+  if (e.key === 'Escape') { closeManual(); return; }
+  if (e.key !== 'Tab') return;
+  const f = [...m.querySelectorAll('button, summary, a[href]')].filter(x => x.offsetParent !== null);
+  if (!f.length) return;
+  const card = m.querySelector('.manual-card'), first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && (document.activeElement === first || document.activeElement === card)) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  else if (!m.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+});
+
 /* ══════════════════════════════════════════════════════
    INIT
 ══════════════════════════════════════════════════════ */
@@ -406,7 +439,7 @@ async function submitNote() {
     } else {
       const id = (link.match(/[-\w]{25,}/) || [])[0]; if (!id) throw new Error('That does not look like a valid Drive link'); body.fileId = id;
     }
-    const r = await api(body);
+    const r = await api(body, 90000);
     if (!r.ok) throw new Error({ limit: "You have reached today's limit of 5 submissions", size: 'File is larger than 10 MB', notpdf: 'This is not a valid PDF file', subject: 'Invalid subject or folder', link: 'Invalid Drive link', auth: 'Your session has expired. Please sign in again.' }[r.error] || 'Something went wrong. Please try again.');
     document.getElementById('addNoteModal').remove(); toast('✅ Submitted! It will appear after admin approval.');
   } catch (e) { msg.textContent = '❌ ' + e.message; btn.disabled = false; }
@@ -568,7 +601,7 @@ function renderQuestion() {
   q.opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
-    btn.innerHTML = `<span class="option-letter">${letters[i]}</span> ${opt}`;
+    btn.innerHTML = `<span class="option-letter">${letters[i]}</span> ${esc(opt)}`;
     btn.addEventListener('click', () => selectAnswer(i));
     optsGrid.appendChild(btn);
   });
@@ -692,13 +725,25 @@ function openNotesFor(subject) {
   if (b) b.click(); else renderNotes('all');
 }
 
+const STATUS_TAG = { gap: 'Needs revision', ok: 'Getting there', strong: 'Strong', 'low-data': 'Not enough data' };
 function renderSmartFeedback(ana) {
   const box = document.getElementById('smartFeedback'); if (!box) return;
   const quizId = currentQuiz.id, meta = TOPICS[quizId] || {};
   const gaps = ana.filter(x => x.status === 'gap');
-  const bar = x => `<div class="sf-row"><div class="sf-head"><span>${esc(topicLabel(quizId, x.topic))}</span><span class="sf-pct">${x.correct}/${x.total} · ${x.pct}%</span></div>
-    <div class="sf-track"><div class="sf-fill sf-${x.status}" style="width:${x.pct}%"></div></div>
+  const tot = ana.reduce((s, x) => s + x.total, 0), cor = ana.reduce((s, x) => s + x.correct, 0);
+  const overall = tot ? Math.round(cor / tot * 100) : 0, cnt = s => ana.filter(x => x.status === s).length;
+  const summary = `<div class="sf-summary">
+    <div class="sf-stat"><b>${overall}%</b><span>Overall accuracy</span></div>
+    <div class="sf-stat sf-s-gap"><b>${cnt('gap')}</b><span>Needs revision</span></div>
+    <div class="sf-stat sf-s-ok"><b>${cnt('ok')}</b><span>Getting there</span></div>
+    <div class="sf-stat sf-s-strong"><b>${cnt('strong')}</b><span>Strong</span></div></div>`;
+  const bar = x => {
+    const label = topicLabel(quizId, x.topic);
+    return `<div class="sf-row"><div class="sf-head"><span class="sf-name">${esc(label)}</span>
+      <span class="sf-meta"><span class="sf-tag sf-tag-${x.status}">${STATUS_TAG[x.status]}</span><span class="sf-pct">${x.correct}/${x.total} · ${x.pct}%</span></span></div>
+    <div class="sf-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${x.pct}" aria-label="${esc(label)} accuracy"><div class="sf-fill sf-${x.status}" style="width:${x.pct}%"></div></div>
     ${x.status === 'low-data' ? '<div class="sf-note">Only 1 question on this topic, so there is not enough data to judge it.</div>' : ''}</div>`;
+  };
   const recs = gaps.map(g => {
     const notes = notesForTopic(quizId, g.topic);
     return `<div class="sf-gap"><div class="sf-gap-title">⚠️ ${esc(topicLabel(quizId, g.topic))} <span>${g.pct}%</span></div>
@@ -706,6 +751,7 @@ function renderSmartFeedback(ana) {
       <button class="sf-link ghost" data-browse="${esc(meta._subject || '')}">Browse ${meta._subject ? 'all notes for this subject' : 'all notes'} →</button></div></div>`;
   }).join('');
   box.innerHTML = `<div class="sf-card"><h3>🎯 Your Learning Report</h3>
+    ${summary}
     ${gaps.length
       ? `<p class="sf-msg bad">You have ${gaps.length} learning gap${gaps.length > 1 ? 's' : ''}: <b>${gaps.map(g => esc(topicLabel(quizId, g.topic))).join(', ')}</b>. Revise these topics first.</p>`
       : '<p class="sf-msg good">🌟 No learning gaps detected in this attempt. Keep it up!</p>'}
@@ -747,7 +793,7 @@ function saveScore(score, total, ana = []) {
     action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total,
     weak: ana.filter(x => x.status === 'gap').map(x => topicLabel(currentQuiz.id, x.topic)),
     topics: ana.map(x => ({ t: topicLabel(currentQuiz.id, x.topic), c: x.correct, n: x.total }))
-  }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
+  }).then(() => setTimeout(loadScores, 1500)).catch(() => toast('⚠️ Could not sync your score. It is saved on this device only.'));
 }
 function updateHomeScore() {
   if (!currentUser) return;

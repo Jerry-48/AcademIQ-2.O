@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="AcademIQ — GTU Diploma notes, old papers, assignments and quizzes for students.">
-    <meta name="theme-color" content="#0b0920">
     <title>AcademIQ — Student Learning Hub</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,13 +36,15 @@
                     inputmode="numeric" maxlength="12" placeholder="12 digit enrollment" autocomplete="username" />
             </div>
             <div class="form-group hidden" id="regOnly"><label>Full Name</label><input type="text" id="loginName"
-                    maxlength="40" placeholder="Tumhara naam" autocomplete="name" /></div>
+                    maxlength="40" placeholder="Your full name" autocomplete="name" /></div>
             <div class="form-group"><label>Password</label><input type="password" id="loginPassword"
                     placeholder="min 6 characters" autocomplete="current-password" /></div>
             <div class="form-group hidden" id="regOnly2"><label>Confirm Password</label><input type="password"
                     id="loginPassword2" placeholder="Re-enter password" autocomplete="new-password" /></div>
             <div id="loginError" class="login-error hidden"></div>
             <button class="btn-primary full-width" id="authBtn" onclick="handleLogin()">Sign In →</button>
+            <button type="button" class="btn-ghost manual-btn" onclick="openManual(this)">📖 How to Use / User
+                Manual</button>
             <p class="login-hint" id="authSwitch">New here? <a href="#"
                     onclick="setAuthMode('register');return false">Create an account</a></p>
             <p class="login-hint">Your name and enrollment number are stored only for AcademIQ.</p>
@@ -72,7 +73,7 @@
                     <span class="user-pill" id="headerUsername"></span>
                     <button class="btn-outline-sm" onclick="handleLogout()">Logout</button>
                 </div>
-                <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
                     <span></span><span></span><span></span>
                 </button>
             </div>
@@ -328,6 +329,31 @@
                     <span class="logo-text">AcademIQ</span>
                 </div>
                 <p class="footer-tagline">Thank you for visiting</p>
+                <div class="footer-social" aria-label="Connect with the creator">
+                    <a href="https://github.com/Jerry-48" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                        title="GitHub">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/your-username" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram" title="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                    </a>
+                </div>
                 <p class="footer-credit">Crafted with ♥ by <strong>Sujal Kalena</strong> · © 2026 AcademIQ</p>
                 <p class="footer-credit">Educational materials on this website belong to their respective owners.
 
@@ -351,6 +377,7 @@
                     <a href="#notes" onclick="navTo('notes')">Notes</a>
                     <a href="#quiz" onclick="navTo('quiz')">Quiz</a>
                     <a href="#leaderboard" onclick="navTo('leaderboard')">Leaderboard</a>
+                    <a href="#" onclick="openManual(this);return false">User Manual</a>
                 </div>
             </div>
         </footer>
@@ -365,6 +392,123 @@
                 <button class="modal-close" onclick="closeNoteModalBtn()">✕</button>
             </div>
             <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- User Manual Modal -->
+    <div id="manualModal" class="modal-overlay manual-overlay hidden" onclick="closeManual(event)">
+        <div class="modal-card manual-card" role="dialog" aria-modal="true" aria-labelledby="manualTitle" tabindex="-1">
+            <div class="modal-header">
+                <h3 id="manualTitle">📖 AcademIQ User Manual</h3>
+                <button type="button" class="modal-close" aria-label="Close user manual"
+                    onclick="closeManual()">✕</button>
+            </div>
+            <div class="manual-body">
+                <p class="manual-intro">AcademIQ gives you notes, old papers, quizzes and a leaderboard in one place.
+                    Tap a heading to open it.</p>
+
+                <details open>
+                    <summary>1. Create your account (first time only)</summary>
+                    <ol>
+                        <li>On the sign-in screen, tap <b>Create an account</b>.</li>
+                        <li>Enter your <b>12-digit enrollment number</b> (digits only, no spaces).</li>
+                        <li>Enter your <b>full name</b> and a <b>password of at least 6 characters</b>, then type the
+                            password again to confirm.</li>
+                        <li>Tap <b>Register</b>. You are signed in automatically.</li>
+                    </ol>
+                    <p>Each enrollment number can be registered only once.</p>
+                </details>
+
+                <details>
+                    <summary>2. Sign in</summary>
+                    <ol>
+                        <li>Enter your enrollment number and password, then tap <b>Sign In</b>.</li>
+                        <li>You stay signed in for up to 6 hours. After 30 minutes without activity you are signed out
+                            for safety (never in the middle of a quiz).</li>
+                        <li>Your account works on one device at a time. Signing in on a second device signs out the
+                            first.</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>3. Study notes</summary>
+                    <ol>
+                        <li>Open <b>Notes</b> from the menu.</li>
+                        <li>Tap a subject chip to filter, use the search box to find a file, and use the sort menu to
+                            reorder.</li>
+                        <li>Tap <b>View</b> to read the PDF on the page, or <b>Download</b> to save it.</li>
+                        <li>Tap <b>Add Note</b> to share a PDF (max 10 MB) or a Google Drive link. An admin checks every
+                            submission before it appears, and you can send up to 5 per day.</li>
+                    </ol>
+                </details>
+
+                <details>
+                    <summary>4. Quizzes</summary>
+                    <ol>
+                        <li>Open <b>Quiz</b> and pick a subject.</li>
+                        <li>Choose how many questions you want. Questions and answer options are shuffled every attempt.
+                        </li>
+                        <li>Tap one answer. It locks and shows whether it was right, then tap <b>Next</b>. You must
+                            answer each question before moving on.</li>
+                        <li>At the end you see your score and a question-by-question breakdown.</li>
+                    </ol>
+                    <p>Only quizzes with <b>20 or more questions</b> count towards the leaderboard. Shorter ones are
+                        practice.</p>
+                </details>
+
+                <details>
+                    <summary>5. Your Learning Report</summary>
+                    <ul>
+                        <li>After every quiz you get accuracy per topic, with a tag for each: <b>Needs revision</b>,
+                            <b>Getting there</b> or <b>Strong</b>.</li>
+                        <li>A topic is a learning gap when you score below 50% on at least 2 of its questions.</li>
+                        <li>For each gap, tap a recommended note to open it straight away, revise, then retake the quiz.
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>6. Leaderboard</summary>
+                    <ul>
+                        <li><b>Overall Top 10</b> adds up your best percentage in each subject.</li>
+                        <li><b>Subject Top 10</b> ranks the best scores in one subject.</li>
+                        <li><b>Participants</b> shows how many students are using the quizzes. Your own row is marked
+                            "(you)".</li>
+                        <li>New scores can take a few seconds to appear.</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary>7. FAQ and troubleshooting</summary>
+                    <dl>
+                        <dt>"Enrollment number must be exactly 12 digits"</dt>
+                        <dd>Type only the 12 digits, with no spaces or letters.</dd>
+                        <dt>"Incorrect password"</dt>
+                        <dd>Check that Caps Lock is off and try again. If you have forgotten it, contact the admin
+                            (details below).</dd>
+                        <dt>"This enrollment number is already registered"</dt>
+                        <dd>Use <b>Sign in</b> instead. If you never registered it yourself, tell the admin.</dd>
+                        <dt>"This enrollment number is not registered"</dt>
+                        <dd>Tap <b>Create an account</b> first.</dd>
+                        <dt>"Too many failed attempts"</dt>
+                        <dd>Wait 10 minutes, then try again.</dd>
+                        <dt>"Signed out on another device" or "session expired"</dt>
+                        <dd>Just sign in again. This happens after 30 idle minutes, 6 hours, or a sign-in on another
+                            device.</dd>
+                        <dt>"Unable to reach the server"</dt>
+                        <dd>Check your internet connection and retry. If many students are online at once it can be
+                            slow, so wait a moment and try again.</dd>
+                        <dt>A PDF does not show</dt>
+                        <dd>Tap <b>Open in a new tab</b> under the viewer, or use <b>Download</b>.</dd>
+                        <dt>Quizzes did not load</dt>
+                        <dd>Refresh the page. If it keeps happening, tell the admin.</dd>
+                        <dt>My score is not on the leaderboard</dt>
+                        <dd>The quiz needs 20 or more questions, and the board can take a few seconds to update.</dd>
+                    </dl>
+                    <p>Still stuck? Email <a href="mailto:sujalkalena35@gmail.com">sujalkalena35@gmail.com</a> and
+                        include your enrollment number (never your password).</p>
+                </details>
+            </div>
         </div>
     </div>
 
