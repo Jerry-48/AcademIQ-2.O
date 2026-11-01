@@ -1,0 +1,3 @@
+# Stage 2 security review status
+
+The frontend static checks can be run in Node. Apps Script backend integration, Google Sheets/Drive permissions, deployment configuration, and production security cannot be verified from the GitHub repository alone. The supplied backend source is not in this repository and contains security-critical issues; do not treat the current live deployment as verified for real student data until a hardened backend is deployed and exercised against an isolated test spreadsheet. The pasted admin credential must be rotated immediately because it has been exposed in the shared source. No production spreadsheet or Drive data was accessed or changed during this review.

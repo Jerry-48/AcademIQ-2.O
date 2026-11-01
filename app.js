@@ -568,7 +568,10 @@ function renderQuestion() {
   q.opts.forEach((opt, i) => {
     const btn = document.createElement('button');
     btn.className = 'option-btn';
-    btn.innerHTML = `<span class="option-letter">${letters[i]}</span> ${opt}`;
+    const letter = document.createElement('span');
+    letter.className = 'option-letter';
+    letter.textContent = letters[i];
+    btn.append(letter, document.createTextNode(' ' + String(opt)));
     btn.addEventListener('click', () => selectAnswer(i));
     optsGrid.appendChild(btn);
   });
@@ -658,8 +661,8 @@ function showResults() {
 /* ══════════════════════════════════════════════════════
    LEARNING GAPS: topic-wise analysis + smart recommendations
 ══════════════════════════════════════════════════════ */
-const GAP_THRESHOLD = 50;   // below this % in a topic = learning gap
-const MIN_TOPIC_Q = 2;      // need at least this many questions in a topic to judge it
+const GAP_THRESHOLD = 40;   // provisional gap threshold; avoid overreacting to small samples
+const MIN_TOPIC_Q = 4;      // fewer than 4 questions is insufficient evidence for a topic-level gap
 let TOPICS = {};
 async function loadTopics() {
   try { const r = await fetch('quizzes/topics.json', { cache: 'no-cache' }); if (r.ok) TOPICS = await r.json(); } catch (e) { console.warn('topics.json not loaded', e); }
@@ -698,7 +701,7 @@ function renderSmartFeedback(ana) {
   const gaps = ana.filter(x => x.status === 'gap');
   const bar = x => `<div class="sf-row"><div class="sf-head"><span>${esc(topicLabel(quizId, x.topic))}</span><span class="sf-pct">${x.correct}/${x.total} · ${x.pct}%</span></div>
     <div class="sf-track"><div class="sf-fill sf-${x.status}" style="width:${x.pct}%"></div></div>
-    ${x.status === 'low-data' ? '<div class="sf-note">Only 1 question on this topic, so there is not enough data to judge it.</div>' : ''}</div>`;
+    ${x.status === 'low-data' ? '<div class="sf-note">Fewer than 4 questions on this topic, so there is not enough data to judge it.</div>' : ''}</div>`;
   const recs = gaps.map(g => {
     const notes = notesForTopic(quizId, g.topic);
     return `<div class="sf-gap"><div class="sf-gap-title">⚠️ ${esc(topicLabel(quizId, g.topic))} <span>${g.pct}%</span></div>
@@ -708,7 +711,9 @@ function renderSmartFeedback(ana) {
   box.innerHTML = `<div class="sf-card"><h3>🎯 Your Learning Report</h3>
     ${gaps.length
       ? `<p class="sf-msg bad">You have ${gaps.length} learning gap${gaps.length > 1 ? 's' : ''}: <b>${gaps.map(g => esc(topicLabel(quizId, g.topic))).join(', ')}</b>. Revise these topics first.</p>`
-      : '<p class="sf-msg good">🌟 No learning gaps detected in this attempt. Keep it up!</p>'}
+      : ana.some(x => x.status === 'low-data')
+        ? '<p class="sf-msg">Not enough questions were answered in every topic to make a reliable learning-gap assessment. Try a longer quiz for a clearer report.</p>'
+        : '<p class="sf-msg good">🌟 No learning gaps detected in this attempt. Keep it up!</p>'}
     ${ana.map(bar).join('')}
     ${recs ? `<h4 class="sf-sub">📚 Recommended notes</h4>${recs}` : ''}
     <p class="sf-foot">A topic is a learning gap when you score below ${GAP_THRESHOLD}% on at least ${MIN_TOPIC_Q} questions of that topic. Questions are shuffled every attempt, so retake the quiz after revising.</p></div>`;
@@ -747,7 +752,10 @@ function saveScore(score, total, ana = []) {
     action: 'score', token: localStorage.getItem('iq_token'), subject: row.subject, score, total,
     weak: ana.filter(x => x.status === 'gap').map(x => topicLabel(currentQuiz.id, x.topic)),
     topics: ana.map(x => ({ t: topicLabel(currentQuiz.id, x.topic), c: x.correct, n: x.total }))
-  }).then(() => setTimeout(loadScores, 1500)).catch(() => { });
+  }).then(r => {
+    if (!r || !r.ok) { toast('Score saved on this device, but server sync failed.'); return; }
+    setTimeout(loadScores, 1500);
+  }).catch(() => toast('Score saved on this device, but server sync failed.'));
 }
 function updateHomeScore() {
   if (!currentUser) return;

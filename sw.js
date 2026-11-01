@@ -1,6 +1,6 @@
 /* AcademIQ service worker: network-first, so updates always load; cache is only an offline fallback.
    Bump CACHE (v1 -> v2) whenever you want to force-refresh old installs. */
-const CACHE = 'academiq-v1';
+const CACHE = 'academiq-v2';
 const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'config.js', 'icon-192.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL))); self.skipWaiting(); });
 self.addEventListener('activate', e => {
@@ -11,7 +11,25 @@ self.addEventListener('fetch', e => {
   const r = e.request, u = new URL(r.url);
   if (r.method !== 'GET' || u.origin !== location.origin || /\.pdf$/i.test(u.pathname)) return; // never touch Apps Script, Drive, pdf.js or PDFs
   e.respondWith(
-    fetch(r).then(res => { if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(r, copy)); } return res; })
-      .catch(() => caches.match(r).then(m => m || caches.match('index.html')))
+    fetch(r).then(res => {
+      if (res.ok && res.type !== 'opaque') {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(r, copy));
+      }
+      return res;
+    }).catch(async () => {
+      const cached = await caches.match(r);
+      if (cached) return cached;
+      // Only document navigations may fall back to the app shell.
+      if (r.mode === 'navigate') {
+        const shell = await caches.match('index.html');
+        if (shell) return shell;
+      }
+      return new Response('Offline: this resource is not cached.', {
+        status: 503,
+        statusText: 'Service Unavailable',
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      });
+    })
   );
 });
