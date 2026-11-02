@@ -2531,3 +2531,21 @@ select:focus-visible {
     transform: none;
   }
 }
+
+/* Semester chips on the Notes page */
+.sem-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 0 0 .8rem;
+}
+
+.sem-btn {
+  font-weight: 600;
+}
+
+.sem-count {
+  opacity: .7;
+  font-size: .75em;
+  margin-left: .2rem;
+}

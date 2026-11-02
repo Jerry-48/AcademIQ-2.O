@@ -188,25 +188,39 @@
                         <option value="type">Type</option>
                     </select><button class="btn-primary" onclick="openAddNote()">➕ Add Note</button><span
                         id="notesCount" class="notes-count"></span></div>
+                <!-- Semester bar (built by JS) -->
+                <div class="sem-bar" id="semBar" role="group" aria-label="Choose semester"></div>
                 <!-- Filter Bar -->
                 <div class="filter-bar">
-                    <button class="filter-btn active" onclick="filterNotes('all', this)">All</button>
-                    <button class="filter-btn" onclick="filterNotes('JAVA', this)">JAVA(DI030032021)</button>
-                    <button class="filter-btn" onclick="filterNotes('DSA', this)">DSA(DI030032031)</button>
-                    <button class="filter-btn" onclick="filterNotes('DLD', this)">DLD(DI03000111)</button>
-                    <button class="filter-btn" onclick="filterNotes('PEC', this)">PEC(DI03000121)</button>
-                    <button class="filter-btn" onclick="filterNotes('CN', this)">CN(DI03000131)</button>
-                    <button class="filter-btn" onclick="filterNotes('applied-maths', this)">APPLIED MATHEMATICS</button>
-                    <button class="filter-btn" onclick="filterNotes('chemistry', this)">ENGINEERING CHEMISTRY</button>
-                    <button class="filter-btn" onclick="filterNotes('environment', this)">ENVIRONMENT &amp;
+                    <button class="filter-btn active" onclick="filterNotes('all', this)" data-subj="all">All</button>
+                    <button class="filter-btn" onclick="filterNotes('JAVA', this)"
+                        data-subj="JAVA">JAVA(DI030032021)</button>
+                    <button class="filter-btn" onclick="filterNotes('DSA', this)"
+                        data-subj="DSA">DSA(DI030032031)</button>
+                    <button class="filter-btn" onclick="filterNotes('DLD', this)"
+                        data-subj="DLD">DLD(DI03000111)</button>
+                    <button class="filter-btn" onclick="filterNotes('PEC', this)"
+                        data-subj="PEC">PEC(DI03000121)</button>
+                    <button class="filter-btn" onclick="filterNotes('CN', this)" data-subj="CN">CN(DI03000131)</button>
+                    <button class="filter-btn" onclick="filterNotes('applied-maths', this)"
+                        data-subj="applied-maths">APPLIED MATHEMATICS</button>
+                    <button class="filter-btn" onclick="filterNotes('chemistry', this)"
+                        data-subj="chemistry">ENGINEERING CHEMISTRY</button>
+                    <button class="filter-btn" onclick="filterNotes('environment', this)"
+                        data-subj="environment">ENVIRONMENT &amp;
                         SUSTAINABILITY</button>
-                    <button class="filter-btn" onclick="filterNotes('cpd', this)">CONTRIBUTOR PERSONALITY
+                    <button class="filter-btn" onclick="filterNotes('cpd', this)" data-subj="cpd">CONTRIBUTOR
+                        PERSONALITY
                         DEVELOPMENT</button>
-                    <button class="filter-btn" onclick="filterNotes('python', this)">PYTHON PROGRAMMING</button>
-                    <button class="filter-btn" onclick="filterNotes('cse', this)">COMMUNICATION SKILLS IN
+                    <button class="filter-btn" onclick="filterNotes('python', this)" data-subj="python">PYTHON
+                        PROGRAMMING</button>
+                    <button class="filter-btn" onclick="filterNotes('cse', this)" data-subj="cse">COMMUNICATION SKILLS
+                        IN
                         ENGLISH</button>
-                    <button class="filter-btn" onclick="filterNotes('phy', this)">MODERN PHYSICS</button>
-                    <button class="filter-btn" onclick="filterNotes('foe', this)">FUNDAMENTALS OF ELECTRONICS</button>
+                    <button class="filter-btn" onclick="filterNotes('phy', this)" data-subj="phy">MODERN
+                        PHYSICS</button>
+                    <button class="filter-btn" onclick="filterNotes('foe', this)" data-subj="foe">FUNDAMENTALS OF
+                        ELECTRONICS</button>
                 </div>
 
                 <!-- Notes Grid -->
@@ -337,8 +351,8 @@
                                 d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                         </svg>
                     </a>
-                    <a href="linkedin.com/in/kalena-sujalkumar-06299b377" target="_blank" rel="noopener noreferrer"
-                        aria-label="LinkedIn" title="LinkedIn">
+                    <a href="https://linkedin.com/in/kalena-sujalkumar-06299b377" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                             <rect x="2" y="9" width="4" height="12" />
@@ -434,11 +448,14 @@
                     <summary>3. Study notes</summary>
                     <ol>
                         <li>Open <b>Notes</b> from the menu.</li>
-                        <li>Tap a subject chip to filter, use the search box to find a file, and use the sort menu to
-                            reorder.</li>
+                        <li>Tap a <b>semester</b> chip (Sem 1, Sem 2, Sem 3 …) to see only that semester, then tap a
+                            subject chip. Use the search box to find a file and the sort menu to reorder.</li>
                         <li>Tap <b>View</b> to read the PDF on the page, or <b>Download</b> to save it.</li>
                         <li>Tap <b>Add Note</b> to share a PDF (max 10 MB) or a Google Drive link. An admin checks every
                             submission before it appears, and you can send up to 5 per day.</li>
+                        <li>Need a new semester? In Add Note choose <b>➕ New folder…</b> and start the name with the
+                            semester, for example <b>Sem 4 - DBMS</b>. After approval a Sem 4 chip appears for everyone.
+                        </li>
                     </ol>
                 </details>
 
@@ -460,7 +477,8 @@
                     <summary>5. Your Learning Report</summary>
                     <ul>
                         <li>After every quiz you get accuracy per topic, with a tag for each: <b>Needs revision</b>,
-                            <b>Getting there</b> or <b>Strong</b>.</li>
+                            <b>Getting there</b> or <b>Strong</b>.
+                        </li>
                         <li>A topic is a learning gap when you score below 50% on at least 2 of its questions.</li>
                         <li>For each gap, tap a recommended note to open it straight away, revise, then retake the quiz.
                         </li>

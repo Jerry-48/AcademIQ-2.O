@@ -35,6 +35,14 @@ const SUBJECTS = [
   ['cse', /^cse[-_ ]/i], ['phy', /^phy[-_ ]/i], ['foe', /^foe[-_ ]/i]
 ];
 const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
+// Semester of each built-in subject. A custom folder named "Sem 4 - Anything" joins Semester 4 automatically.
+const SEM_OF = { cse: 1, phy: 1, foe: 1, 'applied-maths': 2, chemistry: 2, environment: 2, python: 2, cpd: 2, JAVA: 3, DSA: 3, DLD: 3, PEC: 3, CN: 3 };
+const semOf = s => {
+  if (SEM_OF[s]) return SEM_OF[s];
+  const m = String(s).startsWith('f:') && String(s).slice(2).match(/^sem(?:ester)?[\s._-]*(\d{1,2})(?!\d)/i);
+  return m ? Number(m[1]) : 0; // 0 = not tied to any semester
+};
+let notesSem = 'all';
 function typeOf(f) {
   if (/_tu\./i.test(f)) return 'Tutorial';
   if (/assign/i.test(f)) return 'Assignment';
@@ -401,7 +409,7 @@ function renderFolderButtons() {
   bar.querySelectorAll('.dyn').forEach(b => b.remove());
   [...new Set(NOTES.filter(n => String(n.subject).startsWith('f:')).map(n => n.subject))].forEach(k => {
     const b = document.createElement('button'); b.className = 'filter-btn dyn' + (notesFilter === k ? ' active' : ''); b.textContent = '📁 ' + k.slice(2);
-    b.onclick = () => filterNotes(k, b); bar.appendChild(b);
+    b.dataset.subj = k; b.onclick = () => filterNotes(k, b); bar.appendChild(b);
   });
 }
 function openAddNote() {
@@ -412,9 +420,9 @@ function openAddNote() {
   m.innerHTML = `<div class="modal-card" style="max-width:520px"><div class="modal-header"><h3>➕ Share a note</h3><button class="modal-close" id="snX">✕</button></div>
     <div class="modal-body adm-card" style="border:0;margin:0"><p class="adm-msg" style="margin-bottom:.8rem">An admin reviews every submission before it appears for everyone. You cannot delete it afterwards.</p>
     <div class="adm-row"><input id="snTitle" maxlength="80" placeholder="Title (leave blank to use the file name)"></div>
-    <div class="adm-row"><select id="snSubj">${Object.entries(SUBJ_LABELS).map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}${folders.map(f => `<option value="${esc(f)}">📁 ${esc(f.slice(2))}</option>`).join('')}<option value="__new">➕ New folder…</option></select>
+    <div class="adm-row"><select id="snSubj">${[1, 2, 3].map(s => `<optgroup label="Semester ${s}">${Object.keys(SEM_OF).filter(k => SEM_OF[k] === s).map(k => `<option value="${k}">${SUBJ_LABELS[k]}</option>`).join('')}</optgroup>`).join('')}${folders.map(f => `<option value="${esc(f)}">📁 ${esc(f.slice(2))}</option>`).join('')}<option value="__new">➕ New folder…</option></select>
       <select id="snType">${['Notes', 'Paper', 'Assignment', 'Question Bank', 'Book', 'Tutorial'].map(t => `<option>${t}</option>`).join('')}</select></div>
-    <div class="adm-row hidden" id="snNewRow"><input id="snNew" maxlength="40" placeholder="New folder name"></div>
+    <div class="adm-row hidden" id="snNewRow"><input id="snNew" maxlength="40" placeholder="New folder name, e.g. Sem 4 - DBMS"></div>
     <div class="adm-row"><input type="file" id="snFile" accept="application/pdf"></div>
     <div class="adm-row"><span class="adm-msg">or</span><input id="snLink" placeholder="Google Drive share link"></div>
     <button class="btn-primary" id="snGo">Submit</button> <span class="adm-msg" id="snMsg"></span></div></div>`;
@@ -465,10 +473,10 @@ function renderNotes(filter = notesFilter) {
   notesFilter = filter;
   const q = (document.getElementById('notesSearch')?.value || '').trim().toLowerCase();
   const sort = SORTS[document.getElementById('notesSort')?.value] || SORTS.new;
-  const list = NOTES.filter(n => (filter === 'all' || n.subject === filter) && n.title.toLowerCase().includes(q)).sort(sort);
+  const list = NOTES.filter(n => (filter === 'all' || n.subject === filter) && (notesSem === 'all' || semOf(n.subject) === notesSem) && n.title.toLowerCase().includes(q)).sort(sort);
   document.getElementById('notesCount').textContent = list.length + ' files';
   document.getElementById('statNotes').textContent = NOTES.length;
-  renderFolderButtons();
+  renderFolderButtons(); renderSemBar(); applySemVisibility();
   document.getElementById('notesGrid').innerHTML = list.length ? list.map(n => `
     <div class="note-card">
       <div class="note-card-top">
@@ -494,6 +502,28 @@ function filterNotes(filter, btn) {
   btn.classList.add('active');
   renderNotes(filter);
 }
+
+function renderSemBar() {
+  const bar = document.getElementById('semBar'); if (!bar) return;
+  const cnt = {}; NOTES.forEach(n => { const s = semOf(n.subject); cnt[s] = (cnt[s] || 0) + 1; });
+  const sems = [...new Set([1, 2, 3, ...Object.keys(cnt).map(Number).filter(s => s > 3)])].sort((x, y) => x - y);
+  const chips = [['all', 'All semesters', NOTES.length], ...sems.map(s => [s, 'Sem ' + s, cnt[s] || 0])];
+  if (cnt[0]) chips.push([0, '📁 Other', cnt[0]]);
+  bar.innerHTML = chips.map(([k, l, c]) => { const on = String(notesSem) === String(k); return `<button type="button" class="filter-btn sem-btn${on ? ' active' : ''}" aria-pressed="${on}" data-sem="${k}">${esc(l)} <span class="sem-count">${c}</span></button>`; }).join('');
+}
+function setSem(s) {
+  notesSem = s === 'all' ? 'all' : Number(s);
+  if (notesFilter !== 'all' && notesSem !== 'all' && semOf(notesFilter) !== notesSem) notesFilter = 'all';
+  renderNotes(notesFilter);
+}
+function applySemVisibility() { // show only the subject chips of the chosen semester
+  document.querySelectorAll('#notes .filter-bar .filter-btn').forEach(b => {
+    const k = b.dataset.subj || 'all';
+    b.style.display = (k !== 'all' && notesSem !== 'all' && semOf(k) !== notesSem) ? 'none' : '';
+    b.classList.toggle('active', k === notesFilter);
+  });
+}
+document.getElementById('semBar')?.addEventListener('click', e => { const b = e.target.closest('[data-sem]'); if (b) setSem(b.dataset.sem); });
 
 function viewNote(id) {
   const n = NOTES.find(x => String(x.id) === String(id)); if (!n) return;
