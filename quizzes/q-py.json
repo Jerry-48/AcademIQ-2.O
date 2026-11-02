@@ -1,277 +1,118 @@
-[
- {
-  "q": "Which function is used to display output in Python?",
-  "opts": [
-   "printf()",
-   "print()",
-   "output()",
-   "echo()"
-  ],
-  "ans": 1,
-  "topic": "strings-functions"
- },
- {
-  "q": "Which of the following data types is immutable?",
-  "opts": [
-   "Tuple",
-   "List",
-   "Set",
-   "Dictionary"
-  ],
-  "ans": 0,
-  "topic": "data-structures"
- },
- {
-  "q": "What is the file extension of a Python program?",
-  "opts": [
-   ".python",
-   ".exe",
-   ".pt",
-   ".py"
-  ],
-  "ans": 3,
-  "topic": "python-basics"
- },
- {
-  "q": "Which list method removes the last element?",
-  "opts": [
-   "delete()",
-   "pop()",
-   "remove()",
-   "clear()"
-  ],
-  "ans": 1,
-  "topic": "data-structures"
- },
- {
-  "q": "What is the output of '10' + '20' in Python?",
-  "opts": [
-   "1020",
-   "NaN",
-   "Error",
-   "30"
-  ],
-  "ans": 0,
-  "topic": "python-basics"
- },
- {
-  "q": "Which keyword is used to terminate a loop?",
-  "opts": [
-   "stop",
-   "break",
-   "continue",
-   "return"
-  ],
-  "ans": 1,
-  "topic": "control-flow"
- },
- {
-  "q": "Which list method adds an item at the end?",
-  "opts": [
-   "extend_one()",
-   "append()",
-   "insert_last()",
-   "add()"
-  ],
-  "ans": 1,
-  "topic": "data-structures"
- },
- {
-  "q": "Which brackets are used to define a dictionary?",
-  "opts": [
-   "[ ]",
-   "{ }",
-   "( )",
-   "< >"
-  ],
-  "ans": 1,
-  "topic": "data-structures"
- },
- {
-  "q": "What is the value of len('Python')?",
-  "opts": [
-   "5",
-   "7",
-   "0",
-   "6"
-  ],
-  "ans": 3,
-  "topic": "strings-functions"
- },
- {
-  "q": "Which symbol is used for a single-line comment in Python?",
-  "opts": [
-   "<!-- -->",
-   "//",
-   "#",
-   "/* */"
-  ],
-  "ans": 2,
-  "topic": "operators"
- },
- {
-  "q": "What is the type of 5 / 2 in Python?",
-  "opts": [
-   "float",
-   "int",
-   "str",
-   "double"
-  ],
-  "ans": 0,
-  "topic": "python-basics"
- },
- {
-  "q": "What is the value of 7 // 2?",
-  "opts": [
-   "3",
-   "4",
-   "3.5",
-   "2"
-  ],
-  "ans": 0,
-  "topic": "operators"
- },
- {
-  "q": "What is the value of 2 ** 3?",
-  "opts": [
-   "9",
-   "8",
-   "5",
-   "6"
-  ],
-  "ans": 1,
-  "topic": "operators"
- },
- {
-  "q": "Which keyword is used to define a function?",
-  "opts": [
-   "fun",
-   "function",
-   "define",
-   "def"
-  ],
-  "ans": 3,
-  "topic": "strings-functions"
- },
- {
-  "q": "range(3) generates:",
-  "opts": [
-   "0, 1, 2",
-   "0, 1, 2, 3",
-   "1, 2",
-   "1, 2, 3"
-  ],
-  "ans": 0,
-  "topic": "control-flow"
- },
- {
-  "q": "Which of the following is NOT a valid variable name?",
-  "opts": [
-   "2name",
-   "Name",
-   "name2",
-   "_name"
-  ],
-  "ans": 0,
-  "topic": "python-basics"
- },
- {
-  "q": "What is the output of print(\"Hi\" * 2)?",
-  "opts": [
-   "HiHi",
-   "Hi 2",
-   "Hi*2",
-   "Error"
-  ],
-  "ans": 0,
-  "topic": "strings-functions"
- },
- {
-  "q": "Which method converts a string to uppercase?",
-  "opts": [
-   "uppercase()",
-   "upper()",
-   "capitalize()",
-   "toUpper()"
-  ],
-  "ans": 1,
-  "topic": "strings-functions"
- },
- {
-  "q": "Which collection stores only unique items?",
-  "opts": [
-   "List",
-   "Set",
-   "String",
-   "Tuple"
-  ],
-  "ans": 1,
-  "topic": "data-structures"
- },
- {
-  "q": "The input() function returns data of type:",
-  "opts": [
-   "int",
-   "str",
-   "bool",
-   "float"
-  ],
-  "ans": 1,
-  "topic": "strings-functions"
- },
- {
-  "q": "Which operator is used for logical AND?",
-  "opts": [
-   "and",
-   "AND",
-   "&",
-   "&&"
-  ],
-  "ans": 0,
-  "topic": "operators"
- },
- {
-  "q": "What is the value of bool(0)?",
-  "opts": [
-   "True",
-   "None",
-   "False",
-   "0"
-  ],
-  "ans": 2,
-  "topic": "python-basics"
- },
- {
-  "q": "What is the index of the first element of a list?",
-  "opts": [
-   "0",
-   "1",
-   "−1",
-   "It depends"
-  ],
-  "ans": 0,
-  "topic": "data-structures"
- },
- {
-  "q": "Python is mainly a(n) ______ language.",
-  "opts": [
-   "Assembly",
-   "Machine-level",
-   "Compiled-only",
-   "Interpreted"
-  ],
-  "ans": 3,
-  "topic": "python-basics"
- },
- {
-  "q": "Which keyword is used for an additional condition in an if statement?",
-  "opts": [
-   "elseif",
-   "else if",
-   "elif",
-   "switch"
-  ],
-  "ans": 2,
-  "topic": "control-flow"
- }
+    "opts": [
+        "int",
+        "str",
+        "bool",
+        "float"
+    ],
+    "opts_gu": [
+        "int — પૂર્ણાંક",
+        "str — String અથવા ટેક્સ્ટ",
+        "bool — True અથવા False",
+        "float — દશાંશ સંખ્યા"
+    ],
+    "ans": 1,
+    "explanation": "The input() function returns the entered value as a string by default, even if the user types digits.",
+    "explanation_gu": "input() Function User દ્વારા દાખલ કરેલી Value ને Default રૂપે String તરીકે Return કરે છે, ભલે User અંકો દાખલ કરે. Integer જોઈએ તો int() વાપરો.",
+    "topic": "strings-functions"
+},
+{
+    "q": "Which operator is used for logical AND?",
+    "q_gu": "Logical AND માટે કયા Operator નો ઉપયોગ થાય છે?",
+    "opts": [
+        "and",
+        "AND",
+        "&",
+        "&&"
+    ],
+    "opts_gu": [
+        "and — બંને શરતો સાચી હોવી જોઈએ",
+        "AND — Python નો Keyword નથી",
+        "& — Bitwise AND Operator",
+        "&& — Python માં Logical AND માટે વપરાતો નથી"
+    ],
+    "ans": 0,
+    "explanation": "The and operator returns True only when both conditions are True.",
+    "explanation_gu": "Python માં and Operator ત્યારે જ True આપે છે જ્યારે બંને Conditions True હોય. એક પણ Condition False હોય તો પરિણામ False આવે છે.",
+    "topic": "operators"
+},
+{
+    "q": "What is the value of bool(0)?",
+    "q_gu": "bool(0) ની કિંમત શું થશે?",
+    "opts": [
+        "True",
+        "None",
+        "False",
+        "0"
+    ],
+    "opts_gu": [
+        "True — સાચું",
+        "None — કોઈ મૂલ્ય નહીં",
+        "False — ખોટું",
+        "0 — શૂન્ય"
+    ],
+    "ans": 2,
+    "explanation": "bool() converts a value to a Boolean. In Python, zero is considered False, so bool(0) returns False.",
+    "explanation_gu": "bool() કોઈ Value ને Boolean માં Convert કરે છે. Python માં 0 ને False માનવામાં આવે છે, તેથી bool(0) નું પરિણામ False આવે છે.",
+    "topic": "python-basics"
+},
+{
+    "q": "What is the index of the first element of a list?",
+    "q_gu": "List ના પ્રથમ Element નો Index કેટલો હોય છે?",
+    "opts": [
+        "0",
+        "1",
+        "−1",
+        "It depends"
+    ],
+    "opts_gu": [
+        "0 — શૂન્ય",
+        "1 — એક",
+        "−1 — માઇનસ એક; છેલ્લું Element",
+        "It depends — તે આધાર રાખે છે"
+    ],
+    "ans": 0,
+    "explanation": "Python uses zero-based indexing. Therefore, the first element has index 0. Negative index -1 refers to the last element.",
+    "explanation_gu": "Python માં Indexing 0 થી શરૂ થાય છે. તેથી પ્રથમ Element નો Index 0 હોય છે. Negative Index -1 છેલ્લું Element દર્શાવે છે.",
+    "topic": "data-structures"
+},
+{
+    "q": "Python is mainly a(n) ______ language.",
+    "q_gu": "Python મુખ્યત્વે કયા પ્રકારની Programming Language છે?",
+    "opts": [
+        "Assembly",
+        "Machine-level",
+        "Compiled-only",
+        "Interpreted"
+    ],
+    "opts_gu": [
+        "Assembly — એસેમ્બલી ભાષા",
+        "Machine-level — મશીન સ્તરની ભાષા",
+        "Compiled-only — ફક્ત Compile થતી ભાષા",
+        "Interpreted — ઇન્ટરપ્રિટેડ ભાષા"
+    ],
+    "ans": 3,
+    "explanation": "Python is commonly described as a high-level interpreted language. Its implementation typically compiles source code to bytecode, which the Python Virtual Machine executes.",
+    "explanation_gu": "Python ને સામાન્ય રીતે High-Level Interpreted Language કહેવામાં આવે છે. સામાન્ય રીતે તેનો Source Code Bytecode માં Convert થાય છે અને Python Virtual Machine તેને Execute કરે છે.",
+    "topic": "python-basics"
+},
+{
+    "q": "Which keyword is used for an additional condition in an if statement?",
+    "q_gu": "if Statement માં વધારાની Condition ચકાસવા માટે કયો Keyword વપરાય છે?",
+    "opts": [
+        "elseif",
+        "else if",
+        "elif",
+        "switch"
+    ],
+    "opts_gu": [
+        "elseif — Python માં માન્ય Keyword નથી",
+        "else if — Python માં આ રીતે લખાતું નથી",
+        "elif — વધારાની Condition ચકાસવા માટે",
+        "switch — આ પ્રશ્ન માટે Python નો Keyword નથી"
+    ],
+    "ans": 2,
+    "explanation": "The elif keyword checks another condition when the preceding if or elif condition is False.",
+    "explanation_gu": "પહેલી if અથવા elif Condition False હોય ત્યારે બીજી Condition ચકાસવા માટે elif વપરાય છે.",
+    "topic": "control-flow"
+}
 ]
