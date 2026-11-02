@@ -2,8 +2,7 @@
 
 A free study hub for students: organised notes, MCQ quizzes, a learning-gap report that points you back to the right notes, and a live leaderboard. Built by a student, for students.
 
-**Live site:** https://jerry-48.github.io/AcademIQ-2.O/ OR
-               https://academiq-20.vercel.app/
+**Live site:** https://jerry-48.github.io/AcademIQ-2.O/
 
 ---
 
@@ -11,7 +10,7 @@ A free study hub for students: organised notes, MCQ quizzes, a learning-gap repo
 
 **For students**
 - **Enrollment-based accounts.** Register with a 12-digit enrollment number, name and password. One active session per account (signing in on a second device signs out the first). Sessions last up to 6 hours, with a 30-minute idle timeout.
-- **Study notes.** Browse by subject, search, sort, read PDFs in the page or download them.
+- **Study notes, semester-wise.** Pick Sem 1, Sem 2 or Sem 3, then a subject. Search, sort, read PDFs in the page or download them.
 - **Share notes.** Upload a PDF (max 10 MB) or paste a Google Drive link. Every submission waits for admin approval. Limit: 5 per day.
 - **Quizzes.** Choose a subject and 10 to 100 questions. Questions and options are shuffled on every attempt.
 - **Learning Report.** After each quiz you see accuracy per topic with a status tag (Needs revision, Getting there, Strong), plus links to the notes that cover your weak topics. A topic counts as a gap when you score below 50% on at least 2 of its questions.
@@ -80,10 +79,21 @@ AcademIQ-2.O/
    ```
    then open http://localhost:8000.
 
-### 3. Add quiz questions
+### 3. Add notes by semester
+| Semester | Subjects |
+|---|---|
+| Sem 1 | CSE (Communication Skills in English), Physics, FOE |
+| Sem 2 | Applied Maths, Chemistry, Environment, Python, CPD |
+| Sem 3 | JAVA, DSA, DLD, PEC, CN |
+
+To add a **new semester** (or a new subject folder), use **Add Note → ➕ New folder…** and start the folder name with the semester, for example `Sem 4 - DBMS`. After the admin approves the first note, a **Sem 4** chip appears for everyone. Folder names that do not start with `Sem <number>` appear under **📁 Other**.
+
+To move a built-in subject to another semester, edit `SEM_OF` in `app.js`.
+
+### 4. Add quiz questions
 Each question in a quiz file needs a `q` (question text), exactly four `opts`, and `ans` as a number from 0 to 3 (the index of the correct option). Questions that do not match this are skipped, and a warning appears in the browser console. Add a quiz to `quizzes/` and map its topics to notes in `quizzes/topics.json` so the Learning Report can recommend revision material.
 
-### 4. Admin panel
+### 5. Admin panel
 Open `/admin.html` and sign in with the `ADMIN_PASSWORD` you set. Use the **Cleanup** tab to remove test accounts and quiz results before a real launch (copy your Sheet first).
 
 ---
