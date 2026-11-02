@@ -10,7 +10,8 @@ const HEADERS = {
   Feedback: ['time', 'enrollment', 'name', 'rating', 'category', 'message', 'context'],
   Notes: ['id', 'title', 'subject', 'type', 'fileId', 'kind', 'enrollment', 'byName', 'added', 'status']
 };
-const ADMIN_PASSWORD = '4877996585132'; // <-- badal do (sirf script me rehta hai)
+// Admin password is NOT stored in code. Set it in: Project Settings → Script Properties → ADMIN_PASSWORD (use 12+ characters).
+const adminPw_ = () => PropertiesService.getScriptProperties().getProperty('ADMIN_PASSWORD') || '';
 const ROOT_FOLDER = 'AcademIQ PDFs';
 const SUBJ_KEYS = ['applied-maths', 'chemistry', 'environment', 'python', 'cpd', 'JAVA', 'DSA', 'DLD', 'PEC', 'CN', 'cse', 'phy', 'foe'];
 const TEXTCOL = { Users: 'A:A', Logins: 'B:B', Scores: 'A:A', Notes: 'G:G', Tracking: 'B:B',Feedback: 'B:B' }; // enrollment ko text rakhne ke liye
@@ -27,7 +28,7 @@ function tab_(n) {
 }
 function setup() { Object.keys(HEADERS).forEach(tab_); } // ek baar Run karo
 function hash_(salt, pw) { return Utilities.base64Encode(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, salt + pw)); }
-function log_(enr, name, action, browser) { tab_('Logins').appendRow([new Date(), enr, name, action, String(browser || '').slice(0, 200)]); }
+function log_(enr, name, action, browser) { tab_('Logins').appendRow([new Date(), enr, name, action, safe_(String(browser || '').slice(0, 200))]); }
 function userRow_(s, enr) {
   const n = s.getLastRow(); if (n < 2) return 0;
   const v = s.getRange(2, 1, n - 1, 1).getValues();
@@ -49,7 +50,8 @@ function sess_(token) {
   return (cur && cur !== token) ? null : o;                    // a newer login invalidates this token
 }
 
-const clean_ = (s, n) => String(s || '').replace(/[<>\u0000-\u001f]/g, '').trim().slice(0, n);
+const safe_ = t => /^[=+\-@]/.test(t) ? "'" + t : t; // stops =FORMULA() text from running inside the Sheet
+const clean_ = (s, n) => safe_(String(s || '').replace(/[<>\u0000-\u001f]/g, '').trim().slice(0, n));
 function folder_(name) {
   const it0 = DriveApp.getFoldersByName(ROOT_FOLDER), root = it0.hasNext() ? it0.next() : DriveApp.createFolder(ROOT_FOLDER);
   const it = root.getFoldersByName(name); return it.hasNext() ? it.next() : root.createFolder(name);
@@ -64,7 +66,71 @@ function notes_(status) {
   const v = tab_('Notes').getDataRange().getValues(); v.shift();
   return v.filter(r => r[9] === status).map(r => ({ id: r[0], title: r[1], subject: r[2], type: r[3], fileId: r[4], kind: r[5], enrollment: r[6], by: r[7], added: r[8] }));
 }
+
+/* ───── Admin cleanup: delete test data (preview first, then confirmed run) ───── */
+const PURGE_CFG_ = { // enrollment column / timestamp column (0-based) per sheet
+  Users: { col: 0, time: 4 }, Logins: { col: 1, time: 0 }, Scores: { col: 0, time: 5 },
+  Tracking: { col: 1, time: 0 }, Feedback: { col: 1, time: 0 }, Notes: { col: 6, time: 8 }
+};
+function purgePlan_(d) {
+  const mode = String(d.mode || ''), scoresOnly = d.scope === 'scores';
+  let match, names;
+  if (mode === 'enrollments') {
+    const list = (Array.isArray(d.enrollments) ? d.enrollments : []).map(x => String(x).trim());
+    if (!list.length || list.length > 200 || list.some(x => !/^\d{12}$/.test(x))) throw new Error('Enter 1 to 200 valid 12-digit enrollment numbers.');
+    const set = {}; list.forEach(x => set[x] = 1);
+    match = (c, r) => !!set[String(r[c.col])];
+  } else if (mode === 'before') {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(d.before))) throw new Error('Choose a valid date.');
+    const cut = new Date(d.before + 'T00:00:00');
+    match = (c, r) => { const t = new Date(r[c.time]); return !isNaN(t) && t < cut; };
+  } else if (mode === 'allScores') {
+    match = () => true;
+  } else throw new Error('Unknown cleanup mode.');
+  names = (mode === 'allScores' || scoresOnly) ? ['Scores', 'Tracking'] : ['Users', 'Logins', 'Scores', 'Tracking', 'Feedback'].concat(d.includeNotes ? ['Notes'] : []);
+  const plan = { rows: {}, users: [], files: [] };
+  names.forEach(n => {
+    const v = tab_(n).getDataRange().getValues(); v.shift(); // header row is never touched
+    const hit = [];
+    v.forEach((r, i) => {
+      if (!match(PURGE_CFG_[n], r)) return;
+      hit.push(i + 2);
+      if (n === 'Users') plan.users.push({ enrollment: String(r[0]), name: String(r[1]) });
+      if (n === 'Notes' && r[5] === 'upload' && r[4]) plan.files.push(String(r[4]));
+    });
+    plan.rows[n] = hit;
+  });
+  return plan;
+}
+function purge_(d, run) {
+  const lock = LockService.getScriptLock(); lock.waitLock(20000);
+  try {
+    const plan = purgePlan_(d), counts = {};
+    Object.keys(plan.rows).forEach(n => counts[n] = plan.rows[n].length);
+    if (!run) return { counts, sample: plan.users.slice(0, 15) };
+    Object.keys(plan.rows).forEach(n => { // delete bottom-up in contiguous blocks; schema/headers stay intact
+      const idx = plan.rows[n].slice().sort((a, b) => b - a), s = tab_(n);
+      for (let i = 0; i < idx.length;) {
+        let j = i; while (j + 1 < idx.length && idx[j + 1] === idx[j] - 1) j++;
+        s.deleteRows(idx[j], j - i + 1); i = j + 1;
+      }
+    });
+    plan.users.forEach(u => { const t = cache_().get('c_' + u.enrollment); if (t) cache_().remove('s_' + t); cache_().remove('c_' + u.enrollment); cache_().remove('f_' + u.enrollment); });
+    plan.files.forEach(id => { try { DriveApp.getFileById(id).setTrashed(true); } catch (x) { } });
+    log_('admin', '', 'purge', JSON.stringify(counts));
+    return { counts };
+  } finally { lock.releaseLock(); }
+}
+
 function adminAct_(a, d) {
+  if (a === 'purgePreview') return Object.assign({ ok: true }, purge_(d, false));
+  if (a === 'purgeRun') {
+    if (d.confirm !== 'DELETE') return { ok: false, error: 'Type DELETE to confirm.' };
+    const fails = Number(cache_().get('af') || 0);
+    if (fails >= 5) return { ok: false, error: 'locked' };
+    if (!adminPw_() || d.password !== adminPw_()) { cache_().put('af', String(fails + 1), 600); return { ok: false, error: 'Incorrect admin password.' }; }
+    return Object.assign({ ok: true }, purge_(d, true));
+  }
   if (a === 'feedbacks') {
     const v = tab_('Feedback').getDataRange().getValues(); v.shift();
     return { ok: true, rows: v.slice(-300).reverse().map(r => ({ time: r[0], enrollment: r[1], name: r[2], rating: r[3], category: r[4], message: r[5], context: r[6] })) };
@@ -102,7 +168,7 @@ function doPost(e) {
     const d = JSON.parse(e.postData.contents), a = d.action, enr = String(d.enrollment || '').trim();
     if (a === 'register') {
       if (!/^\d{12}$/.test(enr)) return json_({ ok: false, error: 'format' });
-      const name = String(d.name || '').trim().slice(0, 40), pw = String(d.password || '');
+      const name = safe_(String(d.name || '').trim().slice(0, 40)), pw = String(d.password || '');
       if (name.length < 2 || pw.length < 6 || pw.length > 64) return json_({ ok: false, error: 'invalid' });
       const lock = LockService.getScriptLock(); lock.waitLock(10000);
       try {
@@ -131,11 +197,11 @@ function doPost(e) {
     if (a === 'adminLogin') {
       const fk = 'af', fails = Number(cache_().get(fk) || 0);
       if (fails >= 5) return json_({ ok: false, error: 'locked' });
-      if (d.password !== ADMIN_PASSWORD) { cache_().put(fk, String(fails + 1), 600); return json_({ ok: false, error: 'bad' }); }
+      if (!adminPw_() || d.password !== adminPw_()) { cache_().put(fk, String(fails + 1), 600); return json_({ ok: false, error: 'bad' }); }
       const t = (Utilities.getUuid() + Utilities.getUuid()).replace(/-/g, '');
       cache_().put('a_' + t, '1', 21600); return json_({ ok: true, token: t });
     }
-    if (['pending', 'approved', 'approve', 'reject', 'deleteNote', 'users', 'resetUser', 'logins', 'gaps', 'feedbacks'].includes(a)) {
+    if (['pending', 'approved', 'approve', 'reject', 'deleteNote', 'users', 'resetUser', 'logins', 'gaps', 'feedbacks', 'purgePreview', 'purgeRun'].includes(a)) {
       if (!cache_().get('a_' + d.token)) return json_({ ok: false, error: 'auth' });
       return json_(adminAct_(a, d));
     }
