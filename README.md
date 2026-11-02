@@ -2,7 +2,7 @@
 
 A free study hub for students: organised notes, MCQ quizzes, a learning-gap report that points you back to the right notes, and a live leaderboard. Built by a student, for students.
 
-**Live site:** https://jerry-48.github.io/AcademIQ-2.O/
+**Live site:** https://jerry-48.github.io/AcademIQ-2.O/ OR
                https://academiq-20.vercel.app/
 
 ---
