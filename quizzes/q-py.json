@@ -1,502 +1,277 @@
 [
     {
         "q": "Which function is used to display output in Python?",
-        "q_gu": "Python માં Output દર્શાવવા માટે કયા Function નો ઉપયોગ થાય છે?",
         "opts": [
             "printf()",
             "print()",
             "output()",
             "echo()"
         ],
-        "opts_gu": [
-            "printf() — આઉટપુટ દર્શાવવાનું ફંક્શન",
-            "print() — આઉટપુટ દર્શાવવાનું ફંક્શન",
-            "output() — આઉટપુટ ફંક્શન",
-            "echo() — આઉટપુટ દર્શાવવાનું ફંક્શન"
-        ],
         "ans": 1,
-        "explanation": "Python માં print() function નો ઉપયોગ screen પર output દર્શાવવા માટે થાય છે. ઉદાહરણ: print('Hello') લખવાથી screen પર Hello દેખાય છે.",
-        "explanation_gu": "Python માં print() Function નો ઉપયોગ Screen પર પરિણામ દર્શાવવા માટે થાય છે. ઉદાહરણ: print('Hello') લખવાથી Screen પર Hello દેખાય છે.",
         "topic": "strings-functions"
     },
     {
         "q": "Which of the following data types is immutable?",
-        "q_gu": "નીચેનામાંથી કયો Data Type Immutable છે? (જેમાં બનાવ્યા પછી ફેરફાર કરી શકાતો નથી.)",
         "opts": [
             "Tuple",
             "List",
             "Set",
             "Dictionary"
         ],
-        "opts_gu": [
-            "Tuple — ટપલ",
-            "List — યાદી",
-            "Set — સમૂહ",
-            "Dictionary — કી-વેલ્યુ સંગ્રહ"
-        ],
         "ans": 0,
-        "explanation": "Tuple is immutable, meaning its elements cannot be changed after the tuple is created. List, Set, and Dictionary are mutable.",
-        "explanation_gu": "Tuple Immutable છે, એટલે Tuple બન્યા પછી તેના Elements બદલી શકાતા નથી. List, Set અને Dictionary Mutable છે, એટલે તેમાં ફેરફાર કરી શકાય છે.",
         "topic": "data-structures"
     },
     {
         "q": "What is the file extension of a Python program?",
-        "q_gu": "Python Program ની File Extension કઈ હોય છે?",
         "opts": [
             ".python",
             ".exe",
             ".pt",
             ".py"
         ],
-        "opts_gu": [
-            ".python — Python ફાઇલ એક્સ્ટેન્શન",
-            ".exe — Executable ફાઇલ",
-            ".pt — PT ફાઇલ એક્સ્ટેન્શન",
-            ".py — Python ફાઇલ એક્સ્ટેન્શન"
-        ],
         "ans": 3,
-        "explanation": "Python source-code files are commonly saved with the .py extension. Example: program.py.",
-        "explanation_gu": "Python નો Source Code સામાન્ય રીતે .py Extension સાથે Save થાય છે. ઉદાહરણ: program.py.",
         "topic": "python-basics"
     },
     {
         "q": "Which list method removes the last element?",
-        "q_gu": "List માંથી છેલ્લું Element દૂર કરવા માટે કઈ Method વપરાય છે?",
         "opts": [
             "delete()",
             "pop()",
             "remove()",
             "clear()"
         ],
-        "opts_gu": [
-            "delete() — દૂર કરવું",
-            "pop() — Element દૂર કરીને Return કરવું",
-            "remove() — આપેલ Value દૂર કરવી",
-            "clear() — બધા Elements દૂર કરવા"
-        ],
         "ans": 1,
-        "explanation": "pop() without an index removes and returns the last element of a list.",
-        "explanation_gu": "pop() ને Index આપ્યા વગર વાપરવાથી List નું છેલ્લું Element દૂર થાય છે અને તે Element Return પણ થાય છે.",
         "topic": "data-structures"
     },
     {
         "q": "What is the output of '10' + '20' in Python?",
-        "q_gu": "Python માં '10' + '20' નું Output શું આવશે?",
         "opts": [
             "1020",
             "NaN",
             "Error",
             "30"
         ],
-        "opts_gu": [
-            "1020 — બંને String જોડાઈને 1020 બને છે",
-            "NaN — Not a Number",
-            "Error — ભૂલ",
-            "30 — 10 અને 20 નો સરવાળો"
-        ],
         "ans": 0,
-        "explanation": "Both '10' and '20' are strings because they are inside quotes. The + operator joins strings, a process called concatenation. Therefore, the output is 1020.",
-        "explanation_gu": "'10' અને '20' Quotes ની અંદર હોવાથી તે String છે. String સાથે + Operator વાપરવાથી બંને જોડાય છે. આને Concatenation કહે છે. તેથી Output 1020 આવે છે.",
         "topic": "python-basics"
     },
     {
         "q": "Which keyword is used to terminate a loop?",
-        "q_gu": "Loop ને તરત બંધ કરવા માટે કયો Keyword વપરાય છે?",
         "opts": [
             "stop",
             "break",
             "continue",
             "return"
         ],
-        "opts_gu": [
-            "stop — રોકવું",
-            "break — Loop બંધ કરવો",
-            "continue — આગળના Iteration પર જવું",
-            "return — Function માંથી બહાર આવવું"
-        ],
         "ans": 1,
-        "explanation": "The break statement immediately terminates the nearest loop.",
-        "explanation_gu": "break Statement હાલના Loop ને તરત બંધ કરે છે.",
         "topic": "control-flow"
     },
     {
         "q": "Which list method adds an item at the end?",
-        "q_gu": "List ના અંતમાં નવું Item ઉમેરવા માટે કઈ Method વપરાય છે?",
         "opts": [
             "extend_one()",
             "append()",
             "insert_last()",
             "add()"
         ],
-        "opts_gu": [
-            "extend_one() — માન્ય List Method નથી",
-            "append() — અંતમાં એક Item ઉમેરવું",
-            "insert_last() — માન્ય List Method નથી",
-            "add() — List માટે આ Method નથી"
-        ],
         "ans": 1,
-        "explanation": "append() adds one item to the end of a list.",
-        "explanation_gu": "append() List ના અંતમાં એક નવું Element ઉમેરે છે. ઉદાહરણ: a = [10, 20]; a.append(30) પછી List [10, 20, 30] બને છે.",
         "topic": "data-structures"
     },
     {
         "q": "Which brackets are used to define a dictionary?",
-        "q_gu": "Dictionary બનાવવા માટે કયા Brackets નો ઉપયોગ થાય છે?",
         "opts": [
             "[ ]",
             "{ }",
             "( )",
             "< >"
         ],
-        "opts_gu": [
-            "[ ] — Square Brackets",
-            "{ } — Curly Brackets",
-            "( ) — Round Brackets",
-            "< > — Angle Brackets"
-        ],
         "ans": 1,
-        "explanation": "A Python dictionary is written using curly braces { } and stores data as key-value pairs.",
-        "explanation_gu": "Python Dictionary બનાવવા માટે Curly Braces { } વપરાય છે. તેમાં Data Key-Value Pair સ્વરૂપે સંગ્રહિત થાય છે.",
         "topic": "data-structures"
     },
     {
         "q": "What is the value of len('Python')?",
-        "q_gu": "len('Python') ની કિંમત કેટલી થશે?",
         "opts": [
             "5",
             "7",
             "0",
             "6"
         ],
-        "opts_gu": [
-            "5 — પાંચ",
-            "7 — સાત",
-            "0 — શૂન્ય",
-            "6 — છ"
-        ],
         "ans": 3,
-        "explanation": "len() returns the number of characters in a string. Python has six characters: P, y, t, h, o, n.",
-        "explanation_gu": "len() Function String માં રહેલા Characters ની સંખ્યા આપે છે. Python શબ્દમાં P, y, t, h, o, n એમ કુલ 6 Characters છે.",
         "topic": "strings-functions"
     },
     {
         "q": "Which symbol is used for a single-line comment in Python?",
-        "q_gu": "Python માં Single-Line Comment લખવા માટે કયા Symbol નો ઉપયોગ થાય છે?",
         "opts": [
             "<!-- -->",
             "//",
             "#",
             "/* */"
         ],
-        "opts_gu": [
-            "<!-- --> — HTML Comment",
-            "// — કેટલીક અન્ય ભાષાઓમાં Comment",
-            "# — Python Comment Symbol",
-            "/* */ — કેટલીક ભાષાઓમાં Block Comment"
-        ],
         "ans": 2,
-        "explanation": "In Python, # marks a comment. The interpreter ignores the comment when executing the program.",
-        "explanation_gu": "Python માં # Symbol થી Comment લખાય છે. Program Execute કરતી વખતે Python Interpreter Comment ને અવગણે છે.",
         "topic": "operators"
     },
     {
         "q": "What is the type of 5 / 2 in Python?",
-        "q_gu": "Python માં 5 / 2 નું Data Type કયું હશે?",
         "opts": [
             "float",
             "int",
             "str",
             "double"
         ],
-        "opts_gu": [
-            "float — દશાંશ સંખ્યા",
-            "int — પૂર્ણાંક સંખ્યા",
-            "str — String અથવા ટેક્સ્ટ",
-            "double — અન્ય ભાષાઓમાં વપરાતો પ્રકાર"
-        ],
         "ans": 0,
-        "explanation": "In Python, the / operator performs true division and returns a float. 5 / 2 gives 2.5.",
-        "explanation_gu": "Python માં / Operator Division કરે છે અને પરિણામ float આપે છે. 5 / 2 નું પરિણામ 2.5 છે.",
         "topic": "python-basics"
     },
     {
         "q": "What is the value of 7 // 2?",
-        "q_gu": "7 // 2 ની કિંમત કેટલી થશે?",
         "opts": [
             "3",
             "4",
             "3.5",
             "2"
         ],
-        "opts_gu": [
-            "3 — ત્રણ",
-            "4 — ચાર",
-            "3.5 — સાડા ત્રણ",
-            "2 — બે"
-        ],
         "ans": 0,
-        "explanation": "The // operator performs floor division. 7 / 2 is 3.5, and its floor value is 3.",
-        "explanation_gu": "// Operator ને Floor Division કહે છે. 7 / 2 = 3.5 થાય છે અને તેનું નીચેનું પૂર્ણાંક મૂલ્ય 3 છે.",
         "topic": "operators"
     },
     {
         "q": "What is the value of 2 ** 3?",
-        "q_gu": "2 ** 3 ની કિંમત કેટલી થશે?",
         "opts": [
             "9",
             "8",
             "5",
             "6"
         ],
-        "opts_gu": [
-            "9 — નવ",
-            "8 — આઠ",
-            "5 — પાંચ",
-            "6 — છ"
-        ],
         "ans": 1,
-        "explanation": "The ** operator means exponentiation (power). 2 ** 3 = 2 × 2 × 2 = 8.",
-        "explanation_gu": "** Operator નો ઉપયોગ ઘાત (Power) માટે થાય છે. 2 ** 3 એટલે 2 × 2 × 2 = 8.",
         "topic": "operators"
     },
     {
         "q": "Which keyword is used to define a function?",
-        "q_gu": "Function Define કરવા માટે કયો Keyword વપરાય છે?",
         "opts": [
             "fun",
             "function",
             "define",
             "def"
         ],
-        "opts_gu": [
-            "fun — Python નો Function Keyword નથી",
-            "function — Python નો Function Keyword નથી",
-            "define — Python નો Function Keyword નથી",
-            "def — Function બનાવવા માટેનો Keyword"
-        ],
         "ans": 3,
-        "explanation": "Python uses the def keyword to define a function. Example: def greet():",
-        "explanation_gu": "Python માં Function બનાવવા માટે def Keyword વપરાય છે. ઉદાહરણ: def greet():",
         "topic": "strings-functions"
     },
     {
         "q": "range(3) generates:",
-        "q_gu": "range(3) કઈ સંખ્યાઓ Generate કરે છે?",
         "opts": [
             "0, 1, 2",
             "0, 1, 2, 3",
             "1, 2",
             "1, 2, 3"
         ],
-        "opts_gu": [
-            "0, 1, 2 — શૂન્ય, એક, બે",
-            "0, 1, 2, 3 — શૂન્યથી ત્રણ સુધી",
-            "1, 2 — એક, બે",
-            "1, 2, 3 — એકથી ત્રણ સુધી"
-        ],
         "ans": 0,
-        "explanation": "range(3) starts at 0 and stops before 3. Therefore, it generates 0, 1, and 2.",
-        "explanation_gu": "range(3) માં ગણતરી 0 થી શરૂ થાય છે અને 3 પહેલાં અટકે છે. તેથી તે 0, 1 અને 2 આપે છે. range() માં છેલ્લી સંખ્યા સામેલ થતી નથી.",
         "topic": "control-flow"
     },
     {
         "q": "Which of the following is NOT a valid variable name?",
-        "q_gu": "નીચેનામાંથી કયું Variable Name માન્ય નથી?",
         "opts": [
             "2name",
             "Name",
             "name2",
             "_name"
         ],
-        "opts_gu": [
-            "2name — Number થી શરૂ થતું નામ",
-            "Name — માન્ય નામ",
-            "name2 — માન્ય નામ",
-            "_name — Underscore થી શરૂ થતું માન્ય નામ"
-        ],
         "ans": 0,
-        "explanation": "A Python variable name cannot start with a digit. It can start with a letter or an underscore.",
-        "explanation_gu": "Python Variable Name ની શરૂઆત Number થી થઈ શકતી નથી. તેની શરૂઆત Letter અથવા Underscore (_) થી થઈ શકે છે. તેથી 2name અમાન્ય છે.",
         "topic": "python-basics"
     },
     {
         "q": "What is the output of print(\"Hi\" * 2)?",
-        "q_gu": "print(\"Hi\" * 2) નું Output શું આવશે?",
         "opts": [
             "HiHi",
             "Hi 2",
             "Hi*2",
             "Error"
         ],
-        "opts_gu": [
-            "HiHi — Hi બે વખત જોડાય છે",
-            "Hi 2 — Hi અને 2 વચ્ચે જગ્યા",
-            "Hi*2 — Hi અને *2 અક્ષરો",
-            "Error — ભૂલ"
-        ],
         "ans": 0,
-        "explanation": "Multiplying a string by an integer repeats the string that many times. 'Hi' * 2 produces 'HiHi'.",
-        "explanation_gu": "String ને Integer સાથે * કરવાથી String એટલી વખત Repeat થાય છે. તેથી 'Hi' * 2 નું પરિણામ 'HiHi' આવે છે.",
         "topic": "strings-functions"
     },
     {
         "q": "Which method converts a string to uppercase?",
-        "q_gu": "String ને Uppercase (મોટા અક્ષરો) માં Convert કરવા માટે કઈ Method વપરાય છે?",
         "opts": [
             "uppercase()",
             "upper()",
             "capitalize()",
             "toUpper()"
         ],
-        "opts_gu": [
-            "uppercase() — Python ની String Method નથી",
-            "upper() — બધા અક્ષરો મોટા કરે છે",
-            "capitalize() — પહેલો અક્ષર મોટો કરે છે",
-            "toUpper() — Python ની String Method નથી"
-        ],
         "ans": 1,
-        "explanation": "The upper() method returns a copy of the string with all alphabetic characters converted to uppercase.",
-        "explanation_gu": "upper() Method String ના બધા Alphabetic Characters ને Capital Letters માં Convert કરે છે. ઉદાહરણ: 'python'.upper() → 'PYTHON'.",
         "topic": "strings-functions"
     },
     {
         "q": "Which collection stores only unique items?",
-        "q_gu": "કયું Collection ફક્ત Unique (અલગ-અલગ) Items સંગ્રહિત કરે છે?",
         "opts": [
             "List",
             "Set",
             "String",
             "Tuple"
         ],
-        "opts_gu": [
-            "List — યાદી; Duplicate Values હોઈ શકે",
-            "Set — સમૂહ; ફક્ત Unique Values",
-            "String — અક્ષરોની શ્રેણી",
-            "Tuple — ટપલ; Duplicate Values હોઈ શકે"
-        ],
         "ans": 1,
-        "explanation": "A set stores unique elements. Duplicate values are automatically removed when creating a set.",
-        "explanation_gu": "Set માં ફક્ત Unique Elements સંગ્રહિત થાય છે. Duplicate Values ફરીથી સંગ્રહિત થતી નથી.",
         "topic": "data-structures"
     },
     {
         "q": "The input() function returns data of type:",
-        "q_gu": "input() Function કયા Data Type નું પરિણામ આપે છે?",
         "opts": [
             "int",
             "str",
             "bool",
             "float"
         ],
-        "opts_gu": [
-            "int — પૂર્ણાંક",
-            "str — String અથવા ટેક્સ્ટ",
-            "bool — True અથવા False",
-            "float — દશાંશ સંખ્યા"
-        ],
         "ans": 1,
-        "explanation": "The input() function returns the entered value as a string by default, even if the user types digits.",
-        "explanation_gu": "input() Function User દ્વારા દાખલ કરેલી Value ને Default રૂપે String તરીકે Return કરે છે, ભલે User અંકો દાખલ કરે. Integer જોઈએ તો int() વાપરો.",
         "topic": "strings-functions"
     },
     {
         "q": "Which operator is used for logical AND?",
-        "q_gu": "Logical AND માટે કયા Operator નો ઉપયોગ થાય છે?",
         "opts": [
             "and",
             "AND",
             "&",
             "&&"
         ],
-        "opts_gu": [
-            "and — બંને શરતો સાચી હોવી જોઈએ",
-            "AND — Python નો Keyword નથી",
-            "& — Bitwise AND Operator",
-            "&& — Python માં Logical AND માટે વપરાતો નથી"
-        ],
         "ans": 0,
-        "explanation": "The and operator returns True only when both conditions are True.",
-        "explanation_gu": "Python માં and Operator ત્યારે જ True આપે છે જ્યારે બંને Conditions True હોય. એક પણ Condition False હોય તો પરિણામ False આવે છે.",
         "topic": "operators"
     },
     {
         "q": "What is the value of bool(0)?",
-        "q_gu": "bool(0) ની કિંમત શું થશે?",
         "opts": [
             "True",
             "None",
             "False",
             "0"
         ],
-        "opts_gu": [
-            "True — સાચું",
-            "None — કોઈ મૂલ્ય નહીં",
-            "False — ખોટું",
-            "0 — શૂન્ય"
-        ],
         "ans": 2,
-        "explanation": "bool() converts a value to a Boolean. In Python, zero is considered False, so bool(0) returns False.",
-        "explanation_gu": "bool() કોઈ Value ને Boolean માં Convert કરે છે. Python માં 0 ને False માનવામાં આવે છે, તેથી bool(0) નું પરિણામ False આવે છે.",
         "topic": "python-basics"
     },
     {
         "q": "What is the index of the first element of a list?",
-        "q_gu": "List ના પ્રથમ Element નો Index કેટલો હોય છે?",
         "opts": [
             "0",
             "1",
             "−1",
             "It depends"
         ],
-        "opts_gu": [
-            "0 — શૂન્ય",
-            "1 — એક",
-            "−1 — માઇનસ એક; છેલ્લું Element",
-            "It depends — તે આધાર રાખે છે"
-        ],
         "ans": 0,
-        "explanation": "Python uses zero-based indexing. Therefore, the first element has index 0. Negative index -1 refers to the last element.",
-        "explanation_gu": "Python માં Indexing 0 થી શરૂ થાય છે. તેથી પ્રથમ Element નો Index 0 હોય છે. Negative Index -1 છેલ્લું Element દર્શાવે છે.",
         "topic": "data-structures"
     },
     {
         "q": "Python is mainly a(n) ______ language.",
-        "q_gu": "Python મુખ્યત્વે કયા પ્રકારની Programming Language છે?",
         "opts": [
             "Assembly",
             "Machine-level",
             "Compiled-only",
             "Interpreted"
         ],
-        "opts_gu": [
-            "Assembly — એસેમ્બલી ભાષા",
-            "Machine-level — મશીન સ્તરની ભાષા",
-            "Compiled-only — ફક્ત Compile થતી ભાષા",
-            "Interpreted — ઇન્ટરપ્રિટેડ ભાષા"
-        ],
         "ans": 3,
-        "explanation": "Python is commonly described as a high-level interpreted language. Its implementation typically compiles source code to bytecode, which the Python Virtual Machine executes.",
-        "explanation_gu": "Python ને સામાન્ય રીતે High-Level Interpreted Language કહેવામાં આવે છે. સામાન્ય રીતે તેનો Source Code Bytecode માં Convert થાય છે અને Python Virtual Machine તેને Execute કરે છે.",
         "topic": "python-basics"
     },
     {
         "q": "Which keyword is used for an additional condition in an if statement?",
-        "q_gu": "if Statement માં વધારાની Condition ચકાસવા માટે કયો Keyword વપરાય છે?",
         "opts": [
             "elseif",
             "else if",
             "elif",
             "switch"
         ],
-        "opts_gu": [
-            "elseif — Python માં માન્ય Keyword નથી",
-            "else if — Python માં આ રીતે લખાતું નથી",
-            "elif — વધારાની Condition ચકાસવા માટે",
-            "switch — આ પ્રશ્ન માટે Python નો Keyword નથી"
-        ],
         "ans": 2,
-        "explanation": "The elif keyword checks another condition when the preceding if or elif condition is False.",
-        "explanation_gu": "પહેલી if અથવા elif Condition False હોય ત્યારે બીજી Condition ચકાસવા માટે elif વપરાય છે.",
         "topic": "control-flow"
     }
 ]
