@@ -30,13 +30,13 @@ function toast(msg) {
   clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 3500);
 }
 const SUBJECTS = [
-  ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
+  ['maths-1', /^mathematics[-_ ]?(i|1)(?![a-z0-9])/i], ['applied-maths', /math/i], ['chemistry', /chem/i], ['environment', /^es[-_ ]/i], ['python', /^py[-_ ]|python/i],
   ['cpd', /^cpd/i], ['JAVA', /java/i], ['DSA', /^dsa/i], ['DLD', /^dld/i], ['PEC', /^pec/i], ['CN', /^cn[-_ ]/i],
   ['cse', /^cse[-_ ]/i], ['phy', /^phy[-_ ]/i], ['foe', /^foe[-_ ]/i]
 ];
 const subjectOf = f => (SUBJECTS.find(([, re]) => re.test(f)) || ['other'])[0];
 // Semester of each built-in subject. A custom folder named "Sem 4 - Anything" joins Semester 4 automatically.
-const SEM_OF = { cse: 1, phy: 1, foe: 1, 'applied-maths': 2, chemistry: 2, environment: 2, python: 2, cpd: 2, JAVA: 3, DSA: 3, DLD: 3, PEC: 3, CN: 3 };
+const SEM_OF = { cse: 1, phy: 1, foe: 1, 'maths-1': 1, 'applied-maths': 2, chemistry: 2, environment: 2, python: 2, cpd: 2, JAVA: 3, DSA: 3, DLD: 3, PEC: 3, CN: 3 };
 const semOf = s => {
   if (SEM_OF[s]) return SEM_OF[s];
   const m = String(s).startsWith('f:') && String(s).slice(2).match(/^sem(?:ester)?[\s._-]*(\d{1,2})(?!\d)/i);
@@ -398,7 +398,7 @@ async function loadNotes() {
   renderNotes();
 }
 const toB64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.onerror = no; r.readAsDataURL(f); });
-const SUBJ_LABELS = { 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN', cse: 'CSE', phy: 'Physics', foe: 'FOE', other: 'Other' };
+const SUBJ_LABELS = { 'maths-1': 'Mathematics 1', 'applied-maths': 'Applied Maths', chemistry: 'Chemistry', environment: 'Environment', python: 'Python', cpd: 'CPD', JAVA: 'JAVA', DSA: 'DSA', DLD: 'DLD', PEC: 'PEC', CN: 'CN', cse: 'CSE', phy: 'Physics', foe: 'FOE', other: 'Other' };
 const SORTS = {
   new: (a, b) => (b.added || 0) - (a.added || 0), old: (a, b) => (a.added || 0) - (b.added || 0),
   az: (a, b) => a.title.localeCompare(b.title), za: (a, b) => b.title.localeCompare(a.title),

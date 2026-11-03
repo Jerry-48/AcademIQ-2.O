@@ -13,7 +13,7 @@ const HEADERS = {
 // Admin password is NOT stored in code. Set it in: Project Settings → Script Properties → ADMIN_PASSWORD (use 12+ characters).
 const adminPw_ = () => PropertiesService.getScriptProperties().getProperty('ADMIN_PASSWORD') || '';
 const ROOT_FOLDER = 'AcademIQ PDFs';
-const SUBJ_KEYS = ['applied-maths', 'chemistry', 'environment', 'python', 'cpd', 'JAVA', 'DSA', 'DLD', 'PEC', 'CN', 'cse', 'phy', 'foe'];
+const SUBJ_KEYS = ['maths-1', 'applied-maths', 'chemistry', 'environment', 'python', 'cpd', 'JAVA', 'DSA', 'DLD', 'PEC', 'CN', 'cse', 'phy', 'foe'];
 const TEXTCOL = { Users: 'A:A', Logins: 'B:B', Scores: 'A:A', Notes: 'G:G', Tracking: 'B:B',Feedback: 'B:B' }; // enrollment ko text rakhne ke liye
 
 const json_ = o => ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON);

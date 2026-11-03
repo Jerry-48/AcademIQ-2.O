@@ -82,7 +82,7 @@ AcademIQ-2.O/
 ### 3. Add notes by semester
 | Semester | Subjects |
 |---|---|
-| Sem 1 | CSE (Communication Skills in English), Physics, FOE |
+| Sem 1 | Mathematics 1, CSE (Communication Skills in English), Physics, FOE |
 | Sem 2 | Applied Maths, Chemistry, Environment, Python, CPD |
 | Sem 3 | JAVA, DSA, DLD, PEC, CN |
 

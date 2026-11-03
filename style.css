@@ -2549,3 +2549,20 @@ select:focus-visible {
   font-size: .75em;
   margin-left: .2rem;
 }
+
+/* Semester chips: scroll sideways on phones, like the subject chips */
+@media (max-width: 768px) {
+  .sem-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 -1rem .6rem;
+    padding: 0 1rem .4rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .sem-btn {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+}
