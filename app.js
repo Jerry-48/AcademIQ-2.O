@@ -43,6 +43,9 @@ const semOf = s => {
   return m ? Number(m[1]) : 0; // 0 = not tied to any semester
 };
 let notesSem = 'all';
+// A custom folder that only repeats a built-in subject (e.g. "MATHEMATICS-I") is merged into that subject.
+const FOLDER_ALIAS = { mathematics1: 'maths-1', mathematicsi: 'maths-1', maths1: 'maths-1', mathsi: 'maths-1', math1: 'maths-1', mathi: 'maths-1' };
+const normSubject = s => { if (!String(s).startsWith('f:')) return s; const k = String(s).slice(2).toLowerCase().replace(/[^a-z0-9]/g, ''); return FOLDER_ALIAS[k] || s; };
 function typeOf(f) {
   if (/_tu\./i.test(f)) return 'Tutorial';
   if (/assign/i.test(f)) return 'Assignment';
@@ -393,7 +396,7 @@ let notesFilter = 'all';
 async function loadNotes() {
   try {
     const rows = await (await fetch(GOOGLE_SCRIPT_URL + '?action=notes')).json();
-    if (Array.isArray(rows)) NOTES = [...builtInNotes(), ...rows.map(r => ({ id: r.id, title: r.title, subject: r.subject, type: r.type || 'Notes', fileId: r.fileId, by: r.by, added: Date.parse(r.added) || 0, view: driveView(r.fileId), dl: driveDl(r.fileId) }))];
+    if (Array.isArray(rows)) NOTES = [...builtInNotes(), ...rows.map(r => ({ id: r.id, title: r.title, subject: normSubject(r.subject), type: r.type || 'Notes', fileId: r.fileId, by: r.by, added: Date.parse(r.added) || 0, view: driveView(r.fileId), dl: driveDl(r.fileId) }))];
   } catch (e) { /* offline: built-in list stays */ }
   renderNotes();
 }
