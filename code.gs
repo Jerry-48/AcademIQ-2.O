@@ -259,7 +259,7 @@ function doPost(e) {
 function sendDiscordAlert(action, name) {
   const webhook = PropertiesService
     .getScriptProperties()
-    .getProperty('https://discord.com/api/webhooks/1567422838561054831/XJaNl-qfGrcOKZh5vmYBf5aOzRDlbfptWJuTkWItCf3r67IntqW6A6KCZ-p2W80w1cCK');
+    .getProperty('');
 
   if (!webhook) return;
 
