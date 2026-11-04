@@ -178,6 +178,7 @@ function doPost(e) {
         s.appendRow([enr, name, salt, hash_(salt, pw), new Date(), new Date()]);
       } finally { lock.releaseLock(); }
       log_(enr, name, 'register', d.browser);
+      sendDiscordAlert('New Registration', name);
       return json_(session_(enr, name));
     }
     if (a === 'login') {
@@ -189,9 +190,11 @@ function doPost(e) {
       const row = s.getRange(r, 1, 1, 6).getValues()[0];
       if (hash_(row[2], String(d.password || '')) !== row[3]) {
         cache_().put(fk, String(fails + 1), 600); log_(enr, row[1], 'login-fail', d.browser);
+        sendDiscordAlert('Failed Login Attempt', row[1]);
         return json_({ ok: false, error: 'bad' });
       }
       cache_().remove(fk); s.getRange(r, 6).setValue(new Date()); log_(enr, row[1], 'login', d.browser);
+      sendDiscordAlert('Student Login', row[1]);
       return json_(session_(enr, row[1]));
     }
     if (a === 'adminLogin') {
@@ -252,4 +255,27 @@ function doPost(e) {
     }
     return json_({ ok: false, error: 'unknown action' });
   } catch (err) { return json_({ ok: false, error: String(err.message || err) }); }
+}
+function sendDiscordAlert(action, name) {
+  const webhook = PropertiesService
+    .getScriptProperties()
+    .getProperty('https://discord.com/api/webhooks/1567422838561054831/XJaNl-qfGrcOKZh5vmYBf5aOzRDlbfptWJuTkWItCf3r67IntqW6A6KCZ-p2W80w1cCK');
+
+  if (!webhook) return;
+
+  const message = {
+    embeds: [{
+      title: "AcademIQ Activity",
+      description: `**Event:** $DIL0\n**Student:** $DIL1`,
+      color: 5763719,
+      timestamp: new Date().toISOString()
+    }]
+  };
+
+  UrlFetchApp.fetch(webhook, {
+    method: 'post',
+    contentType: 'application/json',
+    payload: JSON.stringify(message),
+    muteHttpExceptions: true
+  });
 }
