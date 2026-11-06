@@ -29,6 +29,11 @@ function tab_(n) {
 function setup() { Object.keys(HEADERS).forEach(tab_); } // ek baar Run karo
 function hash_(salt, pw) { return Utilities.base64Encode(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, salt + pw)); }
 function log_(enr, name, action, browser) { tab_('Logins').appendRow([new Date(), enr, name, action, safe_(String(browser || '').slice(0, 200))]); }
+try {
+  sendDiscordAlert(action, name);
+} catch (error) {
+  Logger.log("Discord Alert Error: " + error);
+}
 function userRow_(s, enr) {
   const n = s.getLastRow(); if (n < 2) return 0;
   const v = s.getRange(2, 1, n - 1, 1).getValues();
@@ -259,23 +264,37 @@ function doPost(e) {
 function sendDiscordAlert(action, name) {
   const webhook = PropertiesService
     .getScriptProperties()
-    .getProperty('');
+    .getProperty('DISCORD_WEBHOOK_URL');
 
-  if (!webhook) return;
+  if (!webhook) {
+    throw new Error('DISCORD_WEBHOOK_URL not found in Script Properties');
+  }
 
   const message = {
     embeds: [{
       title: "AcademIQ Activity",
-      description: `**Event:** $DIL0\n**Student:** $DIL1`,
+      description: `**Event:** ${action}\n**Student:** ${name || "Unknown"}`,
       color: 5763719,
       timestamp: new Date().toISOString()
     }]
   };
 
-  UrlFetchApp.fetch(webhook, {
+  const response = UrlFetchApp.fetch(webhook, {
     method: 'post',
     contentType: 'application/json',
     payload: JSON.stringify(message),
     muteHttpExceptions: true
   });
+
+  const status = response.getResponseCode();
+
+  Logger.log('Discord Status: ' + status);
+
+  if (status !== 204) {
+    throw new Error('Discord notification failed: ' + response.getContentText());
+  }
+}
+
+function testDiscord() {
+  sendDiscordAlert('AcademIQ Test Notification', 'Test Student');
 }
